@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="0e5badb6-7ca9-4ca6-a4a5-6d3d942f46dd" version="5">
+  <Properties>
+    <Name>Emperor Song Dynasty - Yue Fei</Name>
+    <Teaser>岳飞代领导的新宋文明（随便哪个位面的新宋）[NEWLINE]</Teaser>
+    <Description>岳飞代领导的新宋文明（随便哪个位面的新宋）[NEWLINE]
+本mod为SP加入了[COLOR_POSITIVE_TEXT]南宋文明[ENDCOLOR]、精英单位[COLOR_YIELD_GOLD]背嵬骑军[ENDCOLOR]和精英单位[COLOR_YIELD_GOLD]魔幻版歼20[ENDCOLOR]。[NEWLINE]</Description>
+    <Authors>dzs2311</Authors>
+    <SpecialThanks>感谢所有提供创意、代码指导和帮我寻找BUG的群友</SpecialThanks>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>1</ReloadAudioSystem>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>1</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>1</ReloadUnitSystem>
+  </Properties>
+  <Dependencies>
+    <Mod id="f9b9c8aa-b6d1-4188-9239-c1de2207ab7c" minversion="7" maxversion="999" title="Super Power - Remaking of World Order" />
+  </Dependencies>
+  <References>
+    <Mod id="d08be507-23c0-4c15-af11-31b8ee567387" minversion="0" maxversion="999" title="Super Power Clash of Civilizations" />
+    <Mod id="4e394966-aec9-4473-807f-0ddf8c1dddc1" minversion="0" maxversion="999" title="TNL WORLD - Deluxe" />
+    <Mod id="f9b9c8aa-b6d1-4188-9239-c1de2207ab7c" minversion="0" maxversion="999" title="Super Power - Remaking of World Order" />
+  </References>
+  <Blocks />
+  <Files>
+    <File md5="29ED51127E93F11B34A7CF06C29B71BD" import="1">Art/Alpha/yfs2SongAlpha128.dds</File>
+    <File md5="4F5E9F7DB1346CDAEA44C7641C89BCBE" import="1">Art/Alpha/yfs2SongAlpha16.dds</File>
+    <File md5="D38C221B379256DC7535C3B568F0B9B0" import="1">Art/Alpha/yfs2SongAlpha24.dds</File>
+    <File md5="156ED6FBA6980ABF5AD0B4FE3AF5A936" import="1">Art/Alpha/yfs2SongAlpha256.dds</File>
+    <File md5="9E67CA0084B421A877B060A68C5FFA41" import="1">Art/Alpha/yfs2SongAlpha32.dds</File>
+    <File md5="8F0CD9B8D01F7C62598ACF49FC26E3BB" import="1">Art/Alpha/yfs2SongAlpha48.dds</File>
+    <File md5="E166B8ACD8220EA71674D8E8EFEB98F3" import="1">Art/Alpha/yfs2SongAlpha64.dds</File>
+    <File md5="8FE17353AA46BFA5A54AE57DFAF035D7" import="1">Art/Alpha/yfs2SongAlpha80.dds</File>
+    <File md5="94B42555BC4A479C731E59DD2D8469F7" import="1">Art/Alpha/yfsUnitFlagAlpha128.dds</File>
+    <File md5="9486A720E52B3760C9B76FD451438F6C" import="1">Art/Alpha/yfsUnitFlagAlpha32.dds</File>
+    <File md5="707A3D270077A736D49A20063A4EECA3" import="1">Art/Atlas/BWA_IconAtlas128.dds</File>
+    <File md5="7F334610C4A5FEEFDA9F45D19397B564" import="1">Art/Atlas/BWA_IconAtlas256.dds</File>
+    <File md5="77A8486EF9351AA88981026E460F07F9" import="1">Art/Atlas/BWA_IconAtlas32.dds</File>
+    <File md5="99D7DE4A6F2751981034099491E5BBCC" import="1">Art/Atlas/BWA_IconAtlas45.dds</File>
+    <File md5="683FC38817D2A5016054F7D0364421E7" import="1">Art/Atlas/BWA_IconAtlas64.dds</File>
+    <File md5="3488397AFDB500FCAA51E6FF05AF034B" import="1">Art/Atlas/BWA_IconAtlas80.dds</File>
+    <File md5="6C585B6ADDEB8F523CD1F9E901038FFD" import="1">Art/Atlas/yfsSongIcons128.dds</File>
+    <File md5="41A320EEDB26910B031941FE5744F49B" import="1">Art/Atlas/yfsSongIcons256.dds</File>
+    <File md5="1A2C40119FBE9F1CF5FE50090A74ADFC" import="1">Art/Atlas/yfsSongIcons32.dds</File>
+    <File md5="C7862C16EDFABCE11D42E09DC52B2FF2" import="1">Art/Atlas/yfsSongIcons45.dds</File>
+    <File md5="E465E62BC1744EF5541DE91AAFDFC58D" import="1">Art/Atlas/yfsSongIcons64.dds</File>
+    <File md5="1B75B81ED589B5FB54CA7543BC6CC221" import="1">Art/Atlas/yfsSongIcons80.dds</File>
+    <File md5="D8431585298B59BA129596B6D64AFD2E" import="1">Art/Dom/tcmSongMap.dds</File>
+    <File md5="616BABAE52C9739785B5F2D5D8BAB305" import="1">Art/Dom/yfsSongDOM.dds</File>
+    <File md5="C7F58709C24704D7704E62E45DDBA9C4" import="1">Art/Dom/yfsYueFeiLeaderscreen.dds</File>
+    <File md5="98E934381ED5C3C6CEAFDB1A74B44098" import="1">Art/Dom/yfsYueFeiScene.xml</File>
+    <File md5="B86475857FDCE1F7C70FBE1392EEEF87" import="1">Art/Splash/LiuShouSi.dds</File>
+    <File md5="9886DFBDDDFC4A5C2E47E647C4BCBE49" import="1">Art/StrategicView/SV_BeiWeiC.dds</File>
+    <File md5="AB3818B5198396BB8385655DA7E84B6E" import="1">Art/StrategicView/SV_BeiWeiF.dds</File>
+    <File md5="C765AA9E0EF0683C7B7454B605F837CE" import="1">Art/StrategicView/SV_ChiXinC.dds</File>
+    <File md5="927CD6ED2CC1DC922BA55325F07656C2" import="1">Art/StrategicView/SV_FeiHu.dds</File>
+    <File md5="72BAFCE0D13BB017EC9E41A3BC60E669" import="1">Art/StrategicView/SV_JieDuShi.dds</File>
+    <File md5="B4961A5B65CF0A30CD24DCD29D857F75" import="1">Art/StrategicView/SV_SJ20.dds</File>
+    <File md5="528CA736F3E92A959CA985D0ABA3ECBE" import="1">Art/StrategicView/SV_tcmFireLancer.dds</File>
+    <File md5="3F8459E0F5D8F80CB36C5C4554D02A37" import="1">Art/StrategicView/SV_U_PWS.dds</File>
+    <File md5="DFE696B5F77217E6CD4CEB80574B1348" import="1">Art/StrategicView/SV_SFuChuan.dds</File>
+    <File md5="622A6EC0B3ECF282173A69469892EC4E" import="1">Art/StrategicView/SV_ZhuDuiShi.dds</File>
+    <File md5="2C5D8669B9C940AB9ECEF08CE4B97AB5" import="1">Art/Units/Models/BetWei/Armor/beiweiarmor.fxsxml</File>
+    <File md5="B11E51C07BC2B6EF019FE8B18846241A" import="1">Art/Units/Models/BetWei/Armor/beiweiarmor.gr2</File>
+    <File md5="87D850EF5E907416DFC80303FB80AB98" import="1">Art/Units/Models/BetWei/Armor/bwa_lights_diff.dds</File>
+    <File md5="FDD316563A9F45E0E314F5DCDCF45B77" import="1">Art/Units/Models/BetWei/Armor/bwa_youtong_diff.dds</File>
+    <File md5="E0CFF62606787295997D5AACF2ECD861" import="1">Art/Units/Models/BetWei/Armor/bwa_ZTZ99B_CQB_diff.dds</File>
+    <File md5="9BFAB5466237FCA8E02E4F627C464781" import="1">Art/Units/Models/BetWei/Armor/bwa_ZTZ99B_treads_diff.dds</File>
+    <File md5="DB9E1823301E17893BB2416C0FCF2A89" import="1">Art/Units/Models/BetWei/Cavalry_v1/BeiWei_Cavalry_v1.fxsxml</File>
+    <File md5="66B33D08E6E76BB16D99EE11A8812C7F" import="1">Art/Units/Models/BetWei/Cavalry_v1/BeiWei_Cavalry_v1.gr2</File>
+    <File md5="1C6BB8E6509F0365AD47EFDD653B8A8F" import="1">Art/Units/Models/BetWei/Cavalry_v1/Knight_China.dds</File>
+    <File md5="0FF92525112631CDA5AAB671E6761B02" import="1">Art/Units/Models/BetWei/Cavalry_v1/Knight_China_gloss.dds</File>
+    <File md5="CAAB665090DBA34C4B2DA9AACC5BB77D" import="1">Art/Units/Models/BetWei/Cavalry_v1/song_armor_c.dds</File>
+    <File md5="56814FC75940D0202450462CB41BA895" import="1">Art/Units/Models/BetWei/Cavalry_v1/song_armor_c_s.dds</File>
+    <File md5="7DBE698C2AD27230CD7A505FDA5B5FEB" import="1">Art/Units/Models/BetWei/Cavalry_v1/song_boot_b.dds</File>
+    <File md5="5D19599C409E6A3C63111AF4B5A3D137" import="1">Art/Units/Models/BetWei/Cavalry_v1/song_boot_b_s.dds</File>
+    <File md5="06D2CE097D8B69F8F3DEB3BBCB35DFCE" import="1">Art/Units/Models/BetWei/Cavalry_v1/Song_helmet_1.dds</File>
+    <File md5="14C9413287037DE5C69F7409B1E63FAC" import="1">Art/Units/Models/BetWei/Cavalry_v1/Song_helmet_1_sp.dds</File>
+    <File md5="144E8DDF78B464FE4818E77A0FAF320B" import="1">Art/Units/Models/BetWei/Cavalry_v1/Song_helm_c.dds</File>
+    <File md5="6DEC53884D53098E20063603CF182862" import="1">Art/Units/Models/BetWei/Cavalry_v1/Song_helm_c_s.dds</File>
+    <File md5="7C68A7B180BECCC79372B905194701A0" import="1">Art/Units/Models/BetWei/Cavalry_v1/warhorse_beiwei_a.dds</File>
+    <File md5="9B5989E8096A945149CF0A020D17DA05" import="1">Art/Units/Models/BetWei/Cavalry_v1/warhorse_beiwei_a_sref.dds</File>
+    <File md5="CF41A6962ABDF019FCA617F49A00ADC2" import="1">Art/Units/Models/BetWei/Cavalry_v1/warhorse_china.dds</File>
+    <File md5="99120B0AF38072B5C60FCFA96BF35AC3" import="1">Art/Units/Models/BetWei/Cavalry_v1/warhorse_china_specular.dds</File>
+    <File md5="9AD1E56E9E041918016E37F4322EE127" import="1">Art/Units/Models/BetWei/Cavalry_v2/BeiWei_Cavalry_v2.fxsxml</File>
+    <File md5="043DA08619CFA96884404125ED871C3D" import="1">Art/Units/Models/BetWei/Cavalry_v2/BeiWei_Cavalry_v2.gr2</File>
+    <File md5="DCEAD473E26D32B903E73771AE1F8D56" import="1">Art/Units/Models/BetWei/Cavalry_v2/Knight_China_v2.dds</File>
+    <File md5="0FF92525112631CDA5AAB671E6761B02" import="1">Art/Units/Models/BetWei/Cavalry_v2/Knight_China_v2_gloss.dds</File>
+    <File md5="903EDE6EC2CE000ED3FD11DB30AE8B1D" import="1">Art/Units/Models/BetWei/Cavalry_v2/song_armor_ca.dds</File>
+    <File md5="D3DFE50902D17D24D1EC5EDB073A2D0C" import="1">Art/Units/Models/BetWei/Cavalry_v2/song_armor_ca_s.dds</File>
+    <File md5="3819D79EDE665B8A18F58E84631C6363" import="1">Art/Units/Models/BetWei/Cavalry_v2/Song_helm_ca.dds</File>
+    <File md5="6780E6C40B64BF23A9CC1FFE14736349" import="1">Art/Units/Models/BetWei/Cavalry_v2/Song_helm_ca_s.dds</File>
+    <File md5="6D998F31798DE0027865C46C3AC222B0" import="1">Art/Units/Models/BetWei/Cavalry_v2/warhorse_beiwei_b.dds</File>
+    <File md5="9B5989E8096A945149CF0A020D17DA05" import="1">Art/Units/Models/BetWei/Cavalry_v2/warhorse_beiwei_b_sref.dds</File>
+    <File md5="449CFC596E42A4A4984E6C8290C071D4" import="1">Art/Units/Models/BetWei/Foot/BeiWei_Foot.fxsxml</File>
+    <File md5="15404032F28D6D6AB3271B1AAB1E392E" import="1">Art/Units/Models/BetWei/Foot/BeiWei_Foot.gr2</File>
+    <File md5="6A5DDCE47DD85393B51A1B4EE8F8A0D2" import="1">Art/Units/Models/BetWei/Foot/ch_a.dds</File>
+    <File md5="BD88FF2440903864A9DF06AB2B6295C7" import="1">Art/Units/Models/BetWei/Foot/ch_a_spec.dds</File>
+    <File md5="54D3E07A70B2E548830D16A8E5CD5362" import="1">Art/Units/Models/BetWei/Foot/Guandaoman_China.dds</File>
+    <File md5="1151BDC7263FAEB57385FCC7E6AF8349" import="1">Art/Units/Models/BetWei/Foot/Guandaoman_China_gloss.dds</File>
+    <File md5="C20E79A21506DE50A01DF08B6E60085C" import="1">Art/Units/Models/BetWei/Foot/song_armor_da.dds</File>
+    <File md5="1D65CAF4B29B5CD5BA96E9A9A08647C5" import="1">Art/Units/Models/BetWei/Foot/song_armor_da_s.dds</File>
+    <File md5="45AE05BA1822DCF533764AAC3252042A" import="1">Art/Units/Models/BetWei/Foot/song_boot_c.dds</File>
+    <File md5="CC740C613AB7B9F0A29DB742FEDE6CE3" import="1">Art/Units/Models/BetWei/Foot/song_boot_c_s.dds</File>
+    <File md5="DF38462C61EB932F03A0AC6C5DB3CE97" import="1">Art/Units/Models/BetWei/Foot/song_helm_aa.dds</File>
+    <File md5="D380C24D3D8D3A380CA395C9F128C1BC" import="1">Art/Units/Models/BetWei/Foot/song_helm_aa_s.dds</File>
+    <File md5="72B118FD70097F1635B917EDE110C752" import="1">Art/Units/Models/BetWei/Foot/song_pijian_a.dds</File>
+    <File md5="A3FD1B6E3BE2AF59514ACD2DA02B87D4" import="1">Art/Units/Models/BetWei/Foot/song_pijian_s.dds</File>
+    <File md5="BFA95FC584876CD2B7C831869C690496" import="1">Art/Units/Models/BetWei/Foot_Shield/BeiWeiShield3.fxsxml</File>
+    <File md5="25DFA3F3E28C6913D82386FD173D4096" import="1">Art/Units/Models/BetWei/Foot_Shield/BeiWeiShield3.gr2</File>
+    <File md5="1ED92823CAF0C10B9B54CFC17B22966B" import="1">Art/Units/Models/BetWei/Foot_Shield/Halberdier_China.dds</File>
+    <File md5="A1971B603F6C1919D53F99D8DBD11213" import="1">Art/Units/Models/BetWei/Foot_Shield/Halberdier_China_gloss.dds</File>
+    <File md5="781769194A29B61265CB8B0F0E313762" import="1">Art/Units/Models/BetWei/Foot_Shield/song_dadun.dds</File>
+    <File md5="61D162FFD35ED847B6A6C7FBACC35156" import="1">Art/Units/Models/BetWei/Foot_Shield/song_dadun_s.dds</File>
+    <File md5="0CE2364DB36245B1D3C12C1A69424F43" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_armor.dds</File>
+    <File md5="A64E74E66B2EA669137A4F36A7582499" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_armor_sref.dds</File>
+    <File md5="17788354B123FE3400B5D81806EFD639" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_cloth.dds</File>
+    <File md5="52DEA5DB70EE0406DEAE3DFBCAF13830" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_hand.dds</File>
+    <File md5="C04E85DD41954A2C7DF9EE1ABC4F5343" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_hand_sref.dds</File>
+    <File md5="FCB3556AA461E7A9F2E69D8312721CC0" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_helmet.dds</File>
+    <File md5="068B3151FC34EFF511149C3D10B5D438" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_helmet_sref.dds</File>
+    <File md5="1C0E015AB603C2F4FA015F9DF5B08CBB" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_pibo.dds</File>
+    <File md5="ED475BC5B49C2D1FEBBD46528EADF400" import="1">Art/Units/Models/BetWei/Foot_Shield/szj_pibo_sref.dds</File>
+    <File md5="97904FE2509DFA91EC009E0F546C83C2" import="1">Art/Units/Models/BetWei/Foot_Tong/BeiWei_Foot_v1.fxsxml</File>
+    <File md5="09623D272F3CD465A0B5DCB893BB1569" import="1">Art/Units/Models/BetWei/Foot_Tong/BeiWei_Foot_v1.gr2</File>
+    <File md5="7B82EEFD5CCB43A28CAC1E6F9B05BDF2" import="1">Art/Units/Models/BetWei/Foot_Tong/song_armor_d.dds</File>
+    <File md5="DD6F7DB3B904A0FA805A2A43B9EEC9A0" import="1">Art/Units/Models/BetWei/Foot_Tong/song_armor_d_s.dds</File>
+    <File md5="5FFAB5BC8F665789D2236F854BA7945E" import="1">Art/Units/Models/BetWei/Foot_Tong/song_helm_a.dds</File>
+    <File md5="CAB5C9071AAE83ACAD1C239D3901690D" import="1">Art/Units/Models/BetWei/Foot_Tong/song_helm_a_s.dds</File>
+    <File md5="54041D253EBDCF6B7B0DB6B452B0A5B0" import="1">Art/Units/Models/BetWei/Foot_Tong/song_pijian.dds</File>
+    <File md5="A3FD1B6E3BE2AF59514ACD2DA02B87D4" import="1">Art/Units/Models/BetWei/Foot_Tong/song_pijian_s.dds</File>
+    <File md5="F3801FD3B5DFAE6CE644396749C1B944" import="1">Art/Units/Models/ChiXin/Flag/dasong_flag_diff.dds</File>
+    <File md5="F53E73F718FFDD2D09E9D709FA3B74B7" import="1">Art/Units/Models/ChiXin/Flag/dasong_flag_sref.dds</File>
+    <File md5="45A893DCC63BFC76F39A1FC82145363B" import="1">Art/Units/Models/ChiXin/Flag/yf_chixin_flag.fxsxml</File>
+    <File md5="65EF87DD573FB08DC45E1403DE4FF6E1" import="1">Art/Units/Models/ChiXin/Flag/yf_chixin_flag.gr2</File>
+    <File md5="EF61520CF1AD211052245FCF34835770" import="1">Art/Units/Models/ChiXin/Lancer/chixin_diff.dds</File>
+    <File md5="E445A95D32BEE7872AE1F29BE497E0F6" import="1">Art/Units/Models/ChiXin/Lancer/chixin_frelr1.dds</File>
+    <File md5="35F829CB39BB51140CED81E0D0846030" import="1">Art/Units/Models/ChiXin/Lancer/chixin_sref.dds</File>
+    <File md5="B9735D05EB8D4214F80CA5FC1E729A01" import="1">Art/Units/Models/ChiXin/Lancer/frelr1_sref.dds</File>
+    <File md5="1DF3DF599AAC180814B41804A1FE82C7" import="1">Art/Units/Models/ChiXin/Lancer/warhorse_chinxin_diff.dds</File>
+    <File md5="EF87E3C38B660E6AF9F01D71BA3EA7A4" import="1">Art/Units/Models/ChiXin/Lancer/warhorse_chinxin_sref.dds</File>
+    <File md5="F730AB2DFC2EDCD5726E7BE7EB721520" import="1">Art/Units/Models/ChiXin/Lancer/yf_chixin1.fxsxml</File>
+    <File md5="F27FB8A058CF50DAF82DE97449256696" import="1">Art/Units/Models/ChiXin/Lancer/yf_chixin1.gr2</File>
+    <File md5="3E45AB1ADC70F2E5A3B4F36A41CAC3BD" import="1">Art/Units/Models/FireLancer/tcmFireLancer.dds</File>
+    <File md5="5085405AED4AE2480FED94C0B9E0EEA9" import="1">Art/Units/Models/FireLancer/tcmFireLancer.fxsxml</File>
+    <File md5="5E3D27A221D01ABFA75C9C22A045DD9A" import="1">Art/Units/Models/FireLancer/tcmFireLancer.gr2</File>
+    <File md5="60843AD11B4C78C2A222B362E8F369BF" import="1">Art/Units/Models/FireLancer/tcmFireLancer_sref.dds</File>
+    <File md5="86B27BC56FB591B58A535C7E1E9577FD" import="1">Art/Units/Models/JieDuShi/greatgeneral_early_jiedushi.fxsxml</File>
+    <File md5="8F14835D941D0DD04AE989F4A211F2F6" import="1">Art/Units/Models/JieDuShi/jiedushisss.gr2</File>
+    <File md5="F3801FD3B5DFAE6CE644396749C1B944" import="1">Art/Units/Models/JieDuShi/song_flag_diff.dds</File>
+    <File md5="F53E73F718FFDD2D09E9D709FA3B74B7" import="1">Art/Units/Models/JieDuShi/song_flag_sref.dds</File>
+    <File md5="3632C7C9A444C7033167649C91EF5F43" import="1">Art/Units/Models/PWS/PWS_Chinese_Small.fxsxml</File>
+    <File md5="E0BDFBFE7659CA15C101A2F79146E366" import="1">Art/Units/Models/PWS/PWS_Chinese_Small.gr2</File>
+    <File md5="44D22C215DC5367E6062965AF841E423" import="1">Art/Units/Models/PWS/Ship_Chinese_Small1A_diff-resources.assets-1496.dds</File>
+    <File md5="6E79240DD7A9BE6AB018F48ED65456FB" import="1">Art/Units/Models/PWS/Ship_Chinese_Small1A_sf-resources.assets-1423.dds</File>
+    <File md5="363DEAB3778E95F707F588E85BEF8BA6" import="1">Art/Units/Models/PWS/U_PWS_v2.fxsxml</File>
+    <File md5="15CA1AD05ABB3EDB2439CBF8048F7D13" import="1">Art/Units/Models/PWS/U_PWS_v2.gr2</File>
+    <File md5="85CF84046BF130F8531A3229049C1D86" import="1">Art/Units/Models/ShenBi/crossbow_shenbi.dds</File>
+    <File md5="2934ABFC7E2DE14C727F67845526FE8B" import="1">Art/Units/Models/ShenBi/crossbow_shenbi_spec.dds</File>
+    <File md5="AC585250231B05AA5B45AC2AFC909A13" import="1">Art/Units/Models/ShenBi/mandate_MNG_infantry_04_diffuse.dds</File>
+    <File md5="69270875E68EA1FEF94ACC9583D06D03" import="1">Art/Units/Models/ShenBi/song_lizi.dds</File>
+    <File md5="4074DF0BE36EAC7EADB0C18F6B4BE4D3" import="1">Art/Units/Models/ShenBi/song_lizi_a.dds</File>
+    <File md5="A7BFA43EE52722A9C50458BF768E3844" import="1">Art/Units/Models/ShenBi/song_lizi_s.dds</File>
+    <File md5="B22ADC7A1CAFB1C15C1696B453D4010E" import="1">Art/Units/Models/ShenBi/song_shenbigong_v1.fxsxml</File>
+    <File md5="2C2BBD785A3CBC2323DE924BEC1298C7" import="1">Art/Units/Models/ShenBi/song_shenbigong_v1.gr2</File>
+    <File md5="FD88F20DEE4D57611B0848D15D5D5602" import="1">Art/Units/Models/ShenBi/song_shenbigong_v2.fxsxml</File>
+    <File md5="08BA12040BCBF9274BEA01B8CC83950C" import="1">Art/Units/Models/ShenBi/song_shenbigong_v2.gr2</File>
+    <File md5="55C5506C8B23B10BCDD06AFBD719AF60" import="1">Art/Units/Models/ShenBi/song_shidai.dds</File>
+    <File md5="56D5501FDEBE4CE752683DD0CFBECC6C" import="1">Art/Units/Models/ShenBi/song_shidai_a.dds</File>
+    <File md5="02FCD868FA7D7D57B371D84B666F780F" import="1">Art/Units/Models/ShenBi/song_tiejia.dds</File>
+    <File md5="B312E0468AB864CFBC786993E70B10F1" import="1">Art/Units/Models/ShenBi/song_tiejia_a.dds</File>
+    <File md5="397C3A30BF0ADCB7CE158F6B21DB9EE5" import="1">Art/Units/Models/ShenBi/song_tiejia_s.dds</File>
+    <File md5="4C8F468B99AAB619D306FF875248123E" import="1">Art/Units/Models/SongFuChuan/song_cargo_ship.dds</File>
+    <File md5="7E3EB856B1553452510BE4041B340DC5" import="1">Art/Units/Models/SongFuChuan/song_cargo_ship.fxsxml</File>
+    <File md5="26A750C76A7678DB01E262844F46261F" import="1">Art/Units/Models/SongFuChuan/song_cargo_ship.gr2</File>
+    <File md5="96BF1D0F29D3D6B254F9E24BFA1FC9F4" import="1">Art/Units/Models/SongJ20/SONG_J20.dds</File>
+    <File md5="0D83D6EED0BE51C8BE1B9A0A6C58D42D" import="1">Art/Units/Models/SongJ20/SONG_J20.fxsxml</File>
+    <File md5="7D0C0D491DA34E14B202B0BB35B6CA3E" import="1">Art/Units/Models/SongJ20/SONG_J20.gr2</File>
+    <File md5="D2DE29C976643451157727392096AAE0" import="1">Art/Units/Models/SongJ20/SONG_J20_gloss.dds</File>
+    <File md5="23D32DB7956AF35953DD896F6BDAC929" import="1">Art/VP/extraPromo_016.dds</File>
+    <File md5="61C1C97DA4BC3242D5CF9CF9A82A069B" import="1">Art/VP/extraPromo_032.dds</File>
+    <File md5="5015C3FA07D87E5FFB57B523251E67F3" import="1">Art/VP/extraPromo_045.dds</File>
+    <File md5="8341BD50EAA245DBE05A15F09C0366FA" import="1">Art/VP/extraPromo_064.dds</File>
+    <File md5="46D6C357C6E857D8E97A635918BFD7B8" import="1">Art/VP/extraPromo_256.dds</File>
+    <File md5="A93A7E3B664D4D4268E6EC668788CF72" import="1">Art/VP/promoVP_03_016.dds</File>
+    <File md5="42725BE40B5DF3FB182C851D07749D9E" import="1">Art/VP/promoVP_03_032.dds</File>
+    <File md5="2D107E24C6410F3F9BADDC6A3B31B619" import="1">Art/VP/promoVP_03_045.dds</File>
+    <File md5="8E959E2718F7E9BC98B4DE290816E3D9" import="1">Art/VP/promoVP_03_064.dds</File>
+    <File md5="3EB802481872C4C7F4330E9143B3871D" import="1">Art/VP/promoVP_03_256.dds</File>
+    <File md5="B649776945BFDC118DF664EBF752C613" import="1">Lua/NanSongTraitBonus.lua</File>
+    <File md5="5ABB9FDEE3E269CA8172157A32FA2210" import="1">Lua/NanSongUnitRules.lua</File>
+    <File md5="D63DC8BB6AA0F310DD55B264DB49C7E2" import="1">Lua/PlotIterators.lua</File>
+    <File md5="761DFFE4309CC6660D2264F46B67E733" import="1">Lua/SaveUtils.lua</File>
+    <File md5="C0EB950C379118AD2FA9205C10C04079" import="1">Sounds/NanSongPeace.mp3</File>
+    <File md5="A9AD7544ACC49E4A128275811B444B5F" import="1">Sounds/NanSongWar.mp3</File>
+    <File md5="6AF687F77DBED27DBCDD8BA84E891D67" import="0">SQL/NanSong_Misc.sql</File>
+    <File md5="0B7AF3D0EDA435654E2DFF661E0F6945" import="0">SQL/NanSong_ArtDefines.sql</File>
+    <File md5="612BB3A6A8BDCA733A2BDF3080D92A4E" import="0">SQL/NanSong_MainCode.sql</File>
+    <File md5="9617257627EC521B088040BAE37D8059" import="0">SQL/NanSong_TNL_Support.sql</File>
+    <File md5="F17DD75EBED6C190B6C9FE79B3BBA20B" import="0">XML/Buildings/NanSong_Buildings.xml</File>
+    <File md5="BFBEB0CAFBE747D829CB04F0EC8C82F3" import="0">XML/Diplomacy/NanSong_Diplomacy.xml</File>
+    <File md5="A74100E6A3E1A8CE5012B38BA96673B8" import="0">XML/Politics/NanSong_Politics.xml</File>
+    <File md5="77D7A91ECA4F00A7C4F053E95D7D7105" import="0">XML/Promotions/NanSong_Promotions.xml</File>
+    <File md5="E976BF438B31E6B798F135AD111A6E67" import="0">XML/Text/NanSong_Text_en_US.xml</File>
+    <File md5="942A0AF6BF6E0AB9283AC78C733B27A7" import="0">XML/Text/NanSong_Text_zh_CN.xml</File>
+    <File md5="A9AB0389A741B50E03F7DD92B04D4819" import="0">XML/Units/NanSong_Project.xml</File>
+    <File md5="72B08EC12D7FBB2A5FDE7DCC32F57367" import="0">XML/Units/NanSong_Units.xml</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>SQL/NanSong_ArtDefines.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/NanSong_MainCode.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/NanSong_Misc.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/NanSong_TNL_Support.sql</UpdateDatabase>
+      <UpdateDatabase>XML/Buildings/NanSong_Buildings.xml</UpdateDatabase>
+      <UpdateDatabase>XML/Diplomacy/NanSong_Diplomacy.xml</UpdateDatabase>
+      <UpdateDatabase>XML/Politics/NanSong_Politics.xml</UpdateDatabase>
+      <UpdateDatabase>XML/Promotions/NanSong_Promotions.xml</UpdateDatabase>
+      <UpdateDatabase>XML/Text/NanSong_Text_en_US.xml</UpdateDatabase>
+      <UpdateDatabase>XML/Text/NanSong_Text_zh_CN.xml</UpdateDatabase>
+      <UpdateDatabase>XML/Units/NanSong_Project.xml</UpdateDatabase>
+      <UpdateDatabase>XML/Units/NanSong_Units.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="Lua/NanSongUnitRules.lua">
+      <Name>NS_Combat</Name>
+      <Description>NS_Combat</Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="Lua/NanSongTraitBonus.lua">
+      <Name>NS_Trait</Name>
+      <Description>NS_Trait</Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>

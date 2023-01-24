@@ -1,0 +1,53 @@
+<Asset>
+	<Mesh file="jiedushisss.gr2"/>
+	<Animation file="GreatGeneral_Early_Khan_IdleA.gr2" ec="1000, 1040, 1020, 2000, 2040, 2020"/>
+	<Animation file="GreatGeneral_Early_Khan_Run.gr2" ec="1400"/>
+	<Animation file="GreatGeneral_Early_Khan_Stop_Run.gr2" ec="1440"/>
+	<Animation file="GreatGeneral_Early_Khan_Combat_Ready.gr2" ec="1600"/>
+	<Animation file="GreatGeneral_Early_Khan_Combat_Ready_Idle.gr2" ec="1620"/>
+	<Animation file="GreatGeneral_Early_Khan_Combat_Ready_Idle_Trans_idleA.gr2" ec="1640"/>
+	<Animation file="GreatGeneral_Early_Khan_AttackA.gr2" ec="1100"/>
+	<Animation file="GreatGeneral_Early_Khan_Activate.gr2" ec="1990"/>
+	<Animation file="GreatGeneral_Early_Khan_Activate_Idle.gr2" ec="1995"/>
+	<Animation file="GreatGeneral_Early_Khan_DeathA.gr2" ec="1200"/>
+	<Animation file="GreatGeneral_Early_Khan_DeathA_Idle.gr2" ec="1220"/>
+	<Animation file="GreatGeneral_Early_Khan_Fortify.gr2" ec="1500"/>
+	<Animation file="GreatGeneral_Early_Khan_Fortify_Idle.gr2" ec="1520"/>
+	<Animation file="GreatGeneral_Early_Khan_Fortify_Idle_Trans_IdleA.gr2" ec="1580"/>
+	<Animation file="GreatGeneral_Early_Khan_Bombard_Defense.gr2" ec="1280"/>
+	<Animation file="GreatGeneral_Early_Khan_Bombard_Defense_Idle.gr2" ec="1285"/>
+	<Animation file="GreatGeneral_Early_Khan_Bombard_Defense_Idle_Trans_IdleA.gr2" ec="1290"/>
+	<Texture file="Khan_flag_DIFF.dds"/>
+	<Texture file="Khan_flag_SREF.dds"/>
+	<Texture file="Unit_Environment_Dull.dds"/>
+	<Texture file="Unit_Environment_Sharp.dds"/>
+	<Texture file="Unit_Irradiance.dds"/>
+	<Texture file="Khan_DIFF.dds"/>
+	<Texture file="Khan_SREF.dds"/>
+	<StateMachine file="GREAT_GENERAL_STATE_01.fsmxml"/>
+	<AnimGraph file="ENTER_COMBAT_READY_GRAPH.dge"/>
+	<AnimGraph file="CIVILIAN_DEATH_FINAL.dge"/>
+	<AnimGraph file="RUNNING_LOOP_GRAPH.dge"/>
+	<AnimGraph file="STOP_RUNNING_CIVILIAN.dge"/>
+	<AnimGraph file="RUN_START_CIVILIAN.dge"/>
+	<AnimGraph file="TRANSITIONS_FOR_IDLES.dge"/>
+	<AnimGraph file="FIDGETS_GRAPH.dge"/>
+	<AnimGraph file="IDLE_GRAPH.dge"/>
+	<AnimGraph file="IDLE_OFFSET_CONTINUE_TRUE_GRAPH.dge"/>
+	<AnimGraph file="BOMBARD_DEFEND_LOOP_GRAPH.dge"/>
+	<AnimGraph file="ENTER_SLEEP_CIVILIAN.dge"/>
+	<AnimGraph file="FORTIFY_GRAPH.dge"/>
+	<AnimGraph file="LEAVE_FORTIFY_TO_IDLE_A.dge"/>
+	<AnimGraph file="CIVILIAN_ENTER_BOMBARD_DEFEND.dge"/>
+	<AnimGraph file="CIVILIAN_ACTIVATE_CAPTURED.dge"/>
+	<AnimGraph file="LEAVE_BOMBARD_DEFEND_TRANS_IDLE_A_GRAPH.dge"/>
+	<AnimGraph file="COMBAT_READY_GRAPH.dge"/>
+	<AnimGraph file="ATTACK_A_GRAPH.dge"/>
+	<AnimGraph file="GREAT_GENERAL_LEAVE_COMBAT_READY.dge"/>
+	<TimedTrigger file="FX_Triggers_GreatGeneral_Early_Khan.ftsxml"/>
+	<BoneUsage>
+		<Bone name="Horse"/>
+		<Bone name="WORLD_center"/>
+	</BoneUsage>
+</Asset>
+

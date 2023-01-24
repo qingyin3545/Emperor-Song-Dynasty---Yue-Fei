@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2021/4/17 22:37:59 -->
+<GameData>
+	<Language_en_US>
+		<!--*******************************文明*******************************-->
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC">
+			<Text>新宋王朝</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_TRAIT">
+			<Text>新宋王朝:特性加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_FIRELANCER">
+			<Text>新宋王朝:突火枪兵生产加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_WONDER">
+			<Text>新宋王朝:奇观生产加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_CARGO">
+			<Text>新宋王朝:泉州海船加成</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_DEFENSE">
+			<Text>新宋王朝:城市防御加成</Text>
+		</Row>
+
+
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_SHORT_DESC">
+			<Text>新宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_ADJECTIVE">
+			<Text>新宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_YFS_SONG">
+			<Text>新宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_YFS_SONG_TITLE">
+			<Text>新宋王朝</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_YFS_SONG_HEADING_1">
+			<Text>历史</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_YFS_SONG_TEXT_1">
+			<Text>
+				南宋（1127—1279年），是中国历史上的由汉族建立的王朝。传七世九帝，共计153年，与北宋合称宋朝，又称两宋。[NEWLINE]
+				1127年靖康之耻后，宋徽宗第九子康王赵构幸免于难，于应天府（今河南商丘）即位。1138年宋室南迁，定都临安府（今浙江杭州）。1141年宋、金达成绍兴和议，南宋放弃淮河以北地区，双方以淮河-大散关为界。此后，金国几度南下未能消灭南宋，南宋数次北伐也无功而返，双方逐渐形成对峙局面。南宋中后期奸相频出，朝政腐败，漠北草原的蒙古部开始崛起。1234年宋蒙联合灭金。1235年蒙古入侵南宋，南宋军民拼死抵抗，直到1276年临安府被攻占。1276年，南宋大臣在福州拥立宋端宗赵昰。1278年，宋端宗驾崩，宋末帝赵昺继位。1279年，元朝镇国大将军张弘范在崖山海战中击败南宋军队，宰相陆秀夫背着宋末帝赵昺跳海而亡，十万南宋军民也相继跳海殉国，南宋覆灭。[NEWLINE]
+				南宋疆域北部以秦岭淮河为界，与金对峙；西北以陕西横山、甘肃东部、青海湟水为界；西南以岷山、大渡河为界。[NEWLINE]
+				南宋在政治、军事等诸多领域都沿袭北宋，在中央地方权力、官僚机构、司法、军权等方面加强中央集权的一系列措施，军事上在招收溃兵和勤王之军等基础上，开始军事重建之路，最终形成几支较强大的军事力量，于是有了岳家军、韩家军的出现。南宋虽偏安于秦岭淮河以南，却是中国历史上经济、文化昌盛，对外开放程度较高的王朝。[NEWLINE][NEWLINE]
+				本mod中的新宋为架空历史，世界观在永远太监的《新宋》、锤杀蔡确结尾的《宰执天下》和没有保全二章的《绍宋》中三选一。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_CIV5_DOM_YFS_SONG_TEXT">
+			<Text>
+				怒发冲冠，凭栏处、潇潇雨歇。抬望眼、仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。莫等闲、白了少年头，空悲切。[NEWLINE]
+				靖康耻，犹未雪。臣子恨，何时灭。驾长车，踏破贺兰山缺。壮志饥餐胡虏肉，笑谈渴饮匈奴血。待从头、收拾旧山河，朝天阙。[NEWLINE]
+				兵安在，膏锋锷。民安在，填沟壑。而今时空回转，乾坤倒悬。您能否像历史上一样请缨提锐旅，直渡清河洛，带领大宋子民走向一个更加辉煌的时代?
+			</Text>
+		</Row>
+		<!--*******************************城市*******************************-->
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_01">
+			<Text>临安府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_02">
+			<Text>建康府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_03">
+			<Text>绍兴府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_04">
+			<Text>平江府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_05">
+			<Text>庐州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_06">
+			<Text>扬州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_07">
+			<Text>台州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_08">
+			<Text>福州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_09">
+			<Text>泉州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_10">
+			<Text>江州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_11">
+			<Text>襄阳府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_12">
+			<Text>江陵府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_13">
+			<Text>成都府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_14">
+			<Text>静江府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_15">
+			<Text>建昌军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_16">
+			<Text>兴元府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_17">
+			<Text>金州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_18">
+			<Text>西和州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_19">
+			<Text>潼川府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_20">
+			<Text>夔州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_21">
+			<Text>雷州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_22">
+			<Text>琼州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_23">
+			<Text>重庆府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_24">
+			<Text>绍兴</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_25">
+			<Text>开封府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_26">
+			<Text>大名府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_27">
+			<Text>京兆府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_28">
+			<Text>太原府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_29">
+			<Text>河间府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_30">
+			<Text>相州</Text>
+		</Row>
+		<!--*******************************间谍*******************************-->
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_0">
+			<Text>宇文虚中</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_1">
+			<Text>王彦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_2">
+			<Text>马扩</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_3">
+			<Text>赵</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_4">
+			<Text>钱</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_5">
+			<Text>孙</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_6">
+			<Text>李</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_7">
+			<Text>周</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_8">
+			<Text>吴</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_9">
+			<Text>郑</Text>
+		</Row>
+		<!--*******************************领袖*******************************-->
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI">
+			<Text>岳飞</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA_NAME">
+			<Text>岳飞</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA_SUBTITLE">
+			<Text>南宋抗金名将</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA_TITLES_1">
+			<Text>民族英雄</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA_LIVED">
+			<Text>1103年3月24日～1142年1月27日</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA_HEADING_1">
+			<Text>人物生平</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA_TEXT_1">
+			<Text>
+				岳飞（1103年3月24日～1142年1月27日），字鹏举，相州汤阴（今河南省汤阴县）人。南宋时期抗金名将、军事家、战略家、民族英雄、书法家、诗人，位列南宋“中兴四将”之首。[NEWLINE]
+				岳飞从二十岁起，曾先后四次从军。自建炎二年（1128年）遇宗泽至绍兴十一年（1141年）止，先后参与、指挥大小战斗数百次。金军攻打江南时，独树一帜，力主抗金，收复建康。绍兴四年（1134年），收复襄阳六郡。绍兴六年（1136年），率师北伐，顺利攻取商州、虢州等地。绍兴十年（1140年），完颜宗弼毁盟攻宋，岳飞挥师北伐，两河人民奔走相告，各地义军纷纷响应，夹击金军。岳家军先后收复郑州、洛阳等地，在郾城、颍昌大败金军，进军朱仙镇。宋高宗赵构和宰相秦桧却一意求和，以十二道“金字牌”催令班师。在宋金议和过程中，岳飞遭受秦桧、张俊等人诬陷入狱。1142年1月，以莫须有的罪名，与长子岳云、部将张宪一同遇害。宋孝宗时，平反昭雪，改葬于西湖畔栖霞岭，追谥武穆，后又追谥忠武，封鄂王。[NEWLINE]
+				岳飞是南宋杰出的统帅，他重视人民抗金力量，缔造了“连结河朔”之谋，主张黄河以北的民间抗金义军和宋军互相配合，以收复失地；治军赏罚分明，纪律严整，又能体恤部属，以身作则，率领的“岳家军”号称“冻死不拆屋，饿死不打掳”。金军有“撼山易，撼岳家军难”的评语，以示对岳家军的由衷敬佩。[NEWLINE]
+				岳飞的文才同样卓越，其代表词作《满江红·怒发冲冠》是千古传诵的爱国名篇，后人辑有文集传世。
+			</Text>
+		</Row>
+		<!--*******************************特性*******************************-->
+		<Row Tag="TXT_KEY_TRAIT_YFS_YUEFEI_SONG_SHORT">
+			<Text>乾坤半壁/锐旅长缨</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TRAIT_YFS_YUEFEI_SONG">
+			<Text>
+				[ICON_BULLET]新建城市获得6块额外[ICON_SGM_GROUP_ACT_OFF]领土，每座[ICON_CITYBANNER_CITY_TOWN][COLOR_SELECTED_TEXT]城市[ENDCOLOR]建造的首个[COLOR_POSITIVE_TEXT]奇观[ENDCOLOR]可一回合完成，攻陷[ICON_CITYBANNER_CITY_LV4][ICON_CITYBANNER_CITY_LV5]遥远城市时全国+4%[ICON_PRODUCTION][ICON_CULTURE][ICON_RESEARCH]产出。
+				[NEWLINE][ICON_BULLET][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]、[ICON_PROMOTION_AMPHIBIOUS][COLOR_POSITIVE_TEXT]海军单位[ENDCOLOR]获得[COLOR_POSITIVE_TEXT]独有[ENDCOLOR]晋升，[COLOR_POSITIVE_TEXT]作战单位[ENDCOLOR]消灭敌方单位时可获得对方50%[ICON_STRENGTH]战斗力的[ICON_GOLD][ICON_CULTURE][ICON_RESEARCH]点数。
+			</Text>
+		</Row>
+		<!--*******************************外交话语*******************************-->
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_FIRST_GREETING_1">
+			<Text>你好，我是新宋的领袖岳飞，你也是来为两河士民、万里山河来哀悼的吗？</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_DEFEATED_1">
+			<Text>天日昭昭，天日昭昭！十年之功，毁于一旦...</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_DECLAREWAR_1">
+			<Text>直抵黄龙府，与诸君痛饮尔！</Text>
+		</Row>
+		<!--*******************************政策*******************************-->
+		<Row Tag="TXT_KEY_POLICY_YUYING">
+			<Text>三军集结</Text>
+		</Row>
+		<!--*******************************建筑*******************************-->
+
+		<Row Tag="TXT_KEY_BUILDING_YUYING">
+			<Text>御营使司</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YUYING_HELP">
+			<Text>
+				标示该[ICON_CITYBANNER_CITY_TOWN][COLOR_SELECTED_TEXT]城市[ENDCOLOR]是文明的[ICON_CAPITAL]首都，拥有两个[ICON_GREAT_WORK]美术杰作展位，用[ICON_SGM_GROUP_OFF]道路将其他城市[ICON_CONNECTED]连接到[ICON_CAPITAL]首都将获得额外的[ICON_GOLD]金钱。[NEWLINE]
+				[NEWLINE][ICON_BULLET]提供额外2点[ICON_FOOD][ICON_PRODUCTION][ICON_GOLD][ICON_RESEARCH][ICON_PEACE][ICON_CULTURE][ICON_RES_MANPOWER][ICON_RES_CONSUMER]全产出。
+				[NEWLINE][ICON_BULLET]购买[COLOR_POSITIVE_TEXT]建筑[ENDCOLOR]与[COLOR_POSITIVE_TEXT]单位[ENDCOLOR]所需[ICON_GOLD]金币-15%。
+				[NEWLINE][ICON_BULLET]文明组建[COLOR_POSITIVE_TEXT]作战单位[ENDCOLOR]时+25%[ICON_PRODUCTION]产能（[ICON_CAPITAL]首都翻倍）。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YUYING_PEDIA">
+			<Text>军事机构。南宋建炎元年(1127年)置。高宗即位时,三衙禁军事实上已不存在,乃设御营司,统辖诸将。以御营使为长官。设御营五军。三年,置御前五军。四年,罢御营使,废御营司,以兵权归枢密院。御前五军改为神武军,御营五军改为神武副军。绍兴三十二年(1162年)复置,仅掌殿前忠勇等军,不久即罢。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_LIUSHOUSI">
+			<Text>南京留守司</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SONG_LIUSHOUSI">
+			<Text>东京留守司</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_LIUSHOUSI_PEDIA">
+			<Text>东京留守司军，宋高宗建炎年间(1127～1130)，南宋军主力之一，东京留守宗泽创建。高宗登基后，宗泽任东京留守司留守，联络王彦八字军、五马山寨义军等，收编溃兵游勇及农民起义军组成留守司军，号称百万，为建炎初抗金中心。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_SONG_LIUSHOUSI_PEDIA">
+			<Text>南京留守司，太宗天显三年(928)，升东平郡为南京，治辽阳(今辽宁辽阳)，会同元年(938)，改幽州为南京，治析津，辽阳为东京。先后设留守司统领改事及部分军事，金设于南京开封府。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_LIUSHOUSI_HELP">
+			<Text>
+				本城获得一座免费[ICON_STRENGTH]城堡。[NEWLINE]
+				[NEWLINE][ICON_BULLET]这座要塞曾经是隶属于新宋的军事中心，在我们攻下后重要文件都被销毁了，因此无从得知秘密。
+				[NEWLINE][ICON_BULLET]这座要塞正守望着它真正的主人如[ICON_PROMOTION_BLITZ]闪电般归来！
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_SONG_LIUSHOUSI_HELP">
+			<Text>
+				本城获得一座免费[ICON_STRENGTH]城堡，并提拔一名[ICON_GREAT_GENERAL]节度使。[NEWLINE]
+				[NEWLINE][ICON_BULLET]在此训练的[ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]获得[COLOR_POSITIVE_TEXT]渡河!渡河!渡河![ENDCOLOR]晋升：于[ICON_SGM_GROUP_ALL_OFF][COLOR_POSITIVE_TEXT]境外[ENDCOLOR]作战+25%[ICON_STRENGTH]战斗力，并消除跨河进攻惩罚，且[ICON_MOVES]移动不受地形影响。
+				[NEWLINE][ICON_BULLET]若文明进入[ICON_WAR][COLOR_NEGATIVE_TEXT]战争[ENDCOLOR]，则奇观所在城市每两回合获得一队东京留守司编制内的[ICON_PROMOTION_INFANTRY_COMBAT][COLOR_POSITIVE_TEXT]重装步兵[ENDCOLOR]或[ICON_PROMOTION_GUNPOWDER_INFANTRY][COLOR_POSITIVE_TEXT]火药步兵[ENDCOLOR]单位。
+				[NEWLINE][ICON_BULLET]开启[COLOR_YIELD_GOLD]军团模式[ENDCOLOR]将优先使现有单位获得[ICON_PROMOTION_ELITE]军团和[ICON_PROMOTION_GROUP]集团军晋升。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_SONG_LIUSHOUSI_QUOTE">
+			<Text>[NEWLINE]“渡河！渡河！渡河！”[NEWLINE]        ——宗泽临死三呼。[NEWLINE]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SONG_LIUSHOUSI_NAME">
+			<Text>东京留守司统制第</Text>
+		</Row>
+		<!--*******************************精英单位工程*******************************-->
+		<Row Tag="TXT_KEY_PROJECT_BEWEI_CAVALRY">
+			<Text>靖康之变</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROJECT_BEWEI_CAVALRY_HELP">
+			<Text>只有[COLOR_POSITIVE_TEXT]首个[ENDCOLOR]完成此项目的文明可以建造精英具装甲骑/精英履带战车：[COLOR_YIELD_GOLD]背嵬骑军[ENDCOLOR]/[COLOR_YIELD_GOLD]背嵬破阵战车[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROJECT_BEWEI_CAVALRY_PEDIA">
+			<Text>靖康之变是指靖康二年（金天会五年，1127年）金朝南下攻取北宋首都东京，掳走徽、钦二帝，导致北宋灭亡的历史事件。又称靖康之乱、靖康之难、靖康之祸。[NEWLINE]靖康之变相当大的责任在于徽钦二帝的神奇操作，以此为节点，北宋三冗问题一扫而空，两河故地抗金义士层出不穷，岳家军由此而生。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_PROJECT_SONG_J20">
+			<Text>殿前司空军指挥使</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROJECT_SONG_J20_HELP">
+			<Text>只有[COLOR_POSITIVE_TEXT]首个[ENDCOLOR]完成此项目的文明可以建造重型隐形多用途空优战机：[COLOR_YIELD_GOLD]炎宋威龙[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROJECT_SONG_J20_PEDIA">
+			<Text>虚构单位，当新宋延续到21世纪的强力空军。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_PROJECT_CHIXIN_CAVALRY">
+			<Text>建炎北伐</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROJECT_CHIXIN_CAVALRY_HELP">
+			<Text>只有[COLOR_POSITIVE_TEXT]首个[ENDCOLOR]完成此项目的文明可以建造精英御前甲骑：[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROJECT_CHIXIN_CAVALRY_PEDIA">
+			<Text>
+				建炎南渡，是发生在两宋交替时期康王赵构为了躲避北边金朝军队的南下追击而逃至江南的历史事件。[NEWLINE]
+				靖康之变发生后，赵构从河北南下到陪都南京应天府（河南商丘）鸿庆宫祭祀赵宋祖庙，在宫殿内即位，改元建炎，南宋（1128年—1279年）建立。之后，宋高宗一路从淮河到长江，再到杭州，绍兴元年（1131年）升杭州为临安府，定为“行在”(陪都)，实为首都。金朝也一路南扑，直逼临安，宋高宗无路可逃，只得入海逃避，在温州沿海漂泊了四个月之久。[NEWLINE]
+				小说《绍宋》中，主角于明道宫魂穿康王，一改奔亡之势，转而御驾亲征，北抗金朝，故称[COLOR_YIELD_GOLD]建炎北伐[ENDCOLOR]。赤心队由此心折，后编入御前班直，作为皇帝的亲卫部队参与建炎北伐的一系列大小战役。
+			</Text>
+		</Row>
+		<!--*******************************单位*******************************-->
+		<!--背嵬骑军-->
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_CAVALRY">
+			<Text>[COLOR_YIELD_GOLD]背嵬骑军[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BEIWEI_CAVALRY_TEXT">
+			<Text>
+				[COLOR_YIELD_GOLD]背嵬骑军[ENDCOLOR]是精锐的具装甲骑部队，以岳家军最为著名。[NEWLINE]
+				一说“背嵬”即党项语“蛇鹰”或“蛇龙”的意思，党项人用这些狠毒凶猛的动物名来代指将领的亲卫精兵。这种命名方式先被北宋西军学去，再被南宋西北籍将领继承下来，最后又被南宋其它军队学去。南宋初年拥有“背嵬军”的部队很多，包括韩、岳、刘、吴等“家军”，其中以韩、岳的“背嵬军”最为有名。[NEWLINE]
+				背嵬骑军多为甲骑具装，其战术战法多在与金军的连番血战中磨炼而出。[NEWLINE]
+				骑兵背嵬主要装备有长、短刀，约十支短弩 ，二十支硬弓弓箭围盔，铁叶片革甲。[NEWLINE]
+				背嵬军战术多变，常常分成多个独立的战斗小组，紧密配合。与敌人作战时，往往在距离敌人一百余步时就由七八人放箭，七八人用短弩射马，然后长刀对劈，迅速冲锋，集结，再冲锋，从而大量杀伤敌兵。[NEWLINE]
+				凭借着这支强悍的部队，岳飞百战百胜。在绍兴十一年（1141 ）荆湖宣抚司罢，改任傅选为鄂州御前背嵬军同统制。可见，背嵬军已被朝廷纳为己有，有了正式的番号，成为“御前”的军队。[NEWLINE]
+				绍兴三十二年十二月，背嵬军号罢。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_CAVALRY_HELP">
+			<Text>
+				[COLOR_YIELD_GOLD]精英具装甲骑[ENDCOLOR]，可在研发[COLOR_CYAN]内燃机[ENDCOLOR]后升级为[COLOR_YIELD_GOLD]精英破阵战车[ENDCOLOR]。需要完成靖康之变解锁，仅能组建一队。[NEWLINE]
+				[NEWLINE][ICON_BULLET]自带1~3级[ICON_PROMOTION_SHOCK_3]冲击晋升，且[ICON_STRENGTH]远程防御力+50%。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]贯颐奋戟[ENDCOLOR]：当[ICON_HP]生命值[COLOR_NEGATIVE_TEXT]减少[ENDCOLOR]时可根据比例增加[ICON_STRENGTH]战斗力以及所造成的[COLOR_POSITIVE_TEXT]伤害[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]天将奔烈[ENDCOLOR]：[ICON_PIRATE]歼灭敌军或遭受敌军[ICON_PROMOTION_ARCHERY_COMBAT][COLOR_POSITIVE_TEXT]陆军远程[ENDCOLOR]攻击时[ICON_MOVES]移动力+1。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]北邙昂岳[ENDCOLOR]：攻击或遭受敌军[ICON_PROMOTION_ARCHERY_COMBAT][COLOR_POSITIVE_TEXT]陆军远程[ENDCOLOR]攻击时使目标陷入[COLOR_NEGATIVE_TEXT]士气低落[ENDCOLOR]状态，[ICON_STRENGTH]攻击力-25%，[ICON_PROMOTION_RANGE_REDUCE]射程-1。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_ARMOR">
+			<Text>[COLOR_YIELD_GOLD]背嵬破阵战车[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BEIWEI_ARMOR_TEXT">
+			<Text>
+				[COLOR_YIELD_GOLD]背嵬破阵战车[ENDCOLOR]是精锐的装甲部队，是[COLOR_YIELD_GOLD]背嵬骑军[ENDCOLOR]的现代化升级单位。[NEWLINE]
+				一说“背嵬”即党项语“蛇鹰”或“蛇龙”的意思，党项人用这些狠毒凶猛的动物名来代指将领的亲卫精兵。这种命名方式先被北宋西军学去，再被南宋西北籍将领继承下来，最后又被南宋其它军队学去。南宋初年拥有“背嵬军”的部队很多，包括韩、岳、刘、吴等“家军”，其中以韩、岳的“背嵬军”最为有名。[NEWLINE]
+				背嵬骑军多为甲骑具装，其战术战法多在与金军的连番血战中磨炼而出。[NEWLINE]
+				骑兵背嵬主要装备有长、短刀，约十支短弩 ，二十支硬弓弓箭围盔，铁叶片革甲。[NEWLINE]
+				背嵬军战术多变，常常分成多个独立的战斗小组，紧密配合。与敌人作战时，往往在距离敌人一百余步时就由七八人放箭，七八人用短弩射马，然后长刀对劈，迅速冲锋，集结，再冲锋，从而大量杀伤敌兵。[NEWLINE]
+				凭借着这支强悍的部队，岳飞百战百胜。在绍兴十一年（1141 ）荆湖宣抚司罢，改任傅选为鄂州御前背嵬军同统制。可见，背嵬军已被朝廷纳为己有，有了正式的番号，成为“御前”的军队。[NEWLINE]
+				绍兴三十二年十二月，背嵬军号罢。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_ARMOR_HELP">
+			<Text>
+				[COLOR_YIELD_GOLD]精英破阵战车[ENDCOLOR]，由[COLOR_YIELD_GOLD]背嵬骑军[ENDCOLOR]现代化重编而成。需要完成靖康之变解锁，仅能组建一队。[NEWLINE]
+				[NEWLINE][ICON_BULLET]自带1~3级[ICON_PROMOTION_SHOCK_3]冲击晋升，且[ICON_STRENGTH]远程防御力+50%。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]贯颐奋戟[ENDCOLOR]：当[ICON_HP]生命值[COLOR_NEGATIVE_TEXT]减少[ENDCOLOR]时可根据比例增加[ICON_STRENGTH]战斗力以及所造成的[COLOR_POSITIVE_TEXT]伤害[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]天将奔烈[ENDCOLOR]：[ICON_PIRATE]歼灭敌军或遭受敌军[ICON_PROMOTION_ARCHERY_COMBAT][COLOR_POSITIVE_TEXT]陆军远程[ENDCOLOR]攻击时[ICON_MOVES]移动力+1。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]北邙昂岳[ENDCOLOR]：攻击或遭受敌军[ICON_PROMOTION_ARCHERY_COMBAT][COLOR_POSITIVE_TEXT]陆军远程[ENDCOLOR]攻击时使目标陷入[COLOR_NEGATIVE_TEXT]士气低落[ENDCOLOR]状态，[ICON_STRENGTH]攻击力-25%，[ICON_PROMOTION_RANGE_REDUCE]射程-1。
+			</Text>
+		</Row>
+		<!--赤心队-->
+		<Row Tag="TXT_KEY_UNIT_CHIXIN_CAVALRY">
+			<Text>[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_CHIXIN_CAVALRY_TEXT">
+			<Text>
+				[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]，宋代郭药师所部刘晏军所统严州营，曾作为常胜军一部于对金的白河大战中节节胜利，突至金军营寨，但由于张令徽、刘舜仁的不战而退，在损失了大量军队后转胜为败。宣和四年(1122年)，药师投宋，刘晏率众数百随归。次年，药师复叛宋入金，刘晏留宋率其队以御金兵，故宋以“赤心”名其队。[NEWLINE]
+				建炎初，从刘正彦击淮西贼丁进。进党颇众，晏所提赤心骑才八百，乃为五色旗，使骑兵持之，循山而出，一色尽则以一色易之。贼见官军累日不绝，颜色各异，遂不战而降。迁朝散郎。正彦反，晏谓其部曲曰：“吾岂从逆党者耶？”以众归韩世忠。世忠追正彦及苗傅于浦城，以晏骑六百为疑兵于浦山之阳，贼大骇，晏以所部力战。正彦既擒，世忠上其功，迁一官。[NEWLINE]
+				金人犯建康，杜充兵溃，世忠退保江阴，晏领赤心百五十骑屯青龙。群寇犯常州，郡守请晏为援，晏以精锐七千人出奇破之。进直龙图阁。保马迹山以捍寇，寇再至，晏选舟师迎战，降其众千五百人，郡人为晏立生祠。[NEWLINE]
+				戚方围宣城，急命晏往援，晏至城下，未立营垒，出不意直捣方帐下，方大惊却走。晏欲生致方，单骑追之，方率其众迎战，晏不能敌，犹手杀数十人，为贼所害。[NEWLINE][NEWLINE]
+				小说《绍宋》中，明道宫之变后赤心队编入御前班直，作为皇帝的亲卫部队南征北战，并肩负了军官培养和信息传递的任务。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_CHIXIN_CAVALRY_HELP">
+			<Text>
+				[COLOR_YIELD_GOLD]精英御前甲骑[ENDCOLOR]，作为新宋皇帝龙纛的象征，能够有效[COLOR_POSITIVE_TEXT]激励[ENDCOLOR]战场上的己方部队，同时遭受[ICON_PIRATE][COLOR_NEGATIVE_TEXT]歼灭[ENDCOLOR]也将带来全线的溃退。需要完成建炎北伐解锁，仅能组建一队。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]金吾纛旓[ENDCOLOR]：以自身为中心，相邻3格区域的己方单位获得[COLOR_POSITIVE_TEXT]白马绍兴[ENDCOLOR]晋升。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]白马绍兴[ENDCOLOR]：[ICON_STRENGTH]战斗力+15%，[ICON_WAR]经验获取速率+100%，[ICON_PROMOTION_RANGE]射程+1且攻击[ICON_PROMOTION_INDIRECT_FIRE]无视地形阻碍。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]龙纛北落[ENDCOLOR]：若该单位遭受[ICON_PIRATE]歼灭，则己方所有非[COLOR_YIELD_GOLD]精锐[ENDCOLOR][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]承受全部[COLOR_NEGATIVE_TEXT]负面状态[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]平步战云[ENDCOLOR]：出力报效讵可泯其绩而不嘉之以宠命乎，使用后将同格己方单位整编为[ICON_PROMOTION_ELITE]军团。
+				[NEWLINE]冷却时间：3回合。
+			</Text>
+		</Row>
+		<!--背嵬步军-->
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_FOOT">
+			<Text>背嵬步军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BEIWEI_FOOT_COMBAT_HELP">
+			<Text>
+				[COLOR_POSITIVE_TEXT]背嵬步军[ENDCOLOR]是新宋的特色单位，替代[COLOR_POSITIVE_TEXT]长剑士[ENDCOLOR]。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]披坚执锐[ENDCOLOR]：[ICON_STRENGTH]战斗力+25%，[ICON_PROMOTION_OUTFLANK]侧翼夹击提供的[ICON_STRENGTH]战斗力加成翻倍。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]人马俱碎[ENDCOLOR]：对抗[ICON_PROMOTION_KNIGHT_COMBAT][COLOR_POSITIVE_TEXT]骑兵单位[ENDCOLOR]时+100%[ICON_STRENGTH]战斗力，对抗[ICON_PROMOTION_TANK_COMBAT][COLOR_POSITIVE_TEXT]装甲单位[ENDCOLOR]时+50%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]壁立万仞[ENDCOLOR]：遭受陆军非[ICON_PROMOTION_CITY_SIEGE][COLOR_POSITIVE_TEXT]攻城武器[ENDCOLOR]、[ICON_PROMOTION_SPLASH_DAMAGE][COLOR_POSITIVE_TEXT]覆盖火力[ENDCOLOR]进攻时，攻击者将陷入[COLOR_NEGATIVE_TEXT]眩晕[ENDCOLOR]状态，当前回合丧失所有[ICON_MOVES]移动力。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BEIWEI_FOOT_TEXT">
+			<Text>
+				一说背嵬乃是西夏人对亲卫的称呼，可能是因为亲卫需要背着盾牌随性护卫主将，也可能是因为需要背着酒壶随时以作赏赐而得名。[NEWLINE]
+				背嵬步军多为重甲长斧兵，长于破甲。
+			</Text>
+		</Row>
+		<!--驻队矢-->
+		<Row Tag="TXT_KEY_UNIT_ZHUDUISHI">
+			<Text>驻队矢</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ZHUDUISHI_TEXT">
+			<Text>驻队矢，宋绍兴元年(1131年) 十月，金完颜宗弼(兀术)督军10万猛攻和尚原(今陕西宝鸡西南)。宋陕西都统制吴玠，命诸将选强弓劲弩，轮番猛射，连发不绝，箭如雨注，号称“驻队矢”。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_ZHUDUISHI_HELP">
+			<Text>
+				[COLOR_POSITIVE_TEXT]驻队矢[ENDCOLOR]是新宋的特色单位，替代[COLOR_POSITIVE_TEXT]弩手[ENDCOLOR]。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]百夫决拾[ENDCOLOR]：自带1~2级[ICON_PROMOTION_ACCURACY_2]精准以及1级[ICON_PROMOTION_FORMATION_1]列阵，可牺牲[ICON_MOVES]移动能力进行原地驻守以执行[COLOR_POSITIVE_TEXT]轮番猛射[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]蝗雨遮天[ENDCOLOR]：进行原地驻守[COLOR_NEGATIVE_TEXT]禁止移动[ENDCOLOR]，但[ICON_PROMOTION_HUNTDOWN_1]攻击次数+2且[ICON_PROMOTION_RANGE]射程+1。
+			</Text>
+		</Row>
+		<!--突火枪兵-->
+		<Row Tag="TXT_KEY_UNIT_FIRELANCER">
+			<Text>[COLOR_MAGENTA]突火枪兵[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FIRELANCER_TEXT">
+			<Text>中国宋代时发明的突火枪，是世界所有现代管状喷射武器的鼻祖。两宋时期，社会动荡不安，战火不断。宋军东挡西杀，日益感觉武器的重要。当时，火药的社会使用率很高，于是宋军的军械师经过多次试验，于南宋开庆元年(公元1259年)，在寿春府(今安徽寿县)造出了世界上最早的火枪——“突火枪”。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_FIRELANCER_HELP">
+			<Text>[COLOR_POSITIVE_TEXT]突火枪兵[ENDCOLOR]是提前在[COLOR_CYAN]物理学[ENDCOLOR]解锁的[COLOR_MAGENTA]民兵[ENDCOLOR]单位。[NEWLINE][NEWLINE]驻守城市时拥有1格[ICON_PROMOTION_RANGE]射程，使邻近敌方单位-15%[ICON_STRENGTH]战斗力。</Text>
+		</Row>
+		<!--节度使-->
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI">
+			<Text>节度使</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_JIEDUSHI_TEXT">
+			<Text>
+				唐时节度使权力极大，集军、民、财三权于一身，又经常以一人兼任两至三镇节度使，最多者达四镇，权力之大，古所未有。[NEWLINE]
+				五代时，节度使的权势达到了峰值，皇帝的废立都取决于节度使，后梁、后唐、后晋、后汉、后周的开国皇帝清一色都是节度使。[NEWLINE]
+				宋建立后，宋太祖赵匡胤以金钱换军权，解除了节度使石守信对禁军的控制权。其余节度使也进行了类似的处理。[NEWLINE]
+				之后，节度使在宋朝一般作为荣誉职位，称为“某某军节度使”，待遇可是极高。[NEWLINE]
+				南宋的中兴四将都曾加封两镇乃至三镇节度使。
+			</Text>
+		</Row>
+		<!--车船-->
+		<Row Tag="TXT_KEY_UNIT_U_PWS">
+			<Text>车船</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_UNIT_U_PWS_TEXT">
+			<Text>
+				早在南北朝(420～589)时，已有车船的记载。唐代李皋对车船的发展起了承前启后的作用。他制造的车船用人力踏动快速前进。宋代的车船盛极一时，绍兴二年(1132)王彦恢制的战舰，旁设4轮，每轮8楫（桨片）。[NEWLINE]
+				木匠高宣也是造车船的名匠,曾创造大小车船10余种,大型车船长20～30丈，吃水1丈左右，可容纳700～800人；中型车船一般承载200～300人。车船有2车、4车、5车、8车、9车以及23、24车等多种。宋朝最大车船长36丈，宽4丈1尺。明初陈友谅也曾使用车船在鄱阳湖进行水战。明中叶以后，卢崇俊作多种型式的车船称为“静江龙船”。直到20世纪初，中国南方还有少量车船。车船虽然未能在各水系普遍使用，但它的历史悠久，对中国船舶的发展起过很大的作用。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_HELP">
+			<Text>
+				[COLOR_POSITIVE_TEXT]车船[ENDCOLOR]是新宋的特色单位，替代[COLOR_POSITIVE_TEXT]桨帆大战舰[ENDCOLOR]。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]定波砥澜[ENDCOLOR]：攻击可对目标同格及邻近区域的敌方单位造成50%溅射伤害，建造完成时有10%概率解锁[COLOR_POSITIVE_TEXT]火力全开[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]海运南冥[ENDCOLOR]：建造完成时赠送一艘[ICON_PROMOTION_NAVAL_HIT_AND_RUN][COLOR_POSITIVE_TEXT]海军游猎[ENDCOLOR]舰船：[COLOR_POSITIVE_TEXT]飞虎战船[ENDCOLOR]。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME1">
+			<Text>和州载</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME2">
+			<Text>大德山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME3">
+			<Text>大药山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME4">
+			<Text>大钦山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME5">
+			<Text>大夹山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME6">
+			<Text>小德山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME7">
+			<Text>小药山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME8">
+			<Text>小钦山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME9">
+			<Text>小夹山</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME10">
+			<Text>望三州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS_NAME11">
+			<Text>混江龙</Text>
+		</Row>
+		<!--泉州海船-->
+		<Row Tag="TXT_KEY_UNIT_SONG_CARGOSHIP">
+			<Text>泉州海船</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_UNIT_SONG_CARGOSHIP_TEXT">
+			<Text>10～15世纪中外六通。位于福建省泉州市。泉州港为宋元名港，又名“刺桐港”，因五代时泉州罗城绕植刺桐而得名。该港包括3湾11港。自北而南为泉州湾、深泸湾、围头湾。泉州湾中的洛阳、后渚、石湖3港，为较大的商港,宋元时代是中外商船停泊的地带,这里也成为外国人经商、传教定居的地方。1973年，在后渚港发现一艘保存较完整的宋代海船，为泉州海外交通史的研究提供了实物资料。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SONG_CARGOSHIP_HELP">
+			<Text>
+				[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]是新宋的特色单位，替代[COLOR_POSITIVE_TEXT]货船[ENDCOLOR]，比起[COLOR_POSITIVE_TEXT]货船[ENDCOLOR]而言建造成本更低（100[ICON_PRODUCTION]产能）。[NEWLINE]
+				[NEWLINE][ICON_BULLET]每艘[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]使全国[ICON_CULTURE]文化、[ICON_GOLD]金币产出+4%。
+				[NEWLINE][ICON_BULLET]自带[ICON_PROMOTION_EMBARKATION]远洋海运晋升，当[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]位于[ICON_SGM_GROUP_ALL_OFF]境外时+4[ICON_TOURISM]魅力产出。
+			</Text>
+		</Row>
+		<!--飞虎战船-->
+		<Row Tag="TXT_KEY_UNIT_SP_FEIHUCHUAN">
+			<Text>飞虎战船</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_UNIT_SP_FEIHUCHUAN_TEXT">
+			<Text>南宋初年，有一种“飞虎战舰，傍设四轮，每轮八楫，四人旋斡，日行千里”。楫就是翼桨，每个轮置有八个翼桨击水。李纲曾在荆湖一带造车船，按阅水师，据《梁溪全集》卷29有诗说：“车船新制得前规，鼓蹈双轮势似飞。创物从来因智者，世间何事不由机。”可知车船推进装置的基本结构是一车双轮。飞虎战舰是两车四轮，共三十二片翼桨。</Text>
+		</Row>
+		<!--炎宋威龙-->
+		<Row Tag="TXT_KEY_UNIT_SONG_J20">
+			<Text>[COLOR_YIELD_GOLD]皇宋隐形战机[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SONG_J20_PEDIA">
+			<Text>[COLOR_YIELD_GOLD]炎宋威龙[ENDCOLOR]是皇宋工业成都府飞机工业集团公司研制的一款具备高隐身性、高态势感知、高机动性等能力的隐形第五代制空战斗机，禁军研制的最新一代（欧美旧标准为第四代，新标准以及俄罗斯标准为第五代）双发重型隐形战斗机。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_SONG_J20">
+			<Text>
+				[COLOR_YIELD_GOLD]精英重型隐形战斗机[ENDCOLOR]，能够轻易的突破敌方火力网并瘫痪局部地区军械设备或建筑。需要完成殿前司空军指挥使解锁，仅能建造一架。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]神龙天舞[ENDCOLOR]：自带1~3级[ICON_PROMOTION_INTERCEPTION_3]拦截晋升，且遭受空军拦截时[ICON_PROMOTION_EVASION_I]规避概率+50%。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]且听龙吟[ENDCOLOR]：攻击可将10格范围内所有敌方[ICON_CITYBANNER_CITY_TOWN][COLOR_SELECTED_TEXT]城市[ENDCOLOR]、[ICON_PROMOTION_EXTENDED_PARADROP][COLOR_POSITIVE_TEXT]空军单位[ENDCOLOR]、[ICON_PROMOTION_ANTI_AIR_III][COLOR_POSITIVE_TEXT]防空单位[ENDCOLOR]陷入[ICON_PROMOTION_EMP_ATTACK][COLOR_NEGATIVE_TEXT]瘫痪[ENDCOLOR]。
+			</Text>
+		</Row>
+		<!--*******************************晋升*******************************-->
+		<!--南宋陆军效果：不动如山-->
+		<Row Tag="TXT_KEY_PROMOTION_NANSONG_LAND">
+			<Text>破阵子</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_NANSONG_LAND_HELP">
+			<Text>[ICON_STRENGTH]防御力+25%。</Text>
+		</Row>
+		<!--南宋水军效果：黄天荡-->
+		<Row Tag="TXT_KEY_PROMOTION_NANSONG_SEA">
+			<Text>黄天荡</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_NANSONG_SEA_HELP">
+			<Text>[NEWLINE][ICON_BULLET]进攻时[ICON_STRENGTH]战斗力+15%，位于[COLOR_POSITIVE_TEXT]滨海[ENDCOLOR]地形时获得双倍[ICON_MOVES]移动力。[NEWLINE][ICON_BULLET]攻击使目标当前回合[ICON_MOVES]移动力-50%。</Text>
+		</Row>
+		<!--背嵬步军：重甲长斧-->
+		<Row Tag="TXT_KEY_PROMOTION_BEIWEI_FOOT">
+			<Text>披坚执锐</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_BEIWEI_FOOT_HELP">
+			<Text>
+				[NEWLINE]
+				[ICON_BULLET][ICON_STRENGTH]战斗力+25%，[ICON_PROMOTION_OUTFLANK]侧翼夹击提供的[ICON_STRENGTH]战斗力加成翻倍。[NEWLINE]
+				[ICON_BULLET]对抗[ICON_PROMOTION_KNIGHT_COMBAT][COLOR_POSITIVE_TEXT]骑兵单位[ENDCOLOR]时+100%[ICON_STRENGTH]战斗力，对抗[ICON_PROMOTION_TANK_COMBAT][COLOR_POSITIVE_TEXT]装甲单位[ENDCOLOR]时+50%[ICON_STRENGTH]战斗力。[NEWLINE]
+				[ICON_BULLET]遭受陆军非[ICON_PROMOTION_CITY_SIEGE][COLOR_NEGATIVE_TEXT]攻城武器[ENDCOLOR]、[ICON_PROMOTION_SPLASH_DAMAGE][COLOR_NEGATIVE_TEXT]覆盖火力[ENDCOLOR]进攻时，攻击者将陷入[COLOR_NEGATIVE_TEXT]眩晕[ENDCOLOR]状态，当前回合丧失所有[ICON_MOVES]移动力。
+			</Text>
+		</Row>
+		<!--驻队矢：轮番猛射-->
+		<Row Tag="TXT_KEY_PROMOTION_CAN_ZHUDUISHI">
+			<Text>轮番猛射</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_CAN_ZHUDUISHI_HELP">
+			<Text>进行原地驻守[COLOR_NEGATIVE_TEXT]禁止移动[ENDCOLOR]，但[ICON_PROMOTION_HUNTDOWN_1]攻击次数+2且[ICON_PROMOTION_RANGE]射程+1。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ZHUDUISHI">
+			<Text>蝗雨遮天</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ZHUDUISHI_HELP">
+			<Text>[ICON_PROMOTION_HUNTDOWN_1]攻击次数+2、[ICON_PROMOTION_RANGE]射程+1，但[COLOR_NEGATIVE_TEXT]不可移动[ENDCOLOR]。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_ZHUDUISHI_ON_SHORT">
+			<Text>势如彍弩</Text>
+		</Row>
+		<Row Tag="TXT_KEY_ZHUDUISHI_ON">
+			<Text>切换为驻守模式：进行原地驻守[COLOR_NEGATIVE_TEXT]禁止移动[ENDCOLOR]，但[ICON_PROMOTION_HUNTDOWN_1]攻击次数+2且[ICON_PROMOTION_RANGE]射程+1。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_ZHUDUISHI_OFF_SHORT">
+			<Text>拔军起寨</Text>
+		</Row>
+		<Row Tag="TXT_KEY_ZHUDUISHI_OFF">
+			<Text>切换为移动模式：使[ICON_PROMOTION_HUNTDOWN_1]攻击次数、[ICON_PROMOTION_RANGE]射程及[ICON_MOVES]移动回归常态，消耗本回合内所有剩余[ICON_MOVES]移动力。</Text>
+		</Row>
+		<!--突火枪兵：武装民兵-->
+		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE">
+			<Text>当头“枪”喝</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE_HELP">
+			<Text>[ICON_PROMOTION_RANGE]射程+1，邻近敌方单位-15%[ICON_STRENGTH]战斗力。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE2">
+			<Text>团练厢军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE2_HELP">
+			<Text>[ICON_PROMOTION_RANGE]射程-1。</Text>
+		</Row>
+		<!--节度使：天下太平-->
+		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI_SHORT">
+			<Text>天下太平</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI">
+			<Text>消耗自身所有[ICON_MOVES]移动力执行[COLOR_POSITIVE_TEXT]文官不爱财,武官不惜死[ENDCOLOR]命令，使两格内单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI_PLOT">
+			<Text>文官不爱财[NEWLINE]武官不惜死</Text>
+		</Row>
+		<!--车船：定风波-->
+		<Row Tag="TXT_KEY_PROMOTION_U_PWS">
+			<Text>定风波</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_U_PWS_HELP">
+			<Text>攻击可对目标同格及邻近区域的敌方单位造成50%溅射伤害。</Text>
+		</Row>
+		<!--背嵬骑军：撼山易，撼岳家军难！-->
+		<Row Tag="TXT_KEY_PROMOTION_YUEJIAJUN">
+			<Text>撼山易,撼岳家军难!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_YUEJIAJUN_HELP">
+			<Text>
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]贯颐奋戟[ENDCOLOR]：远程[ICON_STRENGTH]防御力+50%，当[ICON_HP]生命值[COLOR_NEGATIVE_TEXT]减少[ENDCOLOR]时可根据比例增加[ICON_STRENGTH]战斗力以及所造成的[COLOR_POSITIVE_TEXT]伤害[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]天将奔烈[ENDCOLOR]：[ICON_PIRATE]歼灭敌军或遭受敌军[ICON_PROMOTION_ARCHERY_COMBAT][COLOR_POSITIVE_TEXT]陆军远程[ENDCOLOR]攻击时[ICON_MOVES]移动力+1。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]北邙昂岳[ENDCOLOR]：攻击或遭受敌军[ICON_PROMOTION_ARCHERY_COMBAT][COLOR_POSITIVE_TEXT]陆军远程[ENDCOLOR]攻击时使目标陷入[COLOR_NEGATIVE_TEXT]士气低落[ENDCOLOR]状态，[ICON_STRENGTH]攻击力-25%，[ICON_PROMOTION_RANGE_REDUCE]射程-1。
+			</Text>
+		</Row>
+		<!--赤心队：金吾纛旓-->
+		<Row Tag="TXT_KEY_PROMOTION_CHIXINDUI1">
+			<Text>金吾纛旓</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_CHIXINDUI1_HELP">
+			<Text>
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]金吾纛旓[ENDCOLOR]：以自身为中心，相邻3格区域的己方单位获得[COLOR_POSITIVE_TEXT]白马绍兴[ENDCOLOR]晋升。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]白马绍兴[ENDCOLOR]：[ICON_STRENGTH]战斗力+15%，[ICON_WAR]经验获取速率+100%，[ICON_PROMOTION_RANGE]射程+1且攻击[ICON_PROMOTION_INDIRECT_FIRE]无视地形阻碍。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]龙纛北落[ENDCOLOR]：若该单位遭受[ICON_PIRATE]歼灭，则己方所有非[COLOR_YIELD_GOLD]精锐[ENDCOLOR][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]承受全部[COLOR_NEGATIVE_TEXT]负面状态[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]平步战云[ENDCOLOR]：出力报效讵可泯其绩而不嘉之以宠命乎，使用后将同格己方单位整编为[ICON_PROMOTION_ELITE]军团。
+				[NEWLINE]冷却时间：3回合。
+			</Text>
+		</Row>
+		<!--赤心队：白马绍兴-->
+		<Row Tag="TXT_KEY_PROMOTION_CHIXINDUI1_EFFECT">
+			<Text>白马绍兴</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_CHIXINDUI1_EFFECT_HELP">
+			<Text>
+				[NEWLINE][ICON_BULLET][ICON_STRENGTH]战斗力+15%，[ICON_WAR]经验获取速率+100%。
+				[NEWLINE][ICON_BULLET][ICON_PROMOTION_RANGE]射程+1且攻击[ICON_PROMOTION_INDIRECT_FIRE]无视地形阻碍。
+			</Text>
+		</Row>
+		<!--炎宋威龙：刈旗斩将-->
+		<Row Tag="TXT_KEY_PROMOTION_CHUAIMEN">
+			<Text>玉龙吟</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_CHUAIMEN_HELP">
+			<Text>
+				[NEWLINE][ICON_BULLET]遭受空军拦截时[ICON_PROMOTION_EVASION_I]规避概率+50%。
+				[NEWLINE][ICON_BULLET]攻击可将10格范围内所有敌方[ICON_CITYBANNER_CITY_TOWN][COLOR_SELECTED_TEXT]城市[ENDCOLOR]、[ICON_PROMOTION_EXTENDED_PARADROP][COLOR_POSITIVE_TEXT]空军单位[ENDCOLOR]、[ICON_PROMOTION_ANTI_AIR_III][COLOR_POSITIVE_TEXT]防空单位[ENDCOLOR]陷入[ICON_PROMOTION_EMP_ATTACK][COLOR_NEGATIVE_TEXT]瘫痪[ENDCOLOR]。
+			</Text>
+		</Row>
+		<!--东京留守司：渡河渡河渡河！-->
+		<Row Tag="TXT_KEY_PROMOTION_DUHE">
+			<Text>渡河!渡河!渡河!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_DUHE_HELP">
+			<Text>在[ICON_SGM_GROUP_ALL_OFF][COLOR_POSITIVE_TEXT]境外[ENDCOLOR]作战+25%[ICON_STRENGTH]战斗力，并消除跨河进攻惩罚，且[ICON_MOVES]移动不受地形影响。</Text>
+		</Row>
+		<!--东京留守司：东京留守司军-->
+		<Row Tag="TXT_KEY_PROMOTION_DUHE1">
+			<Text>东京留守司军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_DUHE1_HELP">
+			<Text>东京留守司军统制</Text>
+		</Row>
+		<!--节度使：天下太平-->
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_PRE">
+			<Text>天下太平</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_PRE_HELP">
+			<Text>可以耗自身所有[ICON_MOVES]移动力为2格内单位执行[COLOR_POSITIVE_TEXT]天下太平[ENDCOLOR]命令</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_EFFECT">
+			<Text>文官不爱财，武官不惜死</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_EFFECT_HELP">
+			<Text>[NEWLINE][ICON_BULLET][ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%。[NEWLINE][ICON_BULLET]消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
+		</Row>
+		<!--*******************************旅游值提示*******************************-->
+		<Row Tag="TXT_KEY_NANSONG_GET_TOURISM_TAG1">
+			<Text>你的商业活动为你带来了</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NANSONG_GET_TOURISM_TAG2">
+			<Text>[ICON_TOURISM]旅游产出！</Text>
+		</Row>
+		<!--*******************************单位独特命名*******************************-->
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME0">
+			<Text>岳飞</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME1">
+			<Text>韩世忠</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME2">
+			<Text>吴玠</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME3">
+			<Text>吴璘</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME4">
+			<Text>刘锜</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME5">
+			<Text>张俊</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME6">
+			<Text>虞允文</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME7">
+			<Text>辛弃疾</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME8">
+			<Text>孟珙</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_NAME9">
+			<Text>张荣</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_CAVALRY_NAME0">
+			<Text>[COLOR_YIELD_GOLD]武穆亲军[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_CHIXIN_CAVALRY_NAME0">
+			<Text>[COLOR_YIELD_GOLD]御前赤心直班[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_CAVALRY_NAME1">
+			<Text>[COLOR_YIELD_GOLD]岳云[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_CAVALRY_NAME2">
+			<Text>[COLOR_YIELD_GOLD]张宪[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SONG_J20_NAME">
+			<Text>[COLOR_YIELD_GOLD]炎宋威龙[ENDCOLOR]</Text>
+		</Row>
+
+		<!--*******************************J20通知*******************************-->
+
+		<Row Tag="TXT_KEY_SP_NOTIFICATION_UNIT_US_J20_SHORT">
+			<Text>遭受电磁干扰！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_NOTIFICATION_UNIT_US_J20">
+			<Text>我方该地格及其十格范围内的空军和防空单位由于受到敌方威龙战机攻击，下一轮丧失全部[ICON_MOVES]移动力！[NEWLINE]位于该地格十格范围内的城市也会瘫痪一回合！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_NOTIFICATION_UNIT_ENEMY_J20_SHORT">
+			<Text>且听龙吟！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_NOTIFICATION_UNIT_ENEMY_J20">
+			<Text>敌方该地格及其十格范围内的空军和防空单位由于受到我方威龙战机攻击，下一轮丧失全部[ICON_MOVES]移动力！[NEWLINE]位于该地格十格范围内的城市也会瘫痪一回合！</Text>
+		</Row>
+		<!--*******************************背嵬步军*******************************-->
+		<Row Tag="TXT_KEY_BEIWEI_FOOT_LOST_MOVEMENT">
+			<Text>在我军{2_UnitName}的凌厉反击下，敌军{1_EnUName}的[ICON_MOVES]移动力丧失，持续一回合。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BEIWEI_FOOT_LOST_MOVEMENT_ATT">
+			<Text>在敌军{2_EnUName}的凌厉反击下，我军{1_UnitName}的[ICON_MOVES]移动力丧失，持续一回合。</Text>
+		</Row>
+		<!--*******************************黄天荡通知*******************************-->
+		<Row Tag="TXT_KEY_HUANGTIANDANG_ATT">
+			<Text>在我军{1_UnitName}的炮火阻碍下，敌军{2_EnUName}[ICON_MOVES]移动力降至</Text>
+		</Row>
+		<Row Tag="TXT_KEY_HUANGTIANDANG_DEF">
+			<Text>在敌军{1_EnUName}的炮火阻碍下，我军{2_UnitName}[ICON_MOVES]移动力降至</Text>
+		</Row>
+		<Row Tag="TXT_KEY_HUANGTIANDANG">
+			<Text>，持续一回合。</Text>
+		</Row>
+		<!--*******************************背嵬骑军通知*******************************-->
+		<Row Tag="TXT_KEY_BC_UNIT_ATT">
+			<Text>我军{1_UnitName}身披数十创，对敌军{2_EnUName}造成了[COLOR_NEGATIVE_TEXT]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BC_UNIT_DEF">
+			<Text>敌军{1_EnUName}身披数十创，对我军{2_UnitName}造成了[COLOR_NEGATIVE_TEXT]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BC_CITY_ATT">
+			<Text>我军{1_UnitName}身披数十创，对敌军{2_CityName:textkey}造成了[COLOR_NEGATIVE_TEXT]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BC_CITY_DEF">
+			<Text>敌军{1_EnUName}身披数十创，对我军{2_CityName:textkey}造成了[COLOR_NEGATIVE_TEXT]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BC_FINAL">
+			<Text>[ENDCOLOR]点额外伤害。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_PROMOTION_CHIXINDUI1_DEAD">
+			<Text>我军士卒丢盔弃甲，真乃懦夫也！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_CHIXINDUI2_DEAD">
+			<Text>龙纛已落，众将士切勿动摇！</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

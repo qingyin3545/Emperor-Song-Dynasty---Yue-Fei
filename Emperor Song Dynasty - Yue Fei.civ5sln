@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# ModBuddy Solution File, Format Version 11.00
+Project("{F5FC21B5-7CC2-458A-ABBA-992F515BBA20}") = "Emperor Song Dynasty - Yue Fei", "YueFei_SouthSong\Emperor Song Dynasty - Yue Fei.civ5proj", "{8275C419-43C0-460E-B0B3-392E44AA7DE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|x86 = Default|x86
+		Deploy Only|x86 = Deploy Only|x86
+		Package Only|x86 = Package Only|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8275C419-43C0-460E-B0B3-392E44AA7DE8}.Default|x86.ActiveCfg = Default|x86
+		{8275C419-43C0-460E-B0B3-392E44AA7DE8}.Default|x86.Build.0 = Default|x86
+		{8275C419-43C0-460E-B0B3-392E44AA7DE8}.Deploy Only|x86.ActiveCfg = Deploy Only|x86
+		{8275C419-43C0-460E-B0B3-392E44AA7DE8}.Deploy Only|x86.Build.0 = Deploy Only|x86
+		{8275C419-43C0-460E-B0B3-392E44AA7DE8}.Package Only|x86.ActiveCfg = Package Only|x86
+		{8275C419-43C0-460E-B0B3-392E44AA7DE8}.Package Only|x86.Build.0 = Package Only|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

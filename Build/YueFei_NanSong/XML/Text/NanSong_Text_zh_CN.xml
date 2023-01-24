@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2021/4/17 22:37:59 -->
+<GameData>
+	<Language_zh_CN>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC">
+			<Text>南宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_SHORT_DESC">
+			<Text>南宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_ADJECTIVE">
+			<Text>南宋</Text>
+		</Row>
+
+
+		<Row Tag="TXT_KEY_BUILDING_YUYING">
+			<Text>御营使司</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_DIAOYUCHENG">
+			<Text>合川钓鱼城</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_XIANGFAN">
+			<Text>襄樊城塞</Text>
+		</Row>
+		
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_CAVALRY">
+			<Text>背嵬骑军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_FOOT">
+			<Text>背嵬步军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI">
+			<Text>节度使</Text>
+		</Row>
+		
+	</Language_zh_CN>
+</GameData>

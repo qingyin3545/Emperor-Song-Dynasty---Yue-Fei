@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2021/4/17 22:37:59 -->
+<GameData>
+	<Language_zh_CN>
+		<!--文明-->
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC">
+			<Text>南宋王朝</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_SHORT_DESC">
+			<Text>南宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_YFS_SONG_ADJECTIVE">
+			<Text>南宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_YFS_SONG_TEXT_1">
+			<Text>
+				南宋（1127—1279年），是中国历史上的由汉族建立的王朝。传七世九帝，共计153年，与北宋合称宋朝，又称两宋。[NEWLINE]
+				1127年靖康之耻后，宋徽宗第九子康王赵构幸免于难，于应天府（今河南商丘）即位。1138年宋室南迁，定都临安府（今浙江杭州）。1141年宋、金达成绍兴和议，南宋放弃淮河以北地区，双方以淮河-大散关为界。此后，金国几度南下未能消灭南宋，南宋数次北伐也无功而返，双方逐渐形成对峙局面。南宋中后期奸相频出，朝政腐败，漠北草原的蒙古部开始崛起。1234年宋蒙联合灭金。1235年蒙古入侵南宋，南宋军民拼死抵抗，直到1276年临安府被攻占。1276年，南宋大臣在福州拥立宋端宗赵昰。1278年，宋端宗驾崩，宋末帝赵昺继位。1279年，元朝镇国大将军张弘范在崖山海战中击败南宋军队，宰相陆秀夫背着宋末帝赵昺跳海而亡，十万南宋军民也相继跳海殉国，南宋覆灭。[NEWLINE]
+				南宋疆域北部以秦岭淮河为界，与金对峙；西北以陕西横山、甘肃东部、青海湟水为界；西南以岷山、大渡河为界。[NEWLINE]
+				南宋在政治、军事等诸多领域都沿袭北宋，在中央地方权力、官僚机构、司法、军权等方面加强中央集权的一系列措施，军事上在招收溃兵和勤王之军等基础上，开始军事重建之路，最终形成几支较强大的军事力量，于是有了岳家军、韩家军的出现。南宋虽偏安于秦岭淮河以南，却是中国历史上经济、文化昌盛，对外开放程度较高的王朝。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_YFS_SONG">
+			<Text>南宋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DOM_YFS_SONG_TEXT">
+			<Text>
+				怒发冲冠，凭栏处、潇潇雨歇。抬望眼、仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。莫等闲、白了少年头，空悲切。[NEWLINE]
+				靖康耻，犹未雪。臣子恨，何时灭。驾长车，踏破贺兰山缺。壮志饥餐胡虏肉，笑谈渴饮匈奴血。待从头、收拾旧山河，朝天阙。[NEWLINE]
+				而今时空回转，乾坤倒悬，您能否像历史上一样解生民之苦，补山河之缺，带领您的人民走向一个更加辉煌的时代?
+			</Text>
+		</Row>
+		<!--城市-->
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_01">
+			<Text>临安府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_02">
+			<Text>建康府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_03">
+			<Text>绍兴府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_04">
+			<Text>平江府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_05">
+			<Text>庐州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_06">
+			<Text>扬州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_07">
+			<Text>台州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_08">
+			<Text>福州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_09">
+			<Text>泉州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_10">
+			<Text>江州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_11">
+			<Text>襄阳府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_12">
+			<Text>江陵府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_13">
+			<Text>成都府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_14">
+			<Text>静江府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_15">
+			<Text>建昌军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_16">
+			<Text>兴元府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_17">
+			<Text>金州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_18">
+			<Text>西和州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_19">
+			<Text>潼川府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_20">
+			<Text>夔州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_21">
+			<Text>雷州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_22">
+			<Text>琼州</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_23">
+			<Text>重庆府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_24">
+			<Text>绍兴</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_25">
+			<Text>开封府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_26">
+			<Text>大名府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_27">
+			<Text>京兆府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_28">
+			<Text>太原府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_29">
+			<Text>河间府</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_YFS_SONG_30">
+			<Text>相州</Text>
+		</Row>
+		<!--间谍-->
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_0">
+			<Text>宇文虚中</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_1">
+			<Text>王彦</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_2">
+			<Text>马扩</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_3">
+			<Text>赵</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_4">
+			<Text>钱</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_5">
+			<Text>孙</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_6">
+			<Text>李</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_7">
+			<Text>周</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_8">
+			<Text>吴</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPY_NAME_YFS_SONG_9">
+			<Text>郑</Text>
+		</Row>
+		<!--领袖-->
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI">
+			<Text>岳飞</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA_TEXT">
+			<Text>
+				岳飞（1103年3月24日～1142年1月27日），字鹏举，相州汤阴（今河南省汤阴县）人。南宋时期抗金名将、军事家、战略家、民族英雄、书法家、诗人，位列南宋“中兴四将”之首。[NEWLINE]
+				岳飞从二十岁起，曾先后四次从军。自建炎二年（1128年）遇宗泽至绍兴十一年（1141年）止，先后参与、指挥大小战斗数百次。金军攻打江南时，独树一帜，力主抗金，收复建康。绍兴四年（1134年），收复襄阳六郡。绍兴六年（1136年），率师北伐，顺利攻取商州、虢州等地。绍兴十年（1140年），完颜宗弼毁盟攻宋，岳飞挥师北伐，两河人民奔走相告，各地义军纷纷响应，夹击金军。岳家军先后收复郑州、洛阳等地，在郾城、颍昌大败金军，进军朱仙镇。宋高宗赵构和宰相秦桧却一意求和，以十二道“金字牌”催令班师。在宋金议和过程中，岳飞遭受秦桧、张俊等人诬陷入狱。1142年1月，以莫须有的罪名，与长子岳云、部将张宪一同遇害。宋孝宗时，平反昭雪，改葬于西湖畔栖霞岭，追谥武穆，后又追谥忠武，封鄂王。[NEWLINE]
+				岳飞是南宋杰出的统帅，他重视人民抗金力量，缔造了“连结河朔”之谋，主张黄河以北的民间抗金义军和宋军互相配合，以收复失地；治军赏罚分明，纪律严整，又能体恤部属，以身作则，率领的“岳家军”号称“冻死不拆屋，饿死不打掳”。金军有“撼山易，撼岳家军难”的评语，以示对岳家军的由衷敬佩。[NEWLINE]
+				岳飞的文才同样卓越，其代表词作《满江红·怒发冲冠》是千古传诵的爱国名篇，后人辑有文集传世。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFEI_PEDIA">
+			<Text>岳武穆</Text>
+		</Row>
+		<!--特性-->
+		<Row Tag="TXT_KEY_TRAIT_YFS_YUEFEI_SONG">
+			<Text>文明的商人及商船在境外活动时产生旅游业绩；军事单位消灭敌人和攻陷城市各获得一次性和永久性的产能和文化加成，陆、海军单位拥有独特晋升；每座城市建造的第一个奇观免费。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TRAIT_YFS_YUEFEI_SONG_SHORT">
+			<Text>直捣黄龙</Text>
+		</Row>
+		<!--外交话语-->
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFE_FIRSTGREETING_1">
+			<Text>你好，我是南宋的领袖岳飞，你也是来为两河士民、万里故土来哀悼的吗？</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFE_DEFEATED_1">
+			<Text>天日昭昭，天日昭昭！十年之功，毁于一旦...</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_YFS_YUEFE_DECLAREWAR_1">
+			<Text>直抵黄龙府，与诸君痛饮尔！</Text>
+		</Row>
+		<!--政策-->
+		<Row Tag="TXT_KEY_POLICY_NANSONG_ROUTEBONUS">
+			<Text>南宋商路加成</Text>
+		</Row>
+		<!--建筑-->
+
+		<Row Tag="TXT_KEY_BUILDING_YUYING">
+			<Text>御营使司</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YUYING_HELP">
+			<Text>代替宫殿，所在城市建造[ICON_WAR]军事单位时+35%[ICON_PRODUCTION]产能</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YUYING_PEDIA">
+			<Text>军事机构。南宋建炎元年(1127年)置。高宗即位时,三衙禁军事实上已不存在,乃设御营司,统辖诸将。以御营使为长官。设御营五军。三年,置御前五军。四年,罢御营使,废御营司,以兵权归枢密院。御前五军改为神武军,御营五军改为神武副军。绍兴三十二年(1162年)复置,仅掌殿前忠勇等军,不久即罢。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_DIAOYUCHENG">
+			<Text>合川钓鱼城</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_SONG_DIAOYUCHENG_HELP">
+			<Text>建成之后获得一座免费的[ICON_STRENGTH]城堡，并使文明内所有的近战步兵单位面对骑兵、弓骑单位、直升机单位+33%的战斗力。[NEWLINE]需要城市有淡水且在山丘地块</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_SONG_DIAOYUCHENG_PEDIA">
+			<Text>合川钓鱼城原为钓鱼山，在重庆市合川区嘉陵江南岸5公里处，占地2.5平方公里。传说有一巨神在这钓嘉陵江中的鱼，以解一方百姓饥馑，山由此得名。钓鱼城峭壁千寻，古城门、城墙雄伟坚固，嘉陵江、涪江、渠江三面环绕，俨然兵家雄关，是驰名巴蜀的远古遗迹。1259年发生在潼川府路合州钓鱼城长达36年的“钓鱼城保卫战”，是南宋王朝与蒙古大军之间的生死决战，更是中国历史和世界历史上的一场具有重大意义之战，创下了中外战争史上罕见的以弱胜强的战例，钓鱼城因此被誉为“上帝折鞭处”。[NEWLINE][NEWLINE]钓鱼城主要景观有城门、城墙、皇宫、武道衙门、步军营、水军码头等遗址，有钓鱼台、护国寺、悬佛寺、千佛石窟、皇洞、天泉洞、飞檐洞等名胜古迹，还有元、明、清三代遗留的大量诗赋辞章、浮雕碑刻。钓鱼城之战与世界格局的变迁；八百年功勋历史的留存与积淀；众志成城、守土抗战的坚韧与顽强，古战场攻防构筑物遗迹和遗址，钓鱼城都是举世无双和无与伦比的。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_SONG_DIAOYUCHENG_QUOTE">
+			<Text>[NEWLINE]"东方麦加城，上帝折鞭处。"[NEWLINE]        ——欧洲传教士来到合川钓鱼城时的赞誉[NEWLINE]</Text>
+		</Row>
+		
+		<Row Tag="TXT_KEY_BUILDING_XIANGFAN">
+			<Text>襄樊城塞</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_XIANGFAN_HELP">
+			<Text>襄樊城塞</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_XIANGFAN_PEDIA">
+			<Text>樊城区位于湖北省西北部，居汉江中游北岸，地跨东经111°45′—113°47′，北纬31°13′—32°35′， 是湖北省域副中心城市襄樊市的中心城区。东与襄州区城关镇、西与老河口市仙人渡镇、北与襄州区伙牌镇接壤，南与襄城区隔江相望，东西长约40公里，南北宽约20公里，全区面积566平方公里，区人民政府驻长虹路23号，距襄阳市政府约3.5公里，距湖北省政府驻地武昌348公里。在宋元襄阳之战时，宋军巧妙的应用了地形优势，成功的阻止了蒙古军的投石兵器的猛烈攻击。然而蒙古人找到了阿拉伯的兵器专家，改进了投石兵器的攻击距离和准确率，顺利的攻下了樊城，襄阳苦于后无援兵，内无粮草，宣布投降。此战是兵器改革的奇迹，也是汉族人民对抗侵略的奇迹。</Text>
+		</Row>
+		<!--单位-->
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_CAVALRY">
+			<Text>背嵬骑军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_XIANGFAN_PEDIA">
+			<Text>
+				一说“背嵬”即党项语“蛇鹰”或“蛇龙”的意思，党项人用这些狠毒凶猛的动物名来代指将领的亲卫精兵。这种命名方式先被北宋西军学去，再被南宋西北籍将领继承下来，最后又被南宋其它军队学去。南宋初年拥有“背嵬军”的部队很多，包括韩、岳、刘、吴等“家军”，其中以韩、岳的“背嵬军”最为有名。[NEWLINE]
+				背嵬骑军多为甲骑具装，其战术战法多在与金军的连番血战中磨炼而出。[NEWLINE]
+				骑兵背嵬主要装备有长、短刀，约十支短弩 ，二十支硬弓弓箭围盔，铁叶片革甲。[NEWLINE]
+				背嵬军战术多变，常常分成多个独立的战斗小组，紧密配合。与敌人作战时，往往在距离敌人一百余步时就由七八人放箭，七八人用短弩射马，然后长刀对劈，迅速冲锋，集结，再冲锋，从而大量杀伤敌兵。[NEWLINE]
+				凭借着这支强悍的部队，岳飞百战百胜。在绍兴十一年（1141 ）荆湖宣抚司罢，改任傅选为鄂州御前背嵬军同统制。可见，背嵬军已被朝廷纳为己有，有了正式的番号，成为“御前”的军队。[NEWLINE]
+				绍兴三十二年十二月，背嵬军号罢。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BEIWEI_FOOT">
+			<Text>背嵬步军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BEIWEI_FOOT_TEXT">
+			<Text>
+				一说背嵬乃是西夏人对亲卫的称呼，可能是因为亲卫需要背着盾牌随性护卫主将，也可能是因为需要背着酒壶随时以作赏赐而得名。[NEWLINE]
+				背嵬步军多为重甲长斧兵，长于破甲。</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI">
+			<Text>节度使</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_JIEDUSHI_TEXT">
+			<Text>
+				唐时节度使权力极大，集军、民、财三权于一身，又经常以一人兼任两至三镇节度使，最多者达四镇，权力之大，古所未有。[NEWLINE]
+				五代时，节度使的权势达到了峰值，皇帝的废立都取决于节度使，后梁、后唐、后晋、后汉、后周的开国皇帝清一色都是节度使。[NEWLINE]
+				宋建立后，宋太祖赵匡胤以金钱换军权，解除了节度使石守信对禁军的控制权。其余节度使也进行了类似的处理。[NEWLINE]
+				之后，节度使在宋朝一般作为荣誉职位，称为“？？军节度使”，待遇可是极高。[NEWLINE]
+				南宋的中兴四将都曾加封两镇乃至三镇节度使。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_U_PWS">
+			<Text>车船</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SONG_CARGOSHIP">
+			<Text>泉州海船</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SP_FEIHUCHUAN">
+			<Text>飞虎战船</Text>
+		</Row>
+		
+
+		<!--晋升-->
+		<Row Tag="TXT_KEY_PROMOTION_SONG_DIAOYUCHENG">
+			<Text>上帝折鞭</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SONG_DIAOYUCHENG_HELP">
+			<Text>对骑兵、弓骑单位、直升机单位+33%的战斗力</Text>
+		</Row>
+	</Language_zh_CN>
+</GameData>
