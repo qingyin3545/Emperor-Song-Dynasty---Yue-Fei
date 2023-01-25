@@ -176,7 +176,6 @@
     <Folder Include="Art\Units\Models\BetWei\Armor" />
     <Folder Include="Art\Units\Models\ChiXin\Lancer" />
     <Folder Include="Art\Units\Models\ChiXin\Flag" />
-    <Folder Include="Art\Units\Models\FireLancer\" />
     <Folder Include="Art\Units\Models\JieDuShi\" />
     <Folder Include="Art\Units\Models\ChiXin" />
     <Folder Include="Art\Units\Models\PWS\" />
@@ -862,22 +861,6 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Units\Models\FireLancer\tcmFireLancer.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Units\Models\FireLancer\tcmFireLancer.fxsxml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Units\Models\FireLancer\tcmFireLancer.gr2">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Units\Models\FireLancer\tcmFireLancer_sref.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
     <Content Include="Art\Units\Models\JieDuShi\greatgeneral_early_jiedushi.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -978,15 +961,23 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Units\Models\SongFuChuan\song_cargo_ship.dds">
+    <Content Include="Art\Units\Models\SongFuChuan\obj_body_DiffuseColor.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Units\Models\SongFuChuan\song_cargo_ship.fxsxml">
+    <Content Include="Art\Units\Models\SongFuChuan\obj_prop_DiffuseColor.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Units\Models\SongFuChuan\song_cargo_ship.gr2">
+    <Content Include="Art\Units\Models\SongFuChuan\obj_sail_DiffuseColor.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Models\SongFuChuan\SongCargoNew.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Models\SongFuChuan\SongCargoNew.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
