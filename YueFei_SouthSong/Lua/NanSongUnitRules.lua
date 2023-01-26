@@ -22,6 +22,9 @@ local BeiWeiCavalryID = GameInfo.UnitPromotions["PROMOTION_YUEJIAJUN"].ID
 local ChiXinCavalryID = GameInfo.UnitPromotions["PROMOTION_CHIXINDUI1"].ID
 local ChiXinEffectID = GameInfo.UnitPromotions["PROMOTION_CHIXINDUI1_EFFECT"].ID
 
+local JieDuShiPreID = GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_PRE"].ID
+local JieDuShiEffectID = GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID
+
 local UpwsID = GameInfo.UnitPromotions["PROMOTION_U_PWS"].ID
 local ArcheryUnitID = GameInfo.UnitPromotions["PROMOTION_ARCHERY_COMBAT"].ID
 
@@ -518,6 +521,139 @@ function BeiWeiSetBaseCombatStrength( iPlayerID, iUnitID )
 
 end
 Events.SerialEventUnitSetDamage.Add( BeiWeiSetBaseCombatStrength )
+-------------------------------------------------------------------------------------------------------------
+-- 殿前司行进效果
+-------------------------------------------------------------------------------------------------------------
+function YFS_UnitSetXY(playerID, unitID)
+	local player = Players[playerID]
+
+	if player:GetUnitByID(unitID) == nil then return end
+
+	local unit = player:GetUnitByID(unitID)
+	local plot = unit:GetPlot()
+
+	if player == nil then return end
+	
+	if player:IsBarbarian() or player:IsMinorCiv() then return end
+
+	if plot then
+
+		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) then
+			-- 殿前司：根据临近敌人给战斗力加成
+			local iunit = GameInfo.Units[unit:GetUnitType()] ;
+			local plot = unit:GetPlot();
+            local icombat_bonus = 0;
+
+            local unitCount = plot:GetNumUnits();
+            local uniqueRange = 1;
+			if unitCount >= 1 then
+				for i = 0, unitCount-1, 1 do
+					local pFoundUnit = plot:GetUnit(i)
+					if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
+						local pPlayer = Players[pFoundUnit:GetOwner()];
+						if PlayersAtWar(player, pPlayer) then
+							icombat_bonus = icombat_bonus + 1;
+						end
+					end
+				end
+			end
+            
+			for dx = -uniqueRange, uniqueRange, 1 do
+				for dy = -uniqueRange, uniqueRange, 1 do
+					local adjPlot = Map.PlotXYWithRangeCheck(plot:GetX(), plot:GetY(), dx, dy, uniqueRange);
+                    if (adjPlot ~= nil) then
+			    	    unitCount = adjPlot:GetNumUnits();
+			    	    if unitCount >= 1 then
+			    	    	for i = 0, unitCount-1, 1 do
+			    	    		local pFoundUnit = adjPlot:GetUnit(i)
+			    	    		if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
+			    	    			local pPlayer = Players[pFoundUnit:GetOwner()];
+			    	    			if PlayersAtWar(player, pPlayer) then
+                                        icombat_bonus = icombat_bonus + 1;
+			    	    			end
+			    	    		end
+			    	    	end
+			    	    end
+                    end
+			    end
+            end
+            local iunit = GameInfo.Units[unit:GetUnitType()];
+			local icombat = math.ceil(0.05 * iunit.Combat);
+			-- unit:SetBaseCombatStrength(iunit.Combat + icombat * icombat_bonus);
+			SPUEAddCombatBonus(unit, math.ceil(100 * icombat_bonus * icombat / iunit.Combat))
+            local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
+            Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_STRENGTH]", icombat * icombat_bonus));
+            -- Events.GameplayFX(hex.x, hex.y, -1);
+
+		end
+
+	end 
+end
+GameEvents.UnitSetXY.Add(YFS_UnitSetXY)
+GameEvents.UnitCreated.Add(YFS_UnitSetXY)
+-------------------------------------------------------------------------------------------------------------
+-- 殿前司行过回合效果
+-------------------------------------------------------------------------------------------------------------
+GameEvents.PlayerDoTurn.Add(
+function(playerID)
+	local player = Players[playerID] 
+
+	if player == nil or player:IsBarbarian() then
+		return
+	end
+
+	for unit in player:Units() do
+		if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DRAGON_FOOT"].ID) then
+			
+			local unitPlot = unit:GetPlot();
+	  		local uPlayer = Players[unit:GetOwner()];
+	  		local plotX = unitPlot:GetX()
+	  		local plotY = unitPlot:GetY()
+
+	  		local unitCount = unitPlot:GetNumUnits();
+	  		if unitCount > 0 then
+	  			for i = 0, unitCount-1, 1 do
+					local pFoundUnit = unitPlot:GetUnit(i);
+					if pFoundUnit then 
+					  	local pPlayer = Players[pFoundUnit:GetOwner()];
+					  	if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
+						  	pFoundUnit:ChangeMoves(60);
+							pFoundUnit:ChangeExperience(2);
+							local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
+							Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
+						end
+					end
+	  			end
+	  		end
+		
+	  		local uniqueRange = 1
+	  		for dx = -uniqueRange, uniqueRange, 1 do
+				for dy = -uniqueRange, uniqueRange, 1 do
+				  	local adjPlot = Map.PlotXYWithRangeCheck(plotX, plotY, dx, dy, uniqueRange);
+				  	if (adjPlot ~= nil) then
+					  	unitCount = adjPlot:GetNumUnits();
+					  	if unitCount > 0 then
+						  	for i = 0, unitCount-1, 1 do
+								local pFoundUnit = adjPlot:GetUnit(i);
+								if pFoundUnit then 
+								local pPlayer = Players[pFoundUnit:GetOwner()];
+									if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
+										pFoundUnit:ChangeMoves(60);
+										pFoundUnit:ChangeExperience(2);
+										local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
+										Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
+									end
+								end
+						  	end
+					  	end
+				  	end
+				end
+	  		end
+		end
+	end
+
+end)
+
 
 ----驻队矢：轮番猛射
 NSRangeAttackOnButton = {
@@ -620,26 +756,26 @@ function FeiHuGift( iPlayerID, iUnitID )
 		end
 	end	
 end
-Events.SerialEventUnitCreated.Add(FeiHuGift)
+Events.UnitCreated.Add(FeiHuGift)
 
-----泉州海船文化产出
+----泉州海船文化产出&奢侈供给
 function SongFuChuan(playerID)
 
-	local playerID = Game.GetActivePlayer() 			---获取playerID
-	local player = Players[Game.GetActivePlayer()] 		-----获取player
+	-- local playerID = Game.GetActivePlayer() 			---获取playerID
+	local player = Players[playerID] 		-----获取player
 
 	if player == nil then
-		print ("No players")
+		-- print ("No players")
 		return
 	end
 	
 	if player:IsBarbarian() or player:IsMinorCiv() then
-		print ("Minors are Not available!")
+		-- print ("Minors are Not available!")
     	return
 	end
 	
 	if player:GetNumCities() <= 0 then 
-		print ("No Cities!")
+		-- print ("No Cities!")
 		return
 	end
 
@@ -658,9 +794,42 @@ function SongFuChuan(playerID)
 	end
 
 	pCapital:SetNumRealBuilding(GameInfoTypes["BUILDING_SONG_CARGOSHIP"], numship)
-end
 
-Events.SerialEventUnitCreated.Add(SongFuChuan)
+	if numship > 0 then
+		-- 海船线路按顺序提供奢侈
+		local g_KlinLuxuries = {GameInfoTypes['BUILDING_RES_YFS_GEKLIN'],
+								GameInfoTypes['BUILDING_RES_YFS_RUKLIN'],
+								GameInfoTypes['BUILDING_RES_YFS_OFFICALKLIN'],
+								GameInfoTypes['BUILDING_RES_YFS_JUNKLIN'],
+								GameInfoTypes['BUILDING_RES_YFS_DINGKLIN']
+							}
+		local numLuxury = player:GetBuildingClassCount(GameInfoTypes["BUILDINGCLASS_YFS_SONG_RES_BONUS"]);
+		local outgoingRoutes = {};
+		local outgoingRoutes = player:GetTradeRoutes();	
+		if numLuxury == #outgoingRoutes 
+		then 
+			return 
+		else
+			local rest = math.fmod(numLuxury, 5);
+			local numMax = (numLuxury - rest) / 5;
+
+			for i, v in pairs(g_KlinLuxuries) do
+				pCapital:SetNumRealBuilding(v, numMax);
+			end
+			
+			for i, v in pairs(g_KlinLuxuries) do
+				if rest > 0 then
+					pCapital:SetNumRealBuilding(v, numMax + 1);
+					rest = rest - 1;
+				else
+					return;
+				end
+			end			 
+		end	
+	end
+
+end
+Events.UnitCreated.Add(SongFuChuan)
 GameEvents.PlayerDoTurn.Add(SongFuChuan)
 
 -- MOD by CaptainCWB
@@ -683,178 +852,9 @@ function SetEliteUnitsName( iPlayerID, iUnitID )
 
 end
 Events.SerialEventUnitCreated.Add(SetEliteUnitsName)
-
--- 制置使能力维持一回合
-
-GameEvents.PlayerDoTurn.Add(
-function(playerID)
-	local player = Players[playerID] 
-
-	if player == nil or player:IsBarbarian() then
-		return
-	end
-
-	for unit in player:Units() do
-		if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID) then
-			unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID, false)	
-		end
-	end
-
-end)
-
-
 -----------------------------------------------------------------------
-----制置使：天下太平
+---- 赤心队：白马绍兴&制置使：天下太平
 -----------------------------------------------------------------------
--- JieDuShiButton = {
--- 	Name = "JieDuShiButton",
--- 	Title = "TXT_KEY_BUTTON_JIEDUSHI_SHORT", -- or a TXT_KEY
--- 	OrderPriority = 200, -- default is 200
--- 	IconAtlas = "extraPromo_Atlas", -- 45 and 64 variations required
--- 	PortraitIndex = 42,
--- 	ToolTip = "TXT_KEY_BUTTON_JIEDUSHI", -- or a TXT_KEY_ or a function
-	
-   
-	
--- 	Condition = function(action, unit)
--- 	  return unit:CanMove() and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_PRE"].ID);
--- 	end, -- or nil or a boolean, default is true
-	
--- 	Disabled = function(action, unit)   
--- 	  return false;
--- 	end, -- or nil or a boolean, default is false
-	
--- 	Action = function(action, unit, eClick) 
--- 		local unitPlot = unit:GetPlot();
--- 	  local uPlayer = Players[unit:GetOwner()];
--- 	  local plotX = unitPlot:GetX()
--- 	  local plotY = unitPlot:GetY()
-		 
--- 	  local unitCount = unitPlot:GetNumUnits();
--- 	  if unitCount > 0 then
--- 	  for i = 0, unitCount-1, 1 do
--- 		  local pFoundUnit = unitPlot:GetUnit(i);
--- 		  if pFoundUnit then 
--- 			  local pPlayer = Players[pFoundUnit:GetOwner()];
--- 			  if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
--- 				  pFoundUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID, true);
--- 				  print("JieDuShi Same Tile!"); 
--- 				  local hex = ToHexFromGrid(Vector2(plotX, plotY))
--- 				  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_BUTTON_JIEDUSHI_PLOT"))
--- 			  end
--- 		  end
--- 	  end
--- 	  end
-  
--- 	  local uniqueRange = 2
--- 	  for dx = -uniqueRange, uniqueRange, 1 do
--- 		  for dy = -uniqueRange, uniqueRange, 1 do
--- 			  local adjPlot = Map.PlotXYWithRangeCheck(plotX, plotY, dx, dy, uniqueRange);
--- 			  if (adjPlot ~= nil) then
--- 				  unitCount = adjPlot:GetNumUnits();
--- 				  if unitCount > 0 then
--- 					  for i = 0, unitCount-1, 1 do
--- 						  local pFoundUnit = adjPlot:GetUnit(i);
--- 						  if pFoundUnit then 
--- 						  local pPlayer = Players[pFoundUnit:GetOwner()];
--- 						  if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
--- 							  pFoundUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID, true);
--- 							  print("JieDuShi Adj Tile!");
--- 							  local aplotX = adjPlot:GetX()
--- 							  local aplotY = adjPlot:GetY()
--- 							  local hex = ToHexFromGrid(Vector2(aplotX, aplotY))
--- 							  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_BUTTON_JIEDUSHI_PLOT"))
--- 						  end
--- 						  end
--- 					  end
--- 				  end
--- 			  end
--- 		  end
--- 	  end
--- 	  unit:SetMoves(0);
--- 	end
---   };
-  
---   LuaEvents.UnitPanelActionAddin(JieDuShiButton);
-
--- Unit death cause population loss -- MOD by CaptainCWB
-function UnitDeathCounter(iKerPlayer, iKeePlayer, eUnitType)
-	if (PreGame.GetGameOption("GAMEOPTION_SP_CASUALTIES") == 0) then
-		print("War Casualties - OFF!");
-		return;
-	end
-	
-	if Players[iKeePlayer] == nil or not Players[iKeePlayer]:IsAlive() or Players[iKeePlayer]:GetCapitalCity() == nil
-	or Players[iKeePlayer]:IsMinorCiv() or Players[iKeePlayer]:IsBarbarian()
-	or GameInfo.Units[eUnitType] == nil
-	-- UnCombat units do not count
-	or(GameInfo.Units[eUnitType].Combat == 0 and GameInfo.Units[eUnitType].RangedCombat == 0)
-	then
-		return;
-	end
-	
-	local defPlayer = Players[iKeePlayer];
-	local iCasualty = defPlayer:GetCapitalCity():GetNumBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"]);
-	local sUnitType = GameInfo.Units[eUnitType].Type;
-	local iDCounter = 6;
-	
-	if     GameInfo.Unit_FreePromotions{ UnitType = sUnitType, PromotionType = "PROMOTION_NO_CASUALTIES" }() then
-		print ("This unit won't cause Casualties!");
-		return;
-	elseif GameInfo.Unit_FreePromotions{ UnitType = sUnitType, PromotionType = "PROMOTION_HALF_CASUALTIES" }() then
-		iDCounter = iDCounter/2;
-	end
-	if defPlayer:HasPolicy(GameInfo.Policies["POLICY_CENTRALISATION"].ID) then
-		iDCounter = 2*iDCounter/3;
-	end
-	
-	print ("DeathCounter(Max-12): ".. iCasualty .. " + " .. iDCounter);
-	if iCasualty + iDCounter < 12 then
-		defPlayer:GetCapitalCity():SetNumRealBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"], iCasualty + iDCounter);
-	else
-		defPlayer:GetCapitalCity():SetNumRealBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"], 0);
-		local PlayerCitiesCount = defPlayer:GetNumCities();
-		if PlayerCitiesCount <= 0 then ---- In case of 0 city error
-			return;
-		end
-		local apCities = {};
-		local iCounter = 0;
-		
-		for pCity in defPlayer:Cities() do
-			local cityPop = pCity:GetPopulation();
-			if ( cityPop > 1 and defPlayer:IsHuman() ) or cityPop > 5 then
-				apCities[iCounter] = pCity
-				iCounter = iCounter + 1
-			end
-		end
-		
-		if (iCounter > 0) then
-			local iRandChoice = Game.Rand(iCounter, "Choosing random city")
-			local targetCity = apCities[iRandChoice]
-			local Cityname = targetCity:GetName()
-			local iX = targetCity:GetX();
-			local iY = targetCity:GetY();
-			
-			if targetCity:GetPopulation() > 1 then
-				targetCity:ChangePopulation(-1, true)
-				print ("population lost!"..Cityname)
-			else 
-				return;
-			end
-			if defPlayer:IsHuman() then -- Sending Message
-				local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTE_POPULATION_LOSS",targetCity:GetName())
-				local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTE_POPULATION_LOSS_SHORT")
-				defPlayer:AddNotification(NotificationTypes.NOTIFICATION_STARVING, text, heading, iX, iY)
-			end
-		end
-	end
-end
------------------------------------------------------------------------
----- 赤心队：白马绍兴
------------------------------------------------------------------------
---local ChiXinCavalryID = GameInfo.UnitPromotions["PROMOTION_CHIXINDUI1"].ID
---local ChiXinEffectID = GameInfo.UnitPromotions["PROMOTION_CHIXINDUI1_EFFECT"].ID
-
 function CheckChiXinCavalry(pPlayer)
 	local ShangCheck = 0;
 	for pUnit in pPlayer:Units() do
@@ -866,10 +866,22 @@ function CheckChiXinCavalry(pPlayer)
 	return ShangCheck;
 end
 
+function CheckJieDuShi(pPlayer)
+	local JieDuShiCheck = 0;
+	for pUnit in pPlayer:Units() do
+		if pUnit:IsHasPromotion(JieDuShiPreID) then
+			JieDuShiCheck = 1;
+			break
+		end
+	end
+	return JieDuShiCheck;
+end
+
 function YfsUnitsEffect(playerID)
 	local pPlayer = Players[playerID]
 
 	local ChiXinCheck = CheckChiXinCavalry(pPlayer)
+	local JieDuShiCheck = CheckJieDuShi(pPlayer)
 
 	-- 赤心队光环
 	if ChiXinCheck == 1 then
@@ -907,12 +919,44 @@ function YfsUnitsEffect(playerID)
 	end
 
 	-- 天下太平
+	if JieDuShiCheck == 1 then
+		for pUnit in pPlayer:Units() do
+			local Patronage = 0;
+			if (pUnit:GetDomainType() == DomainTypes.DOMAIN_LAND) and pUnit:IsCombatUnit() and not pUnit:IsEmbarked() and not pUnit:IsHasPromotion(ChiXinCavalryID) then 
+				for sUnit in pPlayer:Units() do
+					if sUnit:IsHasPromotion(JieDuShiPreID) then
+						if pPlayer:IsHuman() then
+							if Map.PlotDistance(pUnit:GetX(), pUnit:GetY(), sUnit:GetX(), sUnit:GetY()) < 2 then -- 人类三格
+								Patronage = 1;
+							end
+						elseif not pPlayer:IsHuman() then
+							if Map.PlotDistance(pUnit:GetX(), pUnit:GetY(), sUnit:GetX(), sUnit:GetY()) < 3 then -- ai5格
+								Patronage = 1;
+							end
+						end
+					end
+				end			
+				if Patronage == 1 then
+					if not pUnit:IsHasPromotion(JieDuShiEffectID) then
+						pUnit:SetHasPromotion(JieDuShiEffectID, true)
+					end
+				else
+					if pUnit:IsHasPromotion(JieDuShiEffectID) and not pUnit:IsHasPromotion(JieDuShiPreID) then
+						pUnit:SetHasPromotion(JieDuShiEffectID, false)
+					end
+				end		
+			else
+				if pUnit:IsHasPromotion(JieDuShiEffectID) and not pUnit:IsHasPromotion(JieDuShiPreID) then
+					pUnit:SetHasPromotion(JieDuShiEffectID, false)
+				end
+			end
+		end
+	end
 
-	-- 殿前司根据敌军数量获得战斗力加成
 	
 end
 GameEvents.UnitSetXY.Add(YfsUnitsEffect) 
-Events.SerialEventUnitCreated.Add(YfsUnitsEffect)
+Events.UnitCreated.Add(YfsUnitsEffect)
 -----------------------------------------------------------------------
 ---- 赤心队：组建军团
 -----------------------------------------------------------------------

@@ -8,19 +8,6 @@ print("---------------------------------------------------------------")
 -- SaveUtils
 WARN_NOT_SHARED = false; include( "SaveUtils" ); MY_MOD_NAME = "NanSong_YueFei";
 include("FLuaVector.lua")
--- 国外商路带来旅游值
--- local uCargo = GameInfoTypes.UNIT_SONG_CARGOSHIP;
--- local uCaravan = GameInfoTypes.UNIT_CARAVAN;
-
--- local bDummy1 = GameInfoTypes.BUILDING_TOURISMHANDLER_1 
--- local bDummy2 = GameInfoTypes.BUILDING_TOURISMHANDLER_2 
--- local bDummy4 = GameInfoTypes.BUILDING_TOURISMHANDLER_4 
--- local bDummy8 = GameInfoTypes.BUILDING_TOURISMHANDLER_8 
--- local bDummy16 = GameInfoTypes.BUILDING_TOURISMHANDLER_16
--- local bDummy32 = GameInfoTypes.BUILDING_TOURISMHANDLER_32
--- local bDummy64 = GameInfoTypes.BUILDING_TOURISMHANDLER_64
--- local bDummy128 = GameInfoTypes.BUILDING_TOURISMHANDLER_128
-
 
 function toBits(num)
 	t={}
@@ -88,16 +75,50 @@ end
 
 -- Start Fuction
 function NanSongBonus(iPlayer)
-	local pPlayer = Players[iPlayer];
+	-- local player = Players[playerID] 		-----获取player
+
+	-- if player == nil then return end
 	
-	if (pPlayer:IsAlive()) then
-		if (pPlayer:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"]) then
-			print("Trade0")
-			-- NS_RouteTourism(pPlayer)	-- Trade Routes Brings Tourism
-		end
-	end
+	-- if player:IsBarbarian() or player:IsMinorCiv() then return end
+	
+	-- local numship = 0
+	-- local FromCity= nil
+	-- local g_CityRoutes = {}
+
+	-- for unit in player:Units() do 		--遍历所有单位，为泉州海船计数	
+	-- 	if unit:GetUnitType() == GameInfoTypes["UNIT_SONG_CARGOSHIP"] then	
+	-- 		numship = numship + 1
+	-- 	end
+	-- end
+
+	
+	-- -- 整合所有商路信息
+	-- local outgoingRoutes = {};
+	-- local outgoingRoutes = player:GetTradeRoutes();
+
+	
+	-- for i, route in ipairs(outgoingRoutes) do
+	-- 	FromCity = route.FromCity;
+	-- 	if player:GetBuildingClassCount(GameInfoTypes["BUILDINGCLASS_YFS_SONG_RES_BONUS"]) < 10 then
+
+	-- 	end
+	-- end
+
+
+	-- fromGPT = fromGPT / 100
+
+	-- local pPlayer = Players[iPlayer];
+	
+	-- if (pPlayer:IsAlive()) then
+		
+	-- 	if (pPlayer:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"]) then
+	-- 		print("Trade0")
+	-- 		-- NS_RouteTourism(pPlayer)	-- Trade Routes Brings Tourism
+	-- 	end
+	-- end
 end
 GameEvents.PlayerDoTurn.Add(NanSongBonus)
+
 -- 所有城市第一座奇观免费
 local iGameSpeedType = Game.GetGameSpeedType()
 local ifactor = GameInfo.GameSpeeds[iGameSpeedType].ConstructPercent  / 100
@@ -403,7 +424,6 @@ function SetLiuShouSiUnitsName( iPlayerID, iUnitID )
 	end
 end
 -- Events.SerialEventUnitCreated.Add(SetLiuShouSiUnitsName)
-
 
 function convert_arab_to_chinese(number)
     assert(tonumber(number), "传入参数非正确number类型！")

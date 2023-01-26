@@ -107,7 +107,7 @@
 			<PrereqTech>TECH_CURRENCY</PrereqTech>
 			<Help>TXT_KEY_BUILDING_SONG_MARKET_HELP</Help>
 			<Description>TXT_KEY_BUILDING_SONG_MARKET</Description>
-			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_SONG_MARKET_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_CIV5_BUILDING_SONG_MARKET_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_SP_CITY_BASIC_BUILDINGS_STRATEGY</Strategy>
 			<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
 			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
@@ -123,11 +123,11 @@
 	</Buildings>
 	<Building_ClassesNeededInCity>
 		<!--建筑前置条件-->
-			<Row>
-				<BuildingType>BUILDING_SONG_LIUSHOUSI</BuildingType>
-				<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
-			</Row>
-		</Building_ClassesNeededInCity>
+		<Row>
+			<BuildingType>BUILDING_SONG_LIUSHOUSI</BuildingType>
+			<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+		</Row>
+	</Building_ClassesNeededInCity>
 	<Building_YieldChanges>
 		<Row>
 			<BuildingType>BUILDING_YUYING</BuildingType>
@@ -187,14 +187,14 @@
 			<Yield>1</Yield>
 		</Row>
 	</Building_YieldChanges>
+		
+	<Building_YieldChangesPerPop>
 		<!--街市-->
 		<Row>
 			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
 			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>25</Yield>
 		</Row>
-	<Building_YieldChangesPerPop>
-
 	</Building_YieldChangesPerPop>
 
 	<Building_ResourceQuantity>

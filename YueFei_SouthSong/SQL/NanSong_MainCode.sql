@@ -1,9 +1,10 @@
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_CREATED';		-- 开启单位产生事件
 --==========================================================================================================================
 -- Civilizations
 --==========================================================================================================================
 INSERT INTO Civilizations 	
-			(Type, 						DerivativeCiv,			Description, 					ShortDescription, 					 Adjective, 							CivilopediaTag, 			DefaultPlayerColor,		  ArtDefineTag, ArtStyleType, ArtStyleSuffix, ArtStylePrefix, IconAtlas,			AlphaIconAtlas, 		 PortraitIndex,	SoundtrackTag, 	MapImage, 				DawnOfManQuote, 					DawnOfManImage)
-SELECT		('CIVILIZATION_YFS_SONG'), 	('CIVILIZATION_CHINA'),	('TXT_KEY_CIV_YFS_SONG_DESC'), 	('TXT_KEY_CIV_YFS_SONG_SHORT_DESC'), ('TXT_KEY_CIV_YFS_SONG_ADJECTIVE'), 	('TXT_KEY_CIV5_YFS_SONG'), 	('PLAYERCOLOR_YFS_SONG'), ArtDefineTag, ArtStyleType, ArtStyleSuffix, ArtStylePrefix, ('YFS_SONG_ATLAS'),  ('YFS_SONG_ALPHA_ATLAS'),  0, 			('CHINA'),	 	('tcmSongMap.dds'), 	('TXT_KEY_CIV5_DOM_YFS_SONG_TEXT'), ('yfsSongDOM.dds')
+			(Type, 						Description, 					ShortDescription, 					 Adjective, 							CivilopediaTag, 			DefaultPlayerColor,		  ArtDefineTag, ArtStyleType, ArtStyleSuffix, ArtStylePrefix, IconAtlas,			AlphaIconAtlas, 		 PortraitIndex,	SoundtrackTag, 	MapImage, 				DawnOfManQuote, 					DawnOfManImage)
+SELECT		('CIVILIZATION_YFS_SONG'), 	('TXT_KEY_CIV_YFS_SONG_DESC'), 	('TXT_KEY_CIV_YFS_SONG_SHORT_DESC'), ('TXT_KEY_CIV_YFS_SONG_ADJECTIVE'), 	('TXT_KEY_CIV5_YFS_SONG'), 	('PLAYERCOLOR_YFS_SONG'), ArtDefineTag, ArtStyleType, ArtStyleSuffix, ArtStylePrefix, ('YFS_SONG_ATLAS'),  ('YFS_SONG_ALPHA_ATLAS'),  0, 			('CHINA'),	 	('tcmSongMap.dds'), 	('TXT_KEY_CIV5_DOM_YFS_SONG_TEXT'), ('yfsSongDOM.dds')
 FROM Civilizations WHERE Type = 'CIVILIZATION_CHINA';
 --==========================================================================================================================	
 -- Civilization_BuildingClassOverrides
@@ -11,7 +12,26 @@ FROM Civilizations WHERE Type = 'CIVILIZATION_CHINA';
 INSERT INTO	Civilization_BuildingClassOverrides
 			(CivilizationType,			BuildingClassType,						BuildingType)
 VALUES		('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_MARKET',					'BUILDING_SONG_MARKET'),	-- UB
-			('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_PALACE',					'BUILDING_YUYING');	-- UW1
+			('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_PALACE',					'BUILDING_YUYING');			-- UW1
+--==========================================================================================================================	
+-- UB_BUFF: BuildingClasses
+--==========================================================================================================================	
+INSERT INTO BuildingClasses 	
+			(Type, 						 			DefaultBuilding, 					Description)
+VALUES		('BUILDINGCLASS_YFS_MARKET_BONUS', 		'BUILDING_YFS_MARKET_BONUS_1', 		'TXT_KEY_BUILDING_YFS_MARKET_BONUS_1');
+--==========================================================================================================================	
+-- UB_BUFF: Buildings
+--==========================================================================================================================	
+INSERT INTO Buildings 	
+			(Type, 								BuildingClass, 						Description,							Help,											Cost,	MinAreaSize,	HurryCostModifier,	NeverCapture,	NukeImmune,		PortraitIndex,	IconAtlas)
+VALUES		('BUILDING_YFS_MARKET_BONUS_1',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_1',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_1_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_2',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_2',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_2_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_3',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_3',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_3_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_4',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_4',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_4_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_5',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_5',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_5_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_6',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_6',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_6_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_7',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_7',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_7_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_8',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_8',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_8_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS');
 --==========================================================================================================================
 -- Civilization_CityNames
 --==========================================================================================================================		
@@ -535,16 +555,16 @@ VALUES	('BUILD_YFS_SONG_FORT1',	'TECH_CONSTRUCTION',	'IMPROVEMENT_YFS_SONG_FORT1
 --==========================================================================================================================	
 -- BuildFeatures
 --==========================================================================================================================	
-INSERT INTO Unit_Builds
+INSERT INTO BuildFeatures
 		(BuildType,						FeatureType,		PrereqTech,				Time,	Remove)
-VALUES	('IMPROVEMENT_YFS_SONG_FORT1',	'FEATURE_JUNGLE',	'TECH_BRONZE_WORKING',	400,	1),
-		('IMPROVEMENT_YFS_SONG_FORT1',	'FEATURE_FOREST',	'TECH_BRONZE_WORKING',	100,	1);
+VALUES	('BUILD_YFS_SONG_FORT1',		'FEATURE_JUNGLE',	'TECH_BRONZE_WORKING',	400,	1),
+		('BUILD_YFS_SONG_FORT1',		'FEATURE_FOREST',	'TECH_BRONZE_WORKING',	100,	1);
 --==========================================================================================================================	
 -- Unit_Builds
 --==========================================================================================================================	
 INSERT INTO Unit_Builds
 		(UnitType,			BuildType)
-VALUES	('UNIT_WORKER',		'IMPROVEMENT_YFS_SONG_FORT1');
+VALUES	('UNIT_WORKER',		'BUILD_YFS_SONG_FORT1');
 
 
 

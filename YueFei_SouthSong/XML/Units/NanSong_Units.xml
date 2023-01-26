@@ -444,7 +444,7 @@
 		<!--殿前司-->
 		<Row>
 			<UnitType>UNIT_DRAGON_FOOT</UnitType>
-			<BuildingClassType>BUILDING_LIUSHOUSI</BuildingClassType>
+			<BuildingClassType>BUILDINGCLASS_LIUSHOUSI</BuildingClassType>
 		</Row>
 		<!--车船-->
 		<Row>
