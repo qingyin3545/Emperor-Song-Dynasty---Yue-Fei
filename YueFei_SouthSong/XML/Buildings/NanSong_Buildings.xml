@@ -98,6 +98,28 @@
 			<FreeBuildingThisCity>BUILDINGCLASS_CASTLE</FreeBuildingThisCity>
 		</Row>
 
+		<Row>
+			<!--街市-->
+			<Type>BUILDING_SONG_MARKET</Type>
+			<BuildingClass>BUILDINGCLASS_MARKET</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>45</Cost>
+			<PrereqTech>TECH_CURRENCY</PrereqTech>
+			<Help>TXT_KEY_BUILDING_SONG_MARKET_HELP</Help>
+			<Description>TXT_KEY_BUILDING_SONG_MARKET</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_SONG_MARKET_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SP_CITY_BASIC_BUILDINGS_STRATEGY</Strategy>
+			<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<SpecialistCount>2</SpecialistCount>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>100</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<IconAtlas>YFS_SONG_ATLAS</IconAtlas>
+			<PortraitIndex>9</PortraitIndex>
+		</Row>
+
+
 	</Buildings>
 	<Building_ClassesNeededInCity>
 		<!--建筑前置条件-->
@@ -143,7 +165,38 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>5</Yield>
 		</Row>
+		<!--街市-->
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
 	</Building_YieldChanges>
+		<!--街市-->
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>25</Yield>
+		</Row>
+	<Building_YieldChangesPerPop>
+
+	</Building_YieldChangesPerPop>
+
 	<Building_ResourceQuantity>
 		<!--战略资源加成-->
 		<Row>
@@ -211,6 +264,27 @@
 			<!--东京留守司-->
 			<FlavorType>FLAVOR_CITY_DEFENSE</FlavorType>
 			<Flavor>105</Flavor>
+		</Row>
+		<!--街市-->
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>45</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<FlavorType>FLAVOR_I_TRADE_ORIGIN</FlavorType>
+			<Flavor>25</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<FlavorType>FLAVOR_I_TRADE_DESTINATION</FlavorType>
+			<Flavor>25</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SONG_MARKET</BuildingType>
+			<FlavorType>FLAVOR_GREAT_PEOPLE</FlavorType>
+			<Flavor>10</Flavor>
 		</Row>
 	</Building_Flavors>
 	<Building_FreeUnits>

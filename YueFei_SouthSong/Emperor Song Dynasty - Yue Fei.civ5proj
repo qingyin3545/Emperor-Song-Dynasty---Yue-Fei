@@ -57,11 +57,6 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>SQL/NanSong_Misc.sql</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>SQL/NanSong_TNL_Support.sql</FileName>
       </Action>
       <Action>
@@ -1130,10 +1125,6 @@
     <Content Include="Sounds\WeiLong_Select.WAV">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="SQL\NanSong_Misc.sql">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="SQL\NanSong_ArtDefines.sql">
       <SubType>Lua</SubType>

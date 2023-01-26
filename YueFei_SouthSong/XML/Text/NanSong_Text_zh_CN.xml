@@ -421,16 +421,16 @@
 		</Row>
 
 		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME1">
-			<Text>[COLOR_BROWN_TEXT]御龙直[ENDCOLOR]</Text>
+			<Text>[COLOR_CITY_BROWN]御龙直[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME2">
-			<Text>[COLOR_BROWN_TEXT]御龙骨朵子直[ENDCOLOR]</Text>
+			<Text>[COLOR_CITY_BROWN]御龙骨朵子直[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME3">
-			<Text>[COLOR_BROWN_TEXT]御龙弓箭直[ENDCOLOR]</Text>
+			<Text>[COLOR_CITY_BROWN]御龙弓箭直[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME4">
-			<Text>[COLOR_BROWN_TEXT]御龙弩直[ENDCOLOR]</Text>
+			<Text>[COLOR_CITY_BROWN]御龙弩直[ENDCOLOR]</Text>
 		</Row>
 		<!--驻队矢-->
 		<Row Tag="TXT_KEY_UNIT_ZHUDUISHI">
@@ -452,7 +452,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_JIEDUSHI_TEXT">
 			<Text>
-				北宋末，曾以种师道为京畿﹑河北制置使，作为抗金的军事统帅。南宋初，常设制置使为方面军统帅，以抗金或镇压叛乱。辖区内的安抚使及地方官吏并受节制，后改为只节制军事，其它归地方政府。建炎四年(1130)定位在招讨使之下，后又规定安抚使不再带制置使，制置使只作统兵文武官员的官衔，也不常置。只有四川安抚使仍带制置使，职权略同于宣抚使，但不管财政。官高者或称制置大使。此外，还设沿江制置使﹑制置副使﹑沿海制置使。			</Text>
+				北宋末，曾以种师道为京畿﹑河北制置使，作为抗金的军事统帅。南宋初，常设制置使为方面军统帅，以抗金或镇压叛乱。辖区内的安抚使及地方官吏并受节制，后改为只节制军事，其它归地方政府。建炎四年(1130)定位在招讨使之下，后又规定安抚使不再带制置使，制置使只作统兵文武官员的官衔，也不常置。只有四川安抚使仍带制置使，职权略同于宣抚使，但不管财政。官高者或称制置大使。此外，还设沿江制置使﹑制置副使﹑沿海制置使。</Text>
 		</Row>
 		<!--车船-->
 		<Row Tag="TXT_KEY_UNIT_U_PWS">

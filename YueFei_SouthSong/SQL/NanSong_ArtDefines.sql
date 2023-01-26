@@ -201,7 +201,7 @@ VALUES	('ART_DEF_UNIT_BEIWEI_FOOT',				'Unit', 	'SV_BeiWeiF.dds');
 ------------------------------------------------------------------------------------------------------------------------
 INSERT INTO ArtDefine_UnitInfos 
 		(Type, 										DamageStates,	Formation)
-SELECT	'ART_DEF_UNIT_DRAGON_FOOT',					DamageStates, 	''
+SELECT	'ART_DEF_UNIT_DRAGON_FOOT',					DamageStates, 	'OffsetPikeman'
 FROM ArtDefine_UnitInfos WHERE Type = 'ART_DEF_UNIT_NATIONAL_GUARD';
 
 INSERT INTO ArtDefine_UnitInfoMemberInfos 	

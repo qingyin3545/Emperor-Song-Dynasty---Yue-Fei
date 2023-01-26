@@ -10,8 +10,8 @@ FROM Civilizations WHERE Type = 'CIVILIZATION_CHINA';
 --==========================================================================================================================	
 INSERT INTO	Civilization_BuildingClassOverrides
 			(CivilizationType,			BuildingClassType,						BuildingType)
-VALUES		('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_PALACE',					'BUILDING_YUYING'),	-- UW1
--- VALUES		('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_LIUSHOUSI',				'BUILDING_SONG_LIUSHOUSI');	-- UW2
+VALUES		('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_MARKET',					'BUILDING_SONG_MARKET'),	-- UB
+			('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_PALACE',					'BUILDING_YUYING');	-- UW1
 --==========================================================================================================================
 -- Civilization_CityNames
 --==========================================================================================================================		
@@ -316,10 +316,10 @@ VALUES		('BUILDINGCLASS_YFS_SONG_RES_BONUS', 		'BUILDING_RES_YFS_GEKLIN', 		'TXT
 INSERT INTO Buildings 	
 			(Type, 								BuildingClass, 						Description,							UnhappinessModifier,	TradeRouteSeaDistanceModifier,	TradeRouteRecipientBonus,	TradeRouteTargetBonus,	Help,											GreatWorkCount,	Cost,	MinAreaSize,	HurryCostModifier,	NeverCapture,	NukeImmune,		PortraitIndex,	IconAtlas)
 VALUES		('BUILDING_RES_YFS_GEKLIN',			'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_GEKLIN',		0,						10,								2,							2,						'TXT_KEY_BUILDING_RES_YFS_GEKLIN_HELP',			0,		 		-1,		-1,				-1,					1,				1,				16,				'YFS_SONG_ATLAS'),
-			('BUILDING_RES_YFS_RUKLIN',			'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_RUKLIN',		0,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_RUKLIN_HELP',			0,		 		-1,		-1,				-1,					1,				1,				17,				'YFS_SONG_ATLAS'),
-			('BUILDING_RES_YFS_OFFICALKLIN',	'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN',	0,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN_HELP',	0,		 		-1,		-1,				-1,					1,				1,				18,				'YFS_SONG_ATLAS'),
-			('BUILDING_RES_YFS_JUNKLIN',		'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_JUNKLIN',		0,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_JUNKLIN_HELP',		0,		 		-1,		-1,				-1,					1,				1,				19,				'YFS_SONG_ATLAS'),
-			('BUILDING_RES_YFS_DINGKLIN',		'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_DINGKLIN',	-1,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_DINGKLIN_HELP',		0,		 		-1,		-1,				-1,					1,				1,				20,				'YFS_SONG_ATLAS');
+			('BUILDING_RES_YFS_RUKLIN',			'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_RUKLIN',		0,						0,								0,							0,						'TXT_KEY_BUILDING_RES_YFS_RUKLIN_HELP',			0,		 		-1,		-1,				-1,					1,				1,				17,				'YFS_SONG_ATLAS'),
+			('BUILDING_RES_YFS_OFFICALKLIN',	'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN',	0,						0,								0,							0,						'TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN_HELP',	0,		 		-1,		-1,				-1,					1,				1,				18,				'YFS_SONG_ATLAS'),
+			('BUILDING_RES_YFS_JUNKLIN',		'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_JUNKLIN',		0,						0,								0,							0,						'TXT_KEY_BUILDING_RES_YFS_JUNKLIN_HELP',		0,		 		-1,		-1,				-1,					1,				1,				19,				'YFS_SONG_ATLAS'),
+			('BUILDING_RES_YFS_DINGKLIN',		'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_DINGKLIN',	-1,						0,								0,							0,						'TXT_KEY_BUILDING_RES_YFS_DINGKLIN_HELP',		0,		 		-1,		-1,				-1,					1,				1,				20,				'YFS_SONG_ATLAS');
 --==========================================================================================================================	
 -- Resources:Building_ResourceQuantity
 --==========================================================================================================================	
@@ -339,11 +339,11 @@ VALUES		('BUILDING_RES_YFS_OFFICALKLIN',	'DOMAIN_SEA',		2);
 --==========================================================================================================================	
 -- Resources:Building_DomainProductionModifiers
 --==========================================================================================================================	
-INSERT INTO Building_DomainFreeExperiences
+INSERT INTO Building_DomainProductionModifiers
 			(BuildingType, 						DomainType, 		Modifier)
 VALUES		('BUILDING_RES_YFS_OFFICALKLIN',	'DOMAIN_SEA',		2);
 --==========================================================================================================================	
--- Resources:Building_YieldChanges
+-- Resources:Building_GlobalYieldModifiers
 --==========================================================================================================================					
 INSERT INTO Building_GlobalYieldModifiers 
 			(BuildingType, 						YieldType,			Yield)
@@ -499,7 +499,7 @@ VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'POLICY_TRADITION_FINISHER',	'YIELD_FOOD'
 
 		('IMPROVEMENT_YFS_SONG_FORT2',		'POLICY_TRADITION_FINISHER',	'YIELD_FOOD',		2),
 		('IMPROVEMENT_YFS_SONG_FORT2',		'POLICY_COMMERCE_FINISHER',		'YIELD_GOLD',		2),
-		('IMPROVEMENT_YFS_SONG_FORT2',		'POLICY_PIETY_FINISHER',		'YIELD_FAITH',		2);
+		('IMPROVEMENT_YFS_SONG_FORT2',		'POLICY_PIETY_FINISHER',		'YIELD_FAITH',		2),
 
 		('IMPROVEMENT_YFS_SONG_FORT3',		'POLICY_TRADITION_FINISHER',	'YIELD_FOOD',		3),
 		('IMPROVEMENT_YFS_SONG_FORT3',		'POLICY_COMMERCE_FINISHER',		'YIELD_GOLD',		3),
@@ -531,7 +531,7 @@ VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'FLAVOR_TILE_IMPROVEMENT',	40),
 --==========================================================================================================================	
 INSERT INTO Builds
 		(Type,						PrereqTech,				ImprovementType, 				Time, Recommendation,						Description,					Help,										OrderPriority,	IconIndex,	IconAtlas,			EntityEvent)
-VALUES	('BUILD_YFS_SONG_FORT1',	'TECH_BRONZE_WORKING',	'IMPROVEMENT_YFS_SONG_FORT1',	900,  'TXT_KEY_BUILD_YFS_SONG_FORT1_REC', 	'TXT_KEY_BUILD_YFS_SONG_FORT1',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1_HELP',	96,				1,			'YFS_CASTLE_ATLAS',	'ENTITY_EVENT_BUILD');
+VALUES	('BUILD_YFS_SONG_FORT1',	'TECH_CONSTRUCTION',	'IMPROVEMENT_YFS_SONG_FORT1',	900,  'TXT_KEY_BUILD_YFS_SONG_FORT1_REC', 	'TXT_KEY_BUILD_YFS_SONG_FORT1',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1_HELP',	96,				1,			'YFS_CASTLE_ATLAS',	'ENTITY_EVENT_BUILD');
 --==========================================================================================================================	
 -- BuildFeatures
 --==========================================================================================================================	

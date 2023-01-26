@@ -130,7 +130,7 @@
 			<PortraitIndex>13</PortraitIndex>
 			<ExtraMaintenanceCost>3</ExtraMaintenanceCost>
 		</Row>
-		<!--节度使-->
+		<!--制置使-->
 		<Row>
 			<Class>UNITCLASS_GREAT_GENERAL</Class>
 			<Type>UNIT_JIEDUSHI</Type>
@@ -652,7 +652,7 @@
 			<UnitType>UNIT_ZHUDUISHI</UnitType>
 			<PromotionType>PROMOTION_CAN_ZHUDUISHI</PromotionType>
 		</Row>
-		<!--节度使-->
+		<!--制置使-->
 		<Row>
 			<UnitType>UNIT_JIEDUSHI</UnitType>
 			<PromotionType>PROMOTION_MEDIC</PromotionType>
@@ -840,7 +840,7 @@
 			<SelectionSound>AS2D_SELECT_CROSSBOWMAN</SelectionSound>
 			<FirstSelectionSound>AS2D_BIRTH_CROSSBOWMAN</FirstSelectionSound>
 		</Row>
-		<!--节度使-->
+		<!--制置使-->
 		<Row>
 			<UnitType>UNIT_JIEDUSHI</UnitType>
 			<SelectionSound>AS2D_BUILD_UNIT</SelectionSound>
@@ -918,7 +918,7 @@
 			<UnitType>UNIT_ZHUDUISHI</UnitType>
 			<UnitAIType>UNITAI_DEFENSE</UnitAIType>
 		</Row>
-		<!--节度使-->
+		<!--制置使-->
 		<Row>
 			<UnitType>UNIT_JIEDUSHI</UnitType>
 			<UnitAIType>UNITAI_GENERAL</UnitAIType>
@@ -1018,7 +1018,7 @@
 			<FlavorType>FLAVOR_DEFENSE</FlavorType>
 			<Flavor>22</Flavor>
 		</Row>
-		<!--节度使-->
+		<!--制置使-->
 		<Row>
 			<UnitType>UNIT_JIEDUSHI</UnitType>
 			<FlavorType>FLAVOR_OFFENSE</FlavorType>
@@ -1114,7 +1114,7 @@
 
 	<!-- 命名 -->
 	<Unit_UniqueNames>
-		<!-- 节度使 -->
+		<!-- 制置使 -->
 		<Row>
 			<UnitType>UNIT_JIEDUSHI</UnitType>
 			<UniqueName>TXT_KEY_UNIT_JIEDUSHI_NAME0</UniqueName>
