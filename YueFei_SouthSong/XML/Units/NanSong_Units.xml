@@ -142,7 +142,7 @@
 			<Description>TXT_KEY_UNIT_JIEDUSHI</Description>
 			<Civilopedia>TXT_KEY_CIV5_JIEDUSHI_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_CIV5_GREATGENERALS_TEXT</Strategy>
-			<Help>TXT_KEY_UNIT_GREAT_GENERAL_STRATEGY</Help>
+			<Help>TXT_KEY_UNIT_JIEDUSHI_HELP</Help>
 			<AdvancedStartCost>-1</AdvancedStartCost>
 			<WorkRate>9999</WorkRate>
 			<CombatLimit>0</CombatLimit>

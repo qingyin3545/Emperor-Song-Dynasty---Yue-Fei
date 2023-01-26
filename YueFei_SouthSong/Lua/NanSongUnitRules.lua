@@ -706,76 +706,76 @@ end)
 -----------------------------------------------------------------------
 ----制置使：天下太平
 -----------------------------------------------------------------------
-JieDuShiButton = {
-	Name = "JieDuShiButton",
-	Title = "TXT_KEY_BUTTON_JIEDUSHI_SHORT", -- or a TXT_KEY
-	OrderPriority = 200, -- default is 200
-	IconAtlas = "extraPromo_Atlas", -- 45 and 64 variations required
-	PortraitIndex = 42,
-	ToolTip = "TXT_KEY_BUTTON_JIEDUSHI", -- or a TXT_KEY_ or a function
+-- JieDuShiButton = {
+-- 	Name = "JieDuShiButton",
+-- 	Title = "TXT_KEY_BUTTON_JIEDUSHI_SHORT", -- or a TXT_KEY
+-- 	OrderPriority = 200, -- default is 200
+-- 	IconAtlas = "extraPromo_Atlas", -- 45 and 64 variations required
+-- 	PortraitIndex = 42,
+-- 	ToolTip = "TXT_KEY_BUTTON_JIEDUSHI", -- or a TXT_KEY_ or a function
 	
    
 	
-	Condition = function(action, unit)
-	  return unit:CanMove() and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_PRE"].ID);
-	end, -- or nil or a boolean, default is true
+-- 	Condition = function(action, unit)
+-- 	  return unit:CanMove() and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_PRE"].ID);
+-- 	end, -- or nil or a boolean, default is true
 	
-	Disabled = function(action, unit)   
-	  return false;
-	end, -- or nil or a boolean, default is false
+-- 	Disabled = function(action, unit)   
+-- 	  return false;
+-- 	end, -- or nil or a boolean, default is false
 	
-	Action = function(action, unit, eClick) 
-		local unitPlot = unit:GetPlot();
-	  local uPlayer = Players[unit:GetOwner()];
-	  local plotX = unitPlot:GetX()
-	  local plotY = unitPlot:GetY()
+-- 	Action = function(action, unit, eClick) 
+-- 		local unitPlot = unit:GetPlot();
+-- 	  local uPlayer = Players[unit:GetOwner()];
+-- 	  local plotX = unitPlot:GetX()
+-- 	  local plotY = unitPlot:GetY()
 		 
-	  local unitCount = unitPlot:GetNumUnits();
-	  if unitCount > 0 then
-	  for i = 0, unitCount-1, 1 do
-		  local pFoundUnit = unitPlot:GetUnit(i);
-		  if pFoundUnit then 
-			  local pPlayer = Players[pFoundUnit:GetOwner()];
-			  if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
-				  pFoundUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID, true);
-				  print("JieDuShi Same Tile!"); 
-				  local hex = ToHexFromGrid(Vector2(plotX, plotY))
-				  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_BUTTON_JIEDUSHI_PLOT"))
-			  end
-		  end
-	  end
-	  end
+-- 	  local unitCount = unitPlot:GetNumUnits();
+-- 	  if unitCount > 0 then
+-- 	  for i = 0, unitCount-1, 1 do
+-- 		  local pFoundUnit = unitPlot:GetUnit(i);
+-- 		  if pFoundUnit then 
+-- 			  local pPlayer = Players[pFoundUnit:GetOwner()];
+-- 			  if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
+-- 				  pFoundUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID, true);
+-- 				  print("JieDuShi Same Tile!"); 
+-- 				  local hex = ToHexFromGrid(Vector2(plotX, plotY))
+-- 				  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_BUTTON_JIEDUSHI_PLOT"))
+-- 			  end
+-- 		  end
+-- 	  end
+-- 	  end
   
-	  local uniqueRange = 2
-	  for dx = -uniqueRange, uniqueRange, 1 do
-		  for dy = -uniqueRange, uniqueRange, 1 do
-			  local adjPlot = Map.PlotXYWithRangeCheck(plotX, plotY, dx, dy, uniqueRange);
-			  if (adjPlot ~= nil) then
-				  unitCount = adjPlot:GetNumUnits();
-				  if unitCount > 0 then
-					  for i = 0, unitCount-1, 1 do
-						  local pFoundUnit = adjPlot:GetUnit(i);
-						  if pFoundUnit then 
-						  local pPlayer = Players[pFoundUnit:GetOwner()];
-						  if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
-							  pFoundUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID, true);
-							  print("JieDuShi Adj Tile!");
-							  local aplotX = adjPlot:GetX()
-							  local aplotY = adjPlot:GetY()
-							  local hex = ToHexFromGrid(Vector2(aplotX, aplotY))
-							  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_BUTTON_JIEDUSHI_PLOT"))
-						  end
-						  end
-					  end
-				  end
-			  end
-		  end
-	  end
-	  unit:SetMoves(0);
-	end
-  };
+-- 	  local uniqueRange = 2
+-- 	  for dx = -uniqueRange, uniqueRange, 1 do
+-- 		  for dy = -uniqueRange, uniqueRange, 1 do
+-- 			  local adjPlot = Map.PlotXYWithRangeCheck(plotX, plotY, dx, dy, uniqueRange);
+-- 			  if (adjPlot ~= nil) then
+-- 				  unitCount = adjPlot:GetNumUnits();
+-- 				  if unitCount > 0 then
+-- 					  for i = 0, unitCount-1, 1 do
+-- 						  local pFoundUnit = adjPlot:GetUnit(i);
+-- 						  if pFoundUnit then 
+-- 						  local pPlayer = Players[pFoundUnit:GetOwner()];
+-- 						  if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
+-- 							  pFoundUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID, true);
+-- 							  print("JieDuShi Adj Tile!");
+-- 							  local aplotX = adjPlot:GetX()
+-- 							  local aplotY = adjPlot:GetY()
+-- 							  local hex = ToHexFromGrid(Vector2(aplotX, aplotY))
+-- 							  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_BUTTON_JIEDUSHI_PLOT"))
+-- 						  end
+-- 						  end
+-- 					  end
+-- 				  end
+-- 			  end
+-- 		  end
+-- 	  end
+-- 	  unit:SetMoves(0);
+-- 	end
+--   };
   
-  LuaEvents.UnitPanelActionAddin(JieDuShiButton);
+--   LuaEvents.UnitPanelActionAddin(JieDuShiButton);
 
 -- Unit death cause population loss -- MOD by CaptainCWB
 function UnitDeathCounter(iKerPlayer, iKeePlayer, eUnitType)
@@ -849,8 +849,6 @@ function UnitDeathCounter(iKerPlayer, iKeePlayer, eUnitType)
 		end
 	end
 end
-
-
 -----------------------------------------------------------------------
 ---- 赤心队：白马绍兴
 -----------------------------------------------------------------------
@@ -868,47 +866,53 @@ function CheckChiXinCavalry(pPlayer)
 	return ShangCheck;
 end
 
-function ChiXinCavalryOther(playerID)
+function YfsUnitsEffect(playerID)
 	local pPlayer = Players[playerID]
-	--if (pPlayer:GetCivilizationType() ~= GameInfoTypes["CIVILIZATION_ERLITOU_MOD"]) then
-		local ShangCheck = CheckChiXinCavalry(pPlayer)
-		if ShangCheck == 1 then
-			for pUnit in pPlayer:Units() do
-				local Patronage = 0;
-				if (pUnit:GetDomainType() == DomainTypes.DOMAIN_LAND) and pUnit:IsCombatUnit() and not pUnit:IsEmbarked() and not pUnit:IsHasPromotion(ChiXinCavalryID) then 
-					for sUnit in pPlayer:Units() do
-						if sUnit:IsHasPromotion(ChiXinCavalryID) then
-							if pPlayer:IsHuman() then
-								if Map.PlotDistance(pUnit:GetX(), pUnit:GetY(), sUnit:GetX(), sUnit:GetY()) < 4 then -- 人类三格
-									Patronage = 1;
-								end
-							elseif not pPlayer:IsHuman() then
-								if Map.PlotDistance(pUnit:GetX(), pUnit:GetY(), sUnit:GetX(), sUnit:GetY()) < 6 then -- ai5格
-									Patronage = 1;
-								end
+
+	local ChiXinCheck = CheckChiXinCavalry(pPlayer)
+
+	-- 赤心队光环
+	if ChiXinCheck == 1 then
+		for pUnit in pPlayer:Units() do
+			local Patronage = 0;
+			if (pUnit:GetDomainType() == DomainTypes.DOMAIN_LAND) and pUnit:IsCombatUnit() and not pUnit:IsEmbarked() and not pUnit:IsHasPromotion(ChiXinCavalryID) then 
+				for sUnit in pPlayer:Units() do
+					if sUnit:IsHasPromotion(ChiXinCavalryID) then
+						if pPlayer:IsHuman() then
+							if Map.PlotDistance(pUnit:GetX(), pUnit:GetY(), sUnit:GetX(), sUnit:GetY()) < 4 then -- 人类三格
+								Patronage = 1;
+							end
+						elseif not pPlayer:IsHuman() then
+							if Map.PlotDistance(pUnit:GetX(), pUnit:GetY(), sUnit:GetX(), sUnit:GetY()) < 6 then -- ai5格
+								Patronage = 1;
 							end
 						end
-					end			
-					if Patronage == 1 then
-						if not pUnit:IsHasPromotion(ChiXinEffectID) then
-							pUnit:SetHasPromotion(ChiXinEffectID, true)
-						end
-					else
-						if pUnit:IsHasPromotion(ChiXinEffectID) and not pUnit:IsHasPromotion(ChiXinCavalryID) then
-							pUnit:SetHasPromotion(ChiXinEffectID, false)
-						end
-					end		
+					end
+				end			
+				if Patronage == 1 then
+					if not pUnit:IsHasPromotion(ChiXinEffectID) then
+						pUnit:SetHasPromotion(ChiXinEffectID, true)
+					end
 				else
 					if pUnit:IsHasPromotion(ChiXinEffectID) and not pUnit:IsHasPromotion(ChiXinCavalryID) then
 						pUnit:SetHasPromotion(ChiXinEffectID, false)
 					end
+				end		
+			else
+				if pUnit:IsHasPromotion(ChiXinEffectID) and not pUnit:IsHasPromotion(ChiXinCavalryID) then
+					pUnit:SetHasPromotion(ChiXinEffectID, false)
 				end
 			end
 		end
-	--end
+	end
+
+	-- 天下太平
+
+	-- 殿前司根据敌军数量获得战斗力加成
+	
 end
-GameEvents.UnitSetXY.Add(ChiXinCavalryOther) 
-Events.SerialEventUnitCreated.Add(ChiXinCavalryOther)
+GameEvents.UnitSetXY.Add(YfsUnitsEffect) 
+Events.SerialEventUnitCreated.Add(YfsUnitsEffect)
 -----------------------------------------------------------------------
 ---- 赤心队：组建军团
 -----------------------------------------------------------------------

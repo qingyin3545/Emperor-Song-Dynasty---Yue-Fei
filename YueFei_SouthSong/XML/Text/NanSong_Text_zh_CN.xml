@@ -279,6 +279,32 @@
 		<Row Tag="TXT_KEY_BUILDING_SONG_LIUSHOUSI_NAME">
 			<Text>东京留守司统制第</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET">
+			<Text>[ICON_GOLD]街市</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_HELP">
+			<Text>
+				[ICON_GOLD]街市是新宋的特色建筑，替代[ICON_GOLD]市场。
+				[NEWLINE]集四海之珍奇，皆归市易；会寰区之异味，悉在庖厨。
+				[NEWLINE][ICON_BULLET]拥有[ICON_GOLD]街市的城市能够随机触发加成事件，每回合仅能触发一次。
+				[NEWLINE][ICON_BULLET]本城每4[ICON_CITIZEN]人口+1[ICON_GOLD]金钱产出。
+				[NEWLINE][ICON_BULLET][ICON_GOLD]街市建成之后，所在城市将随机获得以下建筑之一：
+				[NEWLINE][ICON_BULLET]百种圆药铺：+1[ICON_RESEACH]科研，提供1个大科学家席位；
+				[NEWLINE][ICON_BULLET]唐家金银铺；+1[ICON_GOLD]金币，提供1个大商业家席位；
+				[NEWLINE][ICON_BULLET]南北作坊；+1[ICON_PRODUCTION]产能，提供1个大工程师席位；
+				[NEWLINE][ICON_BULLET]桑家瓦子：+1[ICON_CULTURE]文化，提供1个大文学家席位；
+				[NEWLINE][ICON_BULLET]曹婆婆肉饼铺：+1[ICON_FOOD]食物，且城市增加新的[ICON_CITIZEN]市民后保留25%[ICON_FOOD]食物储备以加速成长；
+				[NEWLINE][ICON_BULLET]遇仙正店：+2幸福度，-1%全局不满；
+				[NEWLINE][ICON_BULLET]军巡铺屋：城市[ICON_STRENGTH]防御力+40；
+				[NEWLINE][ICON_BULLET]州桥夜市；本城市+25%[ICON_GREAT_PEOPLE]伟人点数累积。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_PEDIA">
+			<Text>
+				宋代城市的发展，打破前代以坊为居民区，市为商业区，坊、市严格区分的界限;街巷都可开设店铺，又在坊之上设厢，作为较大的行政区划，以加强对坊郭户的控制。厢坊制遂取代前代的坊市制。			
+			</Text>
+		</Row>
 		<!--*******************************精英单位工程*******************************-->
 		<Row Tag="TXT_KEY_PROJECT_BEWEI_CAVALRY">
 			<Text>靖康之变</Text>
@@ -450,9 +476,19 @@
 		<Row Tag="TXT_KEY_UNIT_JIEDUSHI">
 			<Text>制置使</Text>
 		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_HELP">
+			<Text>
+				[COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]是新宋的特色单位，替代[COLOR_POSITIVE_TEXT]陆军统帅[ENDCOLOR]。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]天下太平[ENDCOLOR]：[COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]两格内的己方单位获得晋升：[COLOR_WHITE]文官不爱财，武官不惜死[ENDCOLOR]，相应单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]战区节帅[ENDCOLOR]：[COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]位于城市中时可以颁布战区政令。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]位于有[ICON_GOLD]街市的城市中时有几率触发事件：[COLOR_WHITE]使知西北有孤忠[ENDCOLOR]。
+			</Text>
+		</Row>
 		<Row Tag="TXT_KEY_CIV5_JIEDUSHI_TEXT">
 			<Text>
-				北宋末，曾以种师道为京畿﹑河北制置使，作为抗金的军事统帅。南宋初，常设制置使为方面军统帅，以抗金或镇压叛乱。辖区内的安抚使及地方官吏并受节制，后改为只节制军事，其它归地方政府。建炎四年(1130)定位在招讨使之下，后又规定安抚使不再带制置使，制置使只作统兵文武官员的官衔，也不常置。只有四川安抚使仍带制置使，职权略同于宣抚使，但不管财政。官高者或称制置大使。此外，还设沿江制置使﹑制置副使﹑沿海制置使。</Text>
+				北宋末，曾以种师道为京畿﹑河北制置使，作为抗金的军事统帅。南宋初，常设制置使为方面军统帅，以抗金或镇压叛乱。辖区内的安抚使及地方官吏并受节制，后改为只节制军事，其它归地方政府。建炎四年(1130)定位在招讨使之下，后又规定安抚使不再带制置使，制置使只作统兵文武官员的官衔，也不常置。只有四川安抚使仍带制置使，职权略同于宣抚使，但不管财政。官高者或称制置大使。此外，还设沿江制置使﹑制置副使﹑沿海制置使。
+			</Text>
 		</Row>
 		<!--车船-->
 		<Row Tag="TXT_KEY_UNIT_U_PWS">
@@ -523,6 +559,8 @@
 				[NEWLINE][ICON_BULLET][ICON_RES_YFS_OFFICALKLIN]官窑瓷器：生产[COLOR_POSITIVE_TEXT]海军单位[ENDCOLOR]时+2%[ICON_PRODUCTION]产能、+2初始经验；
 				[NEWLINE][ICON_BULLET][ICON_RES_YFS_JUNKLIN]钧窑瓷器:增加1%的全局[ICON_RESEARCH]科研产出;
 				[NEWLINE][ICON_BULLET][ICON_RES_YFS_DINGKLIN]定窑瓷器:减少1%的全局不满。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]的起点城市完成[ICON_GOLD]街市建设后有几率触发事件：[COLOR_WHITE]涨海声中万国商[ENDCOLOR]。
 			</Text>
 		</Row>
 		<!--飞虎战船-->
@@ -614,7 +652,7 @@
 			<Text>天下太平</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI">
-			<Text>消耗自身所有[ICON_MOVES]移动力执行[COLOR_POSITIVE_TEXT]文官不爱财,武官不惜死[ENDCOLOR]命令，使两格内单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
+			<Text>两格内的己方单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI_PLOT">
 			<Text>文官不爱财[NEWLINE]武官不惜死</Text>
