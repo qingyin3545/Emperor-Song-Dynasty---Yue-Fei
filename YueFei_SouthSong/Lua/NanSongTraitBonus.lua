@@ -9,17 +9,17 @@ print("---------------------------------------------------------------")
 WARN_NOT_SHARED = false; include( "SaveUtils" ); MY_MOD_NAME = "NanSong_YueFei";
 include("FLuaVector.lua")
 -- 国外商路带来旅游值
-local uCargo = GameInfoTypes.UNIT_SONG_CARGOSHIP;
-local uCaravan = GameInfoTypes.UNIT_CARAVAN;
+-- local uCargo = GameInfoTypes.UNIT_SONG_CARGOSHIP;
+-- local uCaravan = GameInfoTypes.UNIT_CARAVAN;
 
-local bDummy1 = GameInfoTypes.BUILDING_TOURISMHANDLER_1 
-local bDummy2 = GameInfoTypes.BUILDING_TOURISMHANDLER_2 
-local bDummy4 = GameInfoTypes.BUILDING_TOURISMHANDLER_4 
-local bDummy8 = GameInfoTypes.BUILDING_TOURISMHANDLER_8 
-local bDummy16 = GameInfoTypes.BUILDING_TOURISMHANDLER_16
-local bDummy32 = GameInfoTypes.BUILDING_TOURISMHANDLER_32
-local bDummy64 = GameInfoTypes.BUILDING_TOURISMHANDLER_64
-local bDummy128 = GameInfoTypes.BUILDING_TOURISMHANDLER_128
+-- local bDummy1 = GameInfoTypes.BUILDING_TOURISMHANDLER_1 
+-- local bDummy2 = GameInfoTypes.BUILDING_TOURISMHANDLER_2 
+-- local bDummy4 = GameInfoTypes.BUILDING_TOURISMHANDLER_4 
+-- local bDummy8 = GameInfoTypes.BUILDING_TOURISMHANDLER_8 
+-- local bDummy16 = GameInfoTypes.BUILDING_TOURISMHANDLER_16
+-- local bDummy32 = GameInfoTypes.BUILDING_TOURISMHANDLER_32
+-- local bDummy64 = GameInfoTypes.BUILDING_TOURISMHANDLER_64
+-- local bDummy128 = GameInfoTypes.BUILDING_TOURISMHANDLER_128
 
 
 function toBits(num)
@@ -33,58 +33,58 @@ function toBits(num)
 end
 
 
-function AddTourism(pcCity, iNum)
-	local num = iNum
-	toBits(num)
-	--pcCity:SetNumRealBuilding(bDummy, num);
-	pcCity:SetNumRealBuilding(bDummy1, t[1]);
-	pcCity:SetNumRealBuilding(bDummy2, t[2]);
-	pcCity:SetNumRealBuilding(bDummy4, t[3]);
-	pcCity:SetNumRealBuilding(bDummy8, t[4]);
-	pcCity:SetNumRealBuilding(bDummy16, t[5]);
-	pcCity:SetNumRealBuilding(bDummy32, t[6]);
-	pcCity:SetNumRealBuilding(bDummy64, t[7]);
-	pcCity:SetNumRealBuilding(bDummy128, t[8]);				
-end
+-- function AddTourism(pcCity, iNum)
+-- 	local num = iNum
+-- 	toBits(num)
+-- 	--pcCity:SetNumRealBuilding(bDummy, num);
+-- 	pcCity:SetNumRealBuilding(bDummy1, t[1]);
+-- 	pcCity:SetNumRealBuilding(bDummy2, t[2]);
+-- 	pcCity:SetNumRealBuilding(bDummy4, t[3]);
+-- 	pcCity:SetNumRealBuilding(bDummy8, t[4]);
+-- 	pcCity:SetNumRealBuilding(bDummy16, t[5]);
+-- 	pcCity:SetNumRealBuilding(bDummy32, t[6]);
+-- 	pcCity:SetNumRealBuilding(bDummy64, t[7]);
+-- 	pcCity:SetNumRealBuilding(bDummy128, t[8]);				
+-- end
 
 
-function NS_RouteTourism(pPlayer)
-	if pPlayer:GetNumCities() <= 0 then 
-		print ("No Cities!")
-		return
-	end
-	print("Trade1")	
-	-- 位于境外时商业活动产生魅力
-	local pcCity = pPlayer:GetCapitalCity();
-	local cTourism = 0;
-	for pUnit in pPlayer:Units() do			
-		if pUnit:GetUnitType() == uCargo then -- Cargo
-			local uPlot = pUnit:GetPlot()
-			--if uPlot:GetOwner() ~= -1 then
-			if (uPlot:GetOwner() == -1) or (Players[uPlot:GetOwner()] ~= pPlayer) then
-				cTourism = cTourism + 4;
-			end
-			--end
-		-- elseif pUnit:GetUnitType() == uCaravan then -- Caravan
-		-- 	local uPlot = pUnit:GetPlot()
-		-- 	--if uPlot:GetOwner() ~= -1 then
-		-- 	if (uPlot:GetOwner() == -1) or (Players[uPlot:GetOwner()] ~= pPlayer) then
-		-- 		cTourism = cTourism + 2;
-		-- 	end
-		-- 	--end
-		end
-	end
-	local iNum = (cTourism * 2);
-	print("AddTourism")
-	AddTourism(pcCity, iNum)
-	print("iNum=",iNum)
-	if iNum > 0 then
-		if (pPlayer:IsHuman()) then	
-			local tourismtext = Locale.ConvertTextKey("TXT_KEY_NANSONG_GET_TOURISM_TAG1") .. iNum ..  Locale.ConvertTextKey("TXT_KEY_NANSONG_GET_TOURISM_TAG2")
-			Events.GameplayAlertMessage(tourismtext);
-		end
-	end
-end
+-- function NS_RouteTourism(pPlayer)
+-- 	if pPlayer:GetNumCities() <= 0 then 
+-- 		print ("No Cities!")
+-- 		return
+-- 	end
+-- 	print("Trade1")	
+-- 	-- 位于境外时商业活动产生魅力
+-- 	local pcCity = pPlayer:GetCapitalCity();
+-- 	local cTourism = 0;
+-- 	for pUnit in pPlayer:Units() do			
+-- 		if pUnit:GetUnitType() == uCargo then -- Cargo
+-- 			local uPlot = pUnit:GetPlot()
+-- 			--if uPlot:GetOwner() ~= -1 then
+-- 			if (uPlot:GetOwner() == -1) or (Players[uPlot:GetOwner()] ~= pPlayer) then
+-- 				cTourism = cTourism + 4;
+-- 			end
+-- 			--end
+-- 		-- elseif pUnit:GetUnitType() == uCaravan then -- Caravan
+-- 		-- 	local uPlot = pUnit:GetPlot()
+-- 		-- 	--if uPlot:GetOwner() ~= -1 then
+-- 		-- 	if (uPlot:GetOwner() == -1) or (Players[uPlot:GetOwner()] ~= pPlayer) then
+-- 		-- 		cTourism = cTourism + 2;
+-- 		-- 	end
+-- 		-- 	--end
+-- 		end
+-- 	end
+-- 	local iNum = (cTourism * 2);
+-- 	print("AddTourism")
+-- 	AddTourism(pcCity, iNum)
+-- 	print("iNum=",iNum)
+-- 	if iNum > 0 then
+-- 		if (pPlayer:IsHuman()) then	
+-- 			local tourismtext = Locale.ConvertTextKey("TXT_KEY_NANSONG_GET_TOURISM_TAG1") .. iNum ..  Locale.ConvertTextKey("TXT_KEY_NANSONG_GET_TOURISM_TAG2")
+-- 			Events.GameplayAlertMessage(tourismtext);
+-- 		end
+-- 	end
+-- end
 
 -- Start Fuction
 function NanSongBonus(iPlayer)

@@ -3,18 +3,12 @@
 --==========================================================================================================================
 INSERT OR REPLACE INTO IconTextureAtlases 
 			(Atlas, 								IconSize, 	Filename, 							IconsPerRow, 	IconsPerColumn)
-VALUES		('YFS_SONG_ATLAS', 						256, 		'yfsSongIcons256.dds',				8,				2),
-			('YFS_SONG_ATLAS', 						128, 		'yfsSongIcons128.dds',				8, 				2),
-			('YFS_SONG_ATLAS', 						80, 		'yfsSongIcons80.dds',				8, 				2),
-			('YFS_SONG_ATLAS', 						64, 		'yfsSongIcons64.dds',				8, 				2),
-			('YFS_SONG_ATLAS', 						45, 		'yfsSongIcons45.dds',				8, 				2),
-			('YFS_SONG_ATLAS', 						32, 		'yfsSongIcons32.dds',				8, 				2),
-			('BMA_SONG_ATLAS', 						256, 		'BWA_IconAtlas256.dds',				1,				1),
-			('BMA_SONG_ATLAS', 						128, 		'BWA_IconAtlas128.dds',				1, 				1),
-			('BMA_SONG_ATLAS', 						80, 		'BWA_IconAtlas80.dds',				1, 				1),
-			('BMA_SONG_ATLAS', 						64, 		'BWA_IconAtlas64.dds',				1, 				1),
-			('BMA_SONG_ATLAS', 						45, 		'BWA_IconAtlas45.dds',				1, 				1),
-			('BMA_SONG_ATLAS', 						32, 		'BWA_IconAtlas32.dds',				1, 				1),
+VALUES		('YFS_SONG_ATLAS', 						256, 		'yfsSongIcons256.dds',				8,				4),
+			('YFS_SONG_ATLAS', 						128, 		'yfsSongIcons128.dds',				8, 				4),
+			('YFS_SONG_ATLAS', 						80, 		'yfsSongIcons80.dds',				8, 				4),
+			('YFS_SONG_ATLAS', 						64, 		'yfsSongIcons64.dds',				8, 				4),
+			('YFS_SONG_ATLAS', 						45, 		'yfsSongIcons45.dds',				8, 				4),
+			('YFS_SONG_ATLAS', 						32, 		'yfsSongIcons32.dds',				8, 				4),
 			('YFS_SONG_ALPHA_ATLAS',				128, 		'yfs2SongAlpha128.dds',				1,				1),
 			('YFS_SONG_ALPHA_ATLAS',				80, 		'yfs2SongAlpha80.dds',				1, 				1),
 			('YFS_SONG_ALPHA_ATLAS',				64, 		'yfs2SongAlpha64.dds',				1, 				1),
@@ -24,16 +18,16 @@ VALUES		('YFS_SONG_ATLAS', 						256, 		'yfsSongIcons256.dds',				8,				2),
 			('YFS_SONG_ALPHA_ATLAS',		 		16, 		'yfs2SongAlpha16.dds',				1, 				1),
 			('YFS_UNIT_FLAG_ATLAS',					32,			'yfsUnitFlagAlpha32.dds',			4, 				4);
 INSERT OR REPLACE INTO IconTextureAtlases	(Atlas, IconSize, Filename, IconsPerRow, IconsPerColumn) VALUES
-			('promoVP_atlas_03', 256, 'promoVP_03_256.dds', '8', '8'),
-			('promoVP_atlas_03', 064, 'promoVP_03_064.dds', '8', '8'),
-			('promoVP_atlas_03', 045, 'promoVP_03_045.dds', '8', '8'),
-			('promoVP_atlas_03', 032, 'promoVP_03_032.dds', '8', '8'),
-			('promoVP_atlas_03', 016, 'promoVP_03_016.dds', '8', '8'),
-			('extraPromo_Atlas', 256, 'extraPromo_256.dds', '8', '8'),
-			('extraPromo_Atlas', 064, 'extraPromo_064.dds', '8', '8'),
-			('extraPromo_Atlas', 045, 'extraPromo_045.dds', '8', '8'),
-			('extraPromo_Atlas', 032, 'extraPromo_032.dds', '8', '8'),
-			('extraPromo_Atlas', 016, 'extraPromo_016.dds', '8', '8');
+			('promoVP_atlas_03', 					256, 		'promoVP_03_256.dds', 				'8', 			'8'),
+			('promoVP_atlas_03', 					064, 		'promoVP_03_064.dds', 				'8', 			'8'),
+			('promoVP_atlas_03', 					045, 		'promoVP_03_045.dds', 				'8', 			'8'),
+			('promoVP_atlas_03', 					032, 		'promoVP_03_032.dds', 				'8', 			'8'),
+			('promoVP_atlas_03', 					016, 		'promoVP_03_016.dds', 				'8', 			'8'),
+			('extraPromo_Atlas', 					256, 		'extraPromo_256.dds', 				'8', 			'8'),
+			('extraPromo_Atlas', 					064, 		'extraPromo_064.dds', 				'8', 			'8'),
+			('extraPromo_Atlas', 					045, 		'extraPromo_045.dds', 				'8', 			'8'),
+			('extraPromo_Atlas', 					032, 		'extraPromo_032.dds', 				'8', 			'8'),
+			('extraPromo_Atlas', 					016, 		'extraPromo_016.dds', 				'8', 			'8');
 --==========================================================================================================================
 -- 堡寨
 --==========================================================================================================================
@@ -478,15 +472,15 @@ VALUES		('ART_DEF_IMPROVEMENT_SONG_FORT1',	'Improvement', 	'YFS_FORT1'),
 
 INSERT INTO ArtDefine_Landmarks 
 			(ImprovementType, 						Era,	State,				 Scale, LayoutHandler,	ResourceType,			Model,					TerrainContour)
-VALUES		('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'UnderConstruction', 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_HB.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Constructed',		 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_B.fxsxml',  1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Pillaged',			 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_PL.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'UnderConstruction', 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_HB.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Constructed',		 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_B.fxsxml',  1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Pillaged',			 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_PL.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'UnderConstruction', 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_HB.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Constructed',		 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_B.fxsxml',  1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Pillaged',			 0.5,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_PL.fxsxml', 1);
+VALUES		('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'UnderConstruction', 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_HB.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Constructed',		 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_B.fxsxml',  1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Pillaged',			 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_PL.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'UnderConstruction', 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_HB.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Constructed',		 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_B.fxsxml',  1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Pillaged',			 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_PL.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'UnderConstruction', 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_HB.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Constructed',		 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_B.fxsxml',  1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Pillaged',			 0.4,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_PL.fxsxml', 1);
 
 INSERT INTO ArtDefine_StrategicView
 			(StrategicViewType, 				TileType, 		Asset)

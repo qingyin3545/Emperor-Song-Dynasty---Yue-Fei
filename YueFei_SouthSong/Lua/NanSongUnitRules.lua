@@ -373,7 +373,7 @@ function NanSongEffect()
     local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_ENEMY_J20")
     attPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC , text, heading, plotX, plotY)
     end
-end
+	end
 
 	------车船AOE,照抄
 	if (attUnit:IsHasPromotion(UpwsID)) then
@@ -425,8 +425,6 @@ end
 						Events.GameplayAlertMessage( text );
 					end
 					pUnit:ChangeDamage(SplashDamageFinal, attPlayer)
---					--------------Death Animation
---					pUnit:PushMission(MissionTypes.MISSION_DIE_ANIMATION)
 					print("Splash Damage="..SplashDamageFinal)
 				end
 			end
@@ -585,81 +583,6 @@ NSRangeAttackOffButton = {
 };
 
 LuaEvents.UnitPanelActionAddin(NSRangeAttackOffButton);
-
-
-----突火枪兵：城市驻守
--- function tcmSongFireLancer(playerID, unitID, unitX, unitY)
--- 	local player = Players[playerID]
--- 	local unit = player:GetUnitByID(unitID)
--- 	local plot = unit:GetPlot()
-
--- 	if plot then
--- 		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_FIRE_LANCER_DEFENSE2"]) then
--- 			if plot:GetPlotCity() then
--- 				unit:SetHasPromotion(GameInfoTypes["PROMOTION_FIRE_LANCER_DEFENSE"], true)
--- 				local plotX, plotY = plot:GetX(), plot:GetY()
--- 				local hex = ToHexFromGrid(Vector2(plotX, plotY))
--- 				Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE"))
--- 			elseif not(plot:GetPlotCity()) then
--- 				unit:SetHasPromotion(GameInfoTypes["PROMOTION_FIRE_LANCER_DEFENSE"], false)
--- 			end
--- 		end
--- 		-- if unit:GetUnitType() == GameInfoTypes["UNIT_FIRELANCER"] then
--- 		-- 	if plot:GetPlotCity() then
--- 		-- 		local numMoves = unit:GetMoves()
--- 		-- 		unit:SetMoves(0)
--- 		-- 		newUnit = player:InitUnit(GameInfoTypes["UNIT_RANGED_FIRELANCER"], unit:GetX(), unit:GetY())
--- 		-- 		newUnit:Convert(unit)
--- 		-- 		newUnit:SetHasPromotion(GameInfoTypes["PROMOTION_FIRE_LANCER_DEFENSE"], true)
--- 		-- 		newUnit:SetHasPromotion(GunpowderInfantryUnitID, false)
--- 		-- 		newUnit:SetHasPromotion(InfantryUnitID, true)
--- 		-- 		newUnit:SetMoves(numMoves)
--- 		-- 	end
--- 		-- elseif unit:GetUnitType() == GameInfoTypes["UNIT_RANGED_FIRELANCER"] then
--- 		-- 	if not(plot:GetPlotCity()) then
--- 		-- 		local numMoves = unit:GetMoves()
--- 		-- 		unit:SetMoves(0)
--- 		-- 		newUnit = player:InitUnit(GameInfoTypes["UNIT_FIRELANCER"], unit:GetX(), unit:GetY())
--- 		-- 		newUnit:Convert(unit)
--- 		-- 		newUnit:SetHasPromotion(GameInfoTypes["PROMOTION_FIRE_LANCER_DEFENSE"], false)
--- 		-- 		newUnit:SetHasPromotion(InfantryUnitID, false)
--- 		-- 		newUnit:SetHasPromotion(GunpowderInfantryUnitID, true)
--- 		-- 		newUnit:SetMoves(numMoves)
--- 		-- 	end
--- 		-- end
--- 	end 
--- end
--- GameEvents.UnitSetXY.Add(tcmSongFireLancer)
-
-
-----突火枪兵：生产加速
--- function tcmSongFireLancerBuildFaster(playerID)
--- 	local player = Players[playerID]
--- 	if player:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"] then
--- 		for city in player:Cities() do
--- 			city:SetNumRealBuilding(GameInfoTypes["BUILDING_FIRELANCER_PRODUCTION"], 0)
--- 			if city:GetProductionUnit() == GameInfoTypes["UNIT_RANGED_FIRELANCER"] then
--- 				local plot = city:Plot()
--- 				for loopPlot in PlotAreaSweepIterator(plot, 2, SECTOR_NORTH, DIRECTION_CLOCKWISE, DIRECTION_OUTWARDS, CENTRE_EXCLUDE) do
--- 					for i = 0, loopPlot:GetNumUnits() - 1, 1 do  
--- 						local otherUnit = loopPlot:GetUnit(i)
--- 						if otherUnit and otherUnit:GetOwner() ~= playerID and otherUnit:IsCombatUnit() then
--- 							local otherPlayer = Players[otherUnit:GetOwner()]
--- 							local otherTeam = Teams[otherPlayer:GetTeam()]
--- 							local team = Teams[player:GetTeam()]
--- 							if otherTeam:IsAtWar(team) then
--- 								city:SetNumRealBuilding(GameInfoTypes["BUILDING_FIRELANCER_PRODUCTION"], 1)
--- 								--city:ChangeUnitProduction(GameInfoTypes["UNIT_RANGED_FIRELANCER"], 30)
--- 								break
--- 							end
--- 						end
--- 					end
--- 				end
--- 			end
--- 		end
--- 	end
--- end
--- GameEvents.PlayerDoTurn.Add(tcmSongFireLancerBuildFaster)
 
 ----车船：飞虎战船买一送一
 function FeiHuGift( iPlayerID, iUnitID )

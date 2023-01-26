@@ -11,7 +11,7 @@ FROM Civilizations WHERE Type = 'CIVILIZATION_CHINA';
 INSERT INTO	Civilization_BuildingClassOverrides
 			(CivilizationType,			BuildingClassType,						BuildingType)
 VALUES		('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_PALACE',					'BUILDING_YUYING'),	-- UW1
-			('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_LIUSHOUSI',				'BUILDING_SONG_LIUSHOUSI');	-- UW2
+-- VALUES		('CIVILIZATION_YFS_SONG',	'BUILDINGCLASS_LIUSHOUSI',				'BUILDING_SONG_LIUSHOUSI');	-- UW2
 --==========================================================================================================================
 -- Civilization_CityNames
 --==========================================================================================================================		
@@ -233,7 +233,6 @@ VALUES		('TRAIT_YFS_YUEFEI_SONG', 						'YIELD_GOLD', 						50),
 INSERT INTO BuildingClasses 	
 			(Type, 						 				DefaultBuilding, 							Description)
 VALUES		('BUILDINGCLASS_YFS_SONG', 					'BUILDING_YFS_SONG', 						'TXT_KEY_CIV_YFS_SONG_DESC'),
-			('BUILDINGCLASS_FIRELANCER_PRODUCTION',		'BUILDING_FIRELANCER_PRODUCTION', 			'TXT_KEY_CIV_YFS_SONG_DESC'),
 			('BUILDINGCLASS_FIRSTWONDER_PRODUCTION',	'BUILDING_FIRSTWONDER_PRODUCTION', 			'TXT_KEY_CIV_YFS_SONG_DESC'),
 			('BUILDINGCLASS_SONG_CARGOSHIP', 			'BUILDING_SONG_CARGOSHIP', 					'TXT_KEY_CIV_YFS_SONG_DESC'),
 			('BUILDINGCLASS_SONG_DEFENSE', 				'BUILDING_SONG_DEFENSE', 					'TXT_KEY_CIV_YFS_SONG_DESC');
@@ -243,7 +242,6 @@ VALUES		('BUILDINGCLASS_YFS_SONG', 					'BUILDING_YFS_SONG', 						'TXT_KEY_CIV_
 INSERT INTO Buildings 	
 			(Type, 								 BuildingClass, 						Defense,	MilitaryProductionModifier,		WonderProductionModifier,	GlobalCultureRateModifier,		GreatWorkCount,		Cost,	Description,								MinAreaSize,	HurryCostModifier,	NeverCapture,	NukeImmune,		PortraitIndex,	IconAtlas)
 VALUES		('BUILDING_YFS_SONG',				'BUILDINGCLASS_YFS_SONG', 					  0,							 0,							   0,							0,				     0,		  -1,	'TXT_KEY_CIV_YFS_SONG_DESC_TRAIT',			-1,				-1,					1,				1,				0,				'YFS_SONG_ATLAS'),
-			('BUILDING_FIRELANCER_PRODUCTION',	'BUILDINGCLASS_FIRELANCER_PRODUCTION', 		  0,							25,							   0,							0,				     0,		  -1,	'TXT_KEY_CIV_YFS_SONG_DESC_FIRELANCER',		-1,				-1,					1,				1,				6,				'YFS_SONG_ATLAS'),
 			('BUILDING_FIRSTWONDER_PRODUCTION',	'BUILDINGCLASS_FIRSTWONDER_PRODUCTION',		  0,							 0,							 100,							0,				    -1,		  -1,	'TXT_KEY_CIV_YFS_SONG_DESC_WONDER',			-1,				-1,					1,				1,			   11,				'YFS_SONG_ATLAS'),
 			('BUILDING_SONG_CARGOSHIP',			'BUILDINGCLASS_SONG_CARGOSHIP', 			  0,							 0,							   0,							4,				     0,		  -1,	'TXT_KEY_CIV_YFS_SONG_DESC_CARGO',			-1,				-1,					1,				1,				1,				'YFS_SONG_ATLAS'),
 			('BUILDING_SONG_DEFENSE',			'BUILDINGCLASS_SONG_DEFENSE', 				100,							 0,							   0,							4,					 0,		  -1,	'TXT_KEY_CIV_YFS_SONG_DESC_DEFENSE',		-1,				-1,					1,				1,			    7,				'YFS_SONG_ATLAS');
@@ -296,3 +294,202 @@ VALUES		('AS2D_LEADER_MUSIC_YFS_YUEFEI_PEACE', 			'SND_LEADER_MUSIC_YFS_YUEFEI_P
 --INSERT INTO Diplomacy_Responses (LeaderType, ResponseType, Response, Bias) VALUES ('LEADER_YFS_YUEFEI','RESPONSE_DECLAREWAR', 'TXT_KEY_LEADER_YFS_YUEFEI_DECLAREWAR_%','1');
 --==========================================================================================================================	
 -- UPDATE CustomModOptions SET Value = 1 Where Name = 'PROMOTIONS_IMPROVEMENT_BONUS';
+--==========================================================================================================================	
+-- Improvements
+--==========================================================================================================================	
+INSERT INTO Improvements
+		(Type,							SpecificCivRequired,	CivilizationType,			AdditionalUnits,	NearbyEnemyDamage,	DefenseModifier,	PillageGold,	OutsideBorders,	IgnoreOwnership,	LuxuryCopiesSiphonedFromMinor,	Description,							Help,										Civilopedia,								ArtDefineTag,						PortraitIndex,	IconAtlas)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',	1,						'CIVILIZATION_YFS_SONG',	0,					0,					50,					100,			1,				1,					1,								'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1_HELP',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1_HELP',	'ART_DEF_IMPROVEMENT_SONG_FORT1', 	0,				'YFS_CASTLE_ATLAS'),
+		('IMPROVEMENT_YFS_SONG_FORT2',	0,						null,						0,					5,					75,					150,			1,				1,					1,								'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT2',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT2_HELP',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT2_HELP',	'ART_DEF_IMPROVEMENT_SONG_FORT2', 	2,				'YFS_CASTLE_ATLAS'),
+		('IMPROVEMENT_YFS_SONG_FORT3',	0,						null,						1,					10,					100,				200,			1,				1,					1,								'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT3',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT3_HELP',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT3_HELP',	'ART_DEF_IMPROVEMENT_SONG_FORT3', 	4,				'YFS_CASTLE_ATLAS');
+--==========================================================================================================================	
+-- Improvement_ValidTerrains
+--==========================================================================================================================	
+INSERT INTO Improvement_ValidTerrains
+		(ImprovementType,					TerrainType)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'TERRAIN_GRASS'),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TERRAIN_TUNDRA'),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TERRAIN_DESERT'),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TERRAIN_SNOW'),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TERRAIN_PLAINS'),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TERRAIN_GRASS'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TERRAIN_TUNDRA'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TERRAIN_DESERT'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TERRAIN_SNOW'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TERRAIN_PLAINS'),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TERRAIN_GRASS'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TERRAIN_TUNDRA'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TERRAIN_DESERT'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TERRAIN_SNOW'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TERRAIN_PLAINS');
+--==========================================================================================================================	
+-- Improvement_Yields
+--==========================================================================================================================	
+INSERT INTO Improvement_Yields
+		(ImprovementType,					YieldType,			Yield)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'YIELD_FOOD',		1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'YIELD_PRODUCTION',	1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'YIELD_GOLD',		-1),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'YIELD_FOOD',		2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'YIELD_PRODUCTION',	2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'YIELD_GOLD',		-2),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'YIELD_FOOD',		3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'YIELD_PRODUCTION',	3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'YIELD_GOLD',		-3);
+--==========================================================================================================================	
+-- Improvement_RiverSideYields
+--==========================================================================================================================	
+INSERT INTO Improvement_RiverSideYields
+		(ImprovementType,					YieldType,			Yield)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'YIELD_GOLD',		1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'YIELD_FOOD',		1),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'YIELD_GOLD',		2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'YIELD_FOOD',		2),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'YIELD_GOLD',		3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'YIELD_FOOD',		3);
+--==========================================================================================================================	
+-- Improvement_RouteYieldChanges
+--==========================================================================================================================	
+INSERT INTO Improvement_RouteYieldChanges
+		(ImprovementType,					RouteType,			YieldType,			Yield)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'ROUTE_ROAD',		'YIELD_GOLD',		1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'ROUTE_RAILROAD',	'YIELD_GOLD',		2),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'ROUTE_ROAD',		'YIELD_GOLD',		2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'ROUTE_RAILROAD',	'YIELD_GOLD',		4),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'ROUTE_ROAD',		'YIELD_GOLD',		3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'ROUTE_RAILROAD',	'YIELD_GOLD',		6);
+--==========================================================================================================================	
+-- Improvement_AdjacentMountainYieldChanges
+--==========================================================================================================================	
+INSERT INTO Improvement_AdjacentMountainYieldChanges
+		(ImprovementType,					YieldType,				Yield)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'YIELD_PRODUCTION',		1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'YIELD_SCIENCE',		1),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'YIELD_PRODUCTION',		2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'YIELD_SCIENCE',		2),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'YIELD_PRODUCTION',		3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'YIELD_SCIENCE',		3);
+--==========================================================================================================================	
+-- Improvement_AdjacentImprovementYieldChanges
+--==========================================================================================================================	
+INSERT INTO Improvement_AdjacentImprovementYieldChanges 
+		(ImprovementType,				OtherImprovementType,	YieldType, 		Yield)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',	'IMPROVEMENT_FARM',		'YIELD_FOOD',	1),
+		('IMPROVEMENT_YFS_SONG_FORT1',	'IMPROVEMENT_FARM',		'YIELD_GOLD',	1),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',	'IMPROVEMENT_FARM',		'YIELD_FOOD',	2),
+		('IMPROVEMENT_YFS_SONG_FORT2',	'IMPROVEMENT_FARM',		'YIELD_GOLD',	2),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',	'IMPROVEMENT_FARM',		'YIELD_FOOD',	3),
+		('IMPROVEMENT_YFS_SONG_FORT3',	'IMPROVEMENT_FARM',		'YIELD_GOLD',	3);
+--==========================================================================================================================	
+-- Improvement_ResourceTypes
+--==========================================================================================================================	
+INSERT INTO Improvement_ResourceTypes
+		(ImprovementType,					ResourceType)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_IRON'),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_HORSE'),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_TEA'),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_GOLD'),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_IRON'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_HORSE'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_TEA'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_GOLD'),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_IRON'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_HORSE'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_TEA'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_GOLD');
+--==========================================================================================================================	
+-- Improvement_TechYieldChanges
+--==========================================================================================================================
+INSERT INTO Improvement_TechYieldChanges
+		(ImprovementType,					TechType,				YieldType,				Yield)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'TECH_CIVIL_SERVICE',	'YIELD_FOOD',			1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TECH_CIVIL_CHIVALRY',	'YIELD_PRODUCTION',		1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TECH_ADMINISTRATION',	'YIELD_GOLD',			1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TECH_THEOLOGY',		'YIELD_FAITH',			1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'TECH_ARCHAEOLOGY',		'YIELD_CULTURE',		1),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TECH_CIVIL_SERVICE',	'YIELD_FOOD',			2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TECH_CIVIL_CHIVALRY',	'YIELD_PRODUCTION',		2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TECH_ADMINISTRATION',	'YIELD_GOLD',			2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TECH_THEOLOGY',		'YIELD_FAITH',			2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'TECH_ARCHAEOLOGY',		'YIELD_CULTURE',		2),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TECH_CIVIL_SERVICE',	'YIELD_FOOD',			3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TECH_CIVIL_CHIVALRY',	'YIELD_PRODUCTION',		3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TECH_ADMINISTRATION',	'YIELD_GOLD',			3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TECH_THEOLOGY',		'YIELD_FAITH',			3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'TECH_ARCHAEOLOGY',		'YIELD_CULTURE',		3);
+--==========================================================================================================================	
+-- Improvement_TechYieldChanges
+--==========================================================================================================================
+INSERT INTO Policy_ImprovementYieldChanges
+		(ImprovementType,					PolicyType,						YieldType,			Yield)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'POLICY_TRADITION_FINISHER',	'YIELD_FOOD',		1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'POLICY_COMMERCE_FINISHER',		'YIELD_GOLD',		1),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'POLICY_PIETY_FINISHER',		'YIELD_FAITH',		1),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'POLICY_TRADITION_FINISHER',	'YIELD_FOOD',		2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'POLICY_COMMERCE_FINISHER',		'YIELD_GOLD',		2),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'POLICY_PIETY_FINISHER',		'YIELD_FAITH',		2);
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'POLICY_TRADITION_FINISHER',	'YIELD_FOOD',		3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'POLICY_COMMERCE_FINISHER',		'YIELD_GOLD',		3),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'POLICY_PIETY_FINISHER',		'YIELD_FAITH',		3);
+--==========================================================================================================================	
+-- Improvement_Flavors
+--==========================================================================================================================	
+INSERT INTO Improvement_Flavors
+		(ImprovementType,					FlavorType,					Flavor)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'FLAVOR_TILE_IMPROVEMENT',	40),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'FLAVOR_DEFENSE',			40),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'FLAVOR_GROWTH',			20),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'FLAVOR_GOLD',				20),
+		('IMPROVEMENT_YFS_SONG_FORT1',		'FLAVOR_PRODUCTION',		20),
+
+		('IMPROVEMENT_YFS_SONG_FORT2',		'FLAVOR_TILE_IMPROVEMENT',	40),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'FLAVOR_DEFENSE',			40),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'FLAVOR_GROWTH',			20),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'FLAVOR_GOLD',				20),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'FLAVOR_PRODUCTION',		20),
+
+		('IMPROVEMENT_YFS_SONG_FORT3',		'FLAVOR_TILE_IMPROVEMENT',	40),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'FLAVOR_DEFENSE',			40),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'FLAVOR_GROWTH',			20),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'FLAVOR_GOLD',				20),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'FLAVOR_PRODUCTION',		20);
+--==========================================================================================================================	
+-- Builds
+--==========================================================================================================================	
+INSERT INTO Builds
+		(Type,						PrereqTech,				ImprovementType, 				Time, Recommendation,						Description,					Help,										OrderPriority,	IconIndex,	IconAtlas,			EntityEvent)
+VALUES	('BUILD_YFS_SONG_FORT1',	'TECH_BRONZE_WORKING',	'IMPROVEMENT_YFS_SONG_FORT1',	900,  'TXT_KEY_BUILD_YFS_SONG_FORT1_REC', 	'TXT_KEY_BUILD_YFS_SONG_FORT1',	'TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1_HELP',	96,				1,			'YFS_CASTLE_ATLAS',	'ENTITY_EVENT_BUILD');
+--==========================================================================================================================	
+-- BuildFeatures
+--==========================================================================================================================	
+INSERT INTO Unit_Builds
+		(BuildType,						FeatureType,		PrereqTech,				Time,	Remove)
+VALUES	('IMPROVEMENT_YFS_SONG_FORT1',	'FEATURE_JUNGLE',	'TECH_BRONZE_WORKING',	400,	1),
+		('IMPROVEMENT_YFS_SONG_FORT1',	'FEATURE_FOREST',	'TECH_BRONZE_WORKING',	100,	1);
+--==========================================================================================================================	
+-- Unit_Builds
+--==========================================================================================================================	
+INSERT INTO Unit_Builds
+		(UnitType,			BuildType)
+VALUES	('UNIT_WORKER',		'IMPROVEMENT_YFS_SONG_FORT1');
+
+
+

@@ -7,7 +7,7 @@
     <Guid>0e5badb6-7ca9-4ca6-a4a5-6d3d942f46dd</Guid>
     <ModVersion>5</ModVersion>
     <Stability>Stable</Stability>
-    <Teaser>岳飞代领导的新宋文明（随便哪个位面的新宋）[NEWLINE]</Teaser>
+    <Teaser>(5.0)岳飞代领导的新宋文明（随便哪个位面的新宋）[NEWLINE]</Teaser>
     <Description>岳飞代领导的新宋文明（随便哪个位面的新宋）[NEWLINE]
 本mod为SP加入了[COLOR_POSITIVE_TEXT]南宋文明[ENDCOLOR]、精英单位[COLOR_YIELD_GOLD]背嵬骑军[ENDCOLOR]和精英单位[COLOR_YIELD_GOLD]魔幻版歼20[ENDCOLOR]。[NEWLINE]</Description>
     <Authors>dzs2311</Authors>
@@ -128,6 +128,12 @@
         <Description>NS_Trait</Description>
         <FileName>Lua/NanSongTraitBonus.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>NS_IU</Name>
+        <Description>NS_IU</Description>
+        <FileName>Lua/NanSongImprovementUpgrade.lua</FileName>
+      </Content>
     </ModContent>
     <ModDependencies>
       <Association>
@@ -234,30 +240,6 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Alpha\yfsUnitFlagAlpha32.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Atlas\BWA_IconAtlas128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Atlas\BWA_IconAtlas256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Atlas\BWA_IconAtlas32.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Atlas\BWA_IconAtlas45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Atlas\BWA_IconAtlas64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Atlas\BWA_IconAtlas80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1088,6 +1070,10 @@
     <Content Include="CombatPercentBonus\promo_CPM_256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\NanSongImprovementUpgrade.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Lua\NanSongTraitBonus.lua">
       <SubType>Lua</SubType>
