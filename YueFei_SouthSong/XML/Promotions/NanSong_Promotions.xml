@@ -47,6 +47,19 @@
 			<!--<NearbyImprovementCombatBonus>50</NearbyImprovementCombatBonus>-->
 			<!--RangedDefenseMod>15</RangedDefenseMod-->
 		</Row>
+		<!--殿前司：御龙诸直-->
+		<Row>
+			<Type>PROMOTION_DRAGON_FOOT</Type>
+			<Description>TXT_KEY_PROMOTION_DRAGON_FOOT</Description>
+			<Help>TXT_KEY_PROMOTION_DRAGON_FOOT_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PortraitIndex>53</PortraitIndex>
+			<RangedAttackModifier>100</RangedAttackModifier>
+			<IconAtlas>promoVP_atlas_03</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_DRAGON_FOOT</PediaEntry>
+			<CannotBeChosen>true</CannotBeChosen>
+		</Row>
 		<!--驻队矢：轮番猛射-->
 		<Row>
 			<Type>PROMOTION_CAN_ZHUDUISHI</Type>
@@ -77,35 +90,6 @@
 			<PediaEntry>TXT_KEY_PROMOTION_ZHUDUISHI</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 		</Row>
-		<!--突火枪兵：武装民兵-->
-		<!-- <Row>
-			<Type>PROMOTION_FIRE_LANCER_DEFENSE</Type>
-			<Description>TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE</Description>
-			<Help>TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE_HELP</Help>
-			<Sound>AS2D_IF_LEVELUP</Sound>
-			<NearbyEnemyCombatMod>-15</NearbyEnemyCombatMod>
-			<NearbyEnemyCombatRange>1</NearbyEnemyCombatRange>
-			<RangeChange>1</RangeChange>
-			<LostWithUpgrade>true</LostWithUpgrade>
-			<PortraitIndex>21</PortraitIndex>
-			<IconAtlas>extraPromo_Atlas</IconAtlas>
-			<PediaType>PEDIA_ATTRIBUTES</PediaType>
-			<PediaEntry>TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE</PediaEntry>
-			<CannotBeChosen>true</CannotBeChosen>
-		</Row>
-		<Row>
-			<Type>PROMOTION_FIRE_LANCER_DEFENSE2</Type>
-			<Description>TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE2</Description>
-			<Help>TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE2_HELP</Help>
-			<Sound>AS2D_IF_LEVELUP</Sound>
-			<RangeChange>-1</RangeChange>
-			<LostWithUpgrade>true</LostWithUpgrade>
-			<PortraitIndex>21</PortraitIndex>
-			<IconAtlas>extraPromo_Atlas</IconAtlas>
-			<PediaType>PEDIA_ATTRIBUTES</PediaType>
-			<PediaEntry>TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE2</PediaEntry>
-			<CannotBeChosen>true</CannotBeChosen>
-		</Row> -->
 		<!--节度使：天下太平-->
 		<Row>
 			<Type>PROMOTION_JIEDUSHI_PRE</Type>

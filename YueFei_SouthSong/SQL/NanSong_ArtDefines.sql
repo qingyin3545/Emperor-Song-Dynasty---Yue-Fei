@@ -36,6 +36,22 @@ INSERT OR REPLACE INTO IconTextureAtlases
 VALUES		('YFS_CASTLE_ATLAS', 				256, 		'yfsSong_UI_Icons256.dds',				4, 				2),
 			('YFS_CASTLE_ATLAS', 				064, 		'yfsSong_UI_Icons064.dds',				4, 				2),
 			('YFS_CASTLE_ATLAS', 				045, 		'yfsSong_UI_Icons045.dds',				4, 				2);
+--=========================================================================================================================
+-- IconFontTextures
+--==========================================================================================================================
+INSERT INTO IconFontTextures 
+			(IconFontTexture,					IconFontTextureFile)
+VALUES		('ICON_FONT_TEXTURE_YFS_LUXURIES',	'fonticons_wtx_newluxuries');
+--=========================================================================================================================
+-- IconFontMapping
+--==========================================================================================================================
+INSERT INTO IconFontMapping
+			(IconName,						IconFontTexture,					IconMapping) 
+VALUES		('ICON_RES_YFS_GEKLIN',			'ICON_FONT_TEXTURE_YFS_LUXURIES',	1),
+			('ICON_RES_YFS_RUKLIN',			'ICON_FONT_TEXTURE_YFS_LUXURIES',	2),
+			('ICON_RES_YFS_OFFICALKLIN',	'ICON_FONT_TEXTURE_YFS_LUXURIES',	3),
+			('ICON_RES_YFS_JUNKLIN',		'ICON_FONT_TEXTURE_YFS_LUXURIES',	4),
+			('ICON_RES_YFS_DINGKLIN',		'ICON_FONT_TEXTURE_YFS_LUXURIES',	5);
 --==========================================================================================================================
 -- UnitArtDefines
 --==========================================================================================================================
@@ -179,7 +195,23 @@ FROM ArtDefine_UnitMemberInfos WHERE Type = 'ART_DEF_UNIT_MEMBER_NATIONAL_GUARD'
 
 INSERT INTO ArtDefine_StrategicView 
 		(StrategicViewType, 						TileType,	Asset)
-VALUES	('ART_DEF_UNIT_BEIWEI_FOOT',					'Unit', 	'SV_BeiWeiF.dds');
+VALUES	('ART_DEF_UNIT_BEIWEI_FOOT',				'Unit', 	'SV_BeiWeiF.dds');
+------------------------------------------------------------------------------------------------------------------------
+-- 殿前司御龙班直
+------------------------------------------------------------------------------------------------------------------------
+INSERT INTO ArtDefine_UnitInfos 
+		(Type, 										DamageStates,	Formation)
+SELECT	'ART_DEF_UNIT_DRAGON_FOOT',					DamageStates, 	''
+FROM ArtDefine_UnitInfos WHERE Type = 'ART_DEF_UNIT_NATIONAL_GUARD';
+
+INSERT INTO ArtDefine_UnitInfoMemberInfos 	
+		(UnitInfoType,								UnitMemberInfoType,					NumMembers)
+VALUES	('ART_DEF_UNIT_DRAGON_FOOT', 				'ART_DEF_UNIT_MEMBER_BEIWEI_FOOT3',	6),
+		('ART_DEF_UNIT_DRAGON_FOOT', 				'ART_DEF_UNIT_MEMBER_ZHUDUISHI1',	6);
+
+INSERT INTO ArtDefine_StrategicView 
+		(StrategicViewType, 						TileType,	Asset)
+VALUES	('ART_DEF_UNIT_DRAGON_FOOT',				'Unit', 	'yfs2SongAlpha128.dds');
 ------------------------------------------------------------------------------------------------------------------------
 -- JieDuShi
 ------------------------------------------------------------------------------------------------------------------------

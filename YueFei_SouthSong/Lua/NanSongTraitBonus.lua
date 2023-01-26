@@ -93,7 +93,7 @@ function NanSongBonus(iPlayer)
 	if (pPlayer:IsAlive()) then
 		if (pPlayer:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"]) then
 			print("Trade0")
-			NS_RouteTourism(pPlayer)	-- Trade Routes Brings Tourism
+			-- NS_RouteTourism(pPlayer)	-- Trade Routes Brings Tourism
 		end
 	end
 end

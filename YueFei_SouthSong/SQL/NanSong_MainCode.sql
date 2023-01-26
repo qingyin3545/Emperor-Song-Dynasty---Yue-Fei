@@ -295,6 +295,61 @@ VALUES		('AS2D_LEADER_MUSIC_YFS_YUEFEI_PEACE', 			'SND_LEADER_MUSIC_YFS_YUEFEI_P
 --==========================================================================================================================	
 -- UPDATE CustomModOptions SET Value = 1 Where Name = 'PROMOTIONS_IMPROVEMENT_BONUS';
 --==========================================================================================================================	
+-- Resources_Luxuries
+--==========================================================================================================================	
+INSERT INTO Resources 
+			(Type,							Description,						Civilopedia,									ResourceClassType,		ArtDefineTag,				Happiness,  IconString,						PortraitIndex, IconAtlas)
+VALUES		('RESOURCE_YFS_GEKLIN',			'TXT_KEY_RESOURCE_YFS_GEKLIN',		'TXT_KEY_CIV5_RESOURCE_YFS_GEKLIN_TEXT',		'RESOURCECLASS_LUXURY', 'ART_DEF_RESOURCE_FUR',		3,			'[ICON_RES_YFS_GEKLIN]',		16,				'YFS_SONG_ATLAS'),
+			('RESOURCE_YFS_RUKLIN',			'TXT_KEY_RESOURCE_YFS_RUKLIN',		'TXT_KEY_CIV5_RESOURCE_YFS_RUKLIN_TEXT',		'RESOURCECLASS_LUXURY', 'ART_DEF_RESOURCE_FUR',		4,			'[ICON_RES_YFS_RUKLIN]',		17,				'YFS_SONG_ATLAS'),
+			('RESOURCE_YFS_OFFICALKLIN',	'TXT_KEY_RESOURCE_YFS_OFFICALKLIN', 'TXT_KEY_CIV5_RESOURCE_YFS_OFFICALKLIN_TEXT',	'RESOURCECLASS_LUXURY', 'ART_DEF_RESOURCE_FUR',		3,			'[ICON_RES_YFS_OFFICALKLIN]',	18,				'YFS_SONG_ATLAS'),
+			('RESOURCE_YFS_JUNKLIN',		'TXT_KEY_RESOURCE_YFS_JUNKLIN',		'TXT_KEY_CIV5_RESOURCE_YFS_JUNKLIN_TEXT',		'RESOURCECLASS_LUXURY', 'ART_DEF_RESOURCE_FUR',		2,			'[ICON_RES_YFS_JUNKLIN]',		19,				'YFS_SONG_ATLAS'),
+			('RESOURCE_YFS_DINGKLIN',		'TXT_KEY_RESOURCE_YFS_DINGKLIN',	'TXT_KEY_CIV5_RESOURCE_YFS_DINGKLIN_TEXT',		'RESOURCECLASS_LUXURY', 'ART_DEF_RESOURCE_FUR',		2,			'[ICON_RES_YFS_DINGKLIN]',		20,				'YFS_SONG_ATLAS');
+--==========================================================================================================================	
+-- Resources_BuildingClasses
+--==========================================================================================================================	
+INSERT INTO BuildingClasses 	
+			(Type, 						 				DefaultBuilding, 				Description)
+VALUES		('BUILDINGCLASS_YFS_SONG_RES_BONUS', 		'BUILDING_RES_YFS_GEKLIN', 		'TXT_KEY_BUILDING_YFS_SONG_RES_BONUS');
+--==========================================================================================================================	
+-- Resources:Building
+--==========================================================================================================================	
+INSERT INTO Buildings 	
+			(Type, 								BuildingClass, 						Description,							UnhappinessModifier,	TradeRouteSeaDistanceModifier,	TradeRouteRecipientBonus,	TradeRouteTargetBonus,	Help,											GreatWorkCount,	Cost,	MinAreaSize,	HurryCostModifier,	NeverCapture,	NukeImmune,		PortraitIndex,	IconAtlas)
+VALUES		('BUILDING_RES_YFS_GEKLIN',			'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_GEKLIN',		0,						10,								2,							2,						'TXT_KEY_BUILDING_RES_YFS_GEKLIN_HELP',			0,		 		-1,		-1,				-1,					1,				1,				16,				'YFS_SONG_ATLAS'),
+			('BUILDING_RES_YFS_RUKLIN',			'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_RUKLIN',		0,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_RUKLIN_HELP',			0,		 		-1,		-1,				-1,					1,				1,				17,				'YFS_SONG_ATLAS'),
+			('BUILDING_RES_YFS_OFFICALKLIN',	'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN',	0,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN_HELP',	0,		 		-1,		-1,				-1,					1,				1,				18,				'YFS_SONG_ATLAS'),
+			('BUILDING_RES_YFS_JUNKLIN',		'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_JUNKLIN',		0,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_JUNKLIN_HELP',		0,		 		-1,		-1,				-1,					1,				1,				19,				'YFS_SONG_ATLAS'),
+			('BUILDING_RES_YFS_DINGKLIN',		'BUILDINGCLASS_YFS_SONG_RES_BONUS', 'TXT_KEY_BUILDING_RES_YFS_DINGKLIN',	-1,						0,								0,							,						'TXT_KEY_BUILDING_RES_YFS_DINGKLIN_HELP',		0,		 		-1,		-1,				-1,					1,				1,				20,				'YFS_SONG_ATLAS');
+--==========================================================================================================================	
+-- Resources:Building_ResourceQuantity
+--==========================================================================================================================	
+INSERT INTO Building_ResourceQuantity
+			(BuildingType, 					ResourceType, 				Quantity)
+VALUES		('BUILDING_RES_YFS_GEKLIN',		'RESOURCE_YFS_GEKLIN',		1),
+			('BUILDING_RES_YFS_RUKLIN',		'RESOURCE_YFS_RUKLIN',		1),
+			('BUILDING_RES_YFS_OFFICALKLIN','RESOURCE_YFS_OFFICALKLIN',	1),
+			('BUILDING_RES_YFS_JUNKLIN',	'RESOURCE_YFS_JUNKLIN',		1),
+			('BUILDING_RES_YFS_DINGKLIN',	'RESOURCE_YFS_DINGKLIN',	1);
+--==========================================================================================================================	
+-- Resources:Building_DomainFreeExperiences
+--==========================================================================================================================	
+INSERT INTO Building_DomainFreeExperiences
+			(BuildingType, 						DomainType, 		Experience)
+VALUES		('BUILDING_RES_YFS_OFFICALKLIN',	'DOMAIN_SEA',		2);
+--==========================================================================================================================	
+-- Resources:Building_DomainProductionModifiers
+--==========================================================================================================================	
+INSERT INTO Building_DomainFreeExperiences
+			(BuildingType, 						DomainType, 		Modifier)
+VALUES		('BUILDING_RES_YFS_OFFICALKLIN',	'DOMAIN_SEA',		2);
+--==========================================================================================================================	
+-- Resources:Building_YieldChanges
+--==========================================================================================================================					
+INSERT INTO Building_GlobalYieldModifiers 
+			(BuildingType, 						YieldType,			Yield)
+VALUES		('BUILDING_RES_YFS_RUKLIN',			'YIELD_CULTURE',	1),
+			('BUILDING_RES_YFS_JUNKLIN',		'YIELD_SCIENCE',	1);
+--==========================================================================================================================	
 -- Improvements
 --==========================================================================================================================	
 INSERT INTO Improvements
