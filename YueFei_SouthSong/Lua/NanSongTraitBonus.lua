@@ -9,115 +9,57 @@ print("---------------------------------------------------------------")
 WARN_NOT_SHARED = false; include( "SaveUtils" ); MY_MOD_NAME = "NanSong_YueFei";
 include("FLuaVector.lua")
 
-function toBits(num)
-	t={}
-    while num>0 do
-        local rest=math.fmod(num,2)
-        t[#t+1]=rest
-        num=(num-rest)/2
-    end
-    return t
-end
-
-
--- function AddTourism(pcCity, iNum)
--- 	local num = iNum
--- 	toBits(num)
--- 	--pcCity:SetNumRealBuilding(bDummy, num);
--- 	pcCity:SetNumRealBuilding(bDummy1, t[1]);
--- 	pcCity:SetNumRealBuilding(bDummy2, t[2]);
--- 	pcCity:SetNumRealBuilding(bDummy4, t[3]);
--- 	pcCity:SetNumRealBuilding(bDummy8, t[4]);
--- 	pcCity:SetNumRealBuilding(bDummy16, t[5]);
--- 	pcCity:SetNumRealBuilding(bDummy32, t[6]);
--- 	pcCity:SetNumRealBuilding(bDummy64, t[7]);
--- 	pcCity:SetNumRealBuilding(bDummy128, t[8]);				
--- end
-
-
--- function NS_RouteTourism(pPlayer)
--- 	if pPlayer:GetNumCities() <= 0 then 
--- 		print ("No Cities!")
--- 		return
--- 	end
--- 	print("Trade1")	
--- 	-- 位于境外时商业活动产生魅力
--- 	local pcCity = pPlayer:GetCapitalCity();
--- 	local cTourism = 0;
--- 	for pUnit in pPlayer:Units() do			
--- 		if pUnit:GetUnitType() == uCargo then -- Cargo
--- 			local uPlot = pUnit:GetPlot()
--- 			--if uPlot:GetOwner() ~= -1 then
--- 			if (uPlot:GetOwner() == -1) or (Players[uPlot:GetOwner()] ~= pPlayer) then
--- 				cTourism = cTourism + 4;
--- 			end
--- 			--end
--- 		-- elseif pUnit:GetUnitType() == uCaravan then -- Caravan
--- 		-- 	local uPlot = pUnit:GetPlot()
--- 		-- 	--if uPlot:GetOwner() ~= -1 then
--- 		-- 	if (uPlot:GetOwner() == -1) or (Players[uPlot:GetOwner()] ~= pPlayer) then
--- 		-- 		cTourism = cTourism + 2;
--- 		-- 	end
--- 		-- 	--end
--- 		end
--- 	end
--- 	local iNum = (cTourism * 2);
--- 	print("AddTourism")
--- 	AddTourism(pcCity, iNum)
--- 	print("iNum=",iNum)
--- 	if iNum > 0 then
--- 		if (pPlayer:IsHuman()) then	
--- 			local tourismtext = Locale.ConvertTextKey("TXT_KEY_NANSONG_GET_TOURISM_TAG1") .. iNum ..  Locale.ConvertTextKey("TXT_KEY_NANSONG_GET_TOURISM_TAG2")
--- 			Events.GameplayAlertMessage(tourismtext);
--- 		end
--- 	end
--- end
-
 -- Start Fuction
-function NanSongBonus(iPlayer)
-	-- local player = Players[playerID] 		-----获取player
+--============================================================================================================
+-- 街市建造效果
+--============================================================================================================
+function YfsCityBuildingMarket(iPlayer, iCity, iBuilding)
+	local pPlayer = Players[iPlayer]
+	if pPlayer == nil or pPlayer:IsMinorCiv() or pPlayer:IsBarbarian() then
+	 	return
+	end
+	if GameInfo.Buildings[iBuilding].Type ~= GameInfoTypes["BUILDING_SONG_MARKET"] then return end
 
-	-- if player == nil then return end
-	
-	-- if player:IsBarbarian() or player:IsMinorCiv() then return end
-	
-	-- local numship = 0
-	-- local FromCity= nil
-	-- local g_CityRoutes = {}
+	local city = pPlayer:GetCityByID(iCity)
+	-- 街市加成建筑
+	local g_SongMarketBonusBuildings = {GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_1'],
+										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_2'],
+										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_3'],
+										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_4'],
+										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_5'],
+										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_6'],
+										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_7'],
+										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_8']}
+	local numMarketBonus = 0
+	for k, v in pairs(g_SongMarketBonusBuildings) do
+		if city:GetNumBuilding(v.ID) > 0 then
+			--建成状态，可以判断此时在出售建筑
+			numMarketBonus = 1
+			break
+		end
+	end
 
-	-- for unit in player:Units() do 		--遍历所有单位，为泉州海船计数	
-	-- 	if unit:GetUnitType() == GameInfoTypes["UNIT_SONG_CARGOSHIP"] then	
-	-- 		numship = numship + 1
-	-- 	end
-	-- end
+	if numMarketBonus == 0 then
+		local randomNum = math.random(1, #g_SongMarketBonusBuildings)
+		city:SetNumRealBuilding(g_SongMarketBonusBuildings[randomNum], 1)
+		if pPlayer:IsHuman() then
+			local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED", city:GetName(), g_SongMarketBonusBuildings[randomNum].Description )
+			Events.GameplayAlertMessage( Locale.ConvertTextKey())
+		end
+	elseif numMarketBonus > 0 then
+		for k, v in pairs(g_SongMarketBonusBuildings) do
+			city:SetNumRealBuilding(v.ID, 0)
+		end
+		if pPlayer:IsHuman() then
+			local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_SOLD", city:GetName() )
+			Events.GameplayAlertMessage( Locale.ConvertTextKey())
+		end
+	end
 
-	
-	-- -- 整合所有商路信息
-	-- local outgoingRoutes = {};
-	-- local outgoingRoutes = player:GetTradeRoutes();
-
-	
-	-- for i, route in ipairs(outgoingRoutes) do
-	-- 	FromCity = route.FromCity;
-	-- 	if player:GetBuildingClassCount(GameInfoTypes["BUILDINGCLASS_YFS_SONG_RES_BONUS"]) < 10 then
-
-	-- 	end
-	-- end
-
-
-	-- fromGPT = fromGPT / 100
-
-	-- local pPlayer = Players[iPlayer];
-	
-	-- if (pPlayer:IsAlive()) then
-		
-	-- 	if (pPlayer:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"]) then
-	-- 		print("Trade0")
-	-- 		-- NS_RouteTourism(pPlayer)	-- Trade Routes Brings Tourism
-	-- 	end
-	-- end
 end
-GameEvents.PlayerDoTurn.Add(NanSongBonus)
+GameEvents.CityConstructed.Add(YfsCityBuildingMarket)
+GameEvents.CitySoldBuilding.Add(YfsCityBuildingMarket)
+
 
 -- 所有城市第一座奇观免费
 local iGameSpeedType = Game.GetGameSpeedType()
@@ -147,11 +89,6 @@ function FirstWonderConstruct(playerID)
 	end
 
 	if player:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"] then
-		-- 法院问题修复
-		--if pCapital:GetOriginalOwner() == pCapital:GetOwner() then
-		--	pCapital:SetNumRealBuilding(GameInfoTypes["BUILDING_COURTHOUSE"], 0)
-		--end
-		
 		for city in player:Cities() do
 			local iofp = city:GetOverflowProduction()
 			local factor = ifactor
@@ -169,9 +106,45 @@ function FirstWonderConstruct(playerID)
 			city:SetNumRealBuilding(GameInfoTypes["BUILDING_FIRSTWONDER_PRODUCTION"],nsNumber)
 			end
 		end
+	end
 
-		-- 法院问题修复
-		--pCapital:SetNumRealBuilding(GameInfoTypes["BUILDING_COURTHOUSE"], 0)
+	for city in player:Cities() do
+		-- 街市加成建筑
+		local g_SongMarketBonusBuildings = {GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_1'],
+											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_2'],
+											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_3'],
+											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_4'],
+											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_5'],
+											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_6'],
+											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_7'],
+											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_8']}
+		local numMarketBonus = 0
+		for k, v in pairs(g_SongMarketBonusBuildings) do
+			if city:GetNumBuilding(v.ID) > 0 then
+				numMarketBonus = 1
+				break
+			end
+		end
+
+		if city:GetNumBuilding() > 0 and numMarketBonus == 0 then
+			--有街市无店铺
+			local randomNum = math.random(1, #g_SongMarketBonusBuildings)
+			city:SetNumRealBuilding(g_SongMarketBonusBuildings[randomNum], 1)
+			if player:IsHuman() then
+				local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED", city:GetName(), g_SongMarketBonusBuildings[randomNum].Description )
+				Events.GameplayAlertMessage( Locale.ConvertTextKey())
+			end
+		elseif city:GetNumBuilding() == 0 and numMarketBonus > 0 then
+			-- 有店铺无街市
+			for k, v in pairs(g_SongMarketBonusBuildings) do
+				city:SetNumRealBuilding(v.ID, 0)
+			end
+			if player:IsHuman() then
+				local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_SOLD", city:GetName() )
+				Events.GameplayAlertMessage( Locale.ConvertTextKey())
+			end
+		end
+
 	end
 end
 GameEvents.PlayerDoTurn.Add(FirstWonderConstruct)

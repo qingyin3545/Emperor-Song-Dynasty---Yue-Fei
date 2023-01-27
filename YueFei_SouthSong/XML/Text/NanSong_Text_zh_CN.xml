@@ -296,7 +296,7 @@
 				[NEWLINE][ICON_BULLET]南北作坊：+1[ICON_PRODUCTION]产能，提供1个大工程师席位；
 				[NEWLINE][ICON_BULLET]桑家瓦子：+1[ICON_CULTURE]文化，提供1个大文学家席位；
 				[NEWLINE][ICON_BULLET]曹婆婆肉饼铺：+1[ICON_FOOD]食物，且城市增加新的[ICON_CITIZEN]市民后保留25%[ICON_FOOD]食物储备以加速成长；
-				[NEWLINE][ICON_BULLET]遇仙正店：+2幸福度，-1%全局不满；
+				[NEWLINE][ICON_BULLET]遇仙正店：+2幸福度，-3%全局不满；
 				[NEWLINE][ICON_BULLET]军巡铺屋：城市[ICON_STRENGTH]防御力+40；
 				[NEWLINE][ICON_BULLET]州桥夜市：本城市+25%[ICON_GREAT_PEOPLE]伟人点数累积。
 			</Text>
@@ -305,6 +305,14 @@
 			<Text>
 				宋代城市的发展，打破前代以坊为居民区，市为商业区，坊、市严格区分的界限;街巷都可开设店铺，又在坊之上设厢，作为较大的行政区划，以加强对坊郭户的控制。厢坊制遂取代前代的坊市制。			
 			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED">
+			<Text>路上行人摩肩接踵，车水马龙的{1_CityName}[ICON_GOLD]街市上开起了[COLOR_POSITIVE_TEXT]{2_BuildingDsc}[ENDCOLOR]！</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_SOLD">
+			<Text>秋风萧瑟，百业凋敝，破败的{1_CityName}[ICON_GOLD]街市关门大吉。</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_1">
@@ -357,7 +365,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_6_HELP">
 			<Text>
-				+2幸福度，-1%全局不满。
+				+2幸福度，-3%全局不满。
 			</Text>
 		</Row>
 

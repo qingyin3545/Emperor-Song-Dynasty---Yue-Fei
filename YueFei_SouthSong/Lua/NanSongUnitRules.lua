@@ -592,7 +592,7 @@ end
 GameEvents.UnitSetXY.Add(YFS_UnitSetXY)
 GameEvents.UnitCreated.Add(YFS_UnitSetXY)
 -------------------------------------------------------------------------------------------------------------
--- 殿前司行过回合效果
+-- 殿前司过回合效果&AI驻队矢效果
 -------------------------------------------------------------------------------------------------------------
 GameEvents.PlayerDoTurn.Add(
 function(playerID)
@@ -650,7 +650,27 @@ function(playerID)
 				end
 	  		end
 		end
+
+		if not player:IsHuman() then
+			-- AI驻队矢效果
+			if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CAN_ZHUDUISHI"].ID) then
+				if not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID) 
+				and unit:GetPlot():IsFriendlyTerritory()
+				then
+					unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID, true)
+				elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID) 
+				and unit:GetPlot():IsFriendlyTerritory() 
+				then
+					
+				else
+					unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID, false)
+				end
+			end
+		end
+
 	end
+
+	
 
 end)
 

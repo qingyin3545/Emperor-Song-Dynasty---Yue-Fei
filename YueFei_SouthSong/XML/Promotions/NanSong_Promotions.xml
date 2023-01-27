@@ -103,8 +103,6 @@
 			<RangeAttackIgnoreLOS>true</RangeAttackIgnoreLOS>
 			<PortraitIndex>11</PortraitIndex>
 			<IconAtlas>extraPromo_Atlas</IconAtlas>
-			<PediaType>PEDIA_ATTRIBUTES</PediaType>
-			<PediaEntry>TXT_KEY_PROMOTION_ZHUDUISHI</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 		</Row>
 		<!--制置使：天下太平-->
