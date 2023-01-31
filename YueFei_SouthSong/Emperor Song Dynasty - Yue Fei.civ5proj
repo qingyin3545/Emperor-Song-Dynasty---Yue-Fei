@@ -129,6 +129,12 @@
         <Description>NS_IU</Description>
         <FileName>Lua/NanSongImprovementUpgrade.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>MarketEvents</Name>
+        <Description>MarketEvents</Description>
+        <FileName>UI/NanSong_MarketEvents.xml</FileName>
+      </Content>
     </ModContent>
     <ModDependencies>
       <Association>
@@ -186,6 +192,7 @@
     <Folder Include="Art\Units\Models\SongJ20\" />
     <Folder Include="CombatPercentBonus\" />
     <Folder Include="Lua" />
+    <Folder Include="UI" />
     <Folder Include="Sounds" />
     <Folder Include="SQL" />
     <Folder Include="XML" />
@@ -327,6 +334,10 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Improvements\Icons\yfsSong_UI_Icons256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Improvements\SongFort\Fort_Plane.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1137,6 +1148,38 @@
     <Content Include="SQL\NanSong_TNL_Support.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents1.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents2.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents3.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents4.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents5.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\NanSong_MarketEvents6.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="XML\Buildings\NanSong_Buildings.xml">
       <SubType>Lua</SubType>

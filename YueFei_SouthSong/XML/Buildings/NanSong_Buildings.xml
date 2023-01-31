@@ -121,13 +121,12 @@
 
 
 	</Buildings>
-	<Building_ClassesNeededInCity>
-		<!--建筑前置条件-->
+	<!-- <Building_ClassesNeededInCity>
 		<Row>
 			<BuildingType>BUILDING_SONG_LIUSHOUSI</BuildingType>
 			<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
 		</Row>
-	</Building_ClassesNeededInCity>
+	</Building_ClassesNeededInCity> -->
 	<Building_YieldChanges>
 		<Row>
 			<BuildingType>BUILDING_YUYING</BuildingType>

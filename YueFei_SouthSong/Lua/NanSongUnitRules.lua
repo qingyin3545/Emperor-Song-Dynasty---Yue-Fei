@@ -823,7 +823,7 @@ function SongFuChuan(playerID)
 								GameInfoTypes['BUILDING_RES_YFS_JUNKLIN'],
 								GameInfoTypes['BUILDING_RES_YFS_DINGKLIN']
 							}
-		local numLuxury = player:GetBuildingClassCount(GameInfoTypes["BUILDINGCLASS_YFS_SONG_RES_BONUS"]);
+		local numLuxury = player:GetBuildingClassCount(GameInfo.BuildingClasses["BUILDINGCLASS_YFS_SONG_RES_BONUS"].ID);
 		local outgoingRoutes = {};
 		local outgoingRoutes = player:GetTradeRoutes();	
 		if numLuxury == #outgoingRoutes 

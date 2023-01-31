@@ -108,6 +108,7 @@ function FirstWonderConstruct(playerID)
 		end
 	end
 
+	-- if GameInfo.BuildingClasses["BUILDINGCLASS_MARKET"].ID
 	for city in player:Cities() do
 		-- 街市加成建筑
 		local g_SongMarketBonusBuildings = {GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_1'],
@@ -126,7 +127,7 @@ function FirstWonderConstruct(playerID)
 			end
 		end
 
-		if city:GetNumBuilding() > 0 and numMarketBonus == 0 then
+		if city:GetNumBuilding(GameInfo.Buildings['BUILDING_SONG_MARKET'].ID) > 0 and numMarketBonus == 0 then
 			--有街市无店铺
 			local randomNum = math.random(1, #g_SongMarketBonusBuildings)
 			city:SetNumRealBuilding(g_SongMarketBonusBuildings[randomNum], 1)
@@ -134,7 +135,7 @@ function FirstWonderConstruct(playerID)
 				local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED", city:GetName(), g_SongMarketBonusBuildings[randomNum].Description )
 				Events.GameplayAlertMessage( Locale.ConvertTextKey())
 			end
-		elseif city:GetNumBuilding() == 0 and numMarketBonus > 0 then
+		elseif city:GetNumBuilding(GameInfo.Buildings['BUILDING_SONG_MARKET'].ID) == 0 and numMarketBonus > 0 then
 			-- 有店铺无街市
 			for k, v in pairs(g_SongMarketBonusBuildings) do
 				city:SetNumRealBuilding(v.ID, 0)
