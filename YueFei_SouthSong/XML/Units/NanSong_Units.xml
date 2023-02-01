@@ -301,7 +301,7 @@
 			<Type>UNIT_BEIWEI_ARMOR</Type>
 			<PrereqTech>TECH_COMBUSTION</PrereqTech>
 			<BaseSightRange>4</BaseSightRange>
-			<Combat>200</Combat>
+			<Combat>150</Combat>
 			<Cost>1100</Cost>
 			<Moves>8</Moves>
 			<HurryCostModifier>75</HurryCostModifier>
@@ -367,7 +367,7 @@
 			<Type>UNIT_LOYALTY_ARMOR</Type>
 			<PrereqTech>TECH_COMBUSTION</PrereqTech>
 			<BaseSightRange>4</BaseSightRange>
-			<Combat>200</Combat>
+			<Combat>150</Combat>
 			<Cost>1100</Cost>
 			<Moves>8</Moves>
 			<HurryCostModifier>75</HurryCostModifier>

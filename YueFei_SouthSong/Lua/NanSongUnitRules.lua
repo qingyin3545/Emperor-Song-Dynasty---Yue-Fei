@@ -493,6 +493,31 @@ function IsNotEliteUnit(pUnit)
         return true
     end
 end
+
+-------------------------------------------------------------------------------------------------------------
+-- 两装甲单位战斗力变化
+-------------------------------------------------------------------------------------------------------------
+function ArmorSetCombat(playerID)
+	local pPlayer = Players[playerID]
+	if pPlayer:IsEverAlive() then
+		local pEraType = pPlayer:GetCurrentEra()
+		local pEraID = GameInfo.Eras[pEraType].ID;
+
+		for pUnit in pPlayer:Units() do
+			if pUnit:GetUnitType() == GameInfoTypes["UNIT_LOYALTY_ARMOR"]  
+			or pUnit:GetUnitType() == GameInfoTypes["UNIT_BEIWEI_ARMOR"] 
+			then
+				if pEraID == GameInfo.Eras["ERA_WORLDWAR"].ID then
+					pUnit:SetBaseCombatStrength(200)
+				elseif pEraID == GameInfo.Eras["ERA_INFORMATION"].ID then
+					pUnit:SetBaseCombatStrength(350)
+				end
+			end
+		end
+	end
+
+end
+GameEvents.TeamSetEra.Add(ArmorSetCombat)
 -------------------------------------------------------------------------------------------------------------
 -- 背嵬骑军战斗力随血量变化
 -------------------------------------------------------------------------------------------------------------
