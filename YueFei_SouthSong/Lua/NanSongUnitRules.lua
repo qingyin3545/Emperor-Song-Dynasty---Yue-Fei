@@ -776,7 +776,7 @@ function FeiHuGift( iPlayerID, iUnitID )
 		end
 	end	
 end
-Events.UnitCreated.Add(FeiHuGift)
+GameEvents.UnitCreated.Add(FeiHuGift)
 
 ----泉州海船文化产出&奢侈供给
 function SongFuChuan(playerID)
@@ -826,13 +826,14 @@ function SongFuChuan(playerID)
 		local numLuxury = player:GetBuildingClassCount(GameInfo.BuildingClasses["BUILDINGCLASS_YFS_SONG_RES_BONUS"].ID);
 		local outgoingRoutes = {};
 		local outgoingRoutes = player:GetTradeRoutes();	
+		-- print("numLuxury = "..numLuxury.." #outgoingRoutes = "..#outgoingRoutes )
 		if numLuxury == #outgoingRoutes 
 		then 
 			return 
 		else
-			local rest = math.fmod(numLuxury, 5);
-			local numMax = (numLuxury - rest) / 5;
-
+			local rest = math.fmod(#outgoingRoutes , 5);
+			local numMax = math.modf(#outgoingRoutes  / 5);
+			-- print("rest = "..rest.."numMax = "..numMax)
 			for i, v in pairs(g_KlinLuxuries) do
 				pCapital:SetNumRealBuilding(v, numMax);
 			end
@@ -849,7 +850,7 @@ function SongFuChuan(playerID)
 	end
 
 end
-Events.UnitCreated.Add(SongFuChuan)
+GameEvents.UnitCreated.Add(SongFuChuan)
 GameEvents.PlayerDoTurn.Add(SongFuChuan)
 
 -- MOD by CaptainCWB
@@ -976,7 +977,7 @@ function YfsUnitsEffect(playerID)
 	
 end
 GameEvents.UnitSetXY.Add(YfsUnitsEffect) 
-Events.UnitCreated.Add(YfsUnitsEffect)
+GameEvents.UnitCreated.Add(YfsUnitsEffect)
 -----------------------------------------------------------------------
 ---- 赤心队：组建军团
 -----------------------------------------------------------------------

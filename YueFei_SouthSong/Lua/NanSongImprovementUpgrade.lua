@@ -129,16 +129,18 @@ function UpgradeForts(PlayerID)
 				if pPlayer:IsHuman() then
 					if YfsFortLv2Flag == 1 then
 						local heading = Locale.ConvertTextKey("TXT_KEY_YFS_SONG_FORT1_LVUP_SHORT");
-						local text = Locale.ConvertTextKey("TXT_KEY_YFS_SONG_FORT1_LVUP_TEXT".."TXT_KEY_IMPROVEMENT_YFS_SONG_FORT2_HELP");
-						pPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC, text, heading, x, y);
+						local text1 = Locale.ConvertTextKey("TXT_KEY_YFS_SONG_FORT1_LVUP_TEXT");
+						local text2 = Locale.ConvertTextKey("TXT_KEY_IMPROVEMENT_YFS_SONG_FORT2_HELP");
+						pPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC, text1..text2, heading, x, y);
 						local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
 						Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("Level UP!"));
 						Events.GameplayFX(hex.x, hex.y, -1);
 					end
 					if YfsFortLv3Flag == 1 then
 						local heading = Locale.ConvertTextKey("TXT_KEY_YFS_SONG_FORT2_LVUP_SHORT");
-						local text = Locale.ConvertTextKey("TXT_KEY_YFS_SONG_FORT2_LVUP_TEXT".."TXT_KEY_IMPROVEMENT_YFS_SONG_FORT3_HELP");
-						pPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC, text, heading, x, y);
+						local text1 = Locale.ConvertTextKey("TXT_KEY_YFS_SONG_FORT2_LVUP_TEXT");
+						local text2 = Locale.ConvertTextKey("TXT_KEY_IMPROVEMENT_YFS_SONG_FORT3_HELP");
+						pPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC, text1..text2, heading, x, y);
 						local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
 						Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("Level UP!"));
 						Events.GameplayFX(hex.x, hex.y, -1);

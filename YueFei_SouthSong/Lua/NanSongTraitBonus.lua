@@ -121,6 +121,7 @@ function FirstWonderConstruct(playerID)
 											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_8']}
 		local numMarketBonus = 0
 		for k, v in pairs(g_SongMarketBonusBuildings) do
+			-- print("ISong Market ID = "..v.ID.."Type = "..v.Type)
 			if city:GetNumBuilding(v.ID) > 0 then
 				numMarketBonus = 1
 				break
@@ -130,10 +131,12 @@ function FirstWonderConstruct(playerID)
 		if city:GetNumBuilding(GameInfo.Buildings['BUILDING_SONG_MARKET'].ID) > 0 and numMarketBonus == 0 then
 			--有街市无店铺
 			local randomNum = math.random(1, #g_SongMarketBonusBuildings)
-			city:SetNumRealBuilding(g_SongMarketBonusBuildings[randomNum], 1)
+			-- print("#g_SongMarketBonusBuildings) = "..#g_SongMarketBonusBuildings.."randomNum = "..randomNum)
+			-- print("g_SongMarketBonusBuildings[randomNum].ID = "..g_SongMarketBonusBuildings[randomNum].ID)
+			city:SetNumRealBuilding(g_SongMarketBonusBuildings[randomNum].ID, 1)
 			if player:IsHuman() then
 				local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED", city:GetName(), g_SongMarketBonusBuildings[randomNum].Description )
-				Events.GameplayAlertMessage( Locale.ConvertTextKey())
+				Events.GameplayAlertMessage( text )
 			end
 		elseif city:GetNumBuilding(GameInfo.Buildings['BUILDING_SONG_MARKET'].ID) == 0 and numMarketBonus > 0 then
 			-- 有店铺无街市
@@ -142,7 +145,7 @@ function FirstWonderConstruct(playerID)
 			end
 			if player:IsHuman() then
 				local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_SOLD", city:GetName() )
-				Events.GameplayAlertMessage( Locale.ConvertTextKey())
+				Events.GameplayAlertMessage( text )
 			end
 		end
 
@@ -453,12 +456,12 @@ end
 -- 原文链接：https://blog.csdn.net/arisking/article/details/99209292
 
 ----------------------------------------------------------------------------------------------------------------------------
--- 东京留守司解锁建造
+-- 御营解锁东京留守司
 ----------------------------------------------------------------------------------------------------------------------------
 function SongWonder(iPlayer, iCity, iBuilding)
 	if (iBuilding == GameInfoTypes.BUILDING_SONG_LIUSHOUSI) then
 		local player = Players[iPlayer]
-		if player:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"] then	
+		if player:CountNumBuildings(GameInfoTypes["BUILDING_YUYING"]) > 0 then
 			return true
 		end  
 		return false
