@@ -184,6 +184,7 @@
     <Folder Include="Art\Units\Models\BetWei\Armor" />
     <Folder Include="Art\Units\Models\ChiXin\Lancer" />
     <Folder Include="Art\Units\Models\ChiXin\Flag" />
+    <Folder Include="Art\Units\Models\ChiXin\Armor" />
     <Folder Include="Art\Units\Models\JieDuShi\" />
     <Folder Include="Art\Units\Models\ChiXin" />
     <Folder Include="Art\Units\Models\PWS\" />
@@ -846,6 +847,18 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Models\BetWei\Foot_Tong\song_pijian_s.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Models\ChiXin\Armor\bwa_ZTZ99B_dust_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Models\ChiXin\Armor\loyaltyarmor.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Models\ChiXin\Armor\loyaltyarmor.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

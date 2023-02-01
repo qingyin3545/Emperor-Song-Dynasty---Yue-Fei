@@ -982,7 +982,7 @@ Events.UnitCreated.Add(YfsUnitsEffect)
 -----------------------------------------------------------------------
 -- Establish Corps & Armee
 CX_EstablishCorpsButton = {
-  Name = "CX_Establish Corps & Armee",
+  Name = "CX_Establish Corps",
   Title = "TXT_KEY_SP_BTNNOTE_UNIT_ESTABLISH_CORPS_SHORT", -- or a TXT_KEY
   OrderPriority = 200, -- default is 200
   IconAtlas = "SP_UNIT_ACTION_ATLAS", -- 45 and 64 variations required
@@ -1052,6 +1052,80 @@ CX_EstablishCorpsButton = {
 
 };
 LuaEvents.UnitPanelActionAddin(CX_EstablishCorpsButton);
+-- 组建集团军
+CX_EstablishArmeeButton = {
+	Name = "CX_Establish Armee",
+	Title = "TXT_KEY_SP_BTNNOTE_UNIT_ESTABLISH_ARMEE_SHORT", -- or a TXT_KEY
+	OrderPriority = 200, -- default is 200
+	IconAtlas = "SP_UNIT_ACTION_ATLAS", -- 45 and 64 variations required
+	PortraitIndex = 3,
+	ToolTip = "TXT_KEY_SP_BTNNOTE_UNIT_ESTABLISH_ARMEE", -- or a TXT_KEY_ or a function
+  
+	Condition = function(action, unit)
+	  local bIsCondition = false;
+	  local playerID = unit:GetOwner();
+	  local player = Players[playerID];
+	  local plot = unit:GetPlot();
+	  local iChiXinArmee = load( player, "ChiXinArmee", iChiXinArmee) or -1;
+	  if unit:CanMove() and unit:IsHasPromotion(ChiXinCavalryID) 
+	  and unit:GetUnitType() == GameInfoTypes["UNIT_LOYALTY_ARMOR"]
+	  and plot and plot:GetNumUnits() > 1 and not unit:IsEmbarked() and not unit:IsImmobile()
+	  and not plot:IsWater()
+	  and iChiXinArmee < 0
+	  and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
+	  -- and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
+	  then
+		  for i = 0, plot:GetNumUnits() - 1, 1 do
+			  local fUnit = plot:GetUnit(i);
+			  if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
+			  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"])
+			  then
+				  bIsCondition = true
+				  break
+			  end
+			   
+		  end
+	  end
+	  return bIsCondition;
+	end, -- or nil or a boolean, default is true
+  
+		Disabled = function(action, unit)   
+		return unit:GetPlot():GetNumUnits() <= 1;
+	  end, -- or nil or a boolean, default is false
+  
+	  Action = function(action, unit, eClick)
+		  local playerID = unit:GetOwner();
+		  local player = Players[playerID];
+		  local plot = unit:GetPlot();
+		  local iChiXinArmee = load( player, "ChiXinArmee", iChiXinArmee) or -1;
+		  if unit:CanMove() and unit:IsHasPromotion(ChiXinCavalryID) 
+		  and unit:GetUnitType() == GameInfoTypes["UNIT_LOYALTY_ARMOR"]
+		  and plot and plot:GetNumUnits() > 1 and not unit:IsEmbarked() and not unit:IsImmobile()
+		  and not plot:IsWater()
+		  and iChiXinArmee < 0
+		  and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
+		  then
+			  for i = 0, plot:GetNumUnits() - 1, 1 do
+				  local fUnit = plot:GetUnit(i);
+				  if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
+				  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"])
+				  then
+					  local plotX, plotY = plot:GetX(), plot:GetY()
+					  local hex = ToHexFromGrid(Vector2(plotX, plotY))
+					  fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"], true)
+					  iChiXinArmee = iChiXinArmee + 1
+					  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_PROMOTION_CHIXINDUI1"))
+					  
+					  Events.GameplayFX(hex.x, hex.y, -1)
+					  save( player, "ChiXinArmee", iChiXinArmee)
+				  end
+			  end
+		  end
+		  unit:SetMoves(0);
+	  end
+  
+  };
+  LuaEvents.UnitPanelActionAddin(CX_EstablishArmeeButton);
 -- 赤心队冷却3回合
 GameEvents.PlayerDoTurn.Add(
 function(playerID)
@@ -1063,6 +1137,7 @@ function(playerID)
 
 	for unit in player:Units() do
 		if unit:IsHasPromotion(ChiXinCavalryID) then
+			-- 组建军团
 			local iChiXinCrop = load( player, "ChiXin", iChiXinCrop) or -1;
 			if iChiXinCrop < 2 and iChiXinCrop >= 0 then
 				iChiXinCrop = iChiXinCrop + 1
@@ -1070,6 +1145,15 @@ function(playerID)
 			elseif iChiXinCrop == 2 then
 				iChiXinCrop = -1
 				save( player, "ChiXin", iChiXinCrop)
+			end
+			-- 组建集团军
+			local iChiXinArmee = load( player, "ChiXinArmee", iChiXinArmee) or -1;
+			if iChiXinArmee < 2 and iChiXinArmee >= 0 then
+				iChiXinArmee = iChiXinArmee + 1
+				save( player, "ChiXinArmee", iChiXinArmee)
+			elseif iChiXinArmee == 2 then
+				iChiXinArmee = -1
+				save( player, "ChiXinArmee", iChiXinArmee)
 			end
 		end
 	end

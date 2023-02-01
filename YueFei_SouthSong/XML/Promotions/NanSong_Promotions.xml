@@ -131,6 +131,18 @@
 			<PediaEntry>TXT_KEY_PROMOTION_JIEDUSHI_EFFECT</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 		</Row>
+		<!--制置使：建立制置使司-->
+		<Row>
+			<Type>PROMOTION_JIEDUSHI_CITY</Type>
+			<Description>TXT_KEY_PROMOTION_JIEDUSHI_CITY</Description>
+			<Help>TXT_KEY_PROMOTION_JIEDUSHI_CITY_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PortraitIndex>56</PortraitIndex>
+			<IconAtlas>extraPromo_Atlas</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_JIEDUSHI_CITY</PediaEntry>
+			<CannotBeChosen>true</CannotBeChosen>
+		</Row>
 		<!--车船：定风波-->
 		<Row>
 			<Type>PROMOTION_U_PWS</Type>

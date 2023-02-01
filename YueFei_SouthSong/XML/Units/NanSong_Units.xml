@@ -29,6 +29,12 @@
 			<DefaultUnit>UNIT_CHIXIN_CAVALRY</DefaultUnit>
 			<MaxPlayerInstances>1</MaxPlayerInstances>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_LOYALTY_ARMOR</Type>
+			<Description>TXT_KEY_UNIT_LOYALTY_ARMOR</Description>
+			<DefaultUnit>UNIT_LOYALTY_ARMOR</DefaultUnit>
+			<MaxPlayerInstances>1</MaxPlayerInstances>
+		</Row>
 	</UnitClasses>
 	<Units>
 		<!--背嵬步军-->
@@ -356,6 +362,39 @@
 			<ProjectPrereq>PROJECT_CHIXIN_CAVALRY</ProjectPrereq>
 			<ExtraMaintenanceCost>7</ExtraMaintenanceCost>
 		</Row>
+		<Row>
+			<Class>UNITCLASS_LOYALTY_ARMOR</Class>
+			<Type>UNIT_LOYALTY_ARMOR</Type>
+			<PrereqTech>TECH_COMBUSTION</PrereqTech>
+			<BaseSightRange>4</BaseSightRange>
+			<Combat>200</Combat>
+			<Cost>1100</Cost>
+			<Moves>8</Moves>
+			<HurryCostModifier>75</HurryCostModifier>
+			<CombatClass>UNITCOMBAT_ARMOR</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_FAST_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_LOYALTY_ARMOR</Description>
+			<Civilopedia>TXT_KEY_CIV5_LOYALTY_ARMOR_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_SP_UNITS_HEAVY_MOBILE_UNITS_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_LOYALTY_ARMOR_HELP</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<IgnoreBuildingDefense>true</IgnoreBuildingDefense>
+			<Mechanized>true</Mechanized>
+			<AdvancedStartCost>60</AdvancedStartCost>
+			<XPValueAttack>4</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<ProjectPrereq>PROJECT_BEWEI_CAVALRY</ProjectPrereq>
+			<UnitArtInfo>ART_DEF_UNIT_LOYALTY_ARMOR</UnitArtInfo>
+			<UnitFlagAtlas>YFS_UNIT_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>10</UnitFlagIconOffset>
+			<IconAtlas>YFS_SONG_ATLAS</IconAtlas>
+			<PortraitIndex>22</PortraitIndex>
+			<MoveRate>WHEELED</MoveRate>
+			<ExtraMaintenanceCost>18</ExtraMaintenanceCost>
+		</Row>
 		<!--炎宋威龙-->
 		<Row>
 			<Class>UNITCLASS_SONG_J20</Class>
@@ -431,7 +470,7 @@
 		<!--赤心队-->
 		<Row>
 			<UnitType>UNIT_CHIXIN_CAVALRY</UnitType>
-			<UnitClassType>UNITCLASS_WWI_TANK</UnitClassType>
+			<UnitClassType>UNITCLASS_LOYALTY_ARMOR</UnitClassType>
 		</Row>
 	</Unit_ClassUpgrades>
 	<!--建筑需求-->
@@ -469,6 +508,10 @@
 		<Row>
 			<UnitType>UNIT_CHIXIN_CAVALRY</UnitType>
 			<BuildingClassType>BUILDINGCLASS_ARMORY</BuildingClassType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_BEIWEI_ARMOR</UnitType>
+			<BuildingClassType>BUILDINGCLASS_ARSENAL</BuildingClassType>
 		</Row>
 		<!--炎宋威龙-->
 		<Row>
@@ -569,6 +612,17 @@
 			<UnitType>UNIT_CHIXIN_CAVALRY</UnitType>
 			<ResourceType>RESOURCE_HORSE</ResourceType>
 			<Cost>2</Cost>
+		</Row>
+
+
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<ResourceType>RESOURCE_OIL</ResourceType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<ResourceType>RESOURCE_MANPOWER</ResourceType>
+			<Cost>4</Cost>
 		</Row>
 
 		<!--炎宋威龙-->
@@ -781,6 +835,11 @@
 			<UnitType>UNIT_BEIWEI_ARMOR</UnitType>
 			<PromotionType>PROMOTION_MARCH</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_BEIWEI_ARMOR</UnitType>
+			<PromotionType>PROMOTION_CORPS_1</PromotionType>
+		</Row>
+		
 
 
 
@@ -797,6 +856,24 @@
 			<UnitType>UNIT_CHIXIN_CAVALRY</UnitType>
 			<PromotionType>PROMOTION_CHIXINDUI1_EFFECT</PromotionType>
 		</Row>
+
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<PromotionType>PROMOTION_KNIGHT_COMBAT</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<PromotionType>PROMOTION_CHIXINDUI1</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<PromotionType>PROMOTION_CHIXINDUI1_EFFECT</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<PromotionType>PROMOTION_CORPS_1</PromotionType>
+		</Row>
+
 		<!--炎宋威龙-->
 		<Row>
 			<UnitType>UNIT_SONG_J20</UnitType>
@@ -878,6 +955,11 @@
 		<!--赤心队-->
 		<Row>
 			<UnitType>UNIT_CHIXIN_CAVALRY</UnitType>
+			<SelectionSound>AS2D_SELECT_CAVALRY</SelectionSound>
+			<FirstSelectionSound>AS2D_BIRTH_CAVALRY</FirstSelectionSound>
+		</Row>
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
 			<SelectionSound>AS2D_SELECT_CAVALRY</SelectionSound>
 			<FirstSelectionSound>AS2D_BIRTH_CAVALRY</FirstSelectionSound>
 		</Row>
@@ -971,6 +1053,15 @@
 		<Row>
 			<UnitType>UNIT_CHIXIN_CAVALRY</UnitType>
 			<UnitAIType>UNITAI_ATTACK</UnitAIType>
+		</Row>
+
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<UnitAIType>UNITAI_ATTACK</UnitAIType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<UnitAIType>UNITAI_FAST_ATTACK</UnitAIType>
 		</Row>
 
 		<!--炎宋威龙-->
@@ -1098,6 +1189,17 @@
 			<UnitType>UNIT_CHIXIN_CAVALRY</UnitType>
 			<FlavorType>FLAVOR_OFFENSE</FlavorType>
 			<Flavor>999</Flavor>
+		</Row>
+
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<FlavorType>FLAVOR_MOBILE</FlavorType>
+			<Flavor>160</Flavor>
+		</Row>
+		<Row>
+			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
+			<FlavorType>FLAVOR_OFFENSE</FlavorType>
+			<Flavor>180</Flavor>
 		</Row>
 		<!--炎宋威龙-->
 		<Row>

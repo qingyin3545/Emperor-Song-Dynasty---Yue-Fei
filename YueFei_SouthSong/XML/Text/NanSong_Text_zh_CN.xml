@@ -210,6 +210,7 @@
 			<Text>
 				[ICON_BULLET]新建城市获得6块额外[ICON_SGM_GROUP_ACT_OFF]领土，每座[ICON_CITYBANNER_CITY_TOWN][COLOR_SELECTED_TEXT]城市[ENDCOLOR]建造的首个[COLOR_POSITIVE_TEXT]奇观[ENDCOLOR]可一回合完成，攻陷[ICON_CITYBANNER_CITY_LV4][ICON_CITYBANNER_CITY_LV5]遥远城市时全国+4%[ICON_PRODUCTION][ICON_CULTURE][ICON_RESEARCH]产出。
 				[NEWLINE][ICON_BULLET][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]、[ICON_PROMOTION_AMPHIBIOUS][COLOR_POSITIVE_TEXT]海军单位[ENDCOLOR]获得[COLOR_POSITIVE_TEXT]独有[ENDCOLOR]晋升，[COLOR_POSITIVE_TEXT]作战单位[ENDCOLOR]消灭敌方单位时可获得对方50%[ICON_STRENGTH]战斗力的[ICON_GOLD][ICON_CULTURE][ICON_RESEARCH]点数。
+				[NEWLINE][ICON_BULLET]可建造独特奇观：[COLOR_POSITIVE_TEXT]东京留守司[ENDCOLOR]。
 			</Text>
 		</Row>
 		<!--*******************************外交话语*******************************-->
@@ -237,7 +238,6 @@
 				[NEWLINE][ICON_BULLET]提供额外2点[ICON_FOOD][ICON_PRODUCTION][ICON_GOLD][ICON_RESEARCH][ICON_PEACE][ICON_CULTURE][ICON_RES_MANPOWER][ICON_RES_CONSUMER]全产出。
 				[NEWLINE][ICON_BULLET]购买[COLOR_POSITIVE_TEXT]建筑[ENDCOLOR]与[COLOR_POSITIVE_TEXT]单位[ENDCOLOR]所需[ICON_GOLD]金币-15%。
 				[NEWLINE][ICON_BULLET]文明组建[COLOR_POSITIVE_TEXT]作战单位[ENDCOLOR]时+25%[ICON_PRODUCTION]产能（[ICON_CAPITAL]首都翻倍）。
-				[NEWLINE][ICON_BULLET]解锁独特奇观：[COLOR_POSITIVE_TEXT]东京留守司[ENDCOLOR]。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_YUYING_PEDIA">
@@ -411,7 +411,7 @@
 			<Text>建炎北伐</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROJECT_CHIXIN_CAVALRY_HELP">
-			<Text>只有[COLOR_POSITIVE_TEXT]首个[ENDCOLOR]完成此项目的文明可以建造精英御前甲骑：[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]。</Text>
+			<Text>只有[COLOR_POSITIVE_TEXT]首个[ENDCOLOR]完成此项目的文明可以建造精英御前甲骑/精英御前战车：[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]/[COLOR_YIELD_GOLD]赤心装甲[ENDCOLOR]。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROJECT_CHIXIN_CAVALRY_PEDIA">
 			<Text>
@@ -489,6 +489,29 @@
 				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]白马绍兴[ENDCOLOR]：[ICON_STRENGTH]战斗力+15%，[ICON_WAR]经验获取速率+100%，[ICON_PROMOTION_RANGE]射程+1且攻击[ICON_PROMOTION_INDIRECT_FIRE]无视地形阻碍。
 				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]龙纛北落[ENDCOLOR]：若该单位遭受[ICON_PIRATE]歼灭，则己方所有非[COLOR_YIELD_GOLD]精锐[ENDCOLOR][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]承受全部[COLOR_NEGATIVE_TEXT]负面状态[ENDCOLOR]。
 				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]平步战云[ENDCOLOR]：出力报效讵可泯其绩而不嘉之以宠命乎，使用后将同格己方单位整编为[ICON_PROMOTION_ELITE]军团。
+				[NEWLINE]冷却时间：3回合。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_UNIT_LOYALTY_ARMOR">
+			<Text>[COLOR_YIELD_GOLD]赤心装甲[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_LOYALTY_ARMOR_TEXT">
+			<Text>
+				[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]，宋代郭药师所部刘晏军所统严州营，曾作为常胜军一部于对金的白河大战中节节胜利，突至金军营寨，但由于张令徽、刘舜仁的不战而退，在损失了大量军队后转胜为败。宣和四年(1122年)，药师投宋，刘晏率众数百随归。次年，药师复叛宋入金，刘晏留宋率其队以御金兵，故宋以“赤心”名其队。[NEWLINE]
+				建炎初，从刘正彦击淮西贼丁进。进党颇众，晏所提赤心骑才八百，乃为五色旗，使骑兵持之，循山而出，一色尽则以一色易之。贼见官军累日不绝，颜色各异，遂不战而降。迁朝散郎。正彦反，晏谓其部曲曰：“吾岂从逆党者耶？”以众归韩世忠。世忠追正彦及苗傅于浦城，以晏骑六百为疑兵于浦山之阳，贼大骇，晏以所部力战。正彦既擒，世忠上其功，迁一官。[NEWLINE]
+				金人犯建康，杜充兵溃，世忠退保江阴，晏领赤心百五十骑屯青龙。群寇犯常州，郡守请晏为援，晏以精锐七千人出奇破之。进直龙图阁。保马迹山以捍寇，寇再至，晏选舟师迎战，降其众千五百人，郡人为晏立生祠。[NEWLINE]
+				戚方围宣城，急命晏往援，晏至城下，未立营垒，出不意直捣方帐下，方大惊却走。晏欲生致方，单骑追之，方率其众迎战，晏不能敌，犹手杀数十人，为贼所害。[NEWLINE][NEWLINE]
+				小说《绍宋》中，明道宫之变后赤心队编入御前班直，作为皇帝的亲卫部队南征北战，并肩负了军官培养和信息传递的任务。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_LOYALTY_ARMOR_HELP">
+			<Text>
+				[COLOR_YIELD_GOLD]精英御前战车[ENDCOLOR]，作为新宋皇帝龙纛的象征，能够有效[COLOR_POSITIVE_TEXT]激励[ENDCOLOR]战场上的己方部队，同时遭受[ICON_PIRATE][COLOR_NEGATIVE_TEXT]歼灭[ENDCOLOR]也将带来全线的溃退。需要完成建炎北伐解锁，仅能组建一队。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]金吾纛旓[ENDCOLOR]：以自身为中心，相邻3格区域的己方单位获得[COLOR_POSITIVE_TEXT]白马绍兴[ENDCOLOR]晋升。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]白马绍兴[ENDCOLOR]：[ICON_STRENGTH]战斗力+15%，[ICON_WAR]经验获取速率+100%，[ICON_PROMOTION_RANGE]射程+1且攻击[ICON_PROMOTION_INDIRECT_FIRE]无视地形阻碍。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]龙纛北落[ENDCOLOR]：若该单位遭受[ICON_PIRATE]歼灭，则己方所有非[COLOR_YIELD_GOLD]精锐[ENDCOLOR][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]承受全部[COLOR_NEGATIVE_TEXT]负面状态[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]平步战云[ENDCOLOR]：出力报效讵可泯其绩而不嘉之以宠命乎，使用后将同格己方单位整编为[ICON_PROMOTION_ELITE]军团或集团军。
 				[NEWLINE]冷却时间：3回合。
 			</Text>
 		</Row>
@@ -808,13 +831,20 @@
 			<Text>天下太平</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_PRE_HELP">
-			<Text>可以耗自身所有[ICON_MOVES]移动力为2格内单位执行[COLOR_POSITIVE_TEXT]天下太平[ENDCOLOR]命令</Text>
+			<Text>两格内的己方单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_EFFECT">
 			<Text>文官不爱财，武官不惜死</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_EFFECT_HELP">
 			<Text>[NEWLINE][ICON_BULLET][ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%。[NEWLINE][ICON_BULLET]消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
+		</Row>
+		<!--制置使：战区节帅-->
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_CITY">
+			<Text>战区节帅</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_CITY_HELP">
+			<Text>位于城市中时可以建立[COLOR_POSITIVE_TEXT]制置使司[ENDCOLOR]，仅能建立一次。</Text>
 		</Row>
 		<!--*******************************旅游值提示*******************************-->
 		<Row Tag="TXT_KEY_NANSONG_GET_TOURISM_TAG1">

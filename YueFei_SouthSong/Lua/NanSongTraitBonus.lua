@@ -451,3 +451,18 @@ end
 -- ————————————————
 -- 版权声明：本文为CSDN博主「风轻淡淡」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 -- 原文链接：https://blog.csdn.net/arisking/article/details/99209292
+
+----------------------------------------------------------------------------------------------------------------------------
+-- 东京留守司解锁建造
+----------------------------------------------------------------------------------------------------------------------------
+function SongWonder(iPlayer, iCity, iBuilding)
+	if (iBuilding == GameInfoTypes.BUILDING_SONG_LIUSHOUSI) then
+		local player = Players[iPlayer]
+		if player:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"] then	
+			return true
+		end  
+		return false
+	end
+	return true
+end
+GameEvents.CityCanConstruct.Add(SongWonder)
