@@ -53,6 +53,32 @@ local InfantryUnitID = GameInfo.UnitPromotions["PROMOTION_INFANTRY_COMBAT"].ID
 --local Charge1ID = GameInfo.UnitPromotions["PROMOTION_CHARGE_1"].ID
 --local Charge2ID = GameInfo.UnitPromotions["PROMOTION_CHARGE_2"].ID
 --local Charge3ID = GameInfo.UnitPromotions["PROMOTION_CHARGE_3"].ID
+----Get Closed City
+function GetCloseCity ( iPlayer, plot )      
+	local pPlayer = Players[iPlayer];
+	local distance = 1000;
+	local closeCity = nil;
+	if pPlayer == nil then
+		-- print ("nil")
+		return nil
+	end
+
+	if pPlayer:GetNumCities() <= 0 then 
+		-- print ("No Cities!")
+		return;
+	end
+
+	for pCity in pPlayer:Cities() do
+		local distanceToCity = Map.PlotDistance(pCity:GetX(), pCity:GetY(), plot:GetX(), plot:GetY());
+		if ( distanceToCity < distance) then
+			distance = distanceToCity;
+			closeCity = pCity;
+			--print("pCity:GetName()"..pCity:GetName())
+		end
+	end
+	return closeCity;
+end
+
 function NanSongStarted(iType, iPlotX, iPlotY)
 	if iType == GameInfoTypes["BATTLETYPE_MELEE"]
 	or iType == GameInfoTypes["BATTLETYPE_RANGED"]
@@ -1185,4 +1211,78 @@ function(playerID)
 	end
 
 end)
+-----------------------------------------------------------------------
+---- 制置使：建立制置使司
+-----------------------------------------------------------------------
+----Build the JAPANESE DOJO in the city
+BuildJiedushiButton = {
+	Name = "Build Song Zhizhishi",
+	Title = "TXT_KEY_SP_BTNNOTE_BUILDING_JIEDUSHI_SHORT", -- or a TXT_KEY
+	OrderPriority = 1500, -- default is 200
+	IconAtlas = "extraPromo_Atlas", -- 45 and 64 variations required
+	PortraitIndex = 56,
+	ToolTip = "TXT_KEY_BUILDING_JIEDUSHI_HELP", -- or a TXT_KEY_ or a function
+	Condition = function(action, unit)
+	  return unit:CanMove() and unit:IsHasPromotion(GameInfoTypes["PROMOTION_JIEDUSHI_CITY"]);
+	end, -- or nil or a boolean, default is true
+	
+	Disabled = function(action, unit) 
+	  local plot = unit:GetPlot();
+	  if not plot:IsCity() then return true end;
+	  local city = plot:GetPlotCity()
+	  return not city or city:GetOwner() ~= unit:GetOwner() or city:IsHasBuilding(GameInfo.Buildings["BUILDING_JIEDUSHI"].ID);
+	end, -- or nil or a boolean, default is false
+	
+	Action = function(action, unit, eClick)
+	  local plot = unit:GetPlot();
+	  local city = plot:GetPlotCity()
+	  local player = Players[unit:GetOwner()]
+	  if not city then return end
+  
+  
+	  city:SetNumRealBuilding(GameInfoTypes["BUILDING_JIEDUSHI"],1)
+	  unit:SetMoves(0)
+	  unit:SetHasPromotion(GameInfoTypes["PROMOTION_JIEDUSHI_CITY"], false)
+	end,
+  };
+  LuaEvents.UnitPanelActionAddin(BuildJiedushiButton);
+-----------------------------------------------------------------------
+---- 制置使司:消耗民兵加速生产
+-----------------------------------------------------------------------
+ProductionMissionButton = {
+    Name = "military production",
+    Title = "TXT_KEY_SP_MISSION_BUILDING_JIEDUSHI_TITLE", -- or a TXT_KEY
+    OrderPriority = 300, -- default is 200
+    IconAtlas = "UNIT_ACTION_GOLD_ATLAS", -- 45 and 64 variations required
+    PortraitIndex = 36,
+    ToolTip = "TXT_KEY_SP_MISSION_BUILDING_JIEDUSHI_TOOL_TIP", -- or a TXT_KEY_ or a function
+
+    Condition = function(action, unit)
+		local city = GetCloseCity ( unit:GetOwner() , unit:GetPlot() );
+        return (unit:CanMove()
+            and unit:GetBaseCombatStrength() > 0
+            and unit:GetDomainType() == DomainTypes.DOMAIN_LAND
+			and unit:IsHasPromotion(GameInfoTypes["PROMOTION_MILITIA_COMBAT"])
+			and Map.PlotDistance(city:GetX(), city:GetY(), unit:GetX(), unit:GetY()) < 2
+            and city:IsHasBuilding(GameInfoTypes["BUILDING_JIEDUSHI"]));
+    end, -- or nil or a boolean, default is true
+
+    Disabled = function(action, unit)
+        return false;
+    end, -- or nil or a boolean, default is false
+
+    Action = function(action, unit, eClick)
+        local plot = unit:GetPlot();
+        local city = GetCloseCity ( unit:GetOwner() , unit:GetPlot() );
+        local player = Players[unit:GetOwner()];
+		
+		city:SetOverflowProduction(city:GetOverflowProduction() + 0.1 * city:GetProductionNeeded());
+		unit:Kill();
+		if player:IsHuman() then
+        	Events.GameplayAlertMessage(Locale.ConvertTextKey("TXT_KEY_MESSAGE_JIEDUSHI_ALERT_1", unit:GetName(), city:GetName(), 0.1 * city:GetProductionNeeded()) )
+        end
+
+    end,
+};
+LuaEvents.UnitPanelActionAddin(ProductionMissionButton);
 

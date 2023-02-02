@@ -386,6 +386,17 @@
 				本城市+25%[ICON_GREAT_PEOPLE]伟人点数累积。
 			</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_JIEDUSHI">
+			<Text>制置使司</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_JIEDUSHI_HELP">
+			<Text>
+				本城市生产的单位+15经验；
+				[NEWLINE][ICON_BULLET]本城允许组建[COLOR_POSITIVE_TEXT]特战单位[ENDCOLOR]；
+				[NEWLINE][ICON_BULLET]城市1格内可以消耗[COLOR_POSITIVE_TEXT]民兵单位[ENDCOLOR]提升10%的城市[ICON_PRODUCTION]生产进度；
+			</Text>
+		</Row>
 		<!--*******************************精英单位工程*******************************-->
 		<Row Tag="TXT_KEY_PROJECT_BEWEI_CAVALRY">
 			<Text>靖康之变</Text>
@@ -845,6 +856,24 @@
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_CITY_HELP">
 			<Text>位于城市中时可以建立[COLOR_POSITIVE_TEXT]制置使司[ENDCOLOR]，仅能建立一次。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JIEDUSHI_SHORT">
+			<Text>[COLOR_POSITIVE_TEXT]建立制置使司[ENDCOLOR]</Text>
+		</Row>
+		<!-- <Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JIEDUSHI">
+			<Text>在本城市建立一座道场。该城市所有建造和购买的军事单位+15经验值且允许在本城市组建特战单位和精英单位。[NEWLINE][NEWLINE]+3[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]该指令会消耗你的日本武士，每座城市只能建造一座道场。</Text>
+		</Row> -->
+		
+		<Row Tag="TXT_KEY_SP_MISSION_BUILDING_JIEDUSHI_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]厢军使役[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_MISSION_BUILDING_JIEDUSHI_TOOL_TIP">
+			<Text>消耗自身使得附近城市的[ICON_PRODUCTION]生产进度推进10%</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_MESSAGE_JIEDUSHI_ALERT_1">
+			<Text>您的{1_UnitName}奉献自己使得附近{2_CityName}的生产进度推进了{3_Num}[ICON_PRODUCTION]。</Text>
 		</Row>
 		<!--*******************************旅游值提示*******************************-->
 		<Row Tag="TXT_KEY_NANSONG_GET_TOURISM_TAG1">

@@ -518,6 +518,51 @@
 			<UnitType>UNIT_SONG_J20</UnitType>
 			<BuildingClassType>BUILDINGCLASS_MILITARY_BASE</BuildingClassType>
 		</Row>
+
+
+		<!--制置使司解锁特战单位-->
+		<Row>
+			<UnitType>UNIT_NATIONAL_GUARD</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+	
+		<Row>
+			<UnitType>UNIT_FRENCH_MUSKETEER</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+		
+		
+		<Row>
+			<UnitType>UNIT_WWI_PARATROOPER</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_MARINE</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_BRAZILIAN_PRACINHA</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+		
+		<Row>
+			<UnitType>UNIT_PARATROOPER</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_EGYPT_UNIT777</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_XCOM_SQUAD</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+
+		<Row>
+			<UnitType>UNIT_TASKFORCE_141</UnitType>
+			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
+		</Row>
+
 	</Unit_BuildingClassRequireds>
 	<!--战略资源需求-->
 	<Unit_ResourceQuantityRequirements>
@@ -718,6 +763,10 @@
 		<Row>
 			<UnitType>UNIT_JIEDUSHI</UnitType>
 			<PromotionType>PROMOTION_JIEDUSHI_PRE</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_JIEDUSHI</UnitType>
+			<PromotionType>PROMOTION_JIEDUSHI_CITY</PromotionType>
 		</Row>
 		<!--车船-->
 		<Row>
