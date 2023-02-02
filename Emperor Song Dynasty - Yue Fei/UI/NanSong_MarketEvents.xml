@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Created by ModBuddy on 2023/1/27 9:33:41 -->
-<GameData>
-  <!-- TODO: Insert table creation example here. -->
- 
-  <!-- TODO: Insert table data example here.-->
-  
-  <!-- Enter your Game Data here. -->
-  
-</GameData>
+<Context>
+	<Box ID="MainUIBG"  Style="BGBlock_ClearTopBar"/>
+	<Grid  ID="MainUI" Size="600,500" Anchor="C,C" Offset="0,0" Padding="30,30" ConsumeMouse="1" Style="Grid9DetailFive140">
+		<!-- Upper Treatment -->
+		<Image Anchor="C,T" AnchorSide="I.O" Size="256,64" Offset="0,-14"  Texture="assets\UI\Art\Icons\Top512IconTrim.dds" >
+			<Image ID="CivIconBG" Size="64.64" Anchor="C,C" Offset="-1,-1" TextureOffset="77,0" Texture="CivIconBGSizes.dds" />
+		</Image>
+
+		<!-- Side treatments -->
+		<Box Style="MenuLeftSideTreatment"/>
+		<Box Style="MenuRightSideTreatment"/>
+
+		<Label  Anchor="C,T" Size="300,24" Offset="0,15" String="TXT_KEY_EVENTS_SONG_MARKET1_TITLE" ID="Title" ColorSet="Beige_Black"  Font="TwCenMT22" />
+		<Stack Anchor="C,T" Offset="0,20" Padding="12" StackGrowth="Bottom" ID="ButtonStack">
+			<Image Anchor="C,T" Offset="0,30" Texture="NanSong_MarketEvents1.dds" Size="500,200" ID="Image"/>
+			<Label Anchor="C,T" Offset="0,0" ColorSet="Beige_Black" Font="TwCenMT18" FontStyle="Shadow" String="TXT_KEY_EVENTS_SONG_MARKET1_MESSAGE" ID="Summary" WrapWidth="450" LeadingOffset="-8"/>
+			<Image Anchor="C,C" Offset="0,30" Texture="bar340x2.dds" Size="340.1"/>
+      <!-- <PullDown ID="CityInstanceMenu" Style="GenericPullDown" ScrollThreshold="170" Size="190,27" SpaceForScroll="1" Anchor="C,T" Offset="0,24"/> -->
+		</Stack>
+		<Box Anchor="C,B" AnchorSide="I.I" Offset="0,0" Size="520,56" Color="255,255,255,0">
+			<GridButton ID="SelectButton" Size="400,30" Anchor="C,B" Offset="0,60" Style="BaseButton" ToolTip="TXT_KEY_SONG_MARKET_OK_BUTTON_TT">
+				<Label Anchor="C,C" Offset="0,-2" String="TXT_KEY_SONG_MARKET_OK_BUTTON" Font="TwCenMT20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" />
+			</GridButton>
+		</Box>
+	</Grid>
+</Context>

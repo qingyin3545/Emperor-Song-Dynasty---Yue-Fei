@@ -576,9 +576,21 @@ INSERT INTO Unit_Builds
 		(UnitType,			BuildType)
 VALUES	('UNIT_WORKER',		'BUILD_YFS_SONG_FORT1');
 
+--==========================================================================================================================
+-- AUDIO
 --==========================================================================================================================	
--- Unit_Builds
---==========================================================================================================================	
-
+-- Audio_Sounds
+--------------------------------------------------------------------------------------------------------------------------	
+INSERT INTO Audio_Sounds 
+		(SoundID, 						Filename, 									LoadType)
+VALUES	('SND_EVENT_MARKET_FINISH', 	'Building_Hippodrome',						'DynamicResident'),
+		('SND_EVENT_MARKET_START', 		'ByzantiumJustinian',						'DynamicResident');
+--------------------------------------------------------------------------------------------------------------------------
+-- Audio_2DSounds
+--------------------------------------------------------------------------------------------------------------------------	
+INSERT INTO Audio_2DSounds 
+		(ScriptID, 								SoundID, 						SoundType, 		TaperSoundtrackVolume,	MinVolume, 	MaxVolume,  IsMusic, Looping)
+VALUES	('AS2D_EVENT_MARKET_FINISH',			'SND_EVENT_MARKET_FINISH',		'GAME_SFX', 	0.0,					60, 		60, 		0, 		 0),
+		('AS2D_EVENT_MARKET_START', 			'SND_EVENT_MARKET_START', 		'GAME_SFX', 	-1.0,					100, 		100, 		0, 		 0);
 
 
