@@ -241,6 +241,7 @@ function NanSongEffect()
 	local maxattUnitHP = attUnit:GetMaxHitPoints()
 	local factor = 1 - attUnitHP / maxattUnitHP + 0.01
 	local damagefactor = math.tan(math.pi * factor / 2)
+	local maxDamage = 5000
 	print('maxattUnitHP'..maxattUnitHP)
 	print('attUnitHP'..attUnitHP)
 	if not attUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
@@ -250,6 +251,9 @@ function NanSongEffect()
 			attUnit:SetMoves(attUnit:MovesLeft()+GameDefines["MOVE_DENOMINATOR"]);
 		elseif not defUnit:IsDead() then
 			iDamage = defUnit:GetDamage() * (0 + damagefactor);
+			if iDamage >= maxDamage then 
+				iDamage = 5000
+			end
 			print('defUnit:GetDamage()'..defUnit:GetDamage())
 			print('iDamage'..iDamage)
 
@@ -268,6 +272,9 @@ function NanSongEffect()
 		end
 		if defCity and bIsCity then
 			iDamage = defCity:GetDamage() * (0 + damagefactor);
+			if iDamage >= maxDamage then 
+				iDamage = 5000
+			end
 			print('defCity:GetDamage()'..defCity:GetDamage())
 			print('iDamage'..iDamage)
 			defCity:ChangeDamage(iDamage, attPlayerID);
@@ -293,6 +300,9 @@ function NanSongEffect()
 	if not attUnit:IsDead() and not defUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
 	and defUnit:IsHasPromotion(BeiWeiCavalryID) then
 		iDamage = attUnit:GetDamage() * (0 + damagefactor);
+		if iDamage >= maxDamage then 
+			iDamage = 5000
+		end
 		attUnit:ChangeDamage(iDamage, defPlayerID);
 		attUnit:SetHasPromotion(MoralWeaken1ID, true);
 		attUnit:SetHasPromotion(MoralWeaken2ID, true);
@@ -1275,11 +1285,18 @@ ProductionMissionButton = {
         local plot = unit:GetPlot();
         local city = GetCloseCity ( unit:GetOwner() , unit:GetPlot() );
         local player = Players[unit:GetOwner()];
+		local max = 2147483647
+		local production = 0.1 * city:GetProductionNeeded();
 		
-		city:SetOverflowProduction(city:GetOverflowProduction() + 0.1 * city:GetProductionNeeded());
+		if city:GetProductionNeeded() < max / 10 then
+			production = 0.1 * city:GetProductionNeeded();
+		else
+			production = 0.1 * city:GetOverflowProduction();
+		end
+		city:SetOverflowProduction(city:GetOverflowProduction() + production);
 		unit:Kill();
 		if player:IsHuman() then
-        	Events.GameplayAlertMessage(Locale.ConvertTextKey("TXT_KEY_MESSAGE_JIEDUSHI_ALERT_1", unit:GetName(), city:GetName(), 0.1 * city:GetProductionNeeded()) )
+        	Events.GameplayAlertMessage(Locale.ConvertTextKey("TXT_KEY_MESSAGE_JIEDUSHI_ALERT_1", unit:GetName(), city:GetName(), production) )
         end
 
     end,

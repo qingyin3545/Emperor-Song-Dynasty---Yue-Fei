@@ -106,7 +106,6 @@
 			<Type>BUILDING_JIEDUSHI</Type>
 			<BuildingClass>BUILDINGCLASS_JIEDUSHI</BuildingClass>
 			<Cost>-1</Cost>
-			<Happiness>2</Happiness>
 			<Help>TXT_KEY_BUILDING_JIEDUSHI_HELP</Help>
 			<Description>TXT_KEY_BUILDING_JIEDUSHI</Description>
 			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_MILITARYACADEMY_TEXT</Civilopedia>
