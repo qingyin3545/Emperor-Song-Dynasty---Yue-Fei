@@ -9,9 +9,6 @@
 		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_TRAIT">
 			<Text>新宋王朝:特性加成</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_FIRELANCER">
-			<Text>新宋王朝:突火枪兵生产加成</Text>
-		</Row>
 		<Row Tag="TXT_KEY_CIV_YFS_SONG_DESC_WONDER">
 			<Text>新宋王朝:奇观生产加成</Text>
 		</Row>
@@ -240,6 +237,7 @@
 				[NEWLINE][ICON_BULLET]提供额外2点[ICON_FOOD][ICON_PRODUCTION][ICON_GOLD][ICON_RESEARCH][ICON_PEACE][ICON_CULTURE][ICON_RES_MANPOWER][ICON_RES_CONSUMER]全产出。
 				[NEWLINE][ICON_BULLET]购买[COLOR_POSITIVE_TEXT]建筑[ENDCOLOR]与[COLOR_POSITIVE_TEXT]单位[ENDCOLOR]所需[ICON_GOLD]金币-15%。
 				[NEWLINE][ICON_BULLET]文明组建[COLOR_POSITIVE_TEXT]作战单位[ENDCOLOR]时+25%[ICON_PRODUCTION]产能（[ICON_CAPITAL]首都翻倍）。
+				[NEWLINE][ICON_BULLET]可建造独特奇观：[COLOR_POSITIVE_TEXT]东京留守司[ENDCOLOR]。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_YUYING_PEDIA">
@@ -263,6 +261,7 @@
 				本城获得一座免费[ICON_STRENGTH]城堡。[NEWLINE]
 				[NEWLINE][ICON_BULLET]这座要塞曾经是隶属于新宋的军事中心，在我们攻下后重要文件都被销毁了，因此无从得知秘密。
 				[NEWLINE][ICON_BULLET]这座要塞正守望着它真正的主人如[ICON_PROMOTION_BLITZ]闪电般归来！
+				[NEWLINE][ICON_BULLET]解锁特殊单位：[COLOR_POSITIVE_TEXT]殿前司诸直步军[ENDCOLOR]。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_WONDER_SONG_LIUSHOUSI_HELP">
@@ -271,6 +270,7 @@
 				[NEWLINE][ICON_BULLET]在此训练的[ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]获得[COLOR_POSITIVE_TEXT]渡河!渡河!渡河![ENDCOLOR]晋升：于[ICON_SGM_GROUP_ALL_OFF][COLOR_POSITIVE_TEXT]境外[ENDCOLOR]作战+25%[ICON_STRENGTH]战斗力，并消除跨河进攻惩罚，且[ICON_MOVES]移动不受地形影响。
 				[NEWLINE][ICON_BULLET]若文明进入[ICON_WAR][COLOR_NEGATIVE_TEXT]战争[ENDCOLOR]，则奇观所在城市每两回合获得一队东京留守司编制内的[ICON_PROMOTION_INFANTRY_COMBAT][COLOR_POSITIVE_TEXT]重装步兵[ENDCOLOR]或[ICON_PROMOTION_GUNPOWDER_INFANTRY][COLOR_POSITIVE_TEXT]火药步兵[ENDCOLOR]单位。
 				[NEWLINE][ICON_BULLET]开启[COLOR_YIELD_GOLD]军团模式[ENDCOLOR]将优先使现有单位获得[ICON_PROMOTION_ELITE]军团和[ICON_PROMOTION_GROUP]集团军晋升。
+				[NEWLINE][ICON_BULLET]解锁特殊单位：[COLOR_POSITIVE_TEXT]殿前司诸直步军[ENDCOLOR]。
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_WONDER_SONG_LIUSHOUSI_QUOTE">
@@ -278,6 +278,124 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_SONG_LIUSHOUSI_NAME">
 			<Text>东京留守司统制第</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET">
+			<Text>[ICON_GOLD]街市</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_HELP">
+			<Text>
+				[ICON_GOLD]街市是新宋的特色建筑，替代[ICON_GOLD]市场。
+				[NEWLINE]集四海之珍奇，皆归市易；会寰区之异味，悉在庖厨。
+				[NEWLINE][ICON_BULLET]拥有[ICON_GOLD]街市的城市能够随机触发加成事件，每回合仅能触发一次。
+				[NEWLINE][ICON_BULLET]本城每4[ICON_CITIZEN]人口+1[ICON_GOLD]金钱产出。
+				[NEWLINE][ICON_BULLET][ICON_GOLD]街市建成之后，所在城市将随机获得以下建筑之一：
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]百种圆药铺：+1[ICON_RESEARCH]科研，提供1个大科学家席位；
+				[NEWLINE][ICON_BULLET]唐家金银铺：+1[ICON_GOLD]金币，提供1个大商业家席位；
+				[NEWLINE][ICON_BULLET]南北作坊：+1[ICON_PRODUCTION]产能，提供1个大工程师席位；
+				[NEWLINE][ICON_BULLET]桑家瓦子：+1[ICON_CULTURE]文化，提供1个大文学家席位；
+				[NEWLINE][ICON_BULLET]曹婆婆肉饼铺：+1[ICON_FOOD]食物，且城市增加新的[ICON_CITIZEN]市民后保留25%[ICON_FOOD]食物储备以加速成长；
+				[NEWLINE][ICON_BULLET]遇仙正店：+2幸福度，-3%全局不满；
+				[NEWLINE][ICON_BULLET]军巡铺屋：城市[ICON_STRENGTH]防御力+40；
+				[NEWLINE][ICON_BULLET]州桥夜市：本城市+25%[ICON_GREAT_PEOPLE]伟人点数累积。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_PEDIA">
+			<Text>
+				宋代城市的发展，打破前代以坊为居民区，市为商业区，坊、市严格区分的界限;街巷都可开设店铺，又在坊之上设厢，作为较大的行政区划，以加强对坊郭户的控制。厢坊制遂取代前代的坊市制。			
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED">
+			<Text>路上行人摩肩接踵，车水马龙的{1_CityName}[ICON_GOLD]街市上开起了[COLOR_POSITIVE_TEXT]{2_BuildingDsc}[ENDCOLOR]！</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_SONG_MARKET_SOLD">
+			<Text>秋风萧瑟，百业凋敝，破败的{1_CityName}[ICON_GOLD]街市关门大吉。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_1">
+			<Text>百种圆药铺</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_1_HELP">
+			<Text>
+				+1[ICON_RESEARCH]科研，提供1个大科学家席位。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_2">
+			<Text>唐家金银铺</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_2_HELP">
+			<Text>
+				+1[ICON_GOLD]金币，提供1个大商业家席位。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_3">
+			<Text>南北作坊</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_3_HELP">
+			<Text>
+				+1[ICON_PRODUCTION]产能，提供1个大工程师席位。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_4">
+			<Text>桑家瓦子</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_4_HELP">
+			<Text>
+				+1[ICON_CULTURE]文化，提供1个大文学家席位。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_5">
+			<Text>曹婆婆肉饼</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_5_HELP">
+			<Text>
+				+1[ICON_FOOD]食物，且城市增加新的[ICON_CITIZEN]市民后保留25%[ICON_FOOD]食物储备以加速成长。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_6">
+			<Text>遇仙正店</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_6_HELP">
+			<Text>
+				+2幸福度，-3%全局不满。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_7">
+			<Text>军巡铺屋</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_7_HELP">
+			<Text>
+				城市[ICON_STRENGTH]防御力+40。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_8">
+			<Text>州桥夜市</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_YFS_MARKET_BONUS_8_HELP">
+			<Text>
+				本城市+25%[ICON_GREAT_PEOPLE]伟人点数累积。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_JIEDUSHI">
+			<Text>制置使司</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_JIEDUSHI_HELP">
+			<Text>
+				[ICON_BULLET][本城市生产的单位+15经验；
+				[NEWLINE][ICON_BULLET]本城允许组建[COLOR_POSITIVE_TEXT]特战单位[ENDCOLOR]；
+				[NEWLINE][ICON_BULLET]城市1格内可以消耗[COLOR_POSITIVE_TEXT]民兵单位[ENDCOLOR]提升10%的城市[ICON_PRODUCTION]生产进度；
+			</Text>
 		</Row>
 		<!--*******************************精英单位工程*******************************-->
 		<Row Tag="TXT_KEY_PROJECT_BEWEI_CAVALRY">
@@ -304,7 +422,7 @@
 			<Text>建炎北伐</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROJECT_CHIXIN_CAVALRY_HELP">
-			<Text>只有[COLOR_POSITIVE_TEXT]首个[ENDCOLOR]完成此项目的文明可以建造精英御前甲骑：[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]。</Text>
+			<Text>只有[COLOR_POSITIVE_TEXT]首个[ENDCOLOR]完成此项目的文明可以建造精英御前甲骑/精英御前战车：[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]/[COLOR_YIELD_GOLD]赤心装甲[ENDCOLOR]。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROJECT_CHIXIN_CAVALRY_PEDIA">
 			<Text>
@@ -385,6 +503,29 @@
 				[NEWLINE]冷却时间：3回合。
 			</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_UNIT_LOYALTY_ARMOR">
+			<Text>[COLOR_YIELD_GOLD]赤心装甲[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_LOYALTY_ARMOR_TEXT">
+			<Text>
+				[COLOR_YIELD_GOLD]赤心队骑[ENDCOLOR]，宋代郭药师所部刘晏军所统严州营，曾作为常胜军一部于对金的白河大战中节节胜利，突至金军营寨，但由于张令徽、刘舜仁的不战而退，在损失了大量军队后转胜为败。宣和四年(1122年)，药师投宋，刘晏率众数百随归。次年，药师复叛宋入金，刘晏留宋率其队以御金兵，故宋以“赤心”名其队。[NEWLINE]
+				建炎初，从刘正彦击淮西贼丁进。进党颇众，晏所提赤心骑才八百，乃为五色旗，使骑兵持之，循山而出，一色尽则以一色易之。贼见官军累日不绝，颜色各异，遂不战而降。迁朝散郎。正彦反，晏谓其部曲曰：“吾岂从逆党者耶？”以众归韩世忠。世忠追正彦及苗傅于浦城，以晏骑六百为疑兵于浦山之阳，贼大骇，晏以所部力战。正彦既擒，世忠上其功，迁一官。[NEWLINE]
+				金人犯建康，杜充兵溃，世忠退保江阴，晏领赤心百五十骑屯青龙。群寇犯常州，郡守请晏为援，晏以精锐七千人出奇破之。进直龙图阁。保马迹山以捍寇，寇再至，晏选舟师迎战，降其众千五百人，郡人为晏立生祠。[NEWLINE]
+				戚方围宣城，急命晏往援，晏至城下，未立营垒，出不意直捣方帐下，方大惊却走。晏欲生致方，单骑追之，方率其众迎战，晏不能敌，犹手杀数十人，为贼所害。[NEWLINE][NEWLINE]
+				小说《绍宋》中，明道宫之变后赤心队编入御前班直，作为皇帝的亲卫部队南征北战，并肩负了军官培养和信息传递的任务。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_LOYALTY_ARMOR_HELP">
+			<Text>
+				[COLOR_YIELD_GOLD]精英御前战车[ENDCOLOR]，作为新宋皇帝龙纛的象征，能够有效[COLOR_POSITIVE_TEXT]激励[ENDCOLOR]战场上的己方部队，同时遭受[ICON_PIRATE][COLOR_NEGATIVE_TEXT]歼灭[ENDCOLOR]也将带来全线的溃退。需要完成建炎北伐解锁，仅能组建一队。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]金吾纛旓[ENDCOLOR]：以自身为中心，相邻3格区域的己方单位获得[COLOR_POSITIVE_TEXT]白马绍兴[ENDCOLOR]晋升。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]白马绍兴[ENDCOLOR]：[ICON_STRENGTH]战斗力+15%，[ICON_WAR]经验获取速率+100%，[ICON_PROMOTION_RANGE]射程+1且攻击[ICON_PROMOTION_INDIRECT_FIRE]无视地形阻碍。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]龙纛北落[ENDCOLOR]：若该单位遭受[ICON_PIRATE]歼灭，则己方所有非[COLOR_YIELD_GOLD]精锐[ENDCOLOR][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]承受全部[COLOR_NEGATIVE_TEXT]负面状态[ENDCOLOR]。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]平步战云[ENDCOLOR]：出力报效讵可泯其绩而不嘉之以宠命乎，使用后将同格己方单位整编为[ICON_PROMOTION_ELITE]军团或集团军。
+				[NEWLINE]冷却时间：3回合。
+			</Text>
+		</Row>
 		<!--背嵬步军-->
 		<Row Tag="TXT_KEY_UNIT_BEIWEI_FOOT">
 			<Text>背嵬步军</Text>
@@ -403,6 +544,35 @@
 				背嵬步军多为重甲长斧兵，长于破甲。
 			</Text>
 		</Row>
+		<!--殿前司御龙班直-->
+		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT">
+			<Text>殿前司诸直步军</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_HELP">
+			<Text>
+				[COLOR_POSITIVE_TEXT]殿前司御龙班直[ENDCOLOR]是东京留守司解锁的特色[COLOR_POSITIVE_TEXT]重装步兵[ENDCOLOR]单位，同时最多只能拥有4个。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]骁果勇毅[ENDCOLOR]：发动远程攻击时+100%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]扈从禁军[ENDCOLOR]：周围1格内的己方单位回合开始时+1[ICON_MOVES]移动力、+2经验，周围1格内每个敌方单位为班直+5%[ICON_STRENGTH]战斗力。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DRAGON_FOOT_TEXT">
+			<Text>
+				皇帝近卫扈从禁军。五代始置。后唐时有从马直、散员、前直、左右殿直诸名。后晋有西班、内殿直诸名，后周有散员、散指挥使、散都头、内殿直、散祗侯、东西班承旨、大剑直等，统属于殿前司。宋沿后周之制于殿前置诸班直，从禁军中挑选最骁勇者充任，掌宿卫、仪仗、乐队等职守，危急时也参加战斗。其名目繁多，据王曾瑜《宋朝兵制初探》中的统计，属于马军的班直有：殿前指挥使左右二班，内殿直左右四班，川班内殿直(开宝时撤销)，散员左右四班，散指挥左右四班，散都头左右二班，散祗候左右二班(仁宗时置)，内直左右二班(太宗时改名金枪班)，东西班承旨，散直左右四班，钧容直二班(皇帝的乐队)，看班外殿直(神宗时撤销)，内员僚直(开宝时撤销，太宗时复置，天禧时并入外殿直)，茶酒新、旧班(北宋时隶东西班，南宋时单独设置)，招箭班(仁宗景祐时隶东西班)，属于步军的有御龙诸直，分为簇御马直(分左右二直， 太平兴国时改名簇御龙直)，御龙骨朵子直(分左右二直，太平兴国时改名御龙散手直，后又改称御龙骨朵子直)，御龙弓箭直(分五直)，御龙弩直(分五直)。殿前司马军诸班直的统兵官有都虞候、指挥使、都知、副都知和押班;步军诸班直的统兵官有四直都虞候，每直有都虞候、指挥使、副指挥使、都头、副都头、十将、将虞候。			
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME1">
+			<Text>[COLOR_CITY_BROWN]御龙直[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME2">
+			<Text>[COLOR_CITY_BROWN]御龙骨朵子直[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME3">
+			<Text>[COLOR_CITY_BROWN]御龙弓箭直[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_NAME4">
+			<Text>[COLOR_CITY_BROWN]御龙弩直[ENDCOLOR]</Text>
+		</Row>
 		<!--驻队矢-->
 		<Row Tag="TXT_KEY_UNIT_ZHUDUISHI">
 			<Text>驻队矢</Text>
@@ -417,27 +587,22 @@
 				[NEWLINE][ICON_BULLET][COLOR_WHITE]蝗雨遮天[ENDCOLOR]：进行原地驻守[COLOR_NEGATIVE_TEXT]禁止移动[ENDCOLOR]，但[ICON_PROMOTION_HUNTDOWN_1]攻击次数+2且[ICON_PROMOTION_RANGE]射程+1。
 			</Text>
 		</Row>
-		<!--突火枪兵-->
-		<Row Tag="TXT_KEY_UNIT_FIRELANCER">
-			<Text>[COLOR_MAGENTA]突火枪兵[ENDCOLOR]</Text>
-		</Row>
-		<Row Tag="TXT_KEY_CIV5_FIRELANCER_TEXT">
-			<Text>中国宋代时发明的突火枪，是世界所有现代管状喷射武器的鼻祖。两宋时期，社会动荡不安，战火不断。宋军东挡西杀，日益感觉武器的重要。当时，火药的社会使用率很高，于是宋军的军械师经过多次试验，于南宋开庆元年(公元1259年)，在寿春府(今安徽寿县)造出了世界上最早的火枪——“突火枪”。</Text>
-		</Row>
-		<Row Tag="TXT_KEY_UNIT_FIRELANCER_HELP">
-			<Text>[COLOR_POSITIVE_TEXT]突火枪兵[ENDCOLOR]是提前在[COLOR_CYAN]物理学[ENDCOLOR]解锁的[COLOR_MAGENTA]民兵[ENDCOLOR]单位。[NEWLINE][NEWLINE]驻守城市时拥有1格[ICON_PROMOTION_RANGE]射程，使邻近敌方单位-15%[ICON_STRENGTH]战斗力。</Text>
-		</Row>
 		<!--制置使-->
 		<Row Tag="TXT_KEY_UNIT_JIEDUSHI">
-			<Text>节度使</Text>
+			<Text>制置使</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_JIEDUSHI_HELP">
+			<Text>
+				[COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]是新宋的特色单位，替代[COLOR_POSITIVE_TEXT]陆军统帅[ENDCOLOR]。[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]天下太平[ENDCOLOR]：[COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]两格内的己方单位获得晋升：[COLOR_WHITE]文官不爱财，武官不惜死[ENDCOLOR]，相应单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]战区节帅[ENDCOLOR]：[COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]位于城市中时可以建立[COLOR_POSITIVE_TEXT]制置使司[ENDCOLOR]。
+				[NEWLINE]
+				[NEWLINE]拥有[ICON_BULLET][COLOR_POSITIVE_TEXT]制置使[ENDCOLOR]且完成[ICON_GOLD]街市后有几率触发事件：[COLOR_WHITE]使知西北有孤忠[ENDCOLOR]。
+			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_JIEDUSHI_TEXT">
 			<Text>
-				唐时节度使权力极大，集军、民、财三权于一身，又经常以一人兼任两至三镇节度使，最多者达四镇，权力之大，古所未有。[NEWLINE]
-				五代时，节度使的权势达到了峰值，皇帝的废立都取决于节度使，后梁、后唐、后晋、后汉、后周的开国皇帝清一色都是节度使。[NEWLINE]
-				宋建立后，宋太祖赵匡胤以金钱换军权，解除了节度使石守信对禁军的控制权。其余节度使也进行了类似的处理。[NEWLINE]
-				之后，节度使在宋朝一般作为荣誉职位，称为“某某军节度使”，待遇可是极高。[NEWLINE]
-				南宋的中兴四将都曾加封两镇乃至三镇节度使。
+				北宋末，曾以种师道为京畿﹑河北制置使，作为抗金的军事统帅。南宋初，常设制置使为方面军统帅，以抗金或镇压叛乱。辖区内的安抚使及地方官吏并受节制，后改为只节制军事，其它归地方政府。建炎四年(1130)定位在招讨使之下，后又规定安抚使不再带制置使，制置使只作统兵文武官员的官衔，也不常置。只有四川安抚使仍带制置使，职权略同于宣抚使，但不管财政。官高者或称制置大使。此外，还设沿江制置使﹑制置副使﹑沿海制置使。
 			</Text>
 		</Row>
 		<!--车船-->
@@ -502,7 +667,15 @@
 			<Text>
 				[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]是新宋的特色单位，替代[COLOR_POSITIVE_TEXT]货船[ENDCOLOR]，比起[COLOR_POSITIVE_TEXT]货船[ENDCOLOR]而言建造成本更低（100[ICON_PRODUCTION]产能）。[NEWLINE]
 				[NEWLINE][ICON_BULLET]每艘[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]使全国[ICON_CULTURE]文化、[ICON_GOLD]金币产出+4%。
-				[NEWLINE][ICON_BULLET]自带[ICON_PROMOTION_EMBARKATION]远洋海运晋升，当[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]位于[ICON_SGM_GROUP_ALL_OFF]境外时+4[ICON_TOURISM]魅力产出。
+				[NEWLINE][ICON_BULLET]拥有[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]后每条正在运行且持续一回合以上的商路为首都提供一份独有的[ICON_RES_YFS_GEKLIN][ICON_RES_YFS_RUKLIN][ICON_RES_YFS_OFFICALKLIN][ICON_RES_YFS_JUNKLIN][ICON_RES_YFS_DINGKLIN]瓷器奢侈（按以下顺序提供）。
+				[NEWLINE][NEWLINE][ICON_BULLET]不同的瓷器奢侈提供加成如下：
+				[NEWLINE][ICON_BULLET][ICON_RES_YFS_GEKLIN]哥窑瓷器：从本城起始的海上商路距离+10%，每条海洋贸易线路额外+2[ICON_GOLD]金币；
+				[NEWLINE][ICON_BULLET][ICON_RES_YFS_RUKLIN]汝窑瓷器：增加1%的全局[ICON_CULTURE]文化产出；
+				[NEWLINE][ICON_BULLET][ICON_RES_YFS_OFFICALKLIN]官窑瓷器：生产[COLOR_POSITIVE_TEXT]海军单位[ENDCOLOR]时+2%[ICON_PRODUCTION]产能、+2初始经验；
+				[NEWLINE][ICON_BULLET][ICON_RES_YFS_JUNKLIN]钧窑瓷器:增加1%的全局[ICON_RESEARCH]科研产出;
+				[NEWLINE][ICON_BULLET][ICON_RES_YFS_DINGKLIN]定窑瓷器:减少1%的全局不满。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]拥有[COLOR_POSITIVE_TEXT]泉州海船[ENDCOLOR]且完成[ICON_GOLD]街市建设后有几率触发事件：[COLOR_WHITE]涨海声中万国商[ENDCOLOR]。
 			</Text>
 		</Row>
 		<!--飞虎战船-->
@@ -553,6 +726,17 @@
 				[ICON_BULLET]遭受陆军非[ICON_PROMOTION_CITY_SIEGE][COLOR_NEGATIVE_TEXT]攻城武器[ENDCOLOR]、[ICON_PROMOTION_SPLASH_DAMAGE][COLOR_NEGATIVE_TEXT]覆盖火力[ENDCOLOR]进攻时，攻击者将陷入[COLOR_NEGATIVE_TEXT]眩晕[ENDCOLOR]状态，当前回合丧失所有[ICON_MOVES]移动力。
 			</Text>
 		</Row>
+		<!--殿前司：御龙诸直-->
+		<Row Tag="TXT_KEY_PROMOTION_DRAGON_FOOT">
+			<Text>御龙诸直</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_DRAGON_FOOT_HELP">
+			<Text>
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]骁果勇毅[ENDCOLOR]：发动远程攻击时+100%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]扈从禁军[ENDCOLOR]：周围1格内的己方单位回合开始时+1[ICON_MOVES]移动力、+2经验，周围1格内每个敌方单位为班直+5%[ICON_STRENGTH]战斗力。
+			</Text>
+		</Row>
 		<!--驻队矢：轮番猛射-->
 		<Row Tag="TXT_KEY_PROMOTION_CAN_ZHUDUISHI">
 			<Text>轮番猛射</Text>
@@ -578,25 +762,12 @@
 		<Row Tag="TXT_KEY_ZHUDUISHI_OFF">
 			<Text>切换为移动模式：使[ICON_PROMOTION_HUNTDOWN_1]攻击次数、[ICON_PROMOTION_RANGE]射程及[ICON_MOVES]移动回归常态，消耗本回合内所有剩余[ICON_MOVES]移动力。</Text>
 		</Row>
-		<!--突火枪兵：武装民兵-->
-		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE">
-			<Text>当头“枪”喝</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE_HELP">
-			<Text>[ICON_PROMOTION_RANGE]射程+1，邻近敌方单位-15%[ICON_STRENGTH]战斗力。</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE2">
-			<Text>团练厢军</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_FIRE_LANCER_DEFENSE2_HELP">
-			<Text>[ICON_PROMOTION_RANGE]射程-1。</Text>
-		</Row>
-		<!--节度使：天下太平-->
+		<!--制置使：天下太平-->
 		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI_SHORT">
 			<Text>天下太平</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI">
-			<Text>消耗自身所有[ICON_MOVES]移动力执行[COLOR_POSITIVE_TEXT]文官不爱财,武官不惜死[ENDCOLOR]命令，使两格内单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
+			<Text>两格内的己方单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUTTON_JIEDUSHI_PLOT">
 			<Text>文官不爱财[NEWLINE]武官不惜死</Text>
@@ -666,18 +837,43 @@
 		<Row Tag="TXT_KEY_PROMOTION_DUHE1_HELP">
 			<Text>东京留守司军统制</Text>
 		</Row>
-		<!--节度使：天下太平-->
+		<!--制置使：天下太平-->
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_PRE">
 			<Text>天下太平</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_PRE_HELP">
-			<Text>可以耗自身所有[ICON_MOVES]移动力为2格内单位执行[COLOR_POSITIVE_TEXT]天下太平[ENDCOLOR]命令</Text>
+			<Text>两格内的己方单位[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%，每当消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_EFFECT">
 			<Text>文官不爱财，武官不惜死</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_EFFECT_HELP">
 			<Text>[NEWLINE][ICON_BULLET][ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]战斗力、远程[ICON_STRENGTH]防御力+15%。[NEWLINE][ICON_BULLET]消灭敌方单位或[ICON_PIRATE]战死沙场时，获得目标单位200%[ICON_STRENGTH]战斗力的[ICON_GOLD]金币。</Text>
+		</Row>
+		<!--制置使：战区节帅-->
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_CITY">
+			<Text>战区节帅</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_JIEDUSHI_CITY_HELP">
+			<Text>位于城市中时可以建立[COLOR_POSITIVE_TEXT]制置使司[ENDCOLOR]，仅能建立一次。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JIEDUSHI_SHORT">
+			<Text>[COLOR_POSITIVE_TEXT]建立制置使司[ENDCOLOR]</Text>
+		</Row>
+		<!-- <Row Tag="TXT_KEY_SP_BTNNOTE_BUILDING_JIEDUSHI">
+			<Text>在本城市建立一座道场。该城市所有建造和购买的军事单位+15经验值且允许在本城市组建特战单位和精英单位。[NEWLINE][NEWLINE]+3[ICON_RES_MANPOWER]人力。[NEWLINE][NEWLINE]该指令会消耗你的日本武士，每座城市只能建造一座道场。</Text>
+		</Row> -->
+		
+		<Row Tag="TXT_KEY_SP_MISSION_BUILDING_JIEDUSHI_TITLE">
+			<Text>[COLOR_POSITIVE_TEXT]厢军使役[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SP_MISSION_BUILDING_JIEDUSHI_TOOL_TIP">
+			<Text>消耗自身使得附近城市的[ICON_PRODUCTION]生产进度推进10%</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_MESSAGE_JIEDUSHI_ALERT_1">
+			<Text>您的{1_UnitName}奉献自己使得[COLOR_POSITIVE_TEXT]{2_CityName}[ENDCOLOR]的生产进度推进了{3_Num}[ICON_PRODUCTION]。</Text>
 		</Row>
 		<!--*******************************旅游值提示*******************************-->
 		<Row Tag="TXT_KEY_NANSONG_GET_TOURISM_TAG1">
@@ -787,5 +983,269 @@
 		<Row Tag="TXT_KEY_PROMOTION_CHIXINDUI2_DEAD">
 			<Text>龙纛已落，众将士切勿动摇！</Text>
 		</Row>
+		<!--*******************************独特奢侈*******************************-->
+		<Row Tag="TXT_KEY_RESOURCE_YFS_GEKLIN">
+			<Text>哥窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_YFS_GEKLIN_TEXT">
+			<Text>
+				“哥窑”名列宋代五大名窑，在陶瓷史上有举足轻重的地位。哥窑胎多紫黑色、铁黑色、也有黄褐色。釉为失透的乳浊釉，釉面泛一层酥光，釉色以炒米黄、灰青多见，釉面大小纹片结合。[NEWLINE]
+				经染色后大纹片呈深褐色，小纹片为黄褐色，也称‘金丝铁线’“墨纹梅花片”“叶脉纹”‘文武片’等。这是传世哥窑的主要特征之一。器形有各式瓶、炉、尊、洗及碗、盆、碟等。多见仿古造型，底足制作不十分规整，釉面常见缩釉和棕眼。[NEWLINE][NEWLINE]
+				历史官窑难区分，金丝铁线一样真。[NEWLINE]
+				紫口铁足也一样，口薄是官无汗真。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOURCE_YFS_RUKLIN">
+			<Text>汝窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_YFS_RUKLIN_TEXT">
+			<Text>
+				汝窑，宋代五大名窑之一，因窑址位于宋时河南汝州境内而得名，今河南省宝丰县大营镇清凉寺村和汝州市张公巷均发现汝窑烧造。汝瓷位居宋代“汝、官、哥、钧、定”五大名窑之首，在中国陶瓷史上素有“汝窑为魁”之称。汝窑是中华传统制瓷著名瓷种之一，中国北宋时期皇家主要代表瓷器。[NEWLINE]
+				汝瓷造型古朴大方，以名贵玛瑙为釉，色泽独特，有“玛瑙为釉古相传”的赞誉。随光变幻，观其釉色，犹如“雨过天晴云破处”，“千峰碧波翠色来”之美妙，土质细润，坯体如侗体其釉厚而声如磬，明亮而不刺目。器表呈蝉翼纹细小开片，有“梨皮、蟹爪、芝麻花”之特点，被世人称为“似玉、非玉、而胜玉”。宋、元、明、清以来，宫廷汝瓷用器，内库所藏，视若珍宝、可与商彝周鼎比贵。[NEWLINE][NEWLINE]
+				胎薄釉薄色天青，釉中开片扣木声。[NEWLINE]
+				撇口撇足肚如鼓，灰胎硅化芝麻钉。
+	
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOURCE_YFS_OFFICALKLIN">
+			<Text>官窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_YFS_OFFICALKLIN_TEXT">
+			<Text>
+				官窑，是南宋宋高宗时期一些窑口专为宫廷烧制的瓷器，供御捡退，在当时俗称"官窑“。官窑，毛公洞第一（今 江苏扬州一带）。南宋官窑瓷器沿袭北宋风格，规整对称，宫廷气势，高雅大气，一丝不苟。因为胎土含铁量极高，手感沉重，胎土呈深黑褐色，后称”紫口铁足“。釉面沉重幽亮，釉厚如堆脂，温润如玉。釉面多层反复细刮，釉光下沉而不刺眼，纹理布局规则有致，造型庄重大方。另外”肉腐留骨“（露胎处像死人骨头，俗称”骨董“）也是那时所造。我们今天所称官窑泛指历朝官府烧造瓷器，其实，历史上仅指南宋时期烧造的瓷器，后世再无此称呼。[NEWLINE][NEWLINE]
+				紫口铁足官窑现，釉细润厚超胎限。[NEWLINE]
+				瓷器足部本无釉，烧后黑色都可见。[NEWLINE]
+				口部釉薄显胎骨，粉青翠青价上万。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOURCE_YFS_JUNKLIN">
+			<Text>钧窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_YFS_JUNKLIN_TEXT">
+			<Text>
+				钧窑，即钧台窑，是在柴窑和鲁山花瓷的风格基础上综合而成的一种独特风格，受道家思想深刻影响，在宋徽宗时期达到高峰，其工艺技术发挥到极致。无论是呈色和各种纹理的表现，做到窑变可控随心所欲的表现技术，至今无人能仿造。宋代受理学的影响，反应在瓷器上就是规整对称，无论是造型或纹理都遵循这一原则，特别是北宋官造钧瓷，不论文房用具或大型祭器都严格遵守这一原则。规整对称，高雅大气，宫廷气势，一丝不苟。其势沉重古朴，明亮而深沉。[NEWLINE][NEWLINE]				
+				钧窑常常带斑红，高温釉中含有。[NEWLINE]
+				红斑蓝釉有过渡，蚯蚓走泥纹路行。[NEWLINE]
+				蟹甲青斑胎泥细，高岭土久亿年成。[NEWLINE]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOURCE_YFS_DINGKLIN">
+			<Text>定窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_YFS_DINGKLIN_TEXT">
+			<Text>
+				定窑是中国传统制瓷工艺中的珍品，宋代六大窑系之一，它是继唐代的邢窑白瓷之后兴起的一大瓷窑体系。主要产地在今河北省保定市曲阳县（原属今定州市）的涧磁村、野北村及东燕川村、西燕川村一带，因该地区唐宋时期属定州管辖，故名定窑。[NEWLINE]
+				定窑原为民窑，北宋中后期开始烧造宫廷用瓷。创烧于唐，极盛于北宋及金，终于元，以产白瓷著称，兼烧黑釉、酱釉和绿釉瓷，文献分别称其为"黑定"、"紫定"和"绿定"。[NEWLINE][NEWLINE]
+				唐定色灰宋发黄，宋时泪滴灰点唐。[NEWLINE]
+				南宋生硬北唐轻，黑定无色暗点藏。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_YFS_SONG_RES_BONUS">
+			<Text>独特瓷器加成</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_GEKLIN">
+			<Text>[ICON_RES_YFS_GEKLIN]哥窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_GEKLIN_HELP">
+			<Text>
+				[ICON_BULLET]提供一份[ICON_RES_YFS_GEKLIN]哥窑瓷器;
+				[NEWLINE][ICON_BULLET]从本城起始的海上商路距离+10%，每条海洋贸易线路额外+2[ICON_GOLD]金币。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_RUKLIN">
+			<Text>[ICON_RES_YFS_RUKLIN]汝窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_RUKLIN_HELP">
+			<Text>
+				[ICON_BULLET]提供一份[ICON_RES_YFS_RUKLIN]汝窑瓷器;
+				[NEWLINE][ICON_BULLET]增加1%的全局[ICON_CULTURE]文化产出。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN">
+			<Text>[ICON_RES_YFS_OFFICALKLIN]官窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_OFFICALKLIN_HELP">
+			<Text>
+				[ICON_BULLET]提供一份[ICON_RES_YFS_OFFICALKLIN]官窑瓷器;
+				[NEWLINE][ICON_BULLET]生产[COLOR_POSITIVE_TEXT]海军单位[ENDCOLOR]时+2%[ICON_PRODUCTION]产能、+2初始经验。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_JUNKLIN">
+			<Text>[ICON_RES_YFS_JUNKLIN]钧窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_JUNKLIN_HELP">
+			<Text>
+				[ICON_BULLET]提供一份[ICON_RES_YFS_JUNKLIN]钧窑瓷器;
+				[NEWLINE][ICON_BULLET]增加1%的全局[ICON_RESEARCH]科研产出。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_DINGKLIN">
+			<Text>[ICON_RES_YFS_DINGKLIN]定窑瓷器</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_RES_YFS_DINGKLIN_HELP">
+			<Text>
+				[ICON_BULLET]提供一份[ICON_RES_YFS_DINGKLIN]定窑瓷器;
+				[NEWLINE][ICON_BULLET]减少1%的全局不满。
+			</Text>
+		</Row>
+		<!--*******************************UI堡寨*******************************-->
+		<Row Tag="TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1">
+			<Text>堡寨</Text>
+		</Row>
+		<Row Tag="TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1_HELP">
+			<Text>
+			[COLOR_POSITIVE_TEXT]堡寨[ENDCOLOR]是[COLOR_NEGATIVE_TEXT]新宋[ENDCOLOR]的特色设施，可修建于没有[COLOR_POSITIVE_TEXT]奢侈资源[ENDCOLOR]的地块之上。[NEWLINE]
+			[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]堡寨[ENDCOLOR]上有[ICON_CITIZEN]市民工作5回合（标准速度）后可以升级为[COLOR_POSITIVE_TEXT]城寨[ENDCOLOR]。
+			[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]驻扎[ENDCOLOR]于此的单位[ICON_STRENGTH]战斗力+50%。
+			[NEWLINE][ICON_BULLET]如果建造在河流地块，则+1[ICON_FOOD]食物和[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在道路或铁路上，则+1[ICON_GOLD]金钱或+2[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在山脉旁边，则+1[ICON_PRODUCTION]产能和[ICON_RESEARCH]科研。
+			[NEWLINE][ICON_BULLET]与[COLOR_POSITIVE_TEXT]堡寨[ENDCOLOR]相邻的农田+1[ICON_FOOD]食物和[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在城邦，则提供一份该城邦的奢侈。
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_IMPROVEMENT_YFS_SONG_FORT1_PEDIA">
+			<Text>
+				在北宋（960～1127）一百六十多年的历史中，它与西北边疆的西夏政权之间的战争断断续续地进行了一百四十多年。在这旷日持久的战争中，北宋为了防御西夏的进攻和谋划进攻西夏，在西北地区构筑了近五百个关城寨堡，这些关城寨堡的分布可以说都是受当地地理条件和当时军事形势影响的。
+				[NEWLINE]西北堡寨是宋军进退的据点，它在与西夏战争中的作用是巨大的。因为这些堡寨都选择在有战略价值的地方，这对西夏不能不说是一种严重的威胁，所以当宋兵兴工构筑之时，西夏常发动全力来破坏。
+				[NEWLINE]关、城、寨、堡皆为性质相同的军事关塞，虽然大小不一，名称互异，但并无严格的区分。随着军事形势的发展和这些关寨的边防重要性的增减，城堡可为寨，寨堡亦可为城，寨亦可为堡。城寨可升为州、军，州、军亦可降为城寨。如绥德城“因当夏贼之冲”而改为绥德军，笼竿城改为德顺城，石堡寨为军后复为寨，羊牧隆城改为隆德寨，伏羌寨南城改为伏羌城，通渭堡改为通渭寨，永乐城初修时曾赐名银川寨等。因此，由于堡寨在边防地区的重要性和驻军的众寡，便出现了隶属关系。堡寨有属于州、军，有属于城寨的。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_IMPROVEMENT_YFS_SONG_FORT2">
+			<Text>城寨</Text>
+		</Row>
+		<Row Tag="TXT_KEY_IMPROVEMENT_YFS_SONG_FORT2_HELP">
+			<Text>
+			[COLOR_POSITIVE_TEXT]城寨[ENDCOLOR]只能由[COLOR_POSITIVE_TEXT]堡寨[ENDCOLOR]成长而来。[NEWLINE]
+			[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]城寨[ENDCOLOR]上有[ICON_CITIZEN]市民工作7回合（标准速度）后可以升级为[COLOR_POSITIVE_TEXT]军寨[ENDCOLOR]。
+			[NEWLINE][ICON_BULLET]对临近的敌人造成5伤害。
+			[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]驻扎[ENDCOLOR]于此的单位[ICON_STRENGTH]战斗力+75%。
+			[NEWLINE][ICON_BULLET]如果建造在河流地块，则+2[ICON_FOOD]食物和[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在道路或铁路上，则+2[ICON_GOLD]金钱或+4[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在山脉旁边，则+2[ICON_PRODUCTION]产能和[ICON_RESEARCH]科研。
+			[NEWLINE][ICON_BULLET]与[COLOR_POSITIVE_TEXT]城寨[ENDCOLOR]相邻的农田+2[ICON_FOOD]食物和[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在城邦，则提供一份该城邦的奢侈。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_IMPROVEMENT_YFS_SONG_FORT3">
+			<Text>军寨</Text>
+		</Row>
+		<Row Tag="TXT_KEY_IMPROVEMENT_YFS_SONG_FORT3_HELP">
+			<Text>
+			[COLOR_POSITIVE_TEXT]军寨[ENDCOLOR]只能由[COLOR_POSITIVE_TEXT]城寨[ENDCOLOR]成长而来。[NEWLINE]
+			[NEWLINE][ICON_BULLET]对临近的敌人造成10伤害，可以额外容纳一个单位。
+			[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT]驻扎[ENDCOLOR]于此的单位[ICON_STRENGTH]战斗力+100%。
+			[NEWLINE][ICON_BULLET]如果建造在河流地块，则+3[ICON_FOOD]食物和[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在道路或铁路上，则+3[ICON_GOLD]金钱或+6[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在山脉旁边，则+3[ICON_PRODUCTION]产能和[ICON_RESEARCH]科研。
+			[NEWLINE][ICON_BULLET]与[COLOR_POSITIVE_TEXT]城寨[ENDCOLOR]相邻的农田+3[ICON_FOOD]食物和[ICON_GOLD]金钱。
+			[NEWLINE][ICON_BULLET]如果建造在城邦，则提供一份该城邦的奢侈。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_BUILD_YFS_SONG_FORT1">
+			<Text>修建一座[LINK=IMPROVEMENT_YFS_SONG_FORT1]堡寨[\LINK]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_YFS_SONG_FORT1_REC">
+			<Text>堡寨能够提供防御加成并开发重要资源，临山沿河的堡寨拥有丰富的加成，随着工作时间的加长堡寨能够成长为[COLOR_POSITIVE_TEXT]城寨[ENDCOLOR]。</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_YFS_SONG_FORT1_LVUP_SHORT">
+			<Text>堡寨成长！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YFS_SONG_FORT1_LVUP_TEXT">
+			<Text>您的堡寨升级成为城寨了！[NEWELINE][NEWLINE]</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_YFS_SONG_FORT2_LVUP_SHORT">
+			<Text>城寨成长！</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YFS_SONG_FORT2_LVUP_TEXT">
+			<Text>您的城寨升级成为军寨了！[NEWELINE][NEWLINE]</Text>
+		</Row>
+
+		<!--*******************************街市事件*******************************-->
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET1_TITLE">
+			<Text>火树银花不夜天</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET1_MESSAGE">
+			<Text>
+				元宵节的烟花燃了整夜，临安的诗人、画家和歌女们一时间思如泉涌。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]所有建有[ICON_GOLD]街市的城市获得15点[ICON_CULTURE]文化点数，随时代增加。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET2_TITLE">
+			<Text>众星罗列夜明深</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET2_MESSAGE">
+			<Text>
+				帝国司天监的官员们日复一日地观测着遥远的夜空，看起来今天他们似乎发现了不得了的东西。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]所有建有[ICON_GOLD]街市的城市获得15点[ICON_RESEARCH]科研点数，随时代增加；
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET3_TITLE">
+			<Text>火旗焰焰烧天红</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET3_MESSAGE">
+			<Text>
+				军巡铺的同僚们忙活了整夜终于扑灭了肆虐的火龙，现在是将作监大显身手的时候了。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]所有建有[ICON_GOLD]街市的城市获得15点[ICON_PRODUCTION]产能，随时代增加；
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET4_TITLE">
+			<Text>风吹柳花满店香</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET4_MESSAGE">
+			<Text>
+				风吹柳花满店香，吴姬压酒唤客尝，汴河两岸的酒楼愈发地繁华了。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]所有建有[ICON_GOLD]街市的城市获得5回合的“我们爱国王日”。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET5_TITLE">
+			<Text>涨海声中万国商</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET5_MESSAGE">
+			<Text>
+				泉州的市舶司外各国商贸往来不绝，各式各样的帆船载着五湖四海的货物来来往往。
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]所有建有[ICON_GOLD]街市的城市获得30[ICON_GOLD]金钱，随时代增加；
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET6_TITLE">
+			<Text>使知西北有孤忠</Text>
+		</Row>
+		<Row Tag="TXT_KEY_EVENTS_SONG_MARKET6_MESSAGE">
+			<Text>
+				陇右都护府收到急报，甘凉瓜沙又竖起了前唐的旗帜，我们的援军该出发了！
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET]首都获得一位制置使，所有的军事单位经验+5。
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_SONG_MARKET_OK_BUTTON">
+			<Text>确定</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_SONG_MARKET_OK_BUTTON_TT">
+			<Text>按下按钮以完成事件。</Text>
+		</Row>
+		
 	</Language_en_US>
 </GameData>
