@@ -35,6 +35,13 @@
 			<DefaultUnit>UNIT_LOYALTY_ARMOR</DefaultUnit>
 			<MaxPlayerInstances>1</MaxPlayerInstances>
 		</Row>
+
+		<Row>
+			<Type>UNITCLASS_DRAGON_FOOT</Type>
+			<Description>TXT_KEY_UNIT_DRAGON_FOOT</Description>
+			<DefaultUnit>UNIT_DRAGON_FOOT</DefaultUnit>
+			<MaxPlayerInstances>4</MaxPlayerInstances>
+		</Row>
 	</UnitClasses>
 	<Units>
 		<!--背嵬步军-->
@@ -71,9 +78,9 @@
 		</Row>
 		<!--殿前司御龙班直-->
 		<Row>
-			<Class>UNITCLASS_LONGSWORDSMAN</Class>
+			<Class>UNITCLASS_DRAGON_FOOT</Class>
 			<Type>UNIT_DRAGON_FOOT</Type>
-			<PrereqTech>TECH_STEEL</PrereqTech>
+			<PrereqTech>TECH_PHYSICS</PrereqTech>
 			<BaseSightRange>2</BaseSightRange>
 			<Combat>30</Combat>
 			<RangedCombat>30</RangedCombat>

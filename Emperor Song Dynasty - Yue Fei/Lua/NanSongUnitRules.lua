@@ -680,7 +680,7 @@ function(playerID)
 					  	if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
 						  	pFoundUnit:ChangeMoves(60);
 							pFoundUnit:ChangeExperience(2);
-							local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
+							local hex = ToHexFromGrid(Vector2(pFoundUnit:GetX(), pFoundUnit:GetY()));
 							Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
 						end
 					end
@@ -701,7 +701,7 @@ function(playerID)
 									if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
 										pFoundUnit:ChangeMoves(60);
 										pFoundUnit:ChangeExperience(2);
-										local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
+										local hex = ToHexFromGrid(Vector2(pFoundUnit:GetX(), pFoundUnit:GetY()));
 										Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
 									end
 								end

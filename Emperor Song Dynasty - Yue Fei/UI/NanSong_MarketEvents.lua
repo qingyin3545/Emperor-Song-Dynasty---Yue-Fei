@@ -69,10 +69,10 @@ function OnPlayerDoTurn(playerID)
 
     print("do turn prepare")
     if player:CountNumBuildings(GameInfoTypes["BUILDING_SONG_MARKET"]) > 0 then
-        --40概率发生事件
+        --25%概率发生事件
         print("bEvent")
         local bEvent = math.random(0, 100)
-        if bEvent > 40 then return end
+        if bEvent > 25 then return end
 
         local bCargo = false
         local bGeneral = false
@@ -177,8 +177,8 @@ function SongMarketEvents(player)
                 if player:IsHuman() then
                     player:AddNotification(
                         NotificationTypes.NOTIFICATION_DISCOVERED_LUXURY_RESOURCE, 
-                        L("TXT_KEY_NOTIFICATION_CITY_WLTKD", goldRow.Description, city:GetNameKey()),
-                        L("TXT_KEY_NOTIFICATION_SUMMARY_CITY_WLTKD", city:GetNameKey()), 
+                        Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_CITY_WLTKD", goldRow.Description, city:GetNameKey()),
+                        Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_SUMMARY_CITY_WLTKD", city:GetNameKey()), 
                         city:GetX(), city:GetY(), 
                         goldRow.ID);
                 end
@@ -201,7 +201,7 @@ function SongMarketEvents(player)
         local capitalCity = player:GetCapitalCity();
         local NewUnit = player:InitUnit(GameInfoTypes["UNIT_JIEDUSHI"], capitalCity:GetX(), capitalCity:GetY(), UNITAI_DEFENSE);
         for unit in player:Units() do
-            if unit:GetBaseGetBaseCombatStrength() > 0 then
+            if unit:GetBaseCombatStrength() > 0 then
                 unit:ChangeExperience(5)
             end
         end
