@@ -392,9 +392,9 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_JIEDUSHI_HELP">
 			<Text>
-				[ICON_BULLET][本城市生产的单位+15经验；
-				[NEWLINE][ICON_BULLET]本城允许组建[COLOR_POSITIVE_TEXT]特战单位[ENDCOLOR]；
-				[NEWLINE][ICON_BULLET]城市1格内可以消耗[COLOR_POSITIVE_TEXT]民兵单位[ENDCOLOR]提升10%的城市[ICON_PRODUCTION]生产进度；
+				[ICON_BULLET]本城市生产的单位+15经验；
+				[NEWLINE][ICON_BULLET]城市完成[COLOR_POSITIVE_TEXT]作战单位[ENDCOLOR]后根据[COLOR_POSITIVE_TEXT]制置使司[ENDCOLOR]数量和当前单位战斗力获得黄金时代点数；
+				[NEWLINE][ICON_BULLET]城市1格内可以消耗[COLOR_POSITIVE_TEXT]民兵单位[ENDCOLOR]提升10%的城市[ICON_PRODUCTION]生产进度。
 			</Text>
 		</Row>
 		<!--*******************************精英单位工程*******************************-->
@@ -551,8 +551,14 @@
 		<Row Tag="TXT_KEY_UNIT_DRAGON_FOOT_HELP">
 			<Text>
 				[COLOR_POSITIVE_TEXT]殿前司御龙班直[ENDCOLOR]是东京留守司解锁的特色[COLOR_POSITIVE_TEXT]重装步兵[ENDCOLOR]单位，同时最多只能拥有4个。[NEWLINE]
-				[NEWLINE][ICON_BULLET][COLOR_WHITE]骁果勇毅[ENDCOLOR]：发动远程攻击时+100%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]骁果勇毅[ENDCOLOR]：防御时+100%[ICON_STRENGTH]战斗力，发动远程攻击时+100%[ICON_STRENGTH]战斗力。
 				[NEWLINE][ICON_BULLET][COLOR_WHITE]扈从禁军[ENDCOLOR]：周围1格内的己方单位回合开始时+1[ICON_MOVES]移动力、+2经验，周围1格内每个敌方单位为班直+5%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]临江玄钺[ENDCOLOR]：临近河流时+30%[ICON_STRENGTH]战斗力，[ICON_MOVES]移动力翻倍。
+				[NEWLINE][NEWLINE]拥有[COLOR_POSITIVE_TEXT]背嵬步军[ENDCOLOR]的主要晋升，获得以下能力：
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]披坚执锐[ENDCOLOR]：[ICON_STRENGTH]战斗力+25%，[ICON_PROMOTION_OUTFLANK]侧翼夹击提供的[ICON_STRENGTH]战斗力加成翻倍。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]人马俱碎[ENDCOLOR]：对抗[ICON_PROMOTION_KNIGHT_COMBAT][COLOR_POSITIVE_TEXT]骑兵单位[ENDCOLOR]时+100%[ICON_STRENGTH]战斗力，对抗[ICON_PROMOTION_TANK_COMBAT][COLOR_POSITIVE_TEXT]装甲单位[ENDCOLOR]时+50%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]壁立万仞[ENDCOLOR]：遭受陆军非[ICON_PROMOTION_CITY_SIEGE][COLOR_POSITIVE_TEXT]攻城武器[ENDCOLOR]、[ICON_PROMOTION_SPLASH_DAMAGE][COLOR_POSITIVE_TEXT]覆盖火力[ENDCOLOR]进攻时，攻击者将陷入[COLOR_NEGATIVE_TEXT]眩晕[ENDCOLOR]状态，当前回合丧失所有[ICON_MOVES]移动力。
+
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_DRAGON_FOOT_TEXT">
@@ -735,8 +741,21 @@
 				[NEWLINE]
 				[NEWLINE][ICON_BULLET][COLOR_WHITE]骁果勇毅[ENDCOLOR]：发动远程攻击时+100%[ICON_STRENGTH]战斗力。
 				[NEWLINE][ICON_BULLET][COLOR_WHITE]扈从禁军[ENDCOLOR]：周围1格内的己方单位回合开始时+1[ICON_MOVES]移动力、+2经验，周围1格内每个敌方单位为班直+5%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]临江玄钺[ENDCOLOR]：临近河流时+30%[ICON_STRENGTH]战斗力，[ICON_MOVES]移动力翻倍，当前状态：[COLOR_NEGATIVE_TEXT]未生效[ENDCOLOR]。
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_DRAGON_FOOT_ON">
+			<Text>御龙诸直</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_DRAGON_FOOT_ON_HELP">
+			<Text>
+				[NEWLINE]
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]骁果勇毅[ENDCOLOR]：发动远程攻击时+100%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]扈从禁军[ENDCOLOR]：周围1格内的己方单位回合开始时+1[ICON_MOVES]移动力、+2经验，周围1格内每个敌方单位为班直+5%[ICON_STRENGTH]战斗力。
+				[NEWLINE][ICON_BULLET][COLOR_WHITE]临江玄钺[ENDCOLOR]：临近河流时+30%[ICON_STRENGTH]战斗力，[ICON_MOVES]移动力翻倍，当前状态：[COLOR_POSITIVE_TEXT]已生效[ENDCOLOR]。
+			</Text>
+		</Row>
+
 		<!--驻队矢：轮番猛射-->
 		<Row Tag="TXT_KEY_PROMOTION_CAN_ZHUDUISHI">
 			<Text>轮番猛射</Text>
@@ -1191,7 +1210,7 @@
 			<Text>
 				帝国司天监的官员们日复一日地观测着遥远的夜空，看起来今天他们似乎发现了不得了的东西。
 				[NEWLINE]
-				[NEWLINE][ICON_BULLET]所有建有[ICON_GOLD]街市的城市获得15点[ICON_RESEARCH]科研点数，随时代增加；
+				[NEWLINE][ICON_BULLET]所有建有[ICON_GOLD]街市的城市获得15点[ICON_RESEARCH]科研点数，随时代增加。
 			</Text>
 		</Row>
 
@@ -1246,6 +1265,5 @@
 		<Row Tag="TXT_KEY_SONG_MARKET_OK_BUTTON_TT">
 			<Text>按下按钮以完成事件。</Text>
 		</Row>
-		
 	</Language_en_US>
 </GameData>

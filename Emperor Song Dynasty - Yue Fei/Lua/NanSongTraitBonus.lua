@@ -469,3 +469,26 @@ function SongWonder(iPlayer, iCity, iBuilding)
 	return true
 end
 GameEvents.CityCanConstruct.Add(SongWonder)
+----------------------------------------------------------------------------------------------------------------------------
+-- 制置使司生产单位
+----------------------------------------------------------------------------------------------------------------------------
+function SongGoldenAgeUnit(iPlayer, iCity, iUnit, bGold, bFaith)	
+	local pPlayer = Players[iPlayer];
+	if pPlayer == nil then return end;
+	local pUnit = pPlayer:GetUnitByID(iUnit);
+	if pUnit == nil then return end;
+
+	-- 生产作战单位获得黄金时代点数
+	if pPlayer:CountNumBuildings(GameInfoTypes["BUILDING_JIEDUSHI"])> 0 then
+		if pUnit:GetBaseCombatStrength() > 0 then
+			local GoldenAgeBonus = pUnit:GetBaseCombatStrength() * pPlayer:CountNumBuildings(GameInfoTypes["BUILDING_JIEDUSHI"])
+			pPlayer:ChangeGoldenAgeProgressMeter(GoldenAgeBonus);
+
+			if pPlayer:IsHuman() then
+				local hex = ToHexFromGrid(Vector2(pUnit:GetX(), pUnit:GetY()))
+				Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_GOLDEN_AGE]", GoldenAgeBonus))
+			end
+		end
+	end
+end
+GameEvents.CityTrained.Add(SongGoldenAgeUnit)
