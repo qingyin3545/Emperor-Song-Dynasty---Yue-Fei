@@ -353,6 +353,7 @@
 			<Description>TXT_KEY_UNIT_CHIXIN_CAVALRY</Description>
 			<Civilopedia>TXT_KEY_CIV5_CHIXIN_CAVALRY_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_SP_UNITS_HEAVY_MOBILE_UNITS_STRATEGY</Strategy>
+			<GoodyHutUpgradeUnitClass>UNITCLASS_LOYALTY_ARMOR</GoodyHutUpgradeUnitClass>
 			<Help>TXT_KEY_UNIT_CHIXIN_CAVALRY_HELP</Help>
 			<MilitarySupport>true</MilitarySupport>
 			<MilitaryProduction>true</MilitaryProduction>
@@ -393,7 +394,7 @@
 			<AdvancedStartCost>60</AdvancedStartCost>
 			<XPValueAttack>4</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
-			<ProjectPrereq>PROJECT_BEWEI_CAVALRY</ProjectPrereq>
+			<ProjectPrereq>PROJECT_CHIXIN_CAVALRY</ProjectPrereq>
 			<UnitArtInfo>ART_DEF_UNIT_LOYALTY_ARMOR</UnitArtInfo>
 			<UnitFlagAtlas>YFS_UNIT_FLAG_ATLAS</UnitFlagAtlas>
 			<UnitFlagIconOffset>10</UnitFlagIconOffset>
@@ -524,50 +525,6 @@
 		<Row>
 			<UnitType>UNIT_SONG_J20</UnitType>
 			<BuildingClassType>BUILDINGCLASS_MILITARY_BASE</BuildingClassType>
-		</Row>
-
-
-		<!--制置使司解锁特战单位-->
-		<Row>
-			<UnitType>UNIT_NATIONAL_GUARD</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-	
-		<Row>
-			<UnitType>UNIT_FRENCH_MUSKETEER</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-		
-		
-		<Row>
-			<UnitType>UNIT_WWI_PARATROOPER</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_MARINE</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_BRAZILIAN_PRACINHA</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-		
-		<Row>
-			<UnitType>UNIT_PARATROOPER</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_EGYPT_UNIT777</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_XCOM_SQUAD</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
-		</Row>
-
-		<Row>
-			<UnitType>UNIT_TASKFORCE_141</UnitType>
-			<BuildingClassType>BUILDINGCLASS_JIEDUSHI</BuildingClassType>
 		</Row>
 
 	</Unit_BuildingClassRequireds>
@@ -728,6 +685,10 @@
 		<Row>
 			<UnitType>UNIT_DRAGON_FOOT</UnitType>
 			<PromotionType>PROMOTION_DRAGON_FOOT</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_DRAGON_FOOT</UnitType>
+			<PromotionType>PROMOTION_BEIWEI_FOOT</PromotionType>
 		</Row>
 		<!--驻队矢-->
 		<Row>
