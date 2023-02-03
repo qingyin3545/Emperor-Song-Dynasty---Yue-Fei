@@ -54,10 +54,25 @@
 			<Help>TXT_KEY_PROMOTION_DRAGON_FOOT_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<PortraitIndex>53</PortraitIndex>
+			<DefenseMod>100</DefenseMod>
 			<RangedAttackModifier>100</RangedAttackModifier>
 			<IconAtlas>promoVP_atlas_03</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_DRAGON_FOOT</PediaEntry>
+			<CannotBeChosen>true</CannotBeChosen>
+		</Row>
+		<Row>
+			<Type>PROMOTION_DRAGON_FOOT_ON</Type>
+			<Description>TXT_KEY_PROMOTION_DRAGON_FOOT_ON</Description>
+			<Help>TXT_KEY_PROMOTION_DRAGON_FOOT_ON_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PortraitIndex>53</PortraitIndex>
+			<DefenseMod>100</DefenseMod>
+			<RangedAttackModifier>100</RangedAttackModifier>
+			<CombatPercent>30</CombatPercent>
+			<IconAtlas>promoVP_atlas_03</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_DRAGON_FOOT_ON</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 		</Row>
 		<!--驻队矢：轮番猛射-->
@@ -282,7 +297,44 @@
 			<TerrainType>TERRAIN_HILL</TerrainType>
 			<Impassable>true</Impassable>
 		</Row>
+		<!--殿前司：御龙诸直-->
+		<Row>
+			<PromotionType>PROMOTION_DRAGON_FOOT_ON</PromotionType>
+			<TerrainType>TERRAIN_GRASS</TerrainType>
+			<DoubleMove>true</DoubleMove>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_DRAGON_FOOT_ON</PromotionType>
+			<TerrainType>TERRAIN_PLAINS</TerrainType>
+			<DoubleMove>true</DoubleMove>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_DRAGON_FOOT_ON</PromotionType>
+			<TerrainType>TERRAIN_DESERT</TerrainType>
+			<DoubleMove>true</DoubleMove>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_DRAGON_FOOT_ON</PromotionType>
+			<TerrainType>TERRAIN_TUNDRA</TerrainType>
+			<DoubleMove>true</DoubleMove>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_DRAGON_FOOT_ON</PromotionType>
+			<TerrainType>TERRAIN_SNOW</TerrainType>
+			<DoubleMove>true</DoubleMove>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_DRAGON_FOOT_ON</PromotionType>
+			<TerrainType>TERRAIN_MOUNTAIN</TerrainType>
+			<DoubleMove>true</DoubleMove>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_DRAGON_FOOT_ON</PromotionType>
+			<TerrainType>TERRAIN_HILL</TerrainType>
+			<DoubleMove>true</DoubleMove>
+		</Row>
 	</UnitPromotions_Terrains>
+
 	<UnitPromotions_Features>
 		<!--驻队矢：轮番猛射-->
 		<Row>

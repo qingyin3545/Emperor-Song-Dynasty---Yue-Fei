@@ -554,6 +554,7 @@ function ArmorSetCombat(playerID)
 
 end
 GameEvents.TeamSetEra.Add(ArmorSetCombat)
+GameEvents.UnitCreated.Add(ArmorSetCombat)
 -------------------------------------------------------------------------------------------------------------
 -- 背嵬骑军战斗力随血量变化
 -------------------------------------------------------------------------------------------------------------
@@ -599,7 +600,23 @@ function YFS_UnitSetXY(playerID, unitID)
 
 	if plot then
 
-		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) then
+		-- 殿前司在河流地块获得加成
+		if unit and 
+		(unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+		or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])) 
+		then
+			unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"], false)
+			unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"], true)
+			if plot:IsRiver() then
+				unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"], true)
+				unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"], false)
+			end
+		end
+
+
+		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+		or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
+		then
 			-- 殿前司：根据临近敌人给战斗力加成
 			local iunit = GameInfo.Units[unit:GetUnitType()] ;
 			local plot = unit:GetPlot();
