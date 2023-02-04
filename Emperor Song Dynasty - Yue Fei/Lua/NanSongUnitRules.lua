@@ -659,9 +659,11 @@ function YFS_UnitSetXY(playerID, unitID)
 			local icombat = math.ceil(0.05 * iunit.Combat);
 			-- unit:SetBaseCombatStrength(iunit.Combat + icombat * icombat_bonus);
 			SPUEAddCombatBonus(unit, math.ceil(100 * icombat_bonus * icombat / iunit.Combat))
-            local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
-            Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_STRENGTH]", icombat * icombat_bonus));
-            -- Events.GameplayFX(hex.x, hex.y, -1);
+			if icombat_bonus > 0 then
+            	local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
+            	Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_STRENGTH]", icombat * icombat_bonus));
+            end
+			-- Events.GameplayFX(hex.x, hex.y, -1);
 
 		end
 
