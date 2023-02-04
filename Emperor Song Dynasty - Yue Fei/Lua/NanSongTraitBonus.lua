@@ -477,10 +477,11 @@ function SongGoldenAgeUnit(iPlayer, iCity, iUnit, bGold, bFaith)
 	if pPlayer == nil then return end;
 	local pUnit = pPlayer:GetUnitByID(iUnit);
 	if pUnit == nil then return end;
+	local city = pPlayer:GetCityByID(iCity);
 
 	-- 生产作战单位获得黄金时代点数
 	if pPlayer:CountNumBuildings(GameInfoTypes["BUILDING_JIEDUSHI"])> 0 then
-		if pUnit:GetBaseCombatStrength() > 0 then
+		if city:GetNumBuilding(GameInfoTypes["BUILDING_JIEDUSHI"]) > 0 and pUnit:GetBaseCombatStrength() > 0 then
 			local GoldenAgeBonus = pUnit:GetBaseCombatStrength() * pPlayer:CountNumBuildings(GameInfoTypes["BUILDING_JIEDUSHI"])
 			pPlayer:ChangeGoldenAgeProgressMeter(GoldenAgeBonus);
 
