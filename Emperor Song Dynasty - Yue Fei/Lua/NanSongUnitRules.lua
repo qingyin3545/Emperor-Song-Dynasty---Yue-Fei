@@ -48,7 +48,7 @@ local DestroyerID = GameInfo.UnitPromotions["PROMOTION_DESTROYER_COMBAT"].ID
 
 local GunpowderInfantryUnitID = GameInfo.UnitPromotions["PROMOTION_GUNPOWDER_INFANTRY_COMBAT"].ID
 local InfantryUnitID = GameInfo.UnitPromotions["PROMOTION_INFANTRY_COMBAT"].ID
---local KnightID = GameInfo.UnitPromotions["PROMOTION_KNIGHT_COMBAT"].ID
+local KnightID = GameInfo.UnitPromotions["PROMOTION_KNIGHT_COMBAT"].ID
 --local TankID = GameInfo.UnitPromotions["PROMOTION_TANK_COMBAT"].ID	
 --local Charge1ID = GameInfo.UnitPromotions["PROMOTION_CHARGE_1"].ID
 --local Charge2ID = GameInfo.UnitPromotions["PROMOTION_CHARGE_2"].ID
@@ -432,7 +432,7 @@ function NanSongEffect()
 				if PlayersAtWar(attPlayer, pPlayer) then
 					local SplashDamageOri = attUnit:GetRangeCombatDamage(pUnit,nil,false)
 						
-					local AOEmod = 0.33   -- the percent of damage reducing to nearby units
+					local AOEmod = 0.50   -- the percent of damage reducing to nearby units
 						
 					local text = nil;
 					local attUnitName = attUnit:GetName();
@@ -475,7 +475,8 @@ function NanSongEffect()
 	-----------------------------------------------------------------------
 	---- 赤心队：阵亡
 	----------------------------------------------------------------------
-	if attUnit:IsHasPromotion(ChiXinCavalryID) and (attUnit:IsDead() or attUnit:GetDamage() >=  attUnit:GetMaxHitPoints() )then
+	if attUnit:IsHasPromotion(ChiXinCavalryID) and attUnit:IsHasPromotion(KnightID)
+	and (attUnit:IsDead() or attUnit:GetDamage() >=  attUnit:GetMaxHitPoints() )then
 		local hex = ToHexFromGrid(Vector2(attUnit:GetX(), attUnit:GetY()))
 		Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_PROMOTION_CHIXINDUI1_DEAD"))
 		for pFoundUnit in attPlayer:Units() do

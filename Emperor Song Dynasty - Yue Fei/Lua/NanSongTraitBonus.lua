@@ -493,3 +493,22 @@ function SongGoldenAgeUnit(iPlayer, iCity, iUnit, bGold, bFaith)
 	end
 end
 GameEvents.CityTrained.Add(SongGoldenAgeUnit)
+----------------------------------------------------------------------------------------------------------------------------
+-- 军巡铺屋：每回合恢复10%城市生命
+----------------------------------------------------------------------------------------------------------------------------
+function JunXunPuWuCity(iPlayer)
+	local pPlayer = Players[iPlayer];
+	if pPlayer == nil or pPlayer:IsBarbarian() then
+		return
+	end
+
+	for pCity in pPlayer:Cities() do
+		if pCity then		
+			if pCity:IsHasBuilding(GameInfoTypes.BUILDING_YFS_MARKET_BONUS_7) then
+				local MaxCityHP = pCity:GetMaxHitPoints()
+				pCity:ChangeDamage(0 - 0.1 * MaxCityHP)
+			end
+		end
+	end
+end
+GameEvents.PlayerDoTurn.Add(JunXunPuWuCity)

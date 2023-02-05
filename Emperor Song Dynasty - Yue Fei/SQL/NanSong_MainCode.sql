@@ -23,25 +23,49 @@ VALUES		('BUILDINGCLASS_YFS_MARKET_BONUS', 		'BUILDING_YFS_MARKET_BONUS_1', 		'T
 -- UB_BUFF: Buildings
 --==========================================================================================================================	
 INSERT INTO Buildings 	
-			(Type, 								BuildingClass, 						Happiness,	SpecialistType,			SpecialistCount,	Defense,	UnhappinessModifier,	FoodKept,	GreatPeopleRateModifier,	Description,							Help,											Cost,	MinAreaSize,	HurryCostModifier,	NeverCapture,	NukeImmune,		PortraitIndex,	IconAtlas)
-VALUES		('BUILDING_YFS_MARKET_BONUS_1',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_SCIENTIST',	1,					0,			0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_1',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_1_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
-			('BUILDING_YFS_MARKET_BONUS_2',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_MERCHANT',	1,					0,			0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_2',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_2_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
-			('BUILDING_YFS_MARKET_BONUS_3',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_ENGINEER',	1,					0,			0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_3',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_3_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
-			('BUILDING_YFS_MARKET_BONUS_4',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_WRITER',	1,					0,			0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_4',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_4_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
-			('BUILDING_YFS_MARKET_BONUS_5',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			null,					1,					0,			0,						25,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_5',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_5_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
-			('BUILDING_YFS_MARKET_BONUS_6',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	2,			null,					0,					0,			-3,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_6',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_6_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
-			('BUILDING_YFS_MARKET_BONUS_7',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			null,					0,					4000,		0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_7',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_7_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
-			('BUILDING_YFS_MARKET_BONUS_8',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			null,					0,					0,			0,						0,			25,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_8',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_8_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS');
+			(Type, 								BuildingClass, 						Happiness,	SpecialistType,			SpecialistCount,	ExtraCityHitPoints,	UnhappinessModifier,	FoodKept,	GreatPeopleRateModifier,	Description,							Help,											Cost,	MinAreaSize,	HurryCostModifier,	NeverCapture,	NukeImmune,		PortraitIndex,	IconAtlas)
+VALUES		('BUILDING_YFS_MARKET_BONUS_1',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_SCIENTIST',	1,					0,					0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_1',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_1_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_2',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_MERCHANT',	1,					0,					0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_2',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_2_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_3',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_ENGINEER',	1,					0,					0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_3',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_3_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_4',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			'SPECIALIST_WRITER',	1,					0,					0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_4',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_4_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_5',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			null,					1,					0,					0,						25,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_5',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_5_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_6',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	2,			null,					0,					0,					-3,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_6',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_6_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_7',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			null,					0,					50,					0,						0,			0,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_7',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_7_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS'),
+			('BUILDING_YFS_MARKET_BONUS_8',		'BUILDINGCLASS_YFS_MARKET_BONUS', 	0,			null,					0,					0,					0,						0,			25,							'TXT_KEY_BUILDING_YFS_MARKET_BONUS_8',	'TXT_KEY_BUILDING_YFS_MARKET_BONUS_8_HELP',		-1,		-1,				-1,					1,				1,				23,				'YFS_SONG_ATLAS');
 --==========================================================================================================================	
--- UB_BUFF: Building_YieldChanges
+-- UB_BUFF: Building_YieldModifiers
 --==========================================================================================================================					
-INSERT INTO Building_YieldChanges 
+INSERT INTO Building_YieldModifiers 
 			(BuildingType, 						YieldType,				Yield)
-VALUES		('BUILDING_YFS_MARKET_BONUS_1',		'YIELD_SCIENCE',		1),
-			('BUILDING_YFS_MARKET_BONUS_2',		'YIELD_GOLD',			1),
-			('BUILDING_YFS_MARKET_BONUS_3',		'YIELD_PRODUCTION',		1),
-			('BUILDING_YFS_MARKET_BONUS_4',		'YIELD_CULTURE',		1),
-			('BUILDING_YFS_MARKET_BONUS_1',		'YIELD_FOOD',			1);
+VALUES		('BUILDING_YFS_MARKET_BONUS_1',		'YIELD_SCIENCE',		5),
+			('BUILDING_YFS_MARKET_BONUS_2',		'YIELD_GOLD',			5),
+			('BUILDING_YFS_MARKET_BONUS_3',		'YIELD_PRODUCTION',		5),
+			('BUILDING_YFS_MARKET_BONUS_4',		'YIELD_CULTURE',		5),
+			('BUILDING_YFS_MARKET_BONUS_5',		'YIELD_FOOD',			5);
+--==========================================================================================================================
+-- World Power
+--==========================================================================================================================
+--强权科学家替换医学家
+UPDATE Buildings SET SpecialistType = 'SPECIALIST_DOCTOR'
+WHERE Type = 'BUILDING_YFS_MARKET_BONUS_1' 
+AND EXISTS (SELECT * FROM ROG_GlobalUserSettings WHERE Type = 'WORLD_POWER_PATCH' AND Value = 1);
+
+--百种圆药铺联动强权
+INSERT INTO Building_YieldChanges 
+		(BuildingType, 					YieldType, 		Yield) 
+SELECT	'BUILDING_YFS_MARKET_BONUS_1', 	'YIELD_HEALTH', 3 
+WHERE EXISTS (SELECT * FROM ROG_GlobalUserSettings WHERE Type = 'WORLD_POWER_PATCH' AND Value = 1);
+
+CREATE TRIGGER YFS_WP
+AFTER INSERT ON ROG_GlobalUserSettings
+WHEN NEW.Type ='WORLD_POWER_PATCH' AND NEW.Valve = 1
+BEGIN
+	UPDATE Buildings SET SpecialistType = 'SPECIALIST_DOCTOR' WHERE	Type = 'BUILDING_YFS_MARKET_BONUS_1';
+
+	INSERT INTO Building_YieldChanges 
+			(BuildingType, 					YieldType, 		Yield) 
+	VALUES	('BUILDING_YFS_MARKET_BONUS_1', 'YIELD_HEALTH', 3);
+END;
 --==========================================================================================================================
 -- Civilization_CityNames
 --==========================================================================================================================		
@@ -592,5 +616,6 @@ INSERT INTO Audio_2DSounds
 		(ScriptID, 								SoundID, 						SoundType, 		TaperSoundtrackVolume,	MinVolume, 	MaxVolume,  IsMusic, Looping)
 VALUES	('AS2D_EVENT_MARKET_FINISH',			'SND_EVENT_MARKET_FINISH',		'GAME_SFX', 	0.0,					60, 		60, 		0, 		 0),
 		('AS2D_EVENT_MARKET_START', 			'SND_EVENT_MARKET_START', 		'GAME_SFX', 	-1.0,					100, 		100, 		0, 		 0);
+
 
 

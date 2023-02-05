@@ -202,7 +202,7 @@ function SongMarketEvents(player)
         local NewUnit = player:InitUnit(GameInfoTypes["UNIT_JIEDUSHI"], capitalCity:GetX(), capitalCity:GetY(), UNITAI_DEFENSE);
         for unit in player:Units() do
             if unit:GetBaseCombatStrength() > 0 then
-                unit:ChangeExperience(5)
+                unit:ChangeExperience(10)
             end
         end
     end
