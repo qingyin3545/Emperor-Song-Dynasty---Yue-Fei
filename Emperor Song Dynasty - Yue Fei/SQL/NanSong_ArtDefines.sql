@@ -533,15 +533,15 @@ VALUES		('ART_DEF_IMPROVEMENT_SONG_FORT1',	'Improvement', 	'YFS_FORT1'),
 
 INSERT INTO ArtDefine_Landmarks 
 			(ImprovementType, 						Era,	State,				 Scale, LayoutHandler,	ResourceType,			Model,					TerrainContour)
-VALUES		('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'UnderConstruction', 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_HB.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Constructed',		 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_B.fxsxml',  1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Pillaged',			 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_PL.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'UnderConstruction', 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_HB.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Constructed',		 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_B.fxsxml',  1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Pillaged',			 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_PL.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'UnderConstruction', 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_HB.fxsxml', 1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Constructed',		 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_B.fxsxml',  1),
-			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Pillaged',			 0.36,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_PL.fxsxml', 1);
+VALUES		('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'UnderConstruction', 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_HB.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Constructed',		 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_B.fxsxml',  1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT1',		'Any', 	'Pillaged',			 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort1_PL.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'UnderConstruction', 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_HB.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Constructed',		 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_B.fxsxml',  1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT2',		'Any', 	'Pillaged',			 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort2_PL.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'UnderConstruction', 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_HB.fxsxml', 1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Constructed',		 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_B.fxsxml',  1),
+			('ART_DEF_IMPROVEMENT_SONG_FORT3',		'Any', 	'Pillaged',			 0.30,	'SNAPSHOT',		'ART_DEF_RESOURCE_ALL', 'Song_Fort3_PL.fxsxml', 1);
 
 INSERT INTO ArtDefine_StrategicView
 			(StrategicViewType, 				TileType, 		Asset)
