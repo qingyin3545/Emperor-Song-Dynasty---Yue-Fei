@@ -45,6 +45,7 @@ VALUES		('BUILDING_YFS_MARKET_BONUS_1',		'YIELD_SCIENCE',		5),
 --==========================================================================================================================
 -- World Power
 --==========================================================================================================================
+CREATE TABLE IF NOT EXISTS ROG_GlobalUserSettings (Type text default null, Value integer default 0);
 --强权科学家替换医学家
 UPDATE Buildings SET SpecialistType = 'SPECIALIST_DOCTOR'
 WHERE Type = 'BUILDING_YFS_MARKET_BONUS_1' 

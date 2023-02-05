@@ -544,9 +544,11 @@ function ArmorSetCombat(playerID)
 			if pUnit:GetUnitType() == GameInfoTypes["UNIT_LOYALTY_ARMOR"]  
 			or pUnit:GetUnitType() == GameInfoTypes["UNIT_BEIWEI_ARMOR"] 
 			then
-				if pEraID == GameInfo.Eras["ERA_WORLDWAR"].ID then
+				if pEraID >= GameInfo.Eras["ERA_WORLDWAR"].ID 
+				and pEraID < GameInfo.Eras["ERA_INFORMATION"].ID
+				then
 					pUnit:SetBaseCombatStrength(200)
-				elseif pEraID == GameInfo.Eras["ERA_INFORMATION"].ID then
+				elseif pEraID >= GameInfo.Eras["ERA_INFORMATION"].ID then
 					pUnit:SetBaseCombatStrength(350)
 				end
 			end
