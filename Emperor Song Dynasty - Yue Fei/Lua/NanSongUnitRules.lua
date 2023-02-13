@@ -686,7 +686,9 @@ function(playerID)
 	end
 
 	for unit in player:Units() do
-		if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DRAGON_FOOT"].ID) then
+		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+		or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
+		then
 			
 			local unitPlot = unit:GetPlot();
 	  		local uPlayer = Players[unit:GetOwner()];
@@ -1243,6 +1245,56 @@ function(playerID)
 	end
 
 end)
+-----------------------------------------------------------------------
+---- 殿前司步军命名
+-----------------------------------------------------------------------
+function SetDragonFootUnitName( iPlayerID, iUnitID )
+	if Players[ iPlayerID ] == nil or not Players[ iPlayerID ]:IsAlive()
+	or Players[ iPlayerID ]:GetUnitByID( iUnitID ) == nil
+	or Players[ iPlayerID ]:GetUnitByID( iUnitID ):IsDead()
+	or Players[ iPlayerID ]:GetUnitByID( iUnitID ):IsDelayedDeath()
+	or Players[ iPlayerID ]:GetUnitByID( iUnitID ):HasName()
+	then
+		return;
+	end
+
+	local DragonFootName1 = Locale.ConvertTextKey("TXT_KEY_UNIT_DRAGON_FOOT_NAME1");
+	local DragonFootName2 = Locale.ConvertTextKey("TXT_KEY_UNIT_DRAGON_FOOT_NAME2");
+	local DragonFootName3 = Locale.ConvertTextKey("TXT_KEY_UNIT_DRAGON_FOOT_NAME3");
+	local DragonFootName4 = Locale.ConvertTextKey("TXT_KEY_UNIT_DRAGON_FOOT_NAME4");
+
+
+	local g_FlagDragonFootName 	= {0, 0, 0, 0};
+	
+	local g_DragonFootName 		= {	DragonFootName1,
+								 	DragonFootName2,
+								 	DragonFootName3,
+								 	DragonFootName4};
+
+	for unit in Players[ iPlayerID ]:Units() do
+		local unitName = Locale.ConvertTextKey(unit:GetNameNoDesc());
+		for k, v in pairs(g_DragonFootName) do
+			if unitName == v then
+				g_FlagDragonFootName[k] = 1;
+			end
+		end
+	end
+
+	local pUnit = Players[ iPlayerID ]:GetUnitByID( iUnitID );
+	local oldunitType = pUnit:GetUnitType();
+
+	if pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+	or pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
+	then
+		for k, v in pairs(g_FlagDragonFootName) do
+			if v == 0 then
+				pUnit:SetName(g_DragonFootName[k]);
+				return;
+			end
+		end
+	end
+end
+Events.SerialEventUnitCreated.Add(SetDragonFootUnitName)
 -----------------------------------------------------------------------
 ---- 制置使：建立制置使司
 -----------------------------------------------------------------------

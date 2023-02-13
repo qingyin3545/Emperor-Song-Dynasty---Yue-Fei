@@ -10,8 +10,8 @@ local width, height = Map.GetGridSize()
 
 -- 根据游戏速度调整升级事件
 local iGameSpeed = GameInfo.GameSpeeds[Game.GetGameSpeedType()].GrowthPercent / 100
-local YfsFortLv1_Threshold = 5 * iGameSpeed
-local YfsFortLv2_Threshold = 7 * iGameSpeed
+local YfsFortLv1_Threshold = 10 * iGameSpeed
+local YfsFortLv2_Threshold = 15 * iGameSpeed
 
 local MapTable = {}
 local YfsFortLv2Flag = 0

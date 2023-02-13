@@ -9,6 +9,7 @@ print("---------------------------------------------------------------")
 WARN_NOT_SHARED = false; include( "SaveUtils" ); MY_MOD_NAME = "NanSong_YueFei";
 include("FLuaVector.lua")
 
+local iGameSpeed = GameInfo.GameSpeeds[Game.GetGameSpeedType()].GrowthPercent / 100
 -- Start Fuction
 --============================================================================================================
 -- 街市建造效果
@@ -216,6 +217,7 @@ function YuYingBonus(playerID)
 		end
 
 		local ifNuM = load( player, "LiuShouSiFoot", ifNuM) or -1;
+		local LiuShouSiTurnsLeft = math.floor(iGameSpeed * 2)
 		for city in player:Cities() do
 			if city:IsHasBuilding(GameInfoTypes["BUILDING_SONG_LIUSHOUSI"]) then
 
@@ -314,8 +316,11 @@ function YuYingBonus(playerID)
 							end
 						end
 					end
-				elseif ifNuM >= 0 then
+				elseif ifNuM >= LiuShouSiTurnsLeft then
 					ifNuM = -1
+					save( player,  "LiuShouSiFoot", ifNuM )
+				else
+					ifNuM = ifNuM + 1
 					save( player,  "LiuShouSiFoot", ifNuM )
 				end
 
