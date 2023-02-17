@@ -111,7 +111,7 @@
 			<Description>TXT_KEY_PROMOTION_ZHUDUISHI</Description>
 			<Help>TXT_KEY_PROMOTION_ZHUDUISHI_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
-			<MovesChange>-1</MovesChange>
+			<MovesChange>1</MovesChange>
 			<RangeChange>1</RangeChange>
 			<ExtraAttacks>2</ExtraAttacks>
 			<CanMoveAfterAttacking>true</CanMoveAfterAttacking>

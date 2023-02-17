@@ -218,6 +218,7 @@ function YuYingBonus(playerID)
 
 		local ifNuM = load( player, "LiuShouSiFoot", ifNuM) or -1;
 		local LiuShouSiTurnsLeft = math.floor(iGameSpeed * 2)
+		LiuShouSiTurnsLeft = 2
 		for city in player:Cities() do
 			if city:IsHasBuilding(GameInfoTypes["BUILDING_SONG_LIUSHOUSI"]) then
 
@@ -316,7 +317,7 @@ function YuYingBonus(playerID)
 							end
 						end
 					end
-				elseif ifNuM >= LiuShouSiTurnsLeft then
+				elseif ifNuM >= LiuShouSiTurnsLeft - 1 then
 					ifNuM = -1
 					save( player,  "LiuShouSiFoot", ifNuM )
 				else
