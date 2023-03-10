@@ -511,16 +511,19 @@ VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_IRON'),
 		('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_HORSE'),
 		('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_TEA'),
 		('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_GOLD'),
-
+		('IMPROVEMENT_YFS_SONG_FORT1',		'RESOURCE_SALT'),
+		
 		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_IRON'),
 		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_HORSE'),
 		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_TEA'),
 		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_GOLD'),
+		('IMPROVEMENT_YFS_SONG_FORT2',		'RESOURCE_SALT'),
 
 		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_IRON'),
 		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_HORSE'),
 		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_TEA'),
-		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_GOLD');
+		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_GOLD'),
+		('IMPROVEMENT_YFS_SONG_FORT3',		'RESOURCE_SALT');
 --==========================================================================================================================	
 -- Improvement_TechYieldChanges
 --==========================================================================================================================

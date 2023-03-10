@@ -241,7 +241,7 @@ function NanSongEffect()
 	local maxattUnitHP = attUnit:GetMaxHitPoints()
 	local factor = 1 - attUnitHP / maxattUnitHP + 0.01
 	local damagefactor = math.tan(math.pi * factor / 2)
-	local maxDamage = 5000
+	local maxDamage = 50000
 	print('maxattUnitHP'..maxattUnitHP)
 	print('attUnitHP'..attUnitHP)
 	if not attUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
@@ -252,7 +252,7 @@ function NanSongEffect()
 		elseif not defUnit:IsDead() then
 			iDamage = defUnit:GetDamage() * (0 + damagefactor);
 			if iDamage >= maxDamage then 
-				iDamage = 5000
+				iDamage = maxDamage
 			end
 			print('defUnit:GetDamage()'..defUnit:GetDamage())
 			print('iDamage'..iDamage)
@@ -273,7 +273,7 @@ function NanSongEffect()
 		if defCity and bIsCity then
 			iDamage = defCity:GetDamage() * (0 + damagefactor);
 			if iDamage >= maxDamage then 
-				iDamage = 5000
+				iDamage = maxDamage
 			end
 			print('defCity:GetDamage()'..defCity:GetDamage())
 			print('iDamage'..iDamage)
@@ -301,7 +301,7 @@ function NanSongEffect()
 	and defUnit:IsHasPromotion(BeiWeiCavalryID) then
 		iDamage = attUnit:GetDamage() * (0 + damagefactor);
 		if iDamage >= maxDamage then 
-			iDamage = 5000
+			iDamage = maxDamage
 		end
 		attUnit:ChangeDamage(iDamage, defPlayerID);
 		attUnit:SetHasPromotion(MoralWeaken1ID, true);
@@ -1263,7 +1263,7 @@ function SetDragonFootUnitName( iPlayerID, iUnitID )
 	local DragonFootName3 = Locale.ConvertTextKey("TXT_KEY_UNIT_DRAGON_FOOT_NAME3");
 	local DragonFootName4 = Locale.ConvertTextKey("TXT_KEY_UNIT_DRAGON_FOOT_NAME4");
 
-
+	local numUnitsDragonFoot = 0;
 	local g_FlagDragonFootName 	= {0, 0, 0, 0};
 	
 	local g_DragonFootName 		= {	DragonFootName1,
@@ -1278,13 +1278,19 @@ function SetDragonFootUnitName( iPlayerID, iUnitID )
 				g_FlagDragonFootName[k] = 1;
 			end
 		end
+		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+		or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
+		then
+			numUnitsDragonFoot = numUnitsDragonFoot + 1
+		end
 	end
 
 	local pUnit = Players[ iPlayerID ]:GetUnitByID( iUnitID );
 	local oldunitType = pUnit:GetUnitType();
 
-	if pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
-	or pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
+	if (pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+	or pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"]))
+	and numUnitsDragonFoot <= 4
 	then
 		for k, v in pairs(g_FlagDragonFootName) do
 			if v == 0 then
@@ -1292,6 +1298,14 @@ function SetDragonFootUnitName( iPlayerID, iUnitID )
 				return;
 			end
 		end
+	elseif (pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+	or pUnit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"]))
+	and numUnitsDragonFoot > 4 
+	then
+		-- 殿前司步军数量大于4强制删除
+		-- pUnit:SetHasPromotion(GameInfoTypes["PROMOTION_NO_CASUALTIES"], true)
+		pUnit:kill();
+		return
 	end
 end
 Events.SerialEventUnitCreated.Add(SetDragonFootUnitName)
@@ -1376,4 +1390,77 @@ ProductionMissionButton = {
     end,
 };
 LuaEvents.UnitPanelActionAddin(ProductionMissionButton);
+
+-- Unit death cause population loss -- MOD by CaptainCWB
+function UnitDeathCounter(iKerPlayer, iKeePlayer, eUnitType)
+	if (PreGame.GetGameOption("GAMEOPTION_SP_NEWATTACK_OFF") == 1) then
+		print("New Attack Effects - War Casualties - OFF!");
+		return;
+	end
+	
+	if Players[iKeePlayer] == nil or not Players[iKeePlayer]:IsAlive() or Players[iKeePlayer]:GetCapitalCity() == nil
+	or Players[iKeePlayer]:IsMinorCiv() or Players[iKeePlayer]:IsBarbarian()
+	or GameInfo.Units[eUnitType] == nil
+	-- UnCombat units do not count
+	or(GameInfo.Units[eUnitType].Combat == 0 and GameInfo.Units[eUnitType].RangedCombat == 0)
+	then
+		return;
+	end
+	
+	local defPlayer = Players[iKeePlayer];
+	local iCasualty = defPlayer:GetCapitalCity():GetNumBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"]);
+	local sUnitType = GameInfo.Units[eUnitType].Type;
+	local iDCounter = 6;
+	
+	if     GameInfo.Unit_FreePromotions{ UnitType = sUnitType, PromotionType = "PROMOTION_NO_CASUALTIES" }() then
+		print ("This unit won't cause Casualties!");
+		return;
+	elseif GameInfo.Unit_FreePromotions{ UnitType = sUnitType, PromotionType = "PROMOTION_HALF_CASUALTIES" }() then
+		iDCounter = iDCounter/2;
+	end
+	if defPlayer:HasPolicy(GameInfo.Policies["POLICY_CENTRALISATION"].ID) then
+		iDCounter = 2*iDCounter/3;
+	end
+	
+	print ("DeathCounter(Max-12): ".. iCasualty .. " + " .. iDCounter);
+	if iCasualty + iDCounter < 12 then
+		defPlayer:GetCapitalCity():SetNumRealBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"], iCasualty + iDCounter);
+	else
+		defPlayer:GetCapitalCity():SetNumRealBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"], 0);
+		local PlayerCitiesCount = defPlayer:GetNumCities();
+		if PlayerCitiesCount <= 0 then ---- In case of 0 city error
+			return;
+		end
+		local apCities = {};
+		local iCounter = 0;
+		
+		for pCity in defPlayer:Cities() do
+			local cityPop = pCity:GetPopulation();
+			if ( cityPop > 1 and defPlayer:IsHuman() ) or cityPop > 5 then
+				apCities[iCounter] = pCity
+				iCounter = iCounter + 1
+			end
+		end
+		
+		if (iCounter > 0) then
+			local iRandChoice = Game.Rand(iCounter, "Choosing random city")
+			local targetCity = apCities[iRandChoice]
+			local Cityname = targetCity:GetName()
+			local iX = targetCity:GetX();
+			local iY = targetCity:GetY();
+			
+			if targetCity:GetPopulation() > 1 then
+				targetCity:ChangePopulation(-1, true)
+				print ("population lost!"..Cityname)
+			else 
+				return;
+			end
+			if defPlayer:IsHuman() then -- Sending Message
+				local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTE_POPULATION_LOSS",targetCity:GetName())
+				local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTE_POPULATION_LOSS_SHORT")
+				defPlayer:AddNotification(NotificationTypes.NOTIFICATION_STARVING, text, heading, iX, iY)
+			end
+		end
+	end
+end
 
