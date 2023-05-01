@@ -1,4 +1,5 @@
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_CREATED';		-- 开启单位产生事件
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'IMPROVEMENTS_UPGRADE';		-- 开启设施升级事件
 --==========================================================================================================================
 -- Civilizations
 --==========================================================================================================================
@@ -585,6 +586,13 @@ VALUES	('IMPROVEMENT_YFS_SONG_FORT1',		'FLAVOR_TILE_IMPROVEMENT',	40),
 		('IMPROVEMENT_YFS_SONG_FORT3',		'FLAVOR_GOLD',				20),
 		('IMPROVEMENT_YFS_SONG_FORT3',		'FLAVOR_PRODUCTION',		20);
 --==========================================================================================================================	
+-- Improvement_Upgrade
+--==========================================================================================================================	
+UPDATE Improvements Set EnableXP = 1, EnableUpgrade = 1, UpgradeXP = 100, UpgradeImprovementType = 'IMPROVEMENT_YFS_SONG_FORT2' WHERE Type = 'IMPROVEMENT_YFS_SONG_FORT1';
+UPDATE Improvements Set EnableXP = 1, EnableUpgrade = 1, UpgradeXP = 100, UpgradeImprovementType = 'IMPROVEMENT_YFS_SONG_FORT3' WHERE Type = 'IMPROVEMENT_YFS_SONG_FORT2';
+UPDATE Improvements Set EnableDowngrade = 1, DowngradeImprovementType = 'IMPROVEMENT_YFS_SONG_FORT1' WHERE Type = 'IMPROVEMENT_YFS_SONG_FORT2';
+UPDATE Improvements Set EnableXP = 1, EnableDowngrade = 1, DowngradeImprovementType = 'IMPROVEMENT_YFS_SONG_FORT2' WHERE Type = 'IMPROVEMENT_YFS_SONG_FORT3';
+--==========================================================================================================================	
 -- Builds
 --==========================================================================================================================	
 INSERT INTO Builds
@@ -603,7 +611,6 @@ VALUES	('BUILD_YFS_SONG_FORT1',		'FEATURE_JUNGLE',	'TECH_BRONZE_WORKING',	400,	1
 INSERT INTO Unit_Builds
 		(UnitType,			BuildType)
 VALUES	('UNIT_WORKER',		'BUILD_YFS_SONG_FORT1');
-
 --==========================================================================================================================
 -- AUDIO
 --==========================================================================================================================	

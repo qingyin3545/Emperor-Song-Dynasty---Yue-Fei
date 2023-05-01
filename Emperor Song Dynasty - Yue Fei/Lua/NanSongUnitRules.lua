@@ -378,7 +378,10 @@ function NanSongEffect()
             local adjPlot = Map.PlotXYWithRangeCheck(plotX, plotY, dx, dy, uniqueRange);
             if (adjPlot ~= nil) then
                 if adjPlot:IsCity() then
-                    adjPlot:GetPlotCity():ChangeResistanceTurns(1);
+					local pPlayer = Players[adjPlot:GetPlotCity():GetOwner()]
+					if PlayersAtWar(attPlayer, pPlayer) then
+                    	adjPlot:GetPlotCity():ChangeResistanceTurns(1);
+					end
                     print("J20 around City!");
                 end
                 unitCount = adjPlot:GetNumUnits();
@@ -617,58 +620,58 @@ function YFS_UnitSetXY(playerID, unitID)
 		end
 
 
-		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
-		or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
-		then
-			-- 殿前司：根据临近敌人给战斗力加成
-			local iunit = GameInfo.Units[unit:GetUnitType()] ;
-			local plot = unit:GetPlot();
-            local icombat_bonus = 0;
+		-- if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+		-- or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
+		-- then
+		-- 	-- 殿前司：根据临近敌人给战斗力加成
+		-- 	local iunit = GameInfo.Units[unit:GetUnitType()] ;
+		-- 	local plot = unit:GetPlot();
+        --     local icombat_bonus = 0;
 
-            local unitCount = plot:GetNumUnits();
-            local uniqueRange = 1;
-			if unitCount >= 1 then
-				for i = 0, unitCount-1, 1 do
-					local pFoundUnit = plot:GetUnit(i)
-					if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
-						local pPlayer = Players[pFoundUnit:GetOwner()];
-						if PlayersAtWar(player, pPlayer) then
-							icombat_bonus = icombat_bonus + 1;
-						end
-					end
-				end
-			end
+        --     local unitCount = plot:GetNumUnits();
+        --     local uniqueRange = 1;
+		-- 	if unitCount >= 1 then
+		-- 		for i = 0, unitCount-1, 1 do
+		-- 			local pFoundUnit = plot:GetUnit(i)
+		-- 			if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
+		-- 				local pPlayer = Players[pFoundUnit:GetOwner()];
+		-- 				if PlayersAtWar(player, pPlayer) then
+		-- 					icombat_bonus = icombat_bonus + 1;
+		-- 				end
+		-- 			end
+		-- 		end
+		-- 	end
             
-			for dx = -uniqueRange, uniqueRange, 1 do
-				for dy = -uniqueRange, uniqueRange, 1 do
-					local adjPlot = Map.PlotXYWithRangeCheck(plot:GetX(), plot:GetY(), dx, dy, uniqueRange);
-                    if (adjPlot ~= nil) then
-			    	    unitCount = adjPlot:GetNumUnits();
-			    	    if unitCount >= 1 then
-			    	    	for i = 0, unitCount-1, 1 do
-			    	    		local pFoundUnit = adjPlot:GetUnit(i)
-			    	    		if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
-			    	    			local pPlayer = Players[pFoundUnit:GetOwner()];
-			    	    			if PlayersAtWar(player, pPlayer) then
-                                        icombat_bonus = icombat_bonus + 1;
-			    	    			end
-			    	    		end
-			    	    	end
-			    	    end
-                    end
-			    end
-            end
-            local iunit = GameInfo.Units[unit:GetUnitType()];
-			local icombat = math.ceil(0.05 * iunit.Combat);
-			-- unit:SetBaseCombatStrength(iunit.Combat + icombat * icombat_bonus);
-			SPUEAddCombatBonus(unit, math.ceil(100 * icombat_bonus * icombat / iunit.Combat))
-			if icombat_bonus > 0 then
-            	local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
-            	Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_STRENGTH]", icombat * icombat_bonus));
-            end
-			-- Events.GameplayFX(hex.x, hex.y, -1);
+		-- 	for dx = -uniqueRange, uniqueRange, 1 do
+		-- 		for dy = -uniqueRange, uniqueRange, 1 do
+		-- 			local adjPlot = Map.PlotXYWithRangeCheck(plot:GetX(), plot:GetY(), dx, dy, uniqueRange);
+        --             if (adjPlot ~= nil) then
+		-- 	    	    unitCount = adjPlot:GetNumUnits();
+		-- 	    	    if unitCount >= 1 then
+		-- 	    	    	for i = 0, unitCount-1, 1 do
+		-- 	    	    		local pFoundUnit = adjPlot:GetUnit(i)
+		-- 	    	    		if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
+		-- 	    	    			local pPlayer = Players[pFoundUnit:GetOwner()];
+		-- 	    	    			if PlayersAtWar(player, pPlayer) then
+        --                                 icombat_bonus = icombat_bonus + 1;
+		-- 	    	    			end
+		-- 	    	    		end
+		-- 	    	    	end
+		-- 	    	    end
+        --             end
+		-- 	    end
+        --     end
+        --     local iunit = GameInfo.Units[unit:GetUnitType()];
+		-- 	local icombat = math.ceil(0.05 * iunit.Combat);
+		-- 	-- unit:SetBaseCombatStrength(iunit.Combat + icombat * icombat_bonus);
+		-- 	SPUEAddCombatBonus(unit, math.ceil(100 * icombat_bonus * icombat / iunit.Combat))
+		-- 	if icombat_bonus > 0 then
+        --     	local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
+        --     	Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_STRENGTH]", icombat * icombat_bonus));
+        --     end
+		-- 	-- Events.GameplayFX(hex.x, hex.y, -1);
 
-		end
+		-- end
 
 	end 
 end
@@ -844,9 +847,17 @@ function FeiHuGift( iPlayerID, iUnitID )
 		local unitY = pUnit:GetY()
 		local pPlayer = Players[pUnit:GetOwner()] 
 		--print("unitType ready")
+		
 	
 		local NewUnit = pPlayer:InitUnit(unitType, unitX, unitY, UNITAI_ASSAULT_SEA)
 		NewUnit:JumpToNearestValidPlot()
+		if pPlayer:GetNumCities() > 0 then
+			local city = GetCloseCity ( pUnit:GetOwner() , pUnit:GetPlot() );
+			local domainSeaID = GameInfo.Domains["DOMAIN_SEA"].ID;
+			local SEATotal =  city:GetFreeExperience() + city:GetDomainFreeExperience(domainSeaID);
+			NewUnit:ChangeExperience(SEATotal);
+		end
+		
 		pUnit:SetHasPromotion(UpwsID, true)
 
 		-- 车船10%概率开启火力全开
@@ -1304,7 +1315,7 @@ function SetDragonFootUnitName( iPlayerID, iUnitID )
 	then
 		-- 殿前司步军数量大于4强制删除
 		-- pUnit:SetHasPromotion(GameInfoTypes["PROMOTION_NO_CASUALTIES"], true)
-		pUnit:kill();
+		pUnit:Kill();
 		return
 	end
 end

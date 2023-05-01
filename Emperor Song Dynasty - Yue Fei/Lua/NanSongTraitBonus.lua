@@ -224,24 +224,14 @@ function YuYingBonus(playerID)
 
 				if ifNuM < 0 then
 
-					if ((PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_HIGH") ~= 1 
-					and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_MEDIUM") ~= 1 
-					and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_LOW") ~= 1) 
-					and numship == 0 )
+					if (player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) == 0 
+					and numship >= 0 )
 
-					or ((PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_HIGH") ~= 1 
-					and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_MEDIUM") ~= 1 
-					and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_LOW") ~= 1) 
-					and numship > 0 )
-
-					or ((PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_HIGH") == 1 
-					or PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_MEDIUM") == 1 
-					or PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_LOW") == 1) 
-					and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0 
+					or (player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0 
 					and numship == 0 )
 					then
 						-- 新单位或未开启军团模式
-						newUnit = player:InitUnit(infantry_data[pEraID+1], city:GetX(), city:GetY())
+						local newUnit = player:InitUnit(infantry_data[pEraID+1], city:GetX(), city:GetY())
 						newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE"].ID, true)
 						newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID, true)
 						SetLiuShouSiUnitsName( playerID, newUnit:GetID() )
@@ -254,9 +244,7 @@ function YuYingBonus(playerID)
 							Events.GameplayFX(hex.x, hex.y, -1)
 						end
 					elseif numship > 0 
-					and (PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_HIGH") == 1 
-						 or PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_MEDIUM") == 1 
-						 or PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_LOW") == 1)
+					and (player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0)
 					then
 						-- 军团模式开启
 						local full_flag1 = 0
@@ -303,7 +291,7 @@ function YuYingBonus(playerID)
 						and (full_flag == 1 and full_flag1 == 0 and full_flag2 == 0) 
 						then
 							-- 集团军满员且有剩余未使用兵力
-							newUnit = player:InitUnit(infantry_data[pEraID+1], city:GetX(), city:GetY())
+							local newUnit = player:InitUnit(infantry_data[pEraID+1], city:GetX(), city:GetY())
 							newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE"].ID, true)
 							newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID, true)
 							SetLiuShouSiUnitsName( playerID, newUnit:GetID() )

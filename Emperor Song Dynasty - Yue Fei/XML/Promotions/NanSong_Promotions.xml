@@ -56,6 +56,8 @@
 			<PortraitIndex>53</PortraitIndex>
 			<DefenseMod>100</DefenseMod>
 			<RangedAttackModifier>100</RangedAttackModifier>
+			<NearNumEnemyAttackMod>5</NearNumEnemyAttackMod>
+			<NearNumEnemyDefenseMod>5</NearNumEnemyDefenseMod>
 			<IconAtlas>promoVP_atlas_03</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_DRAGON_FOOT</PediaEntry>
@@ -70,6 +72,8 @@
 			<DefenseMod>100</DefenseMod>
 			<RangedAttackModifier>100</RangedAttackModifier>
 			<CombatPercent>30</CombatPercent>
+			<NearNumEnemyAttackMod>5</NearNumEnemyAttackMod>
+			<NearNumEnemyDefenseMod>5</NearNumEnemyDefenseMod>
 			<IconAtlas>promoVP_atlas_03</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_DRAGON_FOOT_ON</PediaEntry>
