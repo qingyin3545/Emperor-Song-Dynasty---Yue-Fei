@@ -199,9 +199,9 @@ function YuYingBonus(playerID)
 	if player:CountNumBuildings(GameInfoTypes["BUILDING_YUYING"]) > 0 and 
 	not player:HasPolicy(GameInfo.Policies["POLICY_YUYING"].ID) 
 	then 
-		player:SetNumFreePolicies(1)
-		player:SetNumFreePolicies(0)
-		player:SetHasPolicy(GameInfo.Policies["POLICY_YUYING"].ID,true)	 
+		-- player:SetNumFreePolicies(1)
+		-- player:SetNumFreePolicies(0)
+		player:SetHasPolicy(GameInfo.Policies["POLICY_YUYING"].ID,true,true)	 
 		-- print("Player has wonder 1! Give them policy 1!")
 	end
 

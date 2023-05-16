@@ -220,6 +220,7 @@ function NanSongEffect()
 		print ("defUnit:GetMoves()"..defMoves)	
 		if defMoves > 0 then
 			local newMoves = defMoves / 2
+			if newMoves < 60 then newMoves = 0 end
 			defUnit:SetMoves(newMoves)
 			if attPlayer:IsHuman() then
 				local ht_text = Locale.ConvertTextKey( "TXT_KEY_HUANGTIANDANG_ATT", attUnit:GetName(), defUnit:GetName()) .. math.ceil(newMoves / 60) ..  Locale.ConvertTextKey("TXT_KEY_HUANGTIANDANG")
@@ -242,8 +243,8 @@ function NanSongEffect()
 	local factor = 1 - attUnitHP / maxattUnitHP + 0.01
 	local damagefactor = math.tan(math.pi * factor / 2)
 	local maxDamage = 50000
-	print('maxattUnitHP'..maxattUnitHP)
-	print('attUnitHP'..attUnitHP)
+	-- print('maxattUnitHP'..maxattUnitHP)
+	-- print('attUnitHP'..attUnitHP)
 	if not attUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
 	and attUnit:IsHasPromotion(BeiWeiCavalryID) then
 		if not bIsCity then
@@ -418,63 +419,50 @@ function NanSongEffect()
 	end
 
 	------车船AOE,照抄
-	if (attUnit:IsHasPromotion(UpwsID)) then
+	-- if (attUnit:IsHasPromotion(UpwsID)) then
 	
-	for i = 0, 5 do
-		local adjPlot = Map.PlotDirection(plotX, plotY, i)
-		if (adjPlot ~= nil and not adjPlot:IsCity()) then
-			print("Available for AOE Damage!")
-			local unitCount = adjPlot:GetNumUnits();
-            if unitCount > 0 then
-            for i = 0, unitCount-1, 1 do
-			local pUnit = adjPlot:GetUnit(i) ------------Find Units affected
-			if pUnit and (pUnit:GetDomainType() == DomainTypes.DOMAIN_LAND or pUnit:GetDomainType() == DomainTypes.DOMAIN_SEA) then
-				local pCombat = pUnit:GetBaseCombatStrength()
-				local pPlayer = Players[pUnit:GetOwner()]
+	-- for i = 0, 5 do
+	-- 	local adjPlot = Map.PlotDirection(plotX, plotY, i)
+	-- 	if (adjPlot ~= nil and not adjPlot:IsCity()) then
+	-- 		print("Available for AOE Damage!")
+	-- 		local unitCount = adjPlot:GetNumUnits();
+    --         if unitCount > 0 then
+    --         for i = 0, unitCount-1, 1 do
+	-- 		local pUnit = adjPlot:GetUnit(i) ------------Find Units affected
+	-- 		if pUnit and (pUnit:GetDomainType() == DomainTypes.DOMAIN_LAND or pUnit:GetDomainType() == DomainTypes.DOMAIN_SEA) then
+	-- 			local pCombat = pUnit:GetBaseCombatStrength()
+	-- 			local pPlayer = Players[pUnit:GetOwner()]
 				
-				if PlayersAtWar(attPlayer, pPlayer) then
-					local SplashDamageOri = attUnit:GetRangeCombatDamage(pUnit,nil,false)
+	-- 			if PlayersAtWar(attPlayer, pPlayer) then
+	-- 				local SplashDamageOri = attUnit:GetRangeCombatDamage(pUnit,nil,false)
 						
-					local AOEmod = 0.50   -- the percent of damage reducing to nearby units
+	-- 				local AOEmod = 0.50   -- the percent of damage reducing to nearby units
 						
-					local text = nil;
-					local attUnitName = attUnit:GetName();
-					local defUnitName = pUnit:GetName();
+	-- 				local text = nil;
+	-- 				local attUnitName = attUnit:GetName();
+	-- 				local defUnitName = pUnit:GetName();
 						
-					local SplashDamageFinal = math.floor(SplashDamageOri * AOEmod); -- Set the Final Damage
-					if     SplashDamageFinal >= pUnit:GetCurrHitPoints() then
-						SplashDamageFinal = pUnit:GetCurrHitPoints();
-						local eUnitType = pUnit:GetUnitType();
-						UnitDeathCounter(attPlayerID, pUnit:GetOwner(), eUnitType);
-							
-						-- Notification
-						if     defPlayerID == Game.GetActivePlayer() then
-							-- local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_DESTROYED_SHORT")
-							text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE_DEATH", attUnitName, defUnitName);
-							-- defPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC , text, heading, plotX, plotY)
-						elseif attPlayerID == Game.GetActivePlayer() then
-							text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE_ENEMY_DEATH", attUnitName, defUnitName);
-						end
-					elseif SplashDamageFinal > 0 then
-						-- Notification
-						if     defPlayerID == Game.GetActivePlayer() then
-							text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE", attUnitName, defUnitName, SplashDamageFinal);
-						elseif attPlayerID == Game.GetActivePlayer() then
-							text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE_ENEMY", attUnitName, defUnitName, SplashDamageFinal);
-						end
-					end
-					if text then
-						Events.GameplayAlertMessage( text );
-					end
-					pUnit:ChangeDamage(SplashDamageFinal, attPlayer)
-					print("Splash Damage="..SplashDamageFinal)
-				end
-			end
-			end
-			end
-		end
-	end
-	end
+	-- 				local SplashDamageFinal = math.floor(SplashDamageOri * AOEmod); -- Set the Final Damage
+	-- 				if SplashDamageFinal > 0 then
+	-- 					-- Notification
+	-- 					if     defPlayerID == Game.GetActivePlayer() then
+	-- 						text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE", attUnitName, defUnitName, SplashDamageFinal);
+	-- 					elseif attPlayerID == Game.GetActivePlayer() then
+	-- 						text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE_ENEMY", attUnitName, defUnitName, SplashDamageFinal);
+	-- 					end
+	-- 				end
+	-- 				if text then
+	-- 					Events.GameplayAlertMessage( text );
+	-- 				end
+	-- 				pUnit:ChangeDamage(SplashDamageFinal, attPlayer)
+	-- 				print("Splash Damage="..SplashDamageFinal)
+	-- 			end
+	-- 		end
+	-- 		end
+	-- 		end
+	-- 	end
+	-- end
+	-- end
 	-----------------------------------------------------------------------
 	---- 赤心队：阵亡
 	----------------------------------------------------------------------
@@ -518,6 +506,7 @@ function NanSongEffect()
 	 
 end
 GameEvents.BattleFinished.Add(NanSongEffect)
+
 
 function IsNotEliteUnit(pUnit)
 	local unitName = Locale.ConvertTextKey(pUnit:GetNameNoDesc())
@@ -1401,77 +1390,3 @@ ProductionMissionButton = {
     end,
 };
 LuaEvents.UnitPanelActionAddin(ProductionMissionButton);
-
--- Unit death cause population loss -- MOD by CaptainCWB
-function UnitDeathCounter(iKerPlayer, iKeePlayer, eUnitType)
-	if (PreGame.GetGameOption("GAMEOPTION_SP_NEWATTACK_OFF") == 1) then
-		print("New Attack Effects - War Casualties - OFF!");
-		return;
-	end
-	
-	if Players[iKeePlayer] == nil or not Players[iKeePlayer]:IsAlive() or Players[iKeePlayer]:GetCapitalCity() == nil
-	or Players[iKeePlayer]:IsMinorCiv() or Players[iKeePlayer]:IsBarbarian()
-	or GameInfo.Units[eUnitType] == nil
-	-- UnCombat units do not count
-	or(GameInfo.Units[eUnitType].Combat == 0 and GameInfo.Units[eUnitType].RangedCombat == 0)
-	then
-		return;
-	end
-	
-	local defPlayer = Players[iKeePlayer];
-	local iCasualty = defPlayer:GetCapitalCity():GetNumBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"]);
-	local sUnitType = GameInfo.Units[eUnitType].Type;
-	local iDCounter = 6;
-	
-	if     GameInfo.Unit_FreePromotions{ UnitType = sUnitType, PromotionType = "PROMOTION_NO_CASUALTIES" }() then
-		print ("This unit won't cause Casualties!");
-		return;
-	elseif GameInfo.Unit_FreePromotions{ UnitType = sUnitType, PromotionType = "PROMOTION_HALF_CASUALTIES" }() then
-		iDCounter = iDCounter/2;
-	end
-	if defPlayer:HasPolicy(GameInfo.Policies["POLICY_CENTRALISATION"].ID) then
-		iDCounter = 2*iDCounter/3;
-	end
-	
-	print ("DeathCounter(Max-12): ".. iCasualty .. " + " .. iDCounter);
-	if iCasualty + iDCounter < 12 then
-		defPlayer:GetCapitalCity():SetNumRealBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"], iCasualty + iDCounter);
-	else
-		defPlayer:GetCapitalCity():SetNumRealBuilding(GameInfoTypes["BUILDING_WAR_CASUALTIES"], 0);
-		local PlayerCitiesCount = defPlayer:GetNumCities();
-		if PlayerCitiesCount <= 0 then ---- In case of 0 city error
-			return;
-		end
-		local apCities = {};
-		local iCounter = 0;
-		
-		for pCity in defPlayer:Cities() do
-			local cityPop = pCity:GetPopulation();
-			if ( cityPop > 1 and defPlayer:IsHuman() ) or cityPop > 5 then
-				apCities[iCounter] = pCity
-				iCounter = iCounter + 1
-			end
-		end
-		
-		if (iCounter > 0) then
-			local iRandChoice = Game.Rand(iCounter, "Choosing random city")
-			local targetCity = apCities[iRandChoice]
-			local Cityname = targetCity:GetName()
-			local iX = targetCity:GetX();
-			local iY = targetCity:GetY();
-			
-			if targetCity:GetPopulation() > 1 then
-				targetCity:ChangePopulation(-1, true)
-				print ("population lost!"..Cityname)
-			else 
-				return;
-			end
-			if defPlayer:IsHuman() then -- Sending Message
-				local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTE_POPULATION_LOSS",targetCity:GetName())
-				local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTE_POPULATION_LOSS_SHORT")
-				defPlayer:AddNotification(NotificationTypes.NOTIFICATION_STARVING, text, heading, iX, iY)
-			end
-		end
-	end
-end
-

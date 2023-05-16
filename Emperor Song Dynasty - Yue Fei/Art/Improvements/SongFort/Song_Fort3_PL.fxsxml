@@ -9,5 +9,5 @@
   <BoneUsage>
     <Bone name="FX_PillagedSmoke" />
   </BoneUsage>
-  <TimedTrigger file="FX_Triggers_Holy_Site_PIL.ftsxml" source="Tool" model="Box01" state="0,1,2,3"/>
+  <TimedTrigger file="FX_Triggers_PL_Fort_MID.ftsxml" source="Tool" model="Building" state="0,1,2,3" />
 </Asset>

@@ -7,6 +7,7 @@
 			<Help>TXT_KEY_PROMOTION_NANSONG_LAND_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<DefenseMod>25</DefenseMod>
+			<SplashDamageImmune>1</SplashDamageImmune>
 			<!--<RangedDefenseMod>25</RangedDefenseMod>-->
 			<PortraitIndex>54</PortraitIndex>
 			<IconAtlas>extraPromo_Atlas</IconAtlas>
@@ -118,6 +119,11 @@
 			<MovesChange>1</MovesChange>
 			<RangeChange>1</RangeChange>
 			<ExtraAttacks>2</ExtraAttacks>
+			<SplashDamageRadius>1</SplashDamageRadius>
+			<SplashDamagePlotUnitLimit>2</SplashDamagePlotUnitLimit>
+			<SplashXP>1</SplashXP>
+			<!--溅射伤害固定10-->
+			<SplashDamageFixed>10</SplashDamageFixed>
 			<CanMoveAfterAttacking>true</CanMoveAfterAttacking>
 			<RangeAttackIgnoreLOS>true</RangeAttackIgnoreLOS>
 			<PortraitIndex>11</PortraitIndex>
@@ -168,6 +174,10 @@
 			<Description>TXT_KEY_PROMOTION_U_PWS</Description>
 			<Help>TXT_KEY_PROMOTION_U_PWS_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
+			<SplashDamageRadius>1</SplashDamageRadius>
+			<SplashDamagePercent>50</SplashDamagePercent>
+			<SplashDamagePlotUnitLimit>2</SplashDamagePlotUnitLimit>
+			<SplashXP>1</SplashXP>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>extraPromo_Atlas</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>

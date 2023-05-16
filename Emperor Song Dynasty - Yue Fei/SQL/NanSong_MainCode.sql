@@ -1,5 +1,10 @@
-UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_CREATED';		-- 开启单位产生事件
-UPDATE CustomModOptions SET Value = 1 WHERE Name = 'IMPROVEMENTS_UPGRADE';		-- 开启设施升级事件
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_BATTLES_CUSTOM_DAMAGE';	-- 开启单位减伤事件
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_CREATED';			-- 开启单位产生事件
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'IMPROVEMENTS_UPGRADE';			-- 开启设施升级事件
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTION_SPLASH_DAMAGE';		-- 开启单位溅射
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'ROG_CORE';						-- 开启单位强权效果
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_DO_TURN';			-- 开启单位过回合事件
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'GLOBAL_EXCLUDE_FROM_GIFTS';		-- 开启城邦赠送豁免
 --==========================================================================================================================
 -- Civilizations
 --==========================================================================================================================
