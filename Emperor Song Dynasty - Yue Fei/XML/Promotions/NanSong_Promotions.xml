@@ -266,6 +266,36 @@
 			<PediaEntry>TXT_KEY_PROMOTION_DUHE1</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
 		</Row>
+		<!-- Corps & Armee -->
+		<Row>
+			<Type>PROMOTION_YFS_CORPS_1</Type>
+			<Description>TXT_KEY_PROMOTION_YFS_CORPS_1</Description>
+			<Help>TXT_KEY_PROMOTION_YFS_CORPS_1_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<OrderPriority>11</OrderPriority>
+			<CombatPercent>10</CombatPercent>
+			<MaxHitPointsModifier>100</MaxHitPointsModifier>
+			<PortraitIndex>18</PortraitIndex>
+			<IconAtlas>SP_PROMOTION_OLD_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_YFS_CORPS_1</PediaEntry>
+			<CannotBeChosen>true</CannotBeChosen>
+		</Row>
+		<Row>
+			<Type>PROMOTION_YFS_CORPS_2</Type>
+			<Description>TXT_KEY_PROMOTION_YFS_CORPS_2</Description>
+			<Help>TXT_KEY_PROMOTION_YFS_CORPS_2_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<OrderPriority>11</OrderPriority>
+			<CombatPercent>15</CombatPercent>
+			<MaxHitPointsModifier>100</MaxHitPointsModifier>
+			<PortraitIndex>20</PortraitIndex>
+			<IconAtlas>SP_PROMOTION_OLD_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_YFS_CORPS_2</PediaEntry>
+			<CannotBeChosen>true</CannotBeChosen>
+		</Row>
+
 	</UnitPromotions>
 	<UnitPromotions_Terrains>
 		<!--南宋水军效果：黄天荡-->

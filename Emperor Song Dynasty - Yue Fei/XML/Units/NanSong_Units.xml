@@ -855,7 +855,7 @@
 		</Row>
 		<Row>
 			<UnitType>UNIT_BEIWEI_ARMOR</UnitType>
-			<PromotionType>PROMOTION_CORPS_1</PromotionType>
+			<PromotionType>PROMOTION_YFS_CORPS_1</PromotionType>
 		</Row>
 		
 
@@ -889,7 +889,7 @@
 		</Row>
 		<Row>
 			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
-			<PromotionType>PROMOTION_CORPS_1</PromotionType>
+			<PromotionType>PROMOTION_YFS_CORPS_1</PromotionType>
 		</Row>
 
 		<!--炎宋威龙-->

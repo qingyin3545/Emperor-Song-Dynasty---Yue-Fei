@@ -79,6 +79,104 @@ function GetCloseCity ( iPlayer, plot )
 	return closeCity;
 end
 
+--------------------------------------------------------------
+-- 背嵬骑军战斗增伤
+--------------------------------------------------------------
+function NanSongDamageDelta(iBattleUnitType, iBattleType,
+	iAttackPlayerID, iAttackUnitOrCityID, bAttackIsCity, iAttackDamage,
+	iDefensePlayerID, iDefenseUnitOrCityID, bDefenseIsCity, iDefenseDamage,
+	iInterceptorPlayerID, iInterceptorUnitOrCityID, bInterceptorIsCity, iInterceptorDamage)
+	
+	local additionalDamage = 0;
+
+	local attPlayer = Players[iAttackPlayerID]
+	local defPlayer = Players[iDefensePlayerID]
+	if attPlayer == nil or defPlayer == nil then
+		return 0;
+	end
+	
+
+	if iBattleUnitType == GameInfoTypes["BATTLEROLE_ATTACKER"] 
+	and iBattleType == GameInfoTypes["BATTLETYPE_MELEE"]
+	then
+		-- 撼山易，撼岳家军难效果
+		-- 进攻时对敌人单位和城市的伤害随血量减少增加
+		if not bAttackIsCity then
+
+			local attUnit = attPlayer:GetUnitByID(iAttackUnitOrCityID);
+			if attUnit == nil then return 0 end;
+
+			local attUnitHP = attUnit:GetCurrHitPoints() 
+			local maxattUnitHP = attUnit:GetMaxHitPoints()
+			local factor = 1 - attUnitHP / maxattUnitHP + 0.01
+			local damagefactor = math.tan(math.pi * factor / 2)
+			local maxDamage = 50000
+
+			if not bDefenseIsCity
+			then
+				local defUnit = defPlayer:GetUnitByID(iDefenseUnitOrCityID);
+				if defUnit == nil then return 0 end;
+
+				if not attUnit:IsDead() and attUnit:IsHasPromotion(BeiWeiCavalryID) then
+					if defUnit:IsDead() then
+						attUnit:SetMoves(attUnit:MovesLeft() + GameDefines["MOVE_DENOMINATOR"]);
+					elseif not defUnit:IsDead() then
+						-- iAttackDamage：攻击方造成的伤害
+						additionalDamage = iAttackDamage * (0 + damagefactor);
+						if additionalDamage >= maxDamage then 
+							additionalDamage = maxDamage;
+						end
+			
+						defUnit:SetHasPromotion(MoralWeaken1ID, true);
+						defUnit:SetHasPromotion(MoralWeaken2ID, true);
+					end
+				end
+			else		
+				local defCity = defPlayer:GetCityByID(iDefenseUnitOrCityID);
+				if defCity == nil then return 0 end;
+				-- iDefenseDamage：防御方造成伤害
+				additionalDamage = iAttackDamage * (0 + damagefactor);
+				if additionalDamage >= maxDamage then 
+					additionalDamage = maxDamage;
+				end
+			end
+
+		end
+	elseif iBattleUnitType == GameInfoTypes["BATTLEROLE_DEFENDER"] 
+	and iBattleType == GameInfoTypes["BATTLETYPE_MELEE"]
+	then
+		if not bDefenseIsCity then
+
+			local defUnit = defPlayer:GetUnitByID(iDefenseUnitOrCityID);
+			if defUnit == nil then return 0 end;
+			local defUnitHP = defUnit:GetCurrHitPoints() 
+			local maxdefUnitHP = defUnit:GetMaxHitPoints()
+			local factor = 1 - defUnitHP / maxdefUnitHP + 0.01
+			local damagefactor = math.tan(math.pi * factor / 2)
+			local maxDamage = 50000
+
+			if not bAttackIsCity
+			then
+				local attUnit = attPlayer:GetUnitByID(iAttackUnitOrCityID);
+				if attUnit == nil then return 0 end;
+
+				if not attUnit:IsDead() and not defUnit:IsDead()
+				and defUnit:IsHasPromotion(BeiWeiCavalryID) then
+					-- iDefenseDamage：防御方造成伤害
+					additionalDamage = iDefenseDamage * (0 + damagefactor);
+					if additionalDamage >= maxDamage then 
+						additionalDamage = maxDamage
+					end
+					attUnit:SetHasPromotion(MoralWeaken1ID, true);
+					attUnit:SetHasPromotion(MoralWeaken2ID, true);
+				end
+			end
+		end
+	end
+	return additionalDamage;
+end
+GameEvents.BattleCustomDamage.Add(NanSongDamageDelta)
+
 function NanSongStarted(iType, iPlotX, iPlotY)
 	if iType == GameInfoTypes["BATTLETYPE_MELEE"]
 	or iType == GameInfoTypes["BATTLETYPE_RANGED"]
@@ -201,7 +299,7 @@ function NanSongEffect()
 	if not bIsCity and defUnit:IsHasPromotion(BeiWeiFootID) and attUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
 		if not attUnit:IsHasPromotion(SiegeUnitID) or not attUnit:IsHasPromotion(SplashUnitID) then
 			attUnit:SetMoves(0)
-			Message = 1
+			-- Message = 1
 			print ("Attacker Stopped!")	
 			if defPlayer:IsHuman() then
 				Events.GameplayAlertMessage( Locale.ConvertTextKey( "TXT_KEY_BEIWEI_FOOT_LOST_MOVEMENT", attUnit:GetName(), defUnit:GetName()))
@@ -237,96 +335,98 @@ function NanSongEffect()
 
 	------撼山易，撼岳家军难效果
 	------进攻时对敌人伤害随血量减少增加
-	local iDamage = 0
-	local attUnitHP = attUnit:GetCurrHitPoints() 
-	local maxattUnitHP = attUnit:GetMaxHitPoints()
-	local factor = 1 - attUnitHP / maxattUnitHP + 0.01
-	local damagefactor = math.tan(math.pi * factor / 2)
-	local maxDamage = 50000
-	-- print('maxattUnitHP'..maxattUnitHP)
-	-- print('attUnitHP'..attUnitHP)
-	if not attUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
-	and attUnit:IsHasPromotion(BeiWeiCavalryID) then
-		if not bIsCity then
-		if defUnit:IsDead() then
-			attUnit:SetMoves(attUnit:MovesLeft()+GameDefines["MOVE_DENOMINATOR"]);
-		elseif not defUnit:IsDead() then
-			iDamage = defUnit:GetDamage() * (0 + damagefactor);
-			if iDamage >= maxDamage then 
-				iDamage = maxDamage
-			end
-			print('defUnit:GetDamage()'..defUnit:GetDamage())
-			print('iDamage'..iDamage)
+	-- local iDamage = 0
+	-- local attUnitHP = attUnit:GetCurrHitPoints() 
+	-- local maxattUnitHP = attUnit:GetMaxHitPoints()
+	-- local factor = 1 - attUnitHP / maxattUnitHP + 0.01
+	-- local damagefactor = math.tan(math.pi * factor / 2)
+	-- local maxDamage = 50000
+	-- -- print('maxattUnitHP'..maxattUnitHP)
+	-- -- print('attUnitHP'..attUnitHP)
+	-- if not attUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
+	-- and attUnit:IsHasPromotion(BeiWeiCavalryID) then
+	-- 	if not bIsCity then
+	-- 	if defUnit:IsDead() then
+	-- 		attUnit:SetMoves(attUnit:MovesLeft()+GameDefines["MOVE_DENOMINATOR"]);
+	-- 	elseif not defUnit:IsDead() then
+	-- 		iDamage = defUnit:GetDamage() * (0 + damagefactor);
+	-- 		if iDamage >= maxDamage then 
+	-- 			iDamage = maxDamage
+	-- 		end
+	-- 		print('defUnit:GetDamage()'..defUnit:GetDamage())
+	-- 		print('iDamage'..iDamage)
 
-			defUnit:SetHasPromotion(MoralWeaken1ID, true);
-			defUnit:SetHasPromotion(MoralWeaken2ID, true);
-			defUnit:ChangeDamage(iDamage, attPlayerID);
-			if attPlayer:IsHuman() then
-				local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_ATT", attUnit:GetName(), defUnit:GetName()) .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
-				Events.GameplayAlertMessage(bc_text)
-			end
-			if defPlayer:IsHuman() then
-				local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_DEF", attUnit:GetName(), defUnit:GetName()) .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
-				Events.GameplayAlertMessage(bc_text)
-			end
-		end
-		end
-		if defCity and bIsCity then
-			iDamage = defCity:GetDamage() * (0 + damagefactor);
-			if iDamage >= maxDamage then 
-				iDamage = maxDamage
-			end
-			print('defCity:GetDamage()'..defCity:GetDamage())
-			print('iDamage'..iDamage)
-			defCity:ChangeDamage(iDamage, attPlayerID);
-			if attPlayer:IsHuman() then
-				local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_CITY_ATT", attUnit:GetName(), defCity:GetName())
-				 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
-				Events.GameplayAlertMessage(bc_text)
-			end
-			if defPlayer:IsHuman() then
-				local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_CITY_DEF", attUnit:GetName(), defCity:GetName())
-				 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
-				Events.GameplayAlertMessage(bc_text)
-			end
-		end
-	end
+	-- 		defUnit:SetHasPromotion(MoralWeaken1ID, true);
+	-- 		defUnit:SetHasPromotion(MoralWeaken2ID, true);
+	-- 		defUnit:ChangeDamage(iDamage, attPlayerID);
+	-- 		if attPlayer:IsHuman() then
+	-- 			local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_ATT", attUnit:GetName(), defUnit:GetName()) .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
+	-- 			Events.GameplayAlertMessage(bc_text)
+	-- 		end
+	-- 		if defPlayer:IsHuman() then
+	-- 			local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_DEF", attUnit:GetName(), defUnit:GetName()) .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
+	-- 			Events.GameplayAlertMessage(bc_text)
+	-- 		end
+	-- 	end
+	-- 	end
+	-- 	if defCity and bIsCity then
+	-- 		iDamage = defCity:GetDamage() * (0 + damagefactor);
+	-- 		if iDamage >= maxDamage then 
+	-- 			iDamage = maxDamage
+	-- 		end
+	-- 		print('defCity:GetDamage()'..defCity:GetDamage())
+	-- 		print('iDamage'..iDamage)
+	-- 		defCity:ChangeDamage(iDamage, attPlayerID);
+	-- 		if attPlayer:IsHuman() then
+	-- 			local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_CITY_ATT", attUnit:GetName(), defCity:GetName())
+	-- 			 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
+	-- 			Events.GameplayAlertMessage(bc_text)
+	-- 		end
+	-- 		if defPlayer:IsHuman() then
+	-- 			local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_CITY_DEF", attUnit:GetName(), defCity:GetName())
+	-- 			 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
+	-- 			Events.GameplayAlertMessage(bc_text)
+	-- 		end
+	-- 	end
+	-- end
 
-	if not bIsCity then
-	local defUnitHP = defUnit:GetCurrHitPoints() 
-	local maxdefUnitHP = defUnit:GetMaxHitPoints()
-	local factor = 1 - attUnitHP / maxattUnitHP + 0.01
-	local damagefactor = math.tan(math.pi * factor / 2)
+	-- if not bIsCity then
+	-- local defUnitHP = defUnit:GetCurrHitPoints() 
+	-- local maxdefUnitHP = defUnit:GetMaxHitPoints()
+	-- local factor = 1 - attUnitHP / maxattUnitHP + 0.01
+	-- local damagefactor = math.tan(math.pi * factor / 2)
 	------受到陆军近战部队攻击时
+	-- if not attUnit:IsDead() and not defUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
+	-- and defUnit:IsHasPromotion(BeiWeiCavalryID) then
+	-- 	iDamage = attUnit:GetDamage() * (0 + damagefactor);
+	-- 	if iDamage >= maxDamage then 
+	-- 		iDamage = maxDamage
+	-- 	end
+	-- 	attUnit:ChangeDamage(iDamage, defPlayerID);
+	-- 	attUnit:SetHasPromotion(MoralWeaken1ID, true);
+	-- 	attUnit:SetHasPromotion(MoralWeaken2ID, true);
+	-- 	if defPlayer:IsHuman() then
+	-- 		local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_ATT", defUnit:GetName(), attUnit:GetName())
+	-- 		 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
+	-- 		Events.GameplayAlertMessage(bc_text)
+	-- 	end
+	-- 	if attPlayer:IsHuman() then
+	-- 		local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_DEF", defUnit:GetName(), attUnit:GetName())
+	-- 		 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
+	-- 		Events.GameplayAlertMessage(bc_text)
+	-- 	end
+	-- end
+	------背嵬骑军受到陆军远程部队攻击时
 	if not attUnit:IsDead() and not defUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
 	and defUnit:IsHasPromotion(BeiWeiCavalryID) then
-		iDamage = attUnit:GetDamage() * (0 + damagefactor);
-		if iDamage >= maxDamage then 
-			iDamage = maxDamage
-		end
-		attUnit:ChangeDamage(iDamage, defPlayerID);
-		attUnit:SetHasPromotion(MoralWeaken1ID, true);
-		attUnit:SetHasPromotion(MoralWeaken2ID, true);
-		if defPlayer:IsHuman() then
-			local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_ATT", defUnit:GetName(), attUnit:GetName())
-			 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
-			Events.GameplayAlertMessage(bc_text)
-		end
-		if attPlayer:IsHuman() then
-			local bc_text = Locale.ConvertTextKey( "TXT_KEY_BC_UNIT_DEF", defUnit:GetName(), attUnit:GetName())
-			 .. math.floor(iDamage * damagefactor / (0 + damagefactor)) ..  Locale.ConvertTextKey("TXT_KEY_BC_FINAL")
-			Events.GameplayAlertMessage(bc_text)
-		end
-	end
-	------受到陆军远程部队攻击时
-	if attUnit:IsHasPromotion(ArcheryUnitID) and batType == GameInfoTypes["BATTLETYPE_RANGED"]
-	and defUnit:IsHasPromotion(BeiWeiCavalryID) then
-		defUnit:SetMoves(defUnit:MovesLeft()+GameDefines["MOVE_DENOMINATOR"]);
+		if attUnit:IsHasPromotion(ArcheryUnitID) and batType == GameInfoTypes["BATTLETYPE_RANGED"]
+		and defUnit:IsHasPromotion(BeiWeiCavalryID) then
+			defUnit:SetMoves(defUnit:MovesLeft() + GameDefines["MOVE_DENOMINATOR"]);
 
-		attUnit:SetHasPromotion(MoralWeaken1ID, true);
-		attUnit:SetHasPromotion(MoralWeaken2ID, true);
-		attUnit:SetHasPromotion(RangeBanID, true);
-	end
+			attUnit:SetHasPromotion(MoralWeaken1ID, true);
+			attUnit:SetHasPromotion(MoralWeaken2ID, true);
+			attUnit:SetHasPromotion(RangeBanID, true);
+		end
 	end
 
 	------天下太平
@@ -417,52 +517,6 @@ function NanSongEffect()
     attPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC , text, heading, plotX, plotY)
     end
 	end
-
-	------车船AOE,照抄
-	-- if (attUnit:IsHasPromotion(UpwsID)) then
-	
-	-- for i = 0, 5 do
-	-- 	local adjPlot = Map.PlotDirection(plotX, plotY, i)
-	-- 	if (adjPlot ~= nil and not adjPlot:IsCity()) then
-	-- 		print("Available for AOE Damage!")
-	-- 		local unitCount = adjPlot:GetNumUnits();
-    --         if unitCount > 0 then
-    --         for i = 0, unitCount-1, 1 do
-	-- 		local pUnit = adjPlot:GetUnit(i) ------------Find Units affected
-	-- 		if pUnit and (pUnit:GetDomainType() == DomainTypes.DOMAIN_LAND or pUnit:GetDomainType() == DomainTypes.DOMAIN_SEA) then
-	-- 			local pCombat = pUnit:GetBaseCombatStrength()
-	-- 			local pPlayer = Players[pUnit:GetOwner()]
-				
-	-- 			if PlayersAtWar(attPlayer, pPlayer) then
-	-- 				local SplashDamageOri = attUnit:GetRangeCombatDamage(pUnit,nil,false)
-						
-	-- 				local AOEmod = 0.50   -- the percent of damage reducing to nearby units
-						
-	-- 				local text = nil;
-	-- 				local attUnitName = attUnit:GetName();
-	-- 				local defUnitName = pUnit:GetName();
-						
-	-- 				local SplashDamageFinal = math.floor(SplashDamageOri * AOEmod); -- Set the Final Damage
-	-- 				if SplashDamageFinal > 0 then
-	-- 					-- Notification
-	-- 					if     defPlayerID == Game.GetActivePlayer() then
-	-- 						text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE", attUnitName, defUnitName, SplashDamageFinal);
-	-- 					elseif attPlayerID == Game.GetActivePlayer() then
-	-- 						text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_SPLASH_DAMAGE_ENEMY", attUnitName, defUnitName, SplashDamageFinal);
-	-- 					end
-	-- 				end
-	-- 				if text then
-	-- 					Events.GameplayAlertMessage( text );
-	-- 				end
-	-- 				pUnit:ChangeDamage(SplashDamageFinal, attPlayer)
-	-- 				print("Splash Damage="..SplashDamageFinal)
-	-- 			end
-	-- 		end
-	-- 		end
-	-- 		end
-	-- 	end
-	-- end
-	-- end
 	-----------------------------------------------------------------------
 	---- 赤心队：阵亡
 	----------------------------------------------------------------------
@@ -608,60 +662,6 @@ function YFS_UnitSetXY(playerID, unitID)
 			end
 		end
 
-
-		-- if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
-		-- or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
-		-- then
-		-- 	-- 殿前司：根据临近敌人给战斗力加成
-		-- 	local iunit = GameInfo.Units[unit:GetUnitType()] ;
-		-- 	local plot = unit:GetPlot();
-        --     local icombat_bonus = 0;
-
-        --     local unitCount = plot:GetNumUnits();
-        --     local uniqueRange = 1;
-		-- 	if unitCount >= 1 then
-		-- 		for i = 0, unitCount-1, 1 do
-		-- 			local pFoundUnit = plot:GetUnit(i)
-		-- 			if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
-		-- 				local pPlayer = Players[pFoundUnit:GetOwner()];
-		-- 				if PlayersAtWar(player, pPlayer) then
-		-- 					icombat_bonus = icombat_bonus + 1;
-		-- 				end
-		-- 			end
-		-- 		end
-		-- 	end
-            
-		-- 	for dx = -uniqueRange, uniqueRange, 1 do
-		-- 		for dy = -uniqueRange, uniqueRange, 1 do
-		-- 			local adjPlot = Map.PlotXYWithRangeCheck(plot:GetX(), plot:GetY(), dx, dy, uniqueRange);
-        --             if (adjPlot ~= nil) then
-		-- 	    	    unitCount = adjPlot:GetNumUnits();
-		-- 	    	    if unitCount >= 1 then
-		-- 	    	    	for i = 0, unitCount-1, 1 do
-		-- 	    	    		local pFoundUnit = adjPlot:GetUnit(i)
-		-- 	    	    		if pFoundUnit ~= nil and pFoundUnit:GetID() ~= unit:GetID() then
-		-- 	    	    			local pPlayer = Players[pFoundUnit:GetOwner()];
-		-- 	    	    			if PlayersAtWar(player, pPlayer) then
-        --                                 icombat_bonus = icombat_bonus + 1;
-		-- 	    	    			end
-		-- 	    	    		end
-		-- 	    	    	end
-		-- 	    	    end
-        --             end
-		-- 	    end
-        --     end
-        --     local iunit = GameInfo.Units[unit:GetUnitType()];
-		-- 	local icombat = math.ceil(0.05 * iunit.Combat);
-		-- 	-- unit:SetBaseCombatStrength(iunit.Combat + icombat * icombat_bonus);
-		-- 	SPUEAddCombatBonus(unit, math.ceil(100 * icombat_bonus * icombat / iunit.Combat))
-		-- 	if icombat_bonus > 0 then
-        --     	local hex = ToHexFromGrid(Vector2(plot:GetX(), plot:GetY()));
-        --     	Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_STRENGTH]", icombat * icombat_bonus));
-        --     end
-		-- 	-- Events.GameplayFX(hex.x, hex.y, -1);
-
-		-- end
-
 	end 
 end
 GameEvents.UnitSetXY.Add(YFS_UnitSetXY)
@@ -669,83 +669,89 @@ GameEvents.UnitCreated.Add(YFS_UnitSetXY)
 -------------------------------------------------------------------------------------------------------------
 -- 殿前司过回合效果&AI驻队矢效果
 -------------------------------------------------------------------------------------------------------------
-GameEvents.PlayerDoTurn.Add(
-function(playerID)
+GameEvents.UnitDoTurn.Add(
+function(playerID, unitID)
 	local player = Players[playerID] 
-
-	if player == nil or player:IsBarbarian() then
-		return
+	if Players[playerID] == nil or not Players[playerID]:IsAlive()
+	or Players[playerID]:GetUnitByID(unitID) == nil
+	or Players[playerID]:GetUnitByID(unitID):IsDead()
+	or Players[playerID]:GetUnitByID(unitID):IsDelayedDeath()
+	then
+		return;
 	end
+	
+	local player = Players[playerID];
+	local unit = Players[playerID]:GetUnitByID(unitID);
 
-	for unit in player:Units() do
-		if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
-		or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
-		then
-			
-			local unitPlot = unit:GetPlot();
-	  		local uPlayer = Players[unit:GetOwner()];
-	  		local plotX = unitPlot:GetX()
-	  		local plotY = unitPlot:GetY()
-
-	  		local unitCount = unitPlot:GetNumUnits();
-	  		if unitCount > 0 then
-	  			for i = 0, unitCount-1, 1 do
-					local pFoundUnit = unitPlot:GetUnit(i);
-					if pFoundUnit then 
-					  	local pPlayer = Players[pFoundUnit:GetOwner()];
-					  	if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
-						  	pFoundUnit:ChangeMoves(60);
-							pFoundUnit:ChangeExperience(2);
-							local hex = ToHexFromGrid(Vector2(pFoundUnit:GetX(), pFoundUnit:GetY()));
-							Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
-						end
-					end
-	  			end
-	  		end
+	-- for unit in player:Units() do
+	if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
+	or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])
+	then
 		
-	  		local uniqueRange = 1
-	  		for dx = -uniqueRange, uniqueRange, 1 do
-				for dy = -uniqueRange, uniqueRange, 1 do
-				  	local adjPlot = Map.PlotXYWithRangeCheck(plotX, plotY, dx, dy, uniqueRange);
-				  	if (adjPlot ~= nil) then
-					  	unitCount = adjPlot:GetNumUnits();
-					  	if unitCount > 0 then
-						  	for i = 0, unitCount-1, 1 do
-								local pFoundUnit = adjPlot:GetUnit(i);
-								if pFoundUnit then 
-								local pPlayer = Players[pFoundUnit:GetOwner()];
-									if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
-										pFoundUnit:ChangeMoves(60);
-										pFoundUnit:ChangeExperience(2);
-										local hex = ToHexFromGrid(Vector2(pFoundUnit:GetX(), pFoundUnit:GetY()));
-										Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
-									end
-								end
-						  	end
-					  	end
-				  	end
-				end
-	  		end
-		end
+		local unitPlot = unit:GetPlot();
+		local uPlayer = Players[unit:GetOwner()];
+		local plotX = unitPlot:GetX()
+		local plotY = unitPlot:GetY()
 
-		if not player:IsHuman() then
-			-- AI驻队矢效果
-			if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CAN_ZHUDUISHI"].ID) then
-				if not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID) 
-				and unit:GetPlot():IsFriendlyTerritory()
-				then
-					unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID, true)
-				elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID) 
-				and unit:GetPlot():IsFriendlyTerritory() 
-				then
-					
-				else
-					unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID, false)
+		local unitCount = unitPlot:GetNumUnits();
+		if unitCount > 0 then
+			for i = 0, unitCount-1, 1 do
+				local pFoundUnit = unitPlot:GetUnit(i);
+				if pFoundUnit then 
+				  	local pPlayer = Players[pFoundUnit:GetOwner()];
+				  	if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
+					  	pFoundUnit:ChangeMoves(60);
+						pFoundUnit:ChangeExperience(2);
+						local hex = ToHexFromGrid(Vector2(pFoundUnit:GetX(), pFoundUnit:GetY()));
+						Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
+					end
 				end
 			end
 		end
-
+	
+		local uniqueRange = 1
+		for dx = -uniqueRange, uniqueRange, 1 do
+			for dy = -uniqueRange, uniqueRange, 1 do
+			  	local adjPlot = Map.PlotXYWithRangeCheck(plotX, plotY, dx, dy, uniqueRange);
+			  	if (adjPlot ~= nil) then
+				  	unitCount = adjPlot:GetNumUnits();
+				  	if unitCount > 0 then
+					  	for i = 0, unitCount-1, 1 do
+							local pFoundUnit = adjPlot:GetUnit(i);
+							if pFoundUnit then 
+							local pPlayer = Players[pFoundUnit:GetOwner()];
+								if pPlayer == uPlayer and pFoundUnit:GetBaseCombatStrength() > 0 and pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_LAND then
+									pFoundUnit:ChangeMoves(60);
+									pFoundUnit:ChangeExperience(2);
+									local hex = ToHexFromGrid(Vector2(pFoundUnit:GetX(), pFoundUnit:GetY()));
+									Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_MOVES]", 1));
+								end
+							end
+					  	end
+				  	end
+			  	end
+			end
+		end
 	end
+
+	if not player:IsHuman() then
+		-- AI驻队矢效果
+		if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CAN_ZHUDUISHI"].ID) then
+			if not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID) 
+			and unit:GetPlot():IsFriendlyTerritory()
+			then
+				unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID, true)
+			elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID) 
+			and unit:GetPlot():IsFriendlyTerritory() 
+			then
+				
+			else
+				unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_ZHUDUISHI_AI"].ID, false)
+			end
+		end
+	end
+
+	-- end
 
 	
 
@@ -1069,11 +1075,11 @@ GameEvents.UnitCreated.Add(YfsUnitsEffect)
 -- Establish Corps & Armee
 CX_EstablishCorpsButton = {
   Name = "CX_Establish Corps",
-  Title = "TXT_KEY_SP_BTNNOTE_UNIT_ESTABLISH_CORPS_SHORT", -- or a TXT_KEY
+  Title = "TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_CORPS_SHORT", -- or a TXT_KEY
   OrderPriority = 200, -- default is 200
   IconAtlas = "SP_UNIT_ACTION_ATLAS", -- 45 and 64 variations required
   PortraitIndex = 1,
-  ToolTip = "TXT_KEY_SP_BTNNOTE_UNIT_ESTABLISH_CORPS", -- or a TXT_KEY_ or a function
+  ToolTip = "TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_CORPS", -- or a TXT_KEY_ or a function
 
   Condition = function(action, unit)
 	local bIsCondition = false;
@@ -1085,13 +1091,12 @@ CX_EstablishCorpsButton = {
 	and plot and plot:GetNumUnits() > 1 and not unit:IsEmbarked() and not unit:IsImmobile()
     and not plot:IsWater()
 	and iChiXinCrop < 0
-	and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
-    -- and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
+	and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_DISABLE") == 0 -- 需要开启军团模式
     then
 		for i = 0, plot:GetNumUnits() - 1, 1 do
 			local fUnit = plot:GetUnit(i);
 			if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-			and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"])
+			and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
 			then
 				bIsCondition = true
 				break
@@ -1115,16 +1120,16 @@ CX_EstablishCorpsButton = {
 		and plot and plot:GetNumUnits() > 1 and not unit:IsEmbarked() and not unit:IsImmobile()
 		and not plot:IsWater()
 		and iChiXinCrop < 0
-		and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
+		and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_DISABLE") == 0 
 		then
 			for i = 0, plot:GetNumUnits() - 1, 1 do
 				local fUnit = plot:GetUnit(i);
 				if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-				and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"])
+				and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
 				then
 					local plotX, plotY = plot:GetX(), plot:GetY()
 					local hex = ToHexFromGrid(Vector2(plotX, plotY))
-					fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_CORPS_1"], true)
+					fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"], true)
 					iChiXinCrop = iChiXinCrop + 1
 					Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_PROMOTION_CHIXINDUI1"))
 					
@@ -1141,11 +1146,11 @@ LuaEvents.UnitPanelActionAddin(CX_EstablishCorpsButton);
 -- 组建集团军
 CX_EstablishArmeeButton = {
 	Name = "CX_Establish Armee",
-	Title = "TXT_KEY_SP_BTNNOTE_UNIT_ESTABLISH_ARMEE_SHORT", -- or a TXT_KEY
+	Title = "TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_ARMEE_SHORT", -- or a TXT_KEY
 	OrderPriority = 200, -- default is 200
 	IconAtlas = "SP_UNIT_ACTION_ATLAS", -- 45 and 64 variations required
 	PortraitIndex = 3,
-	ToolTip = "TXT_KEY_SP_BTNNOTE_UNIT_ESTABLISH_ARMEE", -- or a TXT_KEY_ or a function
+	ToolTip = "TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_ARMEE", -- or a TXT_KEY_ or a function
   
 	Condition = function(action, unit)
 	  local bIsCondition = false;
@@ -1158,13 +1163,13 @@ CX_EstablishArmeeButton = {
 	  and plot and plot:GetNumUnits() > 1 and not unit:IsEmbarked() and not unit:IsImmobile()
 	  and not plot:IsWater()
 	  and iChiXinArmee < 0
-	  and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
+	  and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_DISABLE") == 0 -- 需要开启军团模式
 	  -- and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
 	  then
 		  for i = 0, plot:GetNumUnits() - 1, 1 do
 			  local fUnit = plot:GetUnit(i);
 			  if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-			  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"])
+			  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
 			  then
 				  bIsCondition = true
 				  break
@@ -1189,16 +1194,16 @@ CX_EstablishArmeeButton = {
 		  and plot and plot:GetNumUnits() > 1 and not unit:IsEmbarked() and not unit:IsImmobile()
 		  and not plot:IsWater()
 		  and iChiXinArmee < 0
-		  and player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0
+		  and PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_DISABLE") == 0 
 		  then
 			  for i = 0, plot:GetNumUnits() - 1, 1 do
 				  local fUnit = plot:GetUnit(i);
 				  if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-				  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"])
+				  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
 				  then
 					  local plotX, plotY = plot:GetX(), plot:GetY()
 					  local hex = ToHexFromGrid(Vector2(plotX, plotY))
-					  fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_CORPS_2"], true)
+					  fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"], true)
 					  iChiXinArmee = iChiXinArmee + 1
 					  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_PROMOTION_CHIXINDUI1"))
 					  

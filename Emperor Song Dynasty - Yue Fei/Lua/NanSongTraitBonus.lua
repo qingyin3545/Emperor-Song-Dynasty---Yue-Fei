@@ -178,17 +178,14 @@ function YuYingBonus(playerID)
 	local pEraID = 2
 	
 	if player == nil then
-		--print ("No players")
 		return
 	end
 	
 	if player:IsBarbarian() or player:IsMinorCiv() then
-		--print ("Minors are Not available!")
     	return
 	end
 	
 	if player:GetNumCities() <= 0 then 
-		--print ("No Cities!")
 		return
 	end
 
@@ -199,22 +196,12 @@ function YuYingBonus(playerID)
 	if player:CountNumBuildings(GameInfoTypes["BUILDING_YUYING"]) > 0 and 
 	not player:HasPolicy(GameInfo.Policies["POLICY_YUYING"].ID) 
 	then 
-		-- player:SetNumFreePolicies(1)
-		-- player:SetNumFreePolicies(0)
 		player:SetHasPolicy(GameInfo.Policies["POLICY_YUYING"].ID,true,true)	 
-		-- print("Player has wonder 1! Give them policy 1!")
 	end
 
 	if iWarNum > 0 then
-
 		-- 留守司统制计数
-		local numship = 0
-
-		for unit in player:Units() do 		--遍历所有单位	
-			if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID) then	
-				numship = numship + 1
-			end
-		end
+		local numship = player:GetUnitCountFromHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
 
 		local ifNuM = load( player, "LiuShouSiFoot", ifNuM) or -1;
 		local LiuShouSiTurnsLeft = math.floor(iGameSpeed * 2)
@@ -224,10 +211,10 @@ function YuYingBonus(playerID)
 
 				if ifNuM < 0 then
 
-					if (player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) == 0 
+					if (PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_DISABLE") > 0 
 					and numship >= 0 )
 
-					or (player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0 
+					or (PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_DISABLE") == 0 
 					and numship == 0 )
 					then
 						-- 新单位或未开启军团模式
@@ -244,7 +231,7 @@ function YuYingBonus(playerID)
 							Events.GameplayFX(hex.x, hex.y, -1)
 						end
 					elseif numship > 0 
-					and (player:CountNumBuildings(GameInfoTypes["BUILDING_TROOPS"]) > 0)
+					and (PreGame.GetGameOption("GAMEOPTION_SP_CORPS_MODE_DISABLE") == 0 )
 					then
 						-- 军团模式开启
 						local full_flag1 = 0
@@ -252,10 +239,10 @@ function YuYingBonus(playerID)
 						local full_flag = 0
 						for unit in player:Units() do
 							if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
-							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_1"].ID)
-							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_2"].ID)
+							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID)
+							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID)
 							then
-								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_1"].ID, true)
+								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID, true)
 								ifNuM = ifNuM + 1
 								save( player,  "LiuShouSiFoot", ifNuM ) 
 								full_flag1 = 1
@@ -265,11 +252,11 @@ function YuYingBonus(playerID)
 									Events.GameplayFX(hex.x, hex.y, -1)
 								end
 							elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_1"].ID)
-							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_2"].ID)
+							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID)
+							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID)
 							and full_flag1 == 0
 							then 
-								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_2"].ID, true)
+								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_YFS_2"].ID, true)
 								ifNuM = ifNuM + 1
 								save( player,  "LiuShouSiFoot", ifNuM )
 								full_flag2 = 1
@@ -279,14 +266,15 @@ function YuYingBonus(playerID)
 									Events.GameplayFX(hex.x, hex.y, -1)
 								end
 							elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_2"].ID)
+							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_YFS_1"].ID)
+							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_YFS_2"].ID)
 							and full_flag1 == 0 
 							and full_flag2 == 0
 							then 
 								full_flag = 1
 							end
 						end
+						-- 等待随着10.0更新
 						if CapCity:GetNumBuilding(GameInfoTypes["BUILDING_TROOPS"]) - CapCity:GetNumBuilding(GameInfoTypes["BUILDING_TROOPS_USED"]) > 0 
 						and (full_flag == 1 and full_flag1 == 0 and full_flag2 == 0) 
 						then
@@ -312,6 +300,7 @@ function YuYingBonus(playerID)
 					ifNuM = ifNuM + 1
 					save( player,  "LiuShouSiFoot", ifNuM )
 				end
+				break
 
 			end
 		end
