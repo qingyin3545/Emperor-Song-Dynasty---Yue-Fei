@@ -66,7 +66,12 @@ GameEvents.CitySoldBuilding.Add(YfsCityBuildingMarket)
 local iGameSpeedType = Game.GetGameSpeedType()
 local ifactor = GameInfo.GameSpeeds[iGameSpeedType].ConstructPercent  / 100
 ifactor = 2.0
-local wonders_production = {135, 295, 405, 625, 970, 1440, 2415, 2875, 4600, 6900}
+-- local wonders_production = {135, 295, 405, 625, 970, 1440, 2415, 2875, 4600, 6900}
+
+local wonders_production = {}
+for row in GameInfo.Buildings() do
+	table.insert(wonders_production, row.Cost)
+end
 --城市界面显示
 function FirstWonderConstruct(playerID)
 	local player = Players[playerID]
@@ -74,18 +79,11 @@ function FirstWonderConstruct(playerID)
 	local pEraID = GameInfo.Eras[pEraType].ID
 	local pCapital = player:GetCapitalCity()
 
-	if player == nil then
-		--print ("No players")
-		return
-	end
-
-	if player:IsBarbarian() or player:IsMinorCiv() then
-		---print ("Minors are Not available!")
+	if player == nil or player:IsBarbarian() or player:IsMinorCiv() then
     	return
 	end
 
 	if player:GetNumCities() <= 0 then 
-		--print ("No Cities!")
 		return
 	end
 
@@ -95,14 +93,14 @@ function FirstWonderConstruct(playerID)
 			local factor = ifactor
 			print("city:GetOverflowProduction() = "..iofp)
 			-- 溢出锤高于最大产能建筑时清零
-			if iofp > wonders_production[pEraID + 1] * ifactor then
+			if iofp > math.max(unpack(wonders_production)) * ifactor then
 				city:SetOverflowProduction(0)
 			end
 			city:SetNumRealBuilding(GameInfoTypes["BUILDING_FIRSTWONDER_PRODUCTION"], 0)
 			if (city:GetNumWorldWonders() < 1) then
 			--local iwonderproduction = wonders_production[pEraID + 1] * ifactor
 			local city_production = city:GetYieldRate(YieldTypes.YIELD_PRODUCTION) + 0.01
-			local nsNumber = math.ceil(10000 * ifactor / city_production)
+			local nsNumber = math.ceil(math.max(unpack(wonders_production)) * ifactor / city_production)
 
 			city:SetNumRealBuilding(GameInfoTypes["BUILDING_FIRSTWONDER_PRODUCTION"],nsNumber)
 			end
