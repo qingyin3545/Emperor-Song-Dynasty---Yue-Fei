@@ -278,8 +278,8 @@ VALUES		('LEADER_YFS_YUEFEI', 	'TRAIT_YFS_YUEFEI_SONG');
 -- Traits
 --==========================================================================================================================	
 INSERT INTO Traits 
-			(Type, 						Description, 						ShortDescription,							EmbarkedToLandFlatCost,		ExtraFoundedCityTerritoryClaimRange)
-VALUES		('TRAIT_YFS_YUEFEI_SONG', 	'TXT_KEY_TRAIT_YFS_YUEFEI_SONG', 	'TXT_KEY_TRAIT_YFS_YUEFEI_SONG_SHORT',		1,							6);
+			(Type, 						Description, 						ShortDescription,							ExtraFoundedCityTerritoryClaimRange)
+VALUES		('TRAIT_YFS_YUEFEI_SONG', 	'TXT_KEY_TRAIT_YFS_YUEFEI_SONG', 	'TXT_KEY_TRAIT_YFS_YUEFEI_SONG_SHORT',		6);
 --==========================================================================================================================	
 -- Trait_YieldFromKills
 --==========================================================================================================================	

@@ -23,22 +23,22 @@
     <ModReferences>
       <Association>
         <Type>Mod</Type>
-        <Name>Super Power Clash of Civilizations</Name>
-        <Id>d08be507-23c0-4c15-af11-31b8ee567387</Id>
+        <Name>(1) CIV5MPDLL</Name>
+        <Id>a2969a0a-e4da-41cc-9e0b-19b29aa971d8</Id>
         <MinVersion>0</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
+      <Association>
+        <Type>Mod</Type>
+        <Name>(2) Super Power - Rise of Hegemony</Name>
+        <Id>f9b9c8aa-b6d1-4188-9239-c1de2207ab7c</Id>
+        <MinVersion>9</MinVersion>
         <MaxVersion>999</MaxVersion>
       </Association>
       <Association>
         <Type>Mod</Type>
         <Name>TNL WORLD - Deluxe</Name>
         <Id>4e394966-aec9-4473-807f-0ddf8c1dddc1</Id>
-        <MinVersion>0</MinVersion>
-        <MaxVersion>999</MaxVersion>
-      </Association>
-      <Association>
-        <Type>Mod</Type>
-        <Name>Super Power - Remaking of World Order</Name>
-        <Id>f9b9c8aa-b6d1-4188-9239-c1de2207ab7c</Id>
         <MinVersion>0</MinVersion>
         <MaxVersion>999</MaxVersion>
       </Association>
@@ -139,9 +139,16 @@
     <ModDependencies>
       <Association>
         <Type>Mod</Type>
-        <Name>Super Power - Remaking of World Order</Name>
+        <Name>(1) CIV5MPDLL</Name>
+        <Id>a2969a0a-e4da-41cc-9e0b-19b29aa971d8</Id>
+        <MinVersion>4</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
+      <Association>
+        <Type>Mod</Type>
+        <Name>(2) Super Power - Rise of Hegemony</Name>
         <Id>f9b9c8aa-b6d1-4188-9239-c1de2207ab7c</Id>
-        <MinVersion>7</MinVersion>
+        <MinVersion>9</MinVersion>
         <MaxVersion>999</MaxVersion>
       </Association>
     </ModDependencies>
