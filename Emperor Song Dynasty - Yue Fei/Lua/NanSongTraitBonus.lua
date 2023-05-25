@@ -197,6 +197,14 @@ function YuYingBonus(playerID)
 		player:SetHasPolicy(GameInfo.Policies["POLICY_YUYING"].ID,true,true)	 
 	end
 
+	if player:CountNumBuildings(GameInfoTypes["BUILDING_SONG_LIUSHOUSI"]) > 0 and 
+	not player:HasPolicy(GameInfo.Policies["POLICY_SONG_LIUSHOUSI"].ID) 
+	then 
+		player:SetHasPolicy(GameInfo.Policies["POLICY_SONG_LIUSHOUSI"].ID,true,true)	 
+	end
+
+	
+
 	if iWarNum > 0 then
 		-- 留守司统制计数
 		local numship = player:GetUnitCountFromHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)

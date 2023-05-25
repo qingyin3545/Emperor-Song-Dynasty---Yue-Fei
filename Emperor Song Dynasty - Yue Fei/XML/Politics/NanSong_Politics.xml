@@ -10,6 +10,10 @@
 			<!--<ProtectedMinorPerTurnInfluence>400</ProtectedMinorPerTurnInfluence>
 			<CityStateUnitFrequencyModifier>200</CityStateUnitFrequencyModifier>-->
 		</Row>
+		<Row>
+			<Type>POLICY_SONG_LIUSHOUSI</Type>
+			<Description>TXT_KEY_BUILDING_SONG_LIUSHOUSI</Description>
+		</Row>
 	</Policies>
 	<!--购买单位和建筑减少15%花费-->
 	<Policy_HurryModifiers>
