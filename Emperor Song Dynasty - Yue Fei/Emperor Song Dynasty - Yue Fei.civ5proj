@@ -57,11 +57,6 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>SQL/NanSong_TNL_Support.sql</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>XML/Buildings/NanSong_Buildings.xml</FileName>
       </Action>
       <Action>
@@ -103,6 +98,11 @@
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>XML/Music/NanSong_Music.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>SQL/NanSong_TNL_Support.sql</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
@@ -176,6 +176,7 @@
     <Folder Include="Art\Improvements\Icons" />
     <Folder Include="Art\Improvements\SV" />
     <Folder Include="Art\Improvements\SongFort" />
+    <Folder Include="Art\FontIcons" />
     <Folder Include="Art\Resources" />
     <Folder Include="Art\Splash" />
     <Folder Include="Art\StrategicView" />
@@ -330,6 +331,22 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Dom\yfsYueFeiScene.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\FontIcons\FontIcons_ExtraPromo.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\FontIcons\FontIcons_ExtraPromo.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\FontIcons\FontIcons_promoVP_03.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\FontIcons\FontIcons_promoVP_03.ggxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

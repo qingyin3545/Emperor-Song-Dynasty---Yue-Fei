@@ -1,3 +1,6 @@
+UPDATE SPTriggerControler SET Enabled = 1 WHERE TriggerType = 'SPNDeleteALLUnitStrategicFlag';
+UPDATE SPNewEffectControler SET Enabled = 1 WHERE Type = 'SP_DELETE_ALL_STRATEGIC_UNIT_FLAG';
+
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_BATTLES_CUSTOM_DAMAGE';	-- 开启单位减伤事件
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_CREATED';			-- 开启单位产生事件
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'IMPROVEMENTS_UPGRADE';			-- 开启设施升级事件
