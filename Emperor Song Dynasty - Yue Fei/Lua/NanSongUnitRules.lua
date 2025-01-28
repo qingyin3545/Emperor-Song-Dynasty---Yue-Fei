@@ -38,8 +38,6 @@ local LoseSupplyID = GameInfo.UnitPromotions["PROMOTION_LOSE_SUPPLY"].ID
 local Damage1ID = GameInfo.UnitPromotions["PROMOTION_DAMAGE_1"].ID
 local Damage2ID = GameInfo.UnitPromotions["PROMOTION_DAMAGE_2"].ID
 
-local RangeBanID = GameInfo.UnitPromotions["PROMOTION_RANGE_BAN"].ID
-
 local J20PID = GameInfo.UnitPromotions["PROMOTION_CHUAIMEN"].ID
 
 local AntiAirID = GameInfo.UnitPromotions["PROMOTION_ANTI_AIR"].ID
@@ -342,7 +340,6 @@ function NanSongEffect()
 
 			attUnit:SetHasPromotion(MoralWeaken1ID, true);
 			attUnit:SetHasPromotion(MoralWeaken2ID, true);
-			attUnit:SetHasPromotion(RangeBanID, true);
 		end
 	end
 

@@ -14,6 +14,16 @@ local iGameSpeed = GameInfo.GameSpeeds[Game.GetGameSpeedType()].GrowthPercent / 
 --============================================================================================================
 -- 街市建造效果
 --============================================================================================================
+-- 街市加成建筑
+local g_SongMarketBonusBuildings = {GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_1'],
+									GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_2'],
+									GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_3'],
+									GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_4'],
+									GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_5'],
+									GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_6'],
+									GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_7'],
+									GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_8']}
+
 function YfsCityBuildingMarket(iPlayer, iCity, iBuilding)
 	local pPlayer = Players[iPlayer]
 	if pPlayer == nil or pPlayer:IsMinorCiv() or pPlayer:IsBarbarian() then
@@ -22,15 +32,6 @@ function YfsCityBuildingMarket(iPlayer, iCity, iBuilding)
 	if GameInfo.Buildings[iBuilding].Type ~= GameInfoTypes["BUILDING_SONG_MARKET"] then return end
 
 	local city = pPlayer:GetCityByID(iCity)
-	-- 街市加成建筑
-	local g_SongMarketBonusBuildings = {GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_1'],
-										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_2'],
-										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_3'],
-										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_4'],
-										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_5'],
-										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_6'],
-										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_7'],
-										GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_8']}
 	local numMarketBonus = 0
 	for k, v in pairs(g_SongMarketBonusBuildings) do
 		if city:GetNumBuilding(v.ID) > 0 then
@@ -61,17 +62,6 @@ end
 GameEvents.CityConstructed.Add(YfsCityBuildingMarket)
 GameEvents.CitySoldBuilding.Add(YfsCityBuildingMarket)
 
-
--- 所有城市第一座奇观免费
-local iGameSpeedType = Game.GetGameSpeedType()
-local ifactor = GameInfo.GameSpeeds[iGameSpeedType].ConstructPercent  / 100
-ifactor = 2.0
--- local wonders_production = {135, 295, 405, 625, 970, 1440, 2415, 2875, 4600, 6900}
-
-local wonders_production = {}
-for row in GameInfo.Buildings() do
-	table.insert(wonders_production, row.Cost)
-end
 --城市界面显示
 function FirstWonderConstruct(playerID)
 	local player = Players[playerID]
@@ -87,37 +77,8 @@ function FirstWonderConstruct(playerID)
 		return
 	end
 
-	if player:GetCivilizationType() == GameInfoTypes["CIVILIZATION_YFS_SONG"] then
-		for city in player:Cities() do
-			local iofp = city:GetOverflowProduction()
-			local factor = ifactor
-			print("city:GetOverflowProduction() = "..iofp)
-			-- 溢出锤高于最大产能建筑时清零
-			if iofp > math.max(unpack(wonders_production)) * ifactor then
-				city:SetOverflowProduction(0)
-			end
-			city:SetNumRealBuilding(GameInfoTypes["BUILDING_FIRSTWONDER_PRODUCTION"], 0)
-			if (city:GetNumWorldWonders() < 1) then
-			--local iwonderproduction = wonders_production[pEraID + 1] * ifactor
-			local city_production = city:GetYieldRate(YieldTypes.YIELD_PRODUCTION) + 0.01
-			local nsNumber = math.ceil(math.max(unpack(wonders_production)) * ifactor / city_production)
-
-			city:SetNumRealBuilding(GameInfoTypes["BUILDING_FIRSTWONDER_PRODUCTION"],nsNumber)
-			end
-		end
-	end
-
 	-- if GameInfo.BuildingClasses["BUILDINGCLASS_MARKET"].ID
 	for city in player:Cities() do
-		-- 街市加成建筑
-		local g_SongMarketBonusBuildings = {GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_1'],
-											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_2'],
-											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_3'],
-											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_4'],
-											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_5'],
-											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_6'],
-											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_7'],
-											GameInfo.Buildings['BUILDING_YFS_MARKET_BONUS_8']}
 		local numMarketBonus = 0
 		for k, v in pairs(g_SongMarketBonusBuildings) do
 			-- print("ISong Market ID = "..v.ID.."Type = "..v.Type)
@@ -482,22 +443,3 @@ function SongGoldenAgeUnit(iPlayer, iCity, iUnit, bGold, bFaith)
 	end
 end
 GameEvents.CityTrained.Add(SongGoldenAgeUnit)
-----------------------------------------------------------------------------------------------------------------------------
--- 军巡铺屋：每回合恢复10%城市生命
-----------------------------------------------------------------------------------------------------------------------------
-function JunXunPuWuCity(iPlayer)
-	local pPlayer = Players[iPlayer];
-	if pPlayer == nil or pPlayer:IsBarbarian() then
-		return
-	end
-
-	for pCity in pPlayer:Cities() do
-		if pCity then		
-			if pCity:IsHasBuilding(GameInfoTypes.BUILDING_YFS_MARKET_BONUS_7) then
-				local MaxCityHP = pCity:GetMaxHitPoints()
-				pCity:ChangeDamage(0 - 0.1 * MaxCityHP)
-			end
-		end
-	end
-end
-GameEvents.PlayerDoTurn.Add(JunXunPuWuCity)
