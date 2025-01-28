@@ -1010,7 +1010,7 @@ CX_EstablishCorpsButton = {
 		for i = 0, plot:GetNumUnits() - 1, 1 do
 			local fUnit = plot:GetUnit(i);
 			if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-			and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
+			and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"])
 			then
 				bIsCondition = true
 				break
@@ -1039,11 +1039,11 @@ CX_EstablishCorpsButton = {
 			for i = 0, plot:GetNumUnits() - 1, 1 do
 				local fUnit = plot:GetUnit(i);
 				if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-				and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
+				and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"])
 				then
 					local plotX, plotY = plot:GetX(), plot:GetY()
 					local hex = ToHexFromGrid(Vector2(plotX, plotY))
-					fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"], true)
+					fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"], true)
 					iChiXinCrop = iChiXinCrop + 1
 					Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_PROMOTION_CHIXINDUI1"))
 					
@@ -1083,7 +1083,7 @@ CX_EstablishArmeeButton = {
 		  for i = 0, plot:GetNumUnits() - 1, 1 do
 			  local fUnit = plot:GetUnit(i);
 			  if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-			  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
+			  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"])
 			  then
 				  bIsCondition = true
 				  break
@@ -1113,11 +1113,11 @@ CX_EstablishArmeeButton = {
 			  for i = 0, plot:GetNumUnits() - 1, 1 do
 				  local fUnit = plot:GetUnit(i);
 				  if fUnit and fUnit ~= unit and fUnit:IsCombatUnit() and fUnit:GetOwner() == playerID and fUnit:GetDomainType() == unit:GetDomainType() and not fUnit:IsImmobile()
-				  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"])
+				  and fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"]) and not fUnit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"])
 				  then
 					  local plotX, plotY = plot:GetX(), plot:GetY()
 					  local hex = ToHexFromGrid(Vector2(plotX, plotY))
-					  fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_CORPS_YFS_2"], true)
+					  fUnit:SetHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"], true)
 					  iChiXinArmee = iChiXinArmee + 1
 					  Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("TXT_KEY_PROMOTION_CHIXINDUI1"))
 					  

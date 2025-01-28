@@ -223,7 +223,7 @@ function YuYingBonus(playerID)
 							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID)
 							and full_flag1 == 0
 							then 
-								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_YFS_2"].ID, true)
+								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID, true)
 								ifNuM = ifNuM + 1
 								save( player,  "LiuShouSiFoot", ifNuM )
 								full_flag2 = 1
@@ -233,16 +233,15 @@ function YuYingBonus(playerID)
 									Events.GameplayFX(hex.x, hex.y, -1)
 								end
 							elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_YFS_1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_CORPS_YFS_2"].ID)
+							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID)
+							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID)
 							and full_flag1 == 0 
 							and full_flag2 == 0
 							then 
 								full_flag = 1
 							end
 						end
-						-- 等待随着10.0更新
-						if CapCity:GetNumBuilding(GameInfoTypes["BUILDING_TROOPS"]) - CapCity:GetNumBuilding(GameInfoTypes["BUILDING_TROOPS_USED"]) > 0 
+						if player:GetDomainTroopsActive() > 0 
 						and (full_flag == 1 and full_flag1 == 0 and full_flag2 == 0) 
 						then
 							-- 集团军满员且有剩余未使用兵力

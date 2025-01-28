@@ -87,7 +87,7 @@
 			<Range>1</Range>
 			<Cost>90</Cost>
 			<Moves>2</Moves>
-			<PolicyTYpe>POLICY_SONG_LIUSHOUSI</PolicyTYpe>
+			<PolicyType>POLICY_SONG_LIUSHOUSI</PolicyType>
 			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>

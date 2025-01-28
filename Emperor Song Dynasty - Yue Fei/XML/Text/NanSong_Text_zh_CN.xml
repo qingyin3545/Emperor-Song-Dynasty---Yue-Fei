@@ -498,7 +498,7 @@
 				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]金吾纛旓[ENDCOLOR]：以自身为中心，相邻3格区域的己方单位获得[COLOR_POSITIVE_TEXT]白马绍兴[ENDCOLOR]晋升。
 				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]白马绍兴[ENDCOLOR]：[ICON_STRENGTH]战斗力+15%，[ICON_WAR]经验获取速率+100%，[ICON_PROMOTION_RANGE]射程+1且攻击[ICON_PROMOTION_INDIRECT_FIRE]无视地形阻碍。
 				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]龙纛北落[ENDCOLOR]：若该单位遭受[ICON_PIRATE]歼灭，则己方所有非[COLOR_YIELD_GOLD]精锐[ENDCOLOR][ICON_PROMOTION_LIGHTNING_WARFARE][COLOR_POSITIVE_TEXT]陆军单位[ENDCOLOR]承受全部[COLOR_NEGATIVE_TEXT]负面状态[ENDCOLOR]。
-				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]平步战云[ENDCOLOR]：出力报效讵可泯其绩而不嘉之以宠命乎，使用后将同格己方单位整编为[ICON_PROMOTION_ELITE]军团。
+				[NEWLINE][ICON_BULLET][COLOR_YIELD_GOLD]平步战云[ENDCOLOR]：出力报效讵可泯其绩而不嘉之以宠命乎，使用后将同格己方单位整编为[ICON_PROMOTION_ELITE]御前军团。
 				[NEWLINE]冷却时间：3回合。
 			</Text>
 		</Row>
@@ -818,7 +818,7 @@
 		<Row Tag="TXT_KEY_PROMOTION_YFS_CORPS_1">
 			<Text>御前军团</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_CORPS_YFS_1_HELP">
+		<Row Tag="TXT_KEY_PROMOTION_YFS_CORPS_1_HELP">
 			<Text>+100%最大生命值，+10%[ICON_STRENGTH]战斗力。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_YFS_CORPS_2">
@@ -903,16 +903,16 @@
 
 
 		<Row Tag="TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_CORPS_SHORT">
-			<Text>[COLOR_POSITIVE_TEXT]建立军团[ENDCOLOR]</Text>
+			<Text>[COLOR_POSITIVE_TEXT]建立御前军团[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_CORPS">
-			<Text>将该地格上两个相同的单位合并为军团：+100%最大生命值，+10%[ICON_STRENGTH]战斗力。</Text>
+			<Text>将该地格上的一个单位升级为御前军团：+100%最大生命值，+10%[ICON_STRENGTH]战斗力。</Text>
 		</Row>
 		<Row Tag="TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_ARMEE_SHORT">
-			<Text>[COLOR_POSITIVE_TEXT]建立集团军[ENDCOLOR]</Text>
+			<Text>[COLOR_POSITIVE_TEXT]建立御前集团军[ENDCOLOR]</Text>
 		</Row>
 		<Row Tag="TXT_KEY_YFS_BTNNOTE_UNIT_ESTABLISH_ARMEE">
-			<Text>将该地格上一个相同的单位合入军团以建立集团军：+100%最大生命值，+15%[ICON_STRENGTH]战斗力。</Text>
+			<Text>将该地格上的一个御前军团升级为御前集团军：+100%最大生命值，+15%[ICON_STRENGTH]战斗力。</Text>
 		</Row>
 		<!--*******************************旅游值提示*******************************-->
 		<Row Tag="TXT_KEY_NANSONG_GET_TOURISM_TAG1">
