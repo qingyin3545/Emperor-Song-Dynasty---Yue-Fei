@@ -109,6 +109,7 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_ZHUDUISHI</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
+			<Immobile>true</Immobile>
 		</Row>
 		<Row>
 			<!--AI特化版轮番猛射-->
@@ -303,43 +304,6 @@
 			<PromotionType>PROMOTION_NANSONG_SEA</PromotionType>
 			<TerrainType>TERRAIN_COAST</TerrainType>
 			<DoubleMove>true</DoubleMove>
-		</Row>
-		<!--驻队矢：轮番猛射-->
-		<Row>
-			<PromotionType>PROMOTION_ZHUDUISHI</PromotionType>
-			<TerrainType>TERRAIN_GRASS</TerrainType>
-			<Impassable>true</Impassable>
-		</Row>
-		
-		<Row>
-			<PromotionType>PROMOTION_ZHUDUISHI</PromotionType>
-			<TerrainType>TERRAIN_PLAINS</TerrainType>
-			<Impassable>true</Impassable>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_ZHUDUISHI</PromotionType>
-			<TerrainType>TERRAIN_DESERT</TerrainType>
-			<Impassable>true</Impassable>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_ZHUDUISHI</PromotionType>
-			<TerrainType>TERRAIN_TUNDRA</TerrainType>
-			<Impassable>true</Impassable>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_ZHUDUISHI</PromotionType>
-			<TerrainType>TERRAIN_SNOW</TerrainType>
-			<Impassable>true</Impassable>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_ZHUDUISHI</PromotionType>
-			<TerrainType>TERRAIN_MOUNTAIN</TerrainType>
-			<Impassable>true</Impassable>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_ZHUDUISHI</PromotionType>
-			<TerrainType>TERRAIN_HILL</TerrainType>
-			<Impassable>true</Impassable>
 		</Row>
 		<!--殿前司：御龙诸直-->
 		<Row>
