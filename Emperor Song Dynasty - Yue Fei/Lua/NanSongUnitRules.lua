@@ -549,6 +549,8 @@ Events.SerialEventUnitSetDamage.Add( BeiWeiSetBaseCombatStrength )
 -------------------------------------------------------------------------------------------------------------
 -- 殿前司行进效果
 -------------------------------------------------------------------------------------------------------------
+local iDragonFoot = GameInfoTypes["PROMOTION_DRAGON_FOOT"]
+local iDragonFootOn = GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"]
 function YFS_UnitSetXY(playerID, unitID)
 	local player = Players[playerID]
 
@@ -565,14 +567,14 @@ function YFS_UnitSetXY(playerID, unitID)
 
 		-- 殿前司在河流地块获得加成
 		if unit and 
-		(unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"]) 
-		or unit:IsHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"])) 
+		(unit:IsHasPromotion(iDragonFoot) 
+		or unit:IsHasPromotion(iDragonFootOn)) 
 		then
-			unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"], false)
-			unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"], true)
+			unit:SetHasPromotion(iDragonFootOn, false)
+			unit:SetHasPromotion(iDragonFoot, true)
 			if plot:IsRiver() then
-				unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT_ON"], true)
-				unit:SetHasPromotion(GameInfoTypes["PROMOTION_DRAGON_FOOT"], false)
+				unit:SetHasPromotion(iDragonFootOn, true)
+				unit:SetHasPromotion(iDragonFoot, false)
 			end
 		end
 
@@ -981,8 +983,9 @@ function YfsUnitsEffect(playerID)
 
 	
 end
-GameEvents.UnitSetXY.Add(YfsUnitsEffect) 
-GameEvents.UnitCreated.Add(YfsUnitsEffect)
+-- 使用dll接口实现
+--GameEvents.UnitSetXY.Add(YfsUnitsEffect) 
+--GameEvents.UnitCreated.Add(YfsUnitsEffect)
 -----------------------------------------------------------------------
 ---- 赤心队：组建军团
 -----------------------------------------------------------------------

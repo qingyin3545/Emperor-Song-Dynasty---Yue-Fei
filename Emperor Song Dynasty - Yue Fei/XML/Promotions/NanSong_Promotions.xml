@@ -142,6 +142,9 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_JIEDUSHI_PRE</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
+			<AuraPromotionType>PROMOTION_JIEDUSHI_EFFECT</AuraPromotionType>
+			<AuraPromotionRange>2</AuraPromotionRange>
+			<AuraPromotionRangeAIBonus>1</AuraPromotionRangeAIBonus>
 		</Row>
 		<Row>
 			<Type>PROMOTION_JIEDUSHI_EFFECT</Type>
@@ -209,6 +212,9 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_CHIXINDUI1</PediaEntry>
 			<CannotBeChosen>true</CannotBeChosen>
+			<AuraPromotionType>PROMOTION_CHIXINDUI1_EFFECT</AuraPromotionType>
+			<AuraPromotionRange>3</AuraPromotionRange>
+			<AuraPromotionRangeAIBonus>2</AuraPromotionRangeAIBonus>
 		</Row>
 		<!--赤心队：白马绍兴！-->
 		<Row>
@@ -419,4 +425,14 @@
 			<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
 		</Row>		
 	</UnitPromotions_UnitCombats>
+	<Promotion_AuraPromotionDomains>
+		<Row>
+			<PromotionType>PROMOTION_CHIXINDUI1</PromotionType>
+			<DomainType>DOMAIN_LAND</DomainType>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_JIEDUSHI_PRE</PromotionType>
+			<DomainType>DOMAIN_LAND</DomainType>
+		</Row>
+	</Promotion_AuraPromotionDomains>
 </GameData>

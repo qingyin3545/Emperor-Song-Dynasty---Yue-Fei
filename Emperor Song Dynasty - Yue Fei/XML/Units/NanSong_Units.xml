@@ -878,7 +878,7 @@
 
 		<Row>
 			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>
-			<PromotionType>PROMOTION_KNIGHT_COMBAT</PromotionType>
+			<PromotionType>PROMOTION_TANK_COMBAT</PromotionType>
 		</Row>
 		<Row>
 			<UnitType>UNIT_LOYALTY_ARMOR</UnitType>

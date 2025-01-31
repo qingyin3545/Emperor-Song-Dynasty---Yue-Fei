@@ -8,6 +8,7 @@ UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTION_SPLASH_DAMAGE';		-
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'ROG_CORE';						-- 开启单位强权效果
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'EVENTS_UNIT_DO_TURN';			-- 开启单位过回合事件
 UPDATE CustomModOptions SET Value = 1 WHERE Name = 'GLOBAL_EXCLUDE_FROM_GIFTS';		-- 开启城邦赠送豁免
+UPDATE CustomModOptions SET Value = 1 WHERE Name = 'PROMOTION_AURA_PROMOTION';		-- 开启光环
 --==========================================================================================================================
 -- Civilizations
 --==========================================================================================================================
