@@ -67,10 +67,9 @@ function OnPlayerDoTurn(playerID)
     local player = Players[playerID]	
     if player == nil or player:IsBarbarian() then return end
 
-    print("do turn prepare")
     if player:CountNumBuildings(GameInfoTypes["BUILDING_SONG_MARKET"]) > 0 then
         --25%概率发生事件
-        print("bEvent")
+        print("do turn prepare")
         local bEvent = math.random(0, 100)
         if bEvent > 25 then return end
 

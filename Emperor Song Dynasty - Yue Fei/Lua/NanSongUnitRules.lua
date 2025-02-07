@@ -494,30 +494,33 @@ end
 -------------------------------------------------------------------------------------------------------------
 -- 两装甲单位战斗力变化
 -------------------------------------------------------------------------------------------------------------
-function ArmorSetCombat(playerID)
-	local pPlayer = Players[playerID]
-	if pPlayer:IsEverAlive() then
-		local pEraType = pPlayer:GetCurrentEra()
-		local pEraID = GameInfo.Eras[pEraType].ID;
-
-		for pUnit in pPlayer:Units() do
-			if pUnit:GetUnitType() == GameInfoTypes["UNIT_LOYALTY_ARMOR"]  
-			or pUnit:GetUnitType() == GameInfoTypes["UNIT_BEIWEI_ARMOR"] 
-			then
-				if pEraID >= GameInfo.Eras["ERA_WORLDWAR"].ID 
-				and pEraID < GameInfo.Eras["ERA_INFORMATION"].ID
-				then
-					pUnit:SetBaseCombatStrength(200)
-				elseif pEraID >= GameInfo.Eras["ERA_INFORMATION"].ID then
-					pUnit:SetBaseCombatStrength(350)
-				end
-			end
+function EnhanceYueFeiArmor(pUnit, iEra)
+	if pUnit:GetUnitType() == GameInfoTypes["UNIT_LOYALTY_ARMOR"]  
+	or pUnit:GetUnitType() == GameInfoTypes["UNIT_BEIWEI_ARMOR"] 
+	then
+		if iEra >= GameInfoTypes["ERA_INFORMATION"] then
+			pUnit:SetBaseCombatStrength(350)
+		elseif iEra >= GameInfoTypes["ERA_WORLDWAR"] then
+			pUnit:SetBaseCombatStrength(200)
 		end
 	end
-
 end
-GameEvents.TeamSetEra.Add(ArmorSetCombat)
-GameEvents.UnitCreated.Add(ArmorSetCombat)
+function ArmorSetCombatEra(playerID, iEra)
+	local pPlayer = Players[playerID]
+	if pPlayer:IsEverAlive() then
+		for pUnit in pPlayer:Units() do
+			EnhanceYueFeiArmor(pUnit, iEra)
+		end
+	end
+end
+GameEvents.PlayerSetEra.Add(ArmorSetCombatEra)
+function ArmorSetCombatCreated(playerID, unitID)
+	local pPlayer = Players[playerID]
+	local pUnit = pPlayer:GetUnitByID(unitID)
+	if not pUnit then return end
+	EnhanceYueFeiArmor(pUnit, pPlayer:GetCurrentEra())
+end
+GameEvents.UnitCreated.Add(ArmorSetCombatCreated)
 -------------------------------------------------------------------------------------------------------------
 -- 背嵬骑军战斗力随血量变化
 -------------------------------------------------------------------------------------------------------------
@@ -786,25 +789,14 @@ end
 GameEvents.UnitCreated.Add(FeiHuGift)
 
 ----泉州海船文化产出&奢侈供给
+local g_KlinLuxuries = {GameInfoTypes['BUILDING_RES_YFS_GEKLIN'],
+						GameInfoTypes['BUILDING_RES_YFS_RUKLIN'],
+						GameInfoTypes['BUILDING_RES_YFS_OFFICALKLIN'],
+						GameInfoTypes['BUILDING_RES_YFS_JUNKLIN'],
+						GameInfoTypes['BUILDING_RES_YFS_DINGKLIN']}
 function SongFuChuan(playerID)
-
-	-- local playerID = Game.GetActivePlayer() 			---获取playerID
-	local player = Players[playerID] 		-----获取player
-
-	if player == nil then
-		-- print ("No players")
-		return
-	end
-	
-	if player:IsBarbarian() or player:IsMinorCiv() then
-		-- print ("Minors are Not available!")
-    	return
-	end
-	
-	if player:GetNumCities() <= 0 then 
-		-- print ("No Cities!")
-		return
-	end
+	local player = Players[playerID]
+	if player == nil or not player:IsMajorCiv() or player:GetNumCities() <= 0 then return end
 
 	if not player:IsHuman() then
 		return;
@@ -813,24 +805,16 @@ function SongFuChuan(playerID)
 	local numship = 0
 	local pCapital = player:GetCapitalCity()    --获取首都
 
-	pCapital:SetNumRealBuilding(GameInfoTypes["BUILDING_SONG_CARGOSHIP"], numship)
 	for unit in player:Units() do 		--遍历所有单位	
 		if unit:GetUnitType() == GameInfoTypes["UNIT_SONG_CARGOSHIP"] then	
 			numship = numship + 1
 		end
 	end
-
 	pCapital:SetNumRealBuilding(GameInfoTypes["BUILDING_SONG_CARGOSHIP"], numship)
 
 	if numship > 0 then
 		-- 海船线路按顺序提供奢侈
-		local g_KlinLuxuries = {GameInfoTypes['BUILDING_RES_YFS_GEKLIN'],
-								GameInfoTypes['BUILDING_RES_YFS_RUKLIN'],
-								GameInfoTypes['BUILDING_RES_YFS_OFFICALKLIN'],
-								GameInfoTypes['BUILDING_RES_YFS_JUNKLIN'],
-								GameInfoTypes['BUILDING_RES_YFS_DINGKLIN']
-							}
-		local numLuxury = player:GetBuildingClassCount(GameInfo.BuildingClasses["BUILDINGCLASS_YFS_SONG_RES_BONUS"].ID);
+		local numLuxury = player:GetBuildingClassCount(GameInfoTypes["BUILDINGCLASS_YFS_SONG_RES_BONUS"]);
 		local outgoingRoutes = {};
 		local outgoingRoutes = player:GetTradeRoutes();	
 		-- print("numLuxury = "..numLuxury.." #outgoingRoutes = "..#outgoingRoutes )
@@ -857,7 +841,11 @@ function SongFuChuan(playerID)
 	end
 
 end
-GameEvents.UnitCreated.Add(SongFuChuan)
+GameEvents.UnitCreated.Add(function(iPlayer, iUnit, iUnitType)
+	if iUnitType == GameInfoTypes["UNIT_SONG_CARGOSHIP"] then 
+		SongFuChuan(iPlayer)
+	end
+end)
 GameEvents.PlayerDoTurn.Add(SongFuChuan)
 
 -- MOD by CaptainCWB
@@ -1265,7 +1253,7 @@ BuildJiedushiButton = {
 	  unit:SetHasPromotion(GameInfoTypes["PROMOTION_JIEDUSHI_CITY"], false)
 	end,
   };
-  LuaEvents.UnitPanelActionAddin(BuildJiedushiButton);
+LuaEvents.UnitPanelActionAddin(BuildJiedushiButton);
 -----------------------------------------------------------------------
 ---- 制置使司:消耗民兵加速生产
 -----------------------------------------------------------------------

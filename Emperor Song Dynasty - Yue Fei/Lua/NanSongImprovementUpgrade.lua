@@ -305,6 +305,7 @@ GameEvents.OnImprovementDowngrade.Add(OnYfsFortDowngrade);
 -- 堡寨数量上限
 ----------------------------------------------------------------------------------------------------------------------------
 function BuildAvailableYfsFort(iPlayer, iUnit, iX, iY, iBuild)
+	if iBuild ~= GameInfoTypes["BUILD_YFS_SONG_FORT1"] then return true end
 	if Players[iPlayer] == nil then return end;
 	if Map.GetPlot(iX, iY) == nil then
 		return;
@@ -315,9 +316,7 @@ function BuildAvailableYfsFort(iPlayer, iUnit, iX, iY, iBuild)
 	local numyfsForts = pPlayer:GetImprovementCount(YfsFortLv1) 
 					  + pPlayer:GetImprovementCount(YfsFortLv2)
 					  + pPlayer:GetImprovementCount(YfsFortLv3)
-	
-	if iBuild == GameInfo.Builds["BUILD_YFS_SONG_FORT1"].ID 
-	and numyfsForts >= 1 + math.floor(pPlayer:GetTotalPopulation() / 10)
+	if numyfsForts >= 1 + math.floor(pPlayer:GetTotalPopulation() / 10)
 	then
 		return false;
 	else

@@ -29,7 +29,7 @@ function YfsCityBuildingMarket(iPlayer, iCity, iBuilding)
 	if pPlayer == nil or pPlayer:IsMinorCiv() or pPlayer:IsBarbarian() then
 	 	return
 	end
-	if GameInfo.Buildings[iBuilding].Type ~= GameInfoTypes["BUILDING_SONG_MARKET"] then return end
+	if iBuilding ~= GameInfoTypes["BUILDING_SONG_MARKET"] then return end
 
 	local city = pPlayer:GetCityByID(iCity)
 	local numMarketBonus = 0
@@ -43,10 +43,10 @@ function YfsCityBuildingMarket(iPlayer, iCity, iBuilding)
 
 	if numMarketBonus == 0 then
 		local randomNum = math.random(1, #g_SongMarketBonusBuildings)
-		city:SetNumRealBuilding(g_SongMarketBonusBuildings[randomNum], 1)
+		city:SetNumRealBuilding(g_SongMarketBonusBuildings[randomNum].ID, 1)
 		if pPlayer:IsHuman() then
 			local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED", city:GetName(), g_SongMarketBonusBuildings[randomNum].Description )
-			Events.GameplayAlertMessage( Locale.ConvertTextKey())
+			Events.GameplayAlertMessage( Locale.ConvertTextKey(text))
 		end
 	elseif numMarketBonus > 0 then
 		for k, v in pairs(g_SongMarketBonusBuildings) do
@@ -54,7 +54,7 @@ function YfsCityBuildingMarket(iPlayer, iCity, iBuilding)
 		end
 		if pPlayer:IsHuman() then
 			local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_SOLD", city:GetName() )
-			Events.GameplayAlertMessage( Locale.ConvertTextKey())
+			Events.GameplayAlertMessage( Locale.ConvertTextKey(text))
 		end
 	end
 
@@ -65,10 +65,6 @@ GameEvents.CitySoldBuilding.Add(YfsCityBuildingMarket)
 --城市界面显示
 function FirstWonderConstruct(playerID)
 	local player = Players[playerID]
-	local pEraType = player:GetCurrentEra()
-	local pEraID = GameInfo.Eras[pEraType].ID
-	local pCapital = player:GetCapitalCity()
-
 	if player == nil or player:IsBarbarian() or player:IsMinorCiv() then
     	return
 	end
@@ -88,7 +84,7 @@ function FirstWonderConstruct(playerID)
 			end
 		end
 
-		if city:GetNumBuilding(GameInfo.Buildings['BUILDING_SONG_MARKET'].ID) > 0 and numMarketBonus == 0 then
+		if city:GetNumBuilding(GameInfoTypes['BUILDING_SONG_MARKET']) > 0 and numMarketBonus == 0 then
 			--有街市无店铺
 			local randomNum = math.random(1, #g_SongMarketBonusBuildings)
 			-- print("#g_SongMarketBonusBuildings) = "..#g_SongMarketBonusBuildings.."randomNum = "..randomNum)
@@ -98,7 +94,7 @@ function FirstWonderConstruct(playerID)
 				local text = Locale.ConvertTextKey( "TXT_KEY_BUILDING_SONG_MARKET_CONSTRUCTED", city:GetName(), g_SongMarketBonusBuildings[randomNum].Description )
 				Events.GameplayAlertMessage( text )
 			end
-		elseif city:GetNumBuilding(GameInfo.Buildings['BUILDING_SONG_MARKET'].ID) == 0 and numMarketBonus > 0 then
+		elseif city:GetNumBuilding(GameInfoTypes['BUILDING_SONG_MARKET']) == 0 and numMarketBonus > 0 then
 			-- 有店铺无街市
 			for k, v in pairs(g_SongMarketBonusBuildings) do
 				city:SetNumRealBuilding(v.ID, 0)
@@ -153,22 +149,22 @@ function YuYingBonus(playerID)
 	--player:SetHasPolicy(GameInfo.Policies["POLICY_YUYING"].ID,false)
 
 	if player:CountNumBuildings(GameInfoTypes["BUILDING_YUYING"]) > 0 and 
-	not player:HasPolicy(GameInfo.Policies["POLICY_YUYING"].ID) 
+	not player:HasPolicy(GameInfoTypes["POLICY_YUYING"]) 
 	then 
-		player:SetHasPolicy(GameInfo.Policies["POLICY_YUYING"].ID,true,true)	 
+		player:SetHasPolicy(GameInfoTypes["POLICY_YUYING"], true, true)	 
 	end
 
 	if player:CountNumBuildings(GameInfoTypes["BUILDING_SONG_LIUSHOUSI"]) > 0 and 
-	not player:HasPolicy(GameInfo.Policies["POLICY_SONG_LIUSHOUSI"].ID) 
+	not player:HasPolicy(GameInfoTypes["POLICY_SONG_LIUSHOUSI"] ) 
 	then 
-		player:SetHasPolicy(GameInfo.Policies["POLICY_SONG_LIUSHOUSI"].ID,true,true)	 
+		player:SetHasPolicy(GameInfoTypes["POLICY_SONG_LIUSHOUSI"], true, true)	 
 	end
 
 	
 
 	if iWarNum > 0 then
 		-- 留守司统制计数
-		local numship = player:GetUnitCountFromHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
+		local numship = player:GetUnitCountFromHasPromotion(GameInfoTypes["PROMOTION_DUHE1"])
 
 		local ifNuM = load( player, "LiuShouSiFoot", ifNuM) or -1;
 		local LiuShouSiTurnsLeft = math.floor(iGameSpeed * 2)
@@ -186,8 +182,8 @@ function YuYingBonus(playerID)
 					then
 						-- 新单位或未开启军团模式
 						local newUnit = player:InitUnit(infantry_data[pEraID+1], city:GetX(), city:GetY())
-						newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE"].ID, true)
-						newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID, true)
+						newUnit:SetHasPromotion(GameInfoTypes["PROMOTION_DUHE"], true)
+						newUnit:SetHasPromotion(GameInfoTypes["PROMOTION_DUHE1"], true)
 						SetLiuShouSiUnitsName( playerID, newUnit:GetID() )
 						newUnit:JumpToNearestValidPlot()
 						ifNuM = ifNuM + 1
@@ -205,11 +201,11 @@ function YuYingBonus(playerID)
 						local full_flag2 = 0
 						local full_flag = 0
 						for unit in player:Units() do
-							if unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
-							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID)
-							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID)
+							if unit:IsHasPromotion(GameInfoTypes["PROMOTION_DUHE1"])
+							and not unit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"])
+							and not unit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"])
 							then
-								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID, true)
+								unit:SetHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"], true)
 								ifNuM = ifNuM + 1
 								save( player,  "LiuShouSiFoot", ifNuM ) 
 								full_flag1 = 1
@@ -218,12 +214,12 @@ function YuYingBonus(playerID)
 									local hex = ToHexFromGrid(Vector2(plotX, plotY))
 									Events.GameplayFX(hex.x, hex.y, -1)
 								end
-							elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID)
-							and not unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID)
+							elseif unit:IsHasPromotion(GameInfoTypes["PROMOTION_DUHE1"])
+							and unit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"])
+							and not unit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"])
 							and full_flag1 == 0
 							then 
-								unit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID, true)
+								unit:SetHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"], true)
 								ifNuM = ifNuM + 1
 								save( player,  "LiuShouSiFoot", ifNuM )
 								full_flag2 = 1
@@ -232,9 +228,9 @@ function YuYingBonus(playerID)
 									local hex = ToHexFromGrid(Vector2(plotX, plotY))
 									Events.GameplayFX(hex.x, hex.y, -1)
 								end
-							elseif unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_1"].ID)
-							and unit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_YFS_CORPS_2"].ID)
+							elseif unit:IsHasPromotion(GameInfoTypes["PROMOTION_DUHE1"])
+							and unit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_1"])
+							and unit:IsHasPromotion(GameInfoTypes["PROMOTION_YFS_CORPS_2"])
 							and full_flag1 == 0 
 							and full_flag2 == 0
 							then 
@@ -246,8 +242,8 @@ function YuYingBonus(playerID)
 						then
 							-- 集团军满员且有剩余未使用兵力
 							local newUnit = player:InitUnit(infantry_data[pEraID+1], city:GetX(), city:GetY())
-							newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE"].ID, true)
-							newUnit:SetHasPromotion(GameInfo.UnitPromotions["PROMOTION_DUHE1"].ID, true)
+							newUnit:SetHasPromotion(GameInfoTypes["PROMOTION_DUHE"], true)
+							newUnit:SetHasPromotion(GameInfoTypes["PROMOTION_DUHE1"], true)
 							SetLiuShouSiUnitsName( playerID, newUnit:GetID() )
 							newUnit:JumpToNearestValidPlot()
 							ifNuM = ifNuM + 1
@@ -429,15 +425,13 @@ function SongGoldenAgeUnit(iPlayer, iCity, iUnit, bGold, bFaith)
 	local city = pPlayer:GetCityByID(iCity);
 
 	-- 生产作战单位获得黄金时代点数
-	if pPlayer:CountNumBuildings(GameInfoTypes["BUILDING_JIEDUSHI"])> 0 then
-		if city:GetNumBuilding(GameInfoTypes["BUILDING_JIEDUSHI"]) > 0 and pUnit:GetBaseCombatStrength() > 0 then
-			local GoldenAgeBonus = pUnit:GetBaseCombatStrength() * pPlayer:CountNumBuildings(GameInfoTypes["BUILDING_JIEDUSHI"])
-			pPlayer:ChangeGoldenAgeProgressMeter(GoldenAgeBonus);
+	if city:GetNumBuilding(GameInfoTypes["BUILDING_JIEDUSHI"]) > 0 and pUnit:GetBaseCombatStrength() > 0 then
+		local GoldenAgeBonus = pUnit:GetBaseCombatStrength() * pPlayer:CountNumBuildings(GameInfoTypes["BUILDING_JIEDUSHI"])
+		pPlayer:ChangeGoldenAgeProgressMeter(GoldenAgeBonus);
 
-			if pPlayer:IsHuman() then
-				local hex = ToHexFromGrid(Vector2(pUnit:GetX(), pUnit:GetY()))
-				Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_GOLDEN_AGE]", GoldenAgeBonus))
-			end
+		if pPlayer:IsHuman() then
+			local hex = ToHexFromGrid(Vector2(pUnit:GetX(), pUnit:GetY()))
+			Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("+{1_Num}[ICON_GOLDEN_AGE]", GoldenAgeBonus))
 		end
 	end
 end
