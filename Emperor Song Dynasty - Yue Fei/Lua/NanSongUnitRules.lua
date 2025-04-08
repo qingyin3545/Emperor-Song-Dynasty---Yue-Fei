@@ -310,8 +310,7 @@ function NanSongEffect()
 
    ------黄天荡减少一半移动力
 
-   if not bIsCity then
-   if  not defUnit:IsDead() and attUnit:IsHasPromotion(NanSongSeaUnitID) then
+   if not bIsCity and not defUnit:IsDead() and attUnit:IsHasPromotion(NanSongSeaUnitID) then
 		local defMoves = defUnit:GetMoves()
 		print ("defUnit:GetMoves()"..defMoves)	
 		if defMoves > 0 then
@@ -326,13 +325,11 @@ function NanSongEffect()
 				local ht_text = Locale.ConvertTextKey( "TXT_KEY_HUANGTIANDANG_DEF", attUnit:GetName(), defUnit:GetName()) .. math.floor(newMoves / 60) ..  Locale.ConvertTextKey("TXT_KEY_HUANGTIANDANG")
 				Events.GameplayAlertMessage(ht_text)
 			end
-
 		end
-	end
 	end
 
 	------背嵬骑军受到陆军远程部队攻击时
-	if not attUnit:IsDead() and not defUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
+	if not bIsCity and not attUnit:IsDead() and not defUnit:IsDead() and batType == GameInfoTypes["BATTLETYPE_MELEE"]
 	and defUnit:IsHasPromotion(BeiWeiCavalryID) then
 		if attUnit:IsHasPromotion(ArcheryUnitID) and batType == GameInfoTypes["BATTLETYPE_RANGED"]
 		and defUnit:IsHasPromotion(BeiWeiCavalryID) then
@@ -345,14 +342,14 @@ function NanSongEffect()
 
 	------天下太平
 	if not bIsCity then
-		if attUnit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID) 
+		if attUnit:IsHasPromotion(GameInfoTypes["PROMOTION_JIEDUSHI_EFFECT"]) 
 		and (defUnitDamage >= 40 or defUnit:IsDead() or defFinalUnitDamage >= defUnit:GetMaxHitPoints()) then
 			local iGold = 2 * defUnit:GetBaseCombatStrength()
 			attPlayer:ChangeGold(iGold)
 			local hex = ToHexFromGrid(Vector2(plotX, plotY))
 			Events.AddPopupTextEvent(HexToWorld(hex), Locale.ConvertTextKey("[COLOR_YIELD_GOLD]+{1_Num}[ENDCOLOR] [ICON_GOLD]", iGold))
 		end
-		if defUnit:IsHasPromotion(GameInfo.UnitPromotions["PROMOTION_JIEDUSHI_EFFECT"].ID) 
+		if defUnit:IsHasPromotion(GameInfoTypes["PROMOTION_JIEDUSHI_EFFECT"]) 
 		and (attUnitDamage >= 40 or attUnit:IsDead() or attFinalUnitDamage >= attUnit:GetMaxHitPoints()) then
 			local iGold = 2 * attUnit:GetBaseCombatStrength()
 			defPlayer:ChangeGold(iGold)
@@ -366,24 +363,8 @@ function NanSongEffect()
 	if attUnit:IsHasPromotion(J20PID) then
     local pTeam = Teams[defPlayer:GetTeam()]
     if defCity then
-    defCity:ChangeResistanceTurns(1);
-    print("J20 City!");
-    end
-    local unitCount = batPlot:GetNumUnits();
-    if unitCount > 0 then
-    for i = 0, unitCount-1, 1 do
-        local pFoundUnit = batPlot:GetUnit(i)
-        if pFoundUnit then
-		local pPlayer = Players[pFoundUnit:GetOwner()]
-		if PlayersAtWar(attPlayer, pPlayer) then
-        if (pFoundUnit:IsHasPromotion(AntiAirID) or pFoundUnit:GetDomainType() == DomainTypes.DOMAIN_AIR or 
-		pFoundUnit:IsHasPromotion(NavalRangedCruiserUnitID) or pFoundUnit:IsHasPromotion(DestroyerID)) 
-        then
-            pFoundUnit:SetMoves(0);
-            print("J20 same tile Unit!");
-        end
-		end
-		end
+		defCity:ChangeResistanceTurns(1);
+		print("J20 City!");
     end
 
     local uniqueRange = 10
@@ -399,7 +380,7 @@ function NanSongEffect()
 					end
                     print("J20 around City!");
                 end
-                unitCount = adjPlot:GetNumUnits();
+                local unitCount = adjPlot:GetNumUnits();
                 if unitCount > 0 then
                     for i = 0, unitCount-1, 1 do
                         local pFoundUnit = adjPlot:GetUnit(i);
@@ -421,16 +402,15 @@ function NanSongEffect()
     end
     
     -- Notification
-    if     defPlayer:IsHuman() then
-    local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_US_J20_SHORT")
-    local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_US_J20")
-    defPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC , text, heading, plotX, plotY)
+    if defPlayer:IsHuman() then
+		local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_US_J20_SHORT")
+		local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_US_J20")
+		defPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC , text, heading, plotX, plotY)
     elseif attPlayer:IsHuman() then
-    local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_ENEMY_J20_SHORT")
-    local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_ENEMY_J20")
-    attPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC , text, heading, plotX, plotY)
+		local heading = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_ENEMY_J20_SHORT")
+		local text = Locale.ConvertTextKey("TXT_KEY_SP_NOTIFICATION_UNIT_ENEMY_J20")
+		attPlayer:AddNotification(NotificationTypes.NOTIFICATION_GENERIC , text, heading, plotX, plotY)
     end
-	end
 	-----------------------------------------------------------------------
 	---- 赤心队：阵亡
 	----------------------------------------------------------------------
